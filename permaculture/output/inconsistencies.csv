@@ -1,0 +1,517 @@
+node_or_edge_id,flag_id,description,resolution_applied,requires_human_review
+SOIL,INC-01,Node form=UNKNOWN after normalization (cat='HB'),form left as null; function/use tags applied where possible,TRUE
+Rice,INC-09,form conflict between sources — kept Islamic agronomy source value,form='grass_grain' retained,TRUE
+Pearl Millet,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Lupin,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Cowpea,INC-01,Node form=UNKNOWN after normalization (cat='LP'),form left as null; function/use tags applied where possible,TRUE
+Garden Pea,INC-01,Node form=UNKNOWN after normalization (cat='LP'),form left as null; function/use tags applied where possible,TRUE
+Fenugreek,INC-01,Node form=UNKNOWN after normalization (cat='LP'),form left as null; function/use tags applied where possible,TRUE
+Vetch,INC-01,Node form=UNKNOWN after normalization (cat='LP'),form left as null; function/use tags applied where possible,TRUE
+Hyacinth Bean,INC-01,Node form=UNKNOWN after normalization (cat='LP'),form left as null; function/use tags applied where possible,TRUE
+Carrot,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Onion,INC-01,Node form=UNKNOWN after normalization (cat='VG'),form left as null; function/use tags applied where possible,TRUE
+Garlic,INC-01,Node form=UNKNOWN after normalization (cat='VG'),form left as null; function/use tags applied where possible,TRUE
+Leek,INC-01,Node form=UNKNOWN after normalization (cat='VG'),form left as null; function/use tags applied where possible,TRUE
+Artichoke,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Purslane,INC-01,Node form=UNKNOWN after normalization (cat='VG'),form left as null; function/use tags applied where possible,TRUE
+Mallow,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Borage,INC-01,Node form=UNKNOWN after normalization (cat='VG'),form left as null; function/use tags applied where possible,TRUE
+Parsley,INC-09,form conflict between sources — kept Islamic agronomy source value,form='groundcover' retained,TRUE
+Coriander,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Fennel,INC-09,form conflict between sources — kept Islamic agronomy source value,form='groundcover' retained,TRUE
+Cumin,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Anise,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Caraway,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Nigella,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Basil,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Basil,INC-09,form conflict between sources — kept Islamic agronomy source value,form='groundcover' retained,TRUE
+Mint,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Mint,INC-09,form conflict between sources — kept Islamic agronomy source value,form='groundcover' retained,TRUE
+Mint,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Pennyroyal,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Thyme,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Marjoram,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Rosemary,INC-09,form conflict between sources — kept Islamic agronomy source value,form='groundcover' retained,TRUE
+Rosemary,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Rosemary,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Hyssop,INC-01,Node form=UNKNOWN after normalization (cat='HK'),form left as null; function/use tags applied where possible,TRUE
+Costmary,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Olive,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Grapevine,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Fig,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Pomegranate,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Quince,INC-01,Node form=UNKNOWN after normalization (cat='FT'),form left as null; function/use tags applied where possible,TRUE
+Almond,INC-01,Node form=UNKNOWN after normalization (cat='FT'),form left as null; function/use tags applied where possible,TRUE
+Apricot,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Plum,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Cherry,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Walnut,INC-01,Node form=UNKNOWN after normalization (cat='FT'),form left as null; function/use tags applied where possible,TRUE
+Carob,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Lote Tree,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Hazel,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Banana,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Banana,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Hawthorn,INC-01,Node form=UNKNOWN after normalization (cat='FT'),form left as null; function/use tags applied where possible,TRUE
+Cotoneaster,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Cotoneaster,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Tamarind,INC-01,Node form=UNKNOWN after normalization (cat='FT'),form left as null; function/use tags applied where possible,TRUE
+Saffron,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Damascus Rose,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Gallica Rose,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Dog Rose,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Common Jasmine,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Common Jasmine,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Common Jasmine,INC-09,form conflict between sources — kept Islamic agronomy source value,form='climber' retained,TRUE
+Arabian Jasmine,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Myrtle,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Violet,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Lavender,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Lavender,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Spike Lavender,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Spike Lavender,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Narcissus,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Water Lily,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Iris,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Madonna Lily,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Anemone,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Stock,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Hyacinth,INC-01,Node form=UNKNOWN after normalization (cat='AP'),form left as null; function/use tags applied where possible,TRUE
+Chamomile,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Elecampane,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Spikenard,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Spikenard,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Mandrake,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Liquorice,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Ginger,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Turmeric,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Aloe,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Autumn Crocus,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Caper,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Mastic,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Costus Root,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Sweet Flag,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Galingale,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Henna,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Sumac,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+White Horehound,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Pellitory,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Milk Thistle,INC-01,Node form=UNKNOWN after normalization (cat='MP'),form left as null; function/use tags applied where possible,TRUE
+Cotton,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Flax,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Hemp,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Sesame,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Safflower,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Woad,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Castor,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Castor,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Sugar Cane,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Madder,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Indigo,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Papyrus,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Common Reed,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Esparto Grass,INC-01,Node form=UNKNOWN after normalization (cat='IF'),form left as null; function/use tags applied where possible,TRUE
+Willow,INC-01,Node form=UNKNOWN after normalization (cat='ST'),form left as null; function/use tags applied where possible,TRUE
+Willow,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Colocynth,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Henbane,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Black Hellebore,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+White Hellebore,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Euphorbia,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Asafoetida,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Oleander,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Wormwood,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Squirting Cucumber,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Stavesacre,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Stavesacre,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Hemlock,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Datura,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Aconite,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Squill,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Spurge Laurel,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Glasswort Ash,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Nux Vomica,INC-01,Node form=UNKNOWN after normalization (cat='TP'),form left as null; function/use tags applied where possible,TRUE
+Darnel,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Glasswort Saline,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Thorny Burnet,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Wild Oat,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Bindweed,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Nettle,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Asphodel,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Dock,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Bramble,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Buckthorn,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Wild Golden Thistle,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Sea Blite,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Field Spurge,INC-01,Node form=UNKNOWN after normalization (cat='WU'),form left as null; function/use tags applied where possible,TRUE
+Wild Pomegranate,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Broad Bean / Fava,INC-01,Node form=UNKNOWN after normalization (cat='Legumes & pulses'),form left as null; function/use tags applied where possible,TRUE
+Chard / Beet,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Rocket / Arugula,INC-01,Node form=UNKNOWN after normalization (cat='Vegetables'),form left as null; function/use tags applied where possible,TRUE
+Wild Fig / Caprifig,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Water Lily / Blue Lotus,INC-01,Node form=UNKNOWN after normalization (cat='Aromatics & perfume'),form left as null; function/use tags applied where possible,TRUE
+Stock / Gilliflower,INC-01,Node form=UNKNOWN after normalization (cat='Aromatics & perfume'),form left as null; function/use tags applied where possible,TRUE
+Liquorice Root (wild),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Flax / Linen,INC-01,Node form=UNKNOWN after normalization (cat='Industrial & fiber'),form left as null; function/use tags applied where possible,TRUE
+Tamarisk,INC-01,Node form=UNKNOWN after normalization (cat='Structural trees'),form left as null; function/use tags applied where possible,TRUE
+Tamarisk,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Datura / Thorn Apple,INC-01,Node form=UNKNOWN after normalization (cat='Toxic & pest-control'),form left as null; function/use tags applied where possible,TRUE
+Aconite / Wolfsbane,INC-01,Node form=UNKNOWN after normalization (cat='Toxic & pest-control'),form left as null; function/use tags applied where possible,TRUE
+Squill / Sea Onion,INC-01,Node form=UNKNOWN after normalization (cat='Toxic & pest-control'),form left as null; function/use tags applied where possible,TRUE
+Glasswort (ash Source),INC-01,Node form=UNKNOWN after normalization (cat='Toxic & pest-control'),form left as null; function/use tags applied where possible,TRUE
+Darnel / Ryegrass,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Glasswort (saline),INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Bramble / Blackberry,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Wild Artichoke / Golden Thistle,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Spurge (field),INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Spurge (field),INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Broom (spanish),INC-01,Node form=UNKNOWN after normalization (cat='Shrubs & semi-shrubs'),form left as null; function/use tags applied where possible,TRUE
+Broom (spanish),INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Mulberry,INC-13,name_ar or name_sci conflict between sources,first-encountered value retained,TRUE
+Rose,INC-01,Node form=UNKNOWN after normalization (cat='Aromatics & medicinal'),form left as null; function/use tags applied where possible,TRUE
+Wallflower,INC-01,Node form=UNKNOWN after normalization (cat='Aromatics & perfume'),form left as null; function/use tags applied where possible,TRUE
+Black Seed / Caraway Thyme,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Styrax / Storax,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Feverfew,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Weld / Dyer's Rocket,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Rush / Common Rush,INC-01,Node form=UNKNOWN after normalization (cat='Industrial & fiber'),form left as null; function/use tags applied where possible,TRUE
+Dwarf Palm / Palm Fiber,INC-01,Node form=UNKNOWN after normalization (cat='Industrial & fiber'),form left as null; function/use tags applied where possible,TRUE
+Wild Carrot,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Wild Fennel,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Thapsia,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Pellitory Of The Wall,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Tree Spurge,INC-01,Node form=UNKNOWN after normalization (cat='Wild & utility plants'),form left as null; function/use tags applied where possible,TRUE
+Willow Bark,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Endive Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Violet Flower,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sandalwood (white),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Distillate,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Tamarind Pulp,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Coriander Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Barley Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate (sour),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Camphor,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Aconite (atīs Var.),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Dry Ginger,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Spearmint,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cardamom,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Clove,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Fennel Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Anise Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Quince Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Peel,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Ajwain / Carom,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Ispaghol,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Rind (diarrhea),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Acacia Bark,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Myrrh,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Root Bark,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Liquorice Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Black Seed Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Long Pepper,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Fenugreek Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Gum Ammoniacum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pine Resin,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Violet Syrup,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cubeb Pepper,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Elecampane Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Mullein Leaf,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Maidenhair Fern,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Flaxseed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Frankincense,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Borage Flower,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cinnamon,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Amber (grey),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Musk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pearl (purified),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lapis Lazuli (calcined),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Camphor (cardiac),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sesame Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Mustard Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fenugreek Paste,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Castor Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aconite (post-islah),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Colchicum (post-islah),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Henbane Seed Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Black Seed Paste,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lavender (stoechas),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Marjoram Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Willow Bark Decoction,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar (cold Compress),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Euphorbia (post-islah),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sulfur (purified),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aloe Gel,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Plantain Leaf,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sulfur + Litharge Ointment,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Antimony Kohl,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Tutty / Zinc Oxide,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Honey + Rose Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Saffron In Rose Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Celery Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Endive / Chicory Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fumitory,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Caper Root Bark,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Black Myrobalan,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Senna,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Agrimony,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Parsley Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Juniper Berry,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Marshmallow Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Barberry,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Asparagus Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Watermelon Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Khaksi,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Valerian Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lavender (ustukhudus),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Peony Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Amber,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Henbane (compound Only),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Poppy Seed (not Latex),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Black Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Myrtle Berry,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Emblic Myrobalan,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Dill Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Henna (feet),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Barley Water + Honey,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Senna Leaf,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cassia Fistula Pulp,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aloe Latex,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Psyllium / Ispaghol,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Prunes / Plums,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Flaxseed Mucilage,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fig (dried),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Colocynth (compound),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Scammony (compound),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Emblic Myrobalan (amla),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Ashwagandha,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Honey (raw),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sesame Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pine Nuts,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Dates,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Gold Leaf (varak),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Goat Milk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Carrot Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Turnip Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Safflower Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Theriac Magna (compound),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Warm Milk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Egg White,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Olive Oil (warm),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Armenian Bole Clay,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Clove Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Salt In Warm Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Rind,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Gallnut,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Acacia Gum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pellitory Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Miswak / Arak,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar (diluted),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Warm Olive Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Onion Juice (warmed),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Honey In Rose Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rue Juice (warmed),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Galbanum In Olive Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Garlic Juice (diluted),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Castoreum In Warm Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Bitter Almond Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Euphorbia Post-islah,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Black Seed (inhaled),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Galbanum (errhine),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Water (cold),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar Compress,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Costus Snuff,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Celery Seed Errhine,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lavender Fumigation,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Honey + Ginger,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Boiled Fig,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Juice (sour),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sesame Oil (warm),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Burnt Alum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fenugreek Decoction,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Squill (post-islah),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Radish Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Endive / Chicory,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Castor Oil (topical),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar Fomentation,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Camel's Milk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Senna (periodic),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Mustard Oil (massage),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Castoreum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aconite (post-islah) Liniment,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Asafoetida (fumigation In Acute),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Garlic In Vinegar,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Nutmeg,INC-01,Node form=UNKNOWN after normalization (cat='Herbs & kitchen'),form left as null; function/use tags applied where possible,TRUE
+Calamus Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Bitter Gourd (karela),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Honey In Warm Water,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar (before Meals),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Radish (raw),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Almond Milk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Ghee,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Saffron In Milk,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Dragon's Blood Resin,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Alum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar (cold),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Coriander Juice (fresh),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aloe (dried Latex),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Beeswax + Olive Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Verdigris (in Plaster),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Anesthetic Sponge — Opium,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Anesthetic Sponge — Mandrake,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Anesthetic Sponge — Henbane,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Theriac Magna,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Vinegar (strong, Aged)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Camphor (fumigation),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fumitory (long Course),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Senna + Black Myrobalan,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Rose Water (cold, For Mania)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cold Water Hydrotherapy,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Opium (compound, Last Resort)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lavender Compound,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Honey (raw, Mature)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Saffron (micro-dose),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Dates + Almonds + Walnuts,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Conserve,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Warm Bath + Oil Massage,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Pomegranate Rind (sitz Bath),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Alum (sitz Bath),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Castor Oil (suppository),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Psyllium,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Bitter Almond Oil (suppository),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cauterization (kayy),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Senna (black Jaundice Only),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Wild Rue / Harmal,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Saxifrage,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Chickpea Broth,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Rose Water (continuous),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Saffron Paste,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sandalwood (white + Red),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Violet Oil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Lentil Broth (eruptive Phase),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Aromatic Room Fumigation,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Harmal Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Senna + Myrobalans (periodic),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Figs (dried, Daily Food)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Warm Salt-oil Compress,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Kajjali (mercury Sulfide),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Mercury Ointment (marham Zibaq),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sarsaparilla Root,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Vinegar + Sulfur Wash,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Fennel Distillate,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+"Vinegar (sharp, Sniffed)",INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Cold Rose Water (oral),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Mint (strong Infusion),INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Ispaghol / Plantain Seed,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Emblic Myrobalan / Amla,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Beleric Myrobalan,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Mullein,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Miswak / Arak Wood,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Saxifrage / Stone-breaker,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Gum Ammoniacum / Oshaq,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Cassia Fistula,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Galbanum,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Gallnut / Oak Gall,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+London Rocket / Khaksi,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Sarsaparilla,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal plants'),form left as null; function/use tags applied where possible,TRUE
+Bamboo,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Tipuana,INC-01,Node form=UNKNOWN after normalization (cat='Canopy tree'),form left as null; function/use tags applied where possible,TRUE
+Moringa,INC-01,Node form=UNKNOWN after normalization (cat='Canopy tree'),form left as null; function/use tags applied where possible,TRUE
+Mesquite,INC-01,Node form=UNKNOWN after normalization (cat='Canopy tree'),form left as null; function/use tags applied where possible,TRUE
+Sesbania,INC-01,Node form=UNKNOWN after normalization (cat='Canopy tree'),form left as null; function/use tags applied where possible,TRUE
+Tagasaste,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Tagasaste,INC-01,Node form=UNKNOWN after normalization (cat='Canopy tree'),form left as null; function/use tags applied where possible,TRUE
+Macadamia,INC-09,form conflict between sources — kept Islamic agronomy source value,form='canopy_tree' retained,TRUE
+Coffee,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Citrus,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Mango,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Avocado,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Papaya,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Dragon Fruit,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Guava,INC-09,form conflict between sources — kept Islamic agronomy source value,form='mid_tree' retained,TRUE
+Lantana,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Blackberry,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Wild Tobacco,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Privet,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Creosote Bush,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Parthenium,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Bracken Fern,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Thistles,INC-01,Node form=UNKNOWN after normalization (cat='Pioneer species'),form left as null; function/use tags applied where possible,TRUE
+Red Clover,INC-01,Node form=UNKNOWN after normalization (cat='Nitrogen fixer'),form left as null; function/use tags applied where possible,TRUE
+Field Pea,INC-01,Node form=UNKNOWN after normalization (cat='Nitrogen fixer'),form left as null; function/use tags applied where possible,TRUE
+Fava Beans,INC-01,Node form=UNKNOWN after normalization (cat='Nitrogen fixer'),form left as null; function/use tags applied where possible,TRUE
+Pinto Peanut,INC-01,Node form=UNKNOWN after normalization (cat='Nitrogen fixer'),form left as null; function/use tags applied where possible,TRUE
+Nasturtium,INC-09,form conflict between sources — kept Islamic agronomy source value,form='shrub' retained,TRUE
+Aloe Vera,INC-01,Node form=UNKNOWN after normalization (cat='Shrub'),form left as null; function/use tags applied where possible,TRUE
+Choko,INC-09,form conflict between sources — kept Islamic agronomy source value,form='climber' retained,TRUE
+Kiwi,INC-09,form conflict between sources — kept Islamic agronomy source value,form='climber' retained,TRUE
+Corn,INC-09,form conflict between sources — kept Islamic agronomy source value,form='grass_grain' retained,TRUE
+Taro,INC-09,form conflict between sources — kept Islamic agronomy source value,form='aquatic_wetland' retained,TRUE
+Lemongrass,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sheep Sorrel,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Sacred Basil,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Curry-leaf Tree,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Herbs & Parsley,INC-01,Node form=UNKNOWN after normalization (cat='Medicinal'),form left as null; function/use tags applied where possible,TRUE
+Okra,INC-01,Node form=UNKNOWN after normalization (cat='Industrial & fiber'),form left as null; function/use tags applied where possible,TRUE
+Tomato,INC-09,form conflict between sources — kept Islamic agronomy source value,form='shrub' retained,TRUE
+Pigeon_pea,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Albizia_leb,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Albizia_jul,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Cassia,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Inga,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Crotalaria,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Acacia_mel,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Acacia_flo,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Wild_tobacco,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Creosote,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Black_bean,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Bracken_fern,INC-01,Node form=UNKNOWN after normalization (cat='indicator'),form left as null; function/use tags applied where possible,TRUE
+Cogon_grass,INC-01,Node form=UNKNOWN after normalization (cat='indicator'),form left as null; function/use tags applied where possible,TRUE
+Poncirus,INC-01,Node form=UNKNOWN after normalization (cat='rootstock'),form left as null; function/use tags applied where possible,TRUE
+Sour_orange,INC-01,Node form=UNKNOWN after normalization (cat='rootstock'),form left as null; function/use tags applied where possible,TRUE
+M9,INC-01,Node form=UNKNOWN after normalization (cat='rootstock'),form left as null; function/use tags applied where possible,TRUE
+MM111,INC-01,Node form=UNKNOWN after normalization (cat='rootstock'),form left as null; function/use tags applied where possible,TRUE
+Oleaster,INC-01,Node form=UNKNOWN after normalization (cat='rootstock'),form left as null; function/use tags applied where possible,TRUE
+Silver_birch,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Red_cedar,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Silky_oak,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Canaf,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Ailanthus,INC-01,Node form=UNKNOWN after normalization (cat='pioneer'),form left as null; function/use tags applied where possible,TRUE
+Mushrooms,INC-01,Node form=UNKNOWN after normalization (cat='remediator'),form left as null; function/use tags applied where possible,TRUE
+Indigofera,INC-01,Node form=UNKNOWN after normalization (cat='nitrogen_fixer'),form left as null; function/use tags applied where possible,TRUE
+Any Cereal,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Cereal (general),INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Most Plants (general),INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Wheat, Barley, Fig",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Nearby Annuals,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Darnel, Wild Oat, Bindweed, Dock",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Wheat, Barley",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Stored Wheat, Barley",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Olive, Fig",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Grapevine, Fig",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Stored Grain,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Field Crops (general),INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Storage General,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Grain Stores,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Pear, Medlar",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+"Lemon, Citron, Lime",INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Wild Fig (caprifig),INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+General Garden / Orchard,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Date Palm Gardens; Saline Areas,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Irrigation Canals / Wet Crops,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Waterways,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+General Aromatic Windbreak,INC-STUB,Placeholder group target auto-promoted to hub stub,kind=hub stub node created,TRUE
+Walnut→Olive[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Grapevine[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Wheat[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Barley[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Fig[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Most Plants (general)[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+"Walnut→Wheat, Barley, Fig[hostile]",FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Bamboo→Vetiver[hostile],FACTCHECK_FLAGGED,Known-bad or unverified edge: competitive not allelopathic — reclassify to soil_exhaust,confidence=0.1; edge retained for human review,TRUE
+Walnut→Apple[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Tomato[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Potato[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Blueberry[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
+Walnut→Brassicas[hostile],FACTCHECK_FLAGGED,"Known-bad or unverified edge: confirm juglone target — only affects specific species, not all",confidence=0.1; edge retained for human review,TRUE
