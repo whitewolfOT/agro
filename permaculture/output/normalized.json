@@ -13401,8 +13401,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam",
@@ -13424,8 +13424,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam",
@@ -13447,8 +13447,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam",
@@ -13470,8 +13470,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13492,8 +13492,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13514,8 +13514,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13536,8 +13536,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13558,8 +13558,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13580,8 +13580,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13602,8 +13602,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13624,8 +13624,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam",
@@ -13647,8 +13647,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13669,8 +13669,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13691,8 +13691,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13713,8 +13713,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam",
@@ -13736,8 +13736,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Baytar",
@@ -13759,8 +13759,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Baytar"
@@ -13781,8 +13781,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -13803,8 +13803,8 @@
       "form": null,
       "function": [],
       "use": [
-        "aromatic",
-        "medicinal"
+        "medicinal",
+        "aromatic"
       ],
       "sources": [
         "Ibn al-Awwam"
@@ -24458,7 +24458,7 @@
       "name_sci": "Triticum aestivum / T. durum",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24469,7 +24469,10 @@
       "sources": [
         "Primary staple; sowing calendars",
         "rotation",
-        "soil exhaustion warnings"
+        "soil exhaustion warnings",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -24479,7 +24482,7 @@
       "name_sci": "Hordeum vulgare",
       "cat": "Cereals & grains",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24488,7 +24491,10 @@
         "food"
       ],
       "sources": [
-        "Dryland staple; barley water (mā' al-shaʿīr) as standard fever drink and dietary base in hakim medicine"
+        "Dryland staple; barley water (mā' al-shaʿīr) as standard fever drink and dietary base in hakim medicine",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -24498,7 +24504,7 @@
       "name_sci": "Triticum dicoccum",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24507,7 +24513,8 @@
         "food"
       ],
       "sources": [
-        "Ancient wheat type; noted in Nabataean traditions"
+        "Ancient wheat type; noted in Nabataean traditions",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -24517,7 +24524,7 @@
       "name_sci": "Triticum monococcum",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24526,7 +24533,8 @@
         "food"
       ],
       "sources": [
-        "Early primitive wheat; mentioned among grain types"
+        "Early primitive wheat; mentioned among grain types",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24536,7 +24544,7 @@
       "name_sci": "Triticum spelta",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24545,7 +24553,8 @@
         "food"
       ],
       "sources": [
-        "Cold-tolerant wheat relative; listed among cereal varieties"
+        "Cold-tolerant wheat relative; listed among cereal varieties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24555,7 +24564,7 @@
       "name_sci": "Oryza sativa",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24564,7 +24573,9 @@
         "food"
       ],
       "sources": [
-        "Wet cultivation; flooding and irrigation techniques detailed"
+        "Wet cultivation; flooding and irrigation techniques detailed",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -24574,7 +24585,7 @@
       "name_sci": "Sorghum bicolor",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24583,7 +24594,8 @@
         "food"
       ],
       "sources": [
-        "Summer grain; heat-tolerant; sowing in warm soils"
+        "Summer grain; heat-tolerant; sowing in warm soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24593,7 +24605,7 @@
       "name_sci": "Panicum miliaceum",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24602,7 +24614,9 @@
         "food"
       ],
       "sources": [
-        "Fast-growing summer grain; light soil preference"
+        "Fast-growing summer grain; light soil preference",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -24612,7 +24626,7 @@
       "name_sci": "Setaria italica",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24621,7 +24635,8 @@
         "food"
       ],
       "sources": [
-        "Smaller millet; warm season; noted alongside dukhn"
+        "Smaller millet; warm season; noted alongside dukhn",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24631,7 +24646,7 @@
       "name_sci": "Pennisetum glaucum",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24640,7 +24655,8 @@
         "food"
       ],
       "sources": [
-        "Drought-tolerant; southern cultivation"
+        "Drought-tolerant; southern cultivation",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24650,7 +24666,7 @@
       "name_sci": "Avena sativa",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24659,7 +24675,8 @@
         "food"
       ],
       "sources": [
-        "Fodder and grain; cooler climate"
+        "Fodder and grain; cooler climate",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24669,7 +24686,7 @@
       "name_sci": "Secale cereale",
       "cat": "Cereals & grains",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "grass_grain",
@@ -24678,7 +24695,8 @@
         "food"
       ],
       "sources": [
-        "Cold-tolerant cereal; noted among northern grains"
+        "Cold-tolerant cereal; noted among northern grains",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24688,7 +24706,7 @@
       "name_sci": "Vicia faba",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24699,7 +24717,10 @@
         "food"
       ],
       "sources": [
-        "Soil restorer; intercropped; sown before cereals; full cultivation chapter"
+        "Soil restorer; intercropped; sown before cereals; full cultivation chapter",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -24709,7 +24730,7 @@
       "name_sci": "Cicer arietinum",
       "cat": "Legumes & pulses",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24720,7 +24741,9 @@
         "food"
       ],
       "sources": [
-        "Dryland pulse; chickpea broth prescribed by Ibn Sina as diuretic food-medicine for urinary stones"
+        "Dryland pulse; chickpea broth prescribed by Ibn Sina as diuretic food-medicine for urinary stones",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -24730,7 +24753,7 @@
       "name_sci": "Lens culinaris",
       "cat": "Legumes & pulses",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24741,7 +24764,8 @@
         "food"
       ],
       "sources": [
-        "Cool-season; rotation after wheat; Al-Razi specifically recommends lentil broth in smallpox diet"
+        "Cool-season; rotation after wheat; Al-Razi specifically recommends lentil broth in smallpox diet",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24751,7 +24775,7 @@
       "name_sci": "Lupinus albus",
       "cat": "Legumes & pulses",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24762,7 +24786,8 @@
         "food"
       ],
       "sources": [
-        "Explicit green manure; plowed in to restore exhausted soils"
+        "Explicit green manure; plowed in to restore exhausted soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24772,7 +24797,7 @@
       "name_sci": "Vigna unguiculata",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24783,7 +24808,8 @@
         "food"
       ],
       "sources": [
-        "Warm-season legume; soil improvement noted"
+        "Warm-season legume; soil improvement noted",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24793,7 +24819,7 @@
       "name_sci": "Pisum sativum",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24804,7 +24830,8 @@
         "food"
       ],
       "sources": [
-        "Cool-season pulse; sowing timing detailed"
+        "Cool-season pulse; sowing timing detailed",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24814,7 +24841,7 @@
       "name_sci": "Trigonella foenum-graecum",
       "cat": "Legumes & pulses",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24829,7 +24856,10 @@
         "uterine tonic",
         "diabetes",
         "gout",
-        "throat gargle (Ibn Sina Qanun)"
+        "throat gargle (Ibn Sina Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -24839,7 +24869,7 @@
       "name_sci": "Vicia sativa",
       "cat": "Legumes & pulses",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24850,7 +24880,8 @@
         "food"
       ],
       "sources": [
-        "Fodder legume; turned in as green manure"
+        "Fodder legume; turned in as green manure",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24860,7 +24891,7 @@
       "name_sci": "Vicia ervilia",
       "cat": "Legumes & pulses",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24871,7 +24902,8 @@
         "food"
       ],
       "sources": [
-        "Fodder; tougher conditions than common vetch"
+        "Fodder; tougher conditions than common vetch",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24881,7 +24913,7 @@
       "name_sci": "Lathyrus sativus",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24892,7 +24924,8 @@
         "food"
       ],
       "sources": [
-        "Drought-tolerant pulse; listed among legume varieties"
+        "Drought-tolerant pulse; listed among legume varieties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24902,7 +24935,7 @@
       "name_sci": "Vigna aconitifolia",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24913,7 +24946,8 @@
         "food"
       ],
       "sources": [
-        "Hot-season pulse; sandy soils; summer crops"
+        "Hot-season pulse; sandy soils; summer crops",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24923,7 +24957,7 @@
       "name_sci": "Lablab purpureus",
       "cat": "Legumes & pulses",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24934,7 +24968,8 @@
         "food"
       ],
       "sources": [
-        "Warm-season climbing legume; Andalusian gardens"
+        "Warm-season climbing legume; Andalusian gardens",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24944,7 +24979,7 @@
       "name_sci": "Solanum melongena",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24955,7 +24990,9 @@
       "sources": [
         "Irrigation",
         "soil prep",
-        "pest control; full cultivation chapter"
+        "pest control; full cultivation chapter",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -24965,7 +25002,7 @@
       "name_sci": "Cucumis sativus",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24974,7 +25011,8 @@
         "food"
       ],
       "sources": [
-        "Warm-season; companion of vine; ground cover"
+        "Warm-season; companion of vine; ground cover",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -24984,7 +25022,7 @@
       "name_sci": "Citrullus lanatus",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -24993,7 +25031,8 @@
         "food"
       ],
       "sources": [
-        "Sandy soil; hot climate; seeds as soothing diuretic in Ibn Sina for urinary stones"
+        "Sandy soil; hot climate; seeds as soothing diuretic in Ibn Sina for urinary stones",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25003,7 +25042,7 @@
       "name_sci": "Cucumis melo",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25012,7 +25051,8 @@
         "food"
       ],
       "sources": [
-        "Rich soil; heavy watering; grafting to improve variety"
+        "Rich soil; heavy watering; grafting to improve variety",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25022,7 +25062,7 @@
       "name_sci": "Cucurbita sp.",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25031,7 +25071,8 @@
         "food"
       ],
       "sources": [
-        "Fast-growing companion; covers bare soil"
+        "Fast-growing companion; covers bare soil",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25041,7 +25082,7 @@
       "name_sci": "Lagenaria siceraria",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25050,7 +25091,8 @@
         "food"
       ],
       "sources": [
-        "Grown for shell use; noted separate from fleshy gourd"
+        "Grown for shell use; noted separate from fleshy gourd",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25060,7 +25102,7 @@
       "name_sci": "Spinacia oleracea",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25069,7 +25111,9 @@
         "food"
       ],
       "sources": [
-        "Cool-season; noted as recent Persian introduction"
+        "Cool-season; noted as recent Persian introduction",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -25079,7 +25123,7 @@
       "name_sci": "Beta vulgaris var. cicla",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25088,7 +25132,8 @@
         "food"
       ],
       "sources": [
-        "Year-round production; salinity tolerance noted"
+        "Year-round production; salinity tolerance noted",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25098,7 +25143,7 @@
       "name_sci": "Beta vulgaris var. vulgaris",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25107,7 +25152,8 @@
         "food"
       ],
       "sources": [
-        "Root vegetable; listed alongside chard"
+        "Root vegetable; listed alongside chard",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25117,7 +25163,7 @@
       "name_sci": "Brassica rapa",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25126,7 +25172,9 @@
         "food"
       ],
       "sources": [
-        "Winter crop; turnip seed noted by Ibn Sina as aphrodisiac and warming reproductive tonic"
+        "Winter crop; turnip seed noted by Ibn Sina as aphrodisiac and warming reproductive tonic",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -25136,7 +25184,7 @@
       "name_sci": "Brassica oleracea",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25145,7 +25193,9 @@
         "food"
       ],
       "sources": [
-        "Heavy feeder; harms vine when nearby; Ibn Sina notes medicinal actions on phlegm"
+        "Heavy feeder; harms vine when nearby; Ibn Sina notes medicinal actions on phlegm",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -25155,7 +25205,7 @@
       "name_sci": "Brassica oleracea var. gongylodes",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25164,7 +25214,8 @@
         "food"
       ],
       "sources": [
-        "Distinct cabbage variant in Andalusian texts"
+        "Distinct cabbage variant in Andalusian texts",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -25174,7 +25225,7 @@
       "name_sci": "Brassica oleracea var. botrytis",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25183,7 +25234,8 @@
         "food"
       ],
       "sources": [
-        "Mentioned as cultivated cabbage variant"
+        "Mentioned as cultivated cabbage variant",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25193,7 +25245,7 @@
       "name_sci": "Daucus carota sativa",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25202,7 +25254,8 @@
         "food"
       ],
       "sources": [
-        "Deep tillage required; seed used by Ibn Sina as aphrodisiac and emmenagogue (Qanun Bk. III)"
+        "Deep tillage required; seed used by Ibn Sina as aphrodisiac and emmenagogue (Qanun Bk. III)",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25212,7 +25265,7 @@
       "name_sci": "Pastinaca sativa",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25221,7 +25274,8 @@
         "food"
       ],
       "sources": [
-        "Root vegetable; listed among carrots; cooler climate"
+        "Root vegetable; listed among carrots; cooler climate",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25231,7 +25285,7 @@
       "name_sci": "Raphanus sativus",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25240,7 +25294,9 @@
         "food"
       ],
       "sources": [
-        "Fast soil-breaker; Ibn Sina prescribes radish as metabolic activator and anti-obesity food-medicine"
+        "Fast soil-breaker; Ibn Sina prescribes radish as metabolic activator and anti-obesity food-medicine",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -25250,7 +25306,7 @@
       "name_sci": "Allium cepa",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25261,7 +25317,10 @@
       "sources": [
         "Pest deterrent; heavy feeder; Ibn Sina: aphrodisiac",
         "ear instillation",
-        "semen tonic (Qanun Bk. III)"
+        "semen tonic (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25271,7 +25330,7 @@
       "name_sci": "Allium sativum",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25283,7 +25342,10 @@
         "Pest repellent at orchard bases; Ibn Sina: anthelmintic",
         "antidote",
         "ear instillation",
-        "antifungal (Qanun; Dioscorides Arabic)"
+        "antifungal (Qanun; Dioscorides Arabic)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25293,7 +25355,7 @@
       "name_sci": "Allium ampeloprasum",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25302,7 +25364,9 @@
         "food"
       ],
       "sources": [
-        "Kitchen vegetable; Ibn Sina lists leek seed as aphrodisiac and seminal tonic"
+        "Kitchen vegetable; Ibn Sina lists leek seed as aphrodisiac and seminal tonic",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25312,7 +25376,7 @@
       "name_sci": "Allium cepa var. aggregatum",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25321,7 +25385,8 @@
         "food"
       ],
       "sources": [
-        "Listed as a distinct onion variety with milder flavor"
+        "Listed as a distinct onion variety with milder flavor",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25331,7 +25396,7 @@
       "name_sci": "Allium schoenoprasum",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25340,7 +25405,8 @@
         "food"
       ],
       "sources": [
-        "Small allium; border plant; noted in gardens"
+        "Small allium; border plant; noted in gardens",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25350,7 +25416,7 @@
       "name_sci": "Lactuca sativa",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25359,7 +25425,8 @@
         "food"
       ],
       "sources": [
-        "Shade-tolerant; Ibn Sina notes cooling and sedative properties; intercropped under fruit trees"
+        "Shade-tolerant; Ibn Sina notes cooling and sedative properties; intercropped under fruit trees",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25369,7 +25436,7 @@
       "name_sci": "Cichorium intybus",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25379,7 +25446,9 @@
       ],
       "sources": [
         "Wild and cultivated forms; Ibn Sina's chief fever and liver remedy — hindibā'; jaundice",
-        "gout (Qanun Bk. III)"
+        "gout (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25389,7 +25458,7 @@
       "name_sci": "Cichorium endivia",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25398,7 +25467,9 @@
         "food"
       ],
       "sources": [
-        "Cool-season bitter green; liver opener; bilious fever cooler — Ibn Sina (Qanun Bk. II)"
+        "Cool-season bitter green; liver opener; bilious fever cooler — Ibn Sina (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25408,7 +25479,7 @@
       "name_sci": "Cynara scolymus",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25417,7 +25488,8 @@
         "food"
       ],
       "sources": [
-        "Perennial; propagation from offsets described in full"
+        "Perennial; propagation from offsets described in full",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25427,7 +25499,7 @@
       "name_sci": "Cynara cardunculus",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25436,7 +25508,8 @@
         "food"
       ],
       "sources": [
-        "Wild relative of artichoke; edible thistle"
+        "Wild relative of artichoke; edible thistle",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25446,7 +25519,7 @@
       "name_sci": "Asparagus officinalis",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25457,7 +25530,9 @@
       "sources": [
         "Long establishment period; salt-tolerant; Ibn Sina: diuretic",
         "aphrodisiac",
-        "urinary stones (Qanun Bk. III)"
+        "urinary stones (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25467,7 +25542,7 @@
       "name_sci": "Portulaca oleracea",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25477,7 +25552,9 @@
       ],
       "sources": [
         "Heat-tolerant; eaten fresh; Ibn Sina: cools bilious fever (Cold 3°",
-        "Moist 3°); diabetes cooling"
+        "Moist 3°); diabetes cooling",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25487,7 +25564,7 @@
       "name_sci": "Malva sylvestris",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25496,7 +25573,8 @@
         "food"
       ],
       "sources": [
-        "Pot-herb; mucilaginous leaf; Ibn Sina notes demulcent and soothing properties"
+        "Pot-herb; mucilaginous leaf; Ibn Sina notes demulcent and soothing properties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25506,7 +25584,7 @@
       "name_sci": "Borago officinalis",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25517,7 +25595,9 @@
       "sources": [
         "Edible flower and leaf; Ibn Sina: lifts melancholy",
         "cardiac tonic",
-        "calms anxiety (Ibn Baytar)"
+        "calms anxiety (Ibn Baytar)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25527,7 +25607,7 @@
       "name_sci": "Rumex acetosa",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25536,7 +25616,8 @@
         "food"
       ],
       "sources": [
-        "Sour pot-herb; wild and cultivated; moist soils"
+        "Sour pot-herb; wild and cultivated; moist soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25546,7 +25627,7 @@
       "name_sci": "Atriplex hortensis",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25555,7 +25636,8 @@
         "food"
       ],
       "sources": [
-        "Salt-tolerant leaf vegetable; saline soils"
+        "Salt-tolerant leaf vegetable; saline soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25565,7 +25647,7 @@
       "name_sci": "Eruca vesicaria sativa",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25574,7 +25656,9 @@
         "food"
       ],
       "sources": [
-        "Spicy leaf; Ibn Sina explicitly: 'al-jurjīr yuharrik al-bāh' — aphrodisiac; warming; seed most potent (Qanun Bk. III)"
+        "Spicy leaf; Ibn Sina explicitly: 'al-jurjīr yuharrik al-bāh' — aphrodisiac; warming; seed most potent (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25584,7 +25668,7 @@
       "name_sci": "Lepidium sativum",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25593,7 +25677,8 @@
         "food"
       ],
       "sources": [
-        "Fast-sprouting; Ibn Sina notes warming medicinal actions"
+        "Fast-sprouting; Ibn Sina notes warming medicinal actions",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25603,7 +25688,7 @@
       "name_sci": "Nasturtium officinale",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25612,7 +25697,8 @@
         "food"
       ],
       "sources": [
-        "Semi-aquatic; near irrigation channels; heating and medicinal"
+        "Semi-aquatic; near irrigation channels; heating and medicinal",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25622,7 +25708,7 @@
       "name_sci": "Tragopogon porrifolius",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25631,7 +25717,8 @@
         "food"
       ],
       "sources": [
-        "Root vegetable; listed in plant lists"
+        "Root vegetable; listed in plant lists",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25641,7 +25728,7 @@
       "name_sci": "Scorzonera hispanica",
       "cat": "Vegetables",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25650,7 +25737,8 @@
         "food"
       ],
       "sources": [
-        "Root vegetable; distinct from mandrake in agronomy texts"
+        "Root vegetable; distinct from mandrake in agronomy texts",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25660,7 +25748,7 @@
       "name_sci": "Levisticum officinale",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25669,7 +25757,8 @@
         "food"
       ],
       "sources": [
-        "Strong-flavored celery relative; kitchen and medicinal"
+        "Strong-flavored celery relative; kitchen and medicinal",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25679,7 +25768,7 @@
       "name_sci": "Sinapis alba / Brassica nigra",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25690,7 +25779,10 @@
       "sources": [
         "Condiment; Ibn Sina: counter-irritant paste for joint pain",
         "sciatica",
-        "skin (topical); warming"
+        "skin (topical); warming",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25700,7 +25792,7 @@
       "name_sci": "Momordica charantia",
       "cat": "Vegetables",
       "notes": "Both",
-      "evidence_level": "Hakim Sharif Khan,Qarabadin",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25709,7 +25801,9 @@
         "food"
       ],
       "sources": [
-        "Cooling; corrects sweet excessive urination; blood purifier — later Unani; subcontinent tradition"
+        "Cooling; corrects sweet excessive urination; blood purifier — later Unani; subcontinent tradition",
+        "Hakim Sharif Khan",
+        "Qarabadin"
       ],
       "_flags": []
     },
@@ -25719,7 +25813,7 @@
       "name_sci": "Petroselinum crispum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25730,7 +25824,9 @@
       ],
       "sources": [
         "Slow germination noted; diuretic",
-        "emmenagogue and kidney use in hakim (Dioscorides Arabic; Qanun Bk. III)"
+        "emmenagogue and kidney use in hakim (Dioscorides Arabic; Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25740,7 +25836,7 @@
       "name_sci": "Coriandrum sativum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25752,7 +25848,9 @@
       "sources": [
         "Companion planting; Ibn Sina: Cold 1° — fever cooling",
         "bile check",
-        "haemostatic (Qanun Bk. II)"
+        "haemostatic (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25762,7 +25860,7 @@
       "name_sci": "Anethum graveolens",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25773,7 +25871,9 @@
       ],
       "sources": [
         "Annual aromatic; Ibn Sina: infantile colic",
-        "distillate for children (arq shibitt)"
+        "distillate for children (arq shibitt)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25783,7 +25883,7 @@
       "name_sci": "Foeniculum vulgare",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25794,7 +25894,9 @@
       ],
       "sources": [
         "Allelopathic to coriander and cumin; Ibn Sina: carminative",
-        "eyewash for dim vision (Qanun Bk. III)"
+        "eyewash for dim vision (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25804,7 +25906,7 @@
       "name_sci": "Apium graveolens",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25817,7 +25919,9 @@
         "Wet soil; Ibn Sina: diuretic",
         "lithotriptic",
         "gout management",
-        "kidney stones (Qanun Bk. III)"
+        "kidney stones (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25827,7 +25931,7 @@
       "name_sci": "Cuminum cyminum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25839,7 +25943,9 @@
       "sources": [
         "Light soils; Ibn Sina: carminative",
         "metabolic activator",
-        "anti-obesity food-spice"
+        "anti-obesity food-spice",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25849,7 +25955,7 @@
       "name_sci": "Pimpinella anisum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25862,7 +25968,9 @@
         "Annual spice; Ibn Sina: carminative",
         "galactagogue",
         "respiratory phlegm",
-        "children's colic"
+        "children's colic",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25872,7 +25980,7 @@
       "name_sci": "Carum carvi",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25884,7 +25992,9 @@
       "sources": [
         "Biennial spice; carminative; Ibn Sina: colic",
         "flatulence",
-        "warms cold stomach"
+        "warms cold stomach",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25894,7 +26004,7 @@
       "name_sci": "Nigella sativa",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25907,7 +26017,10 @@
         "Autumn sowing; Ibn Sina: 'cures all diseases except death'; immune tonic",
         "anthelmintic",
         "asthma",
-        "skin (Qanun)"
+        "skin (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25917,7 +26030,7 @@
       "name_sci": "Ocimum basilicum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25927,7 +26040,8 @@
         "food"
       ],
       "sources": [
-        "Garden companion; insect deterrent; Ibn Sina notes warming medicinal properties"
+        "Garden companion; insect deterrent; Ibn Sina notes warming medicinal properties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25937,7 +26051,7 @@
       "name_sci": "Mentha spicata / M. piperita",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25949,7 +26063,9 @@
       "sources": [
         "Wet soil; Ibn Sina: nausea",
         "vomiting",
-        "digestion; colic distillate; hiccup (Qanun Bk. III)"
+        "digestion; colic distillate; hiccup (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -25959,7 +26075,7 @@
       "name_sci": "Mentha pulegium",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25969,7 +26085,8 @@
         "food"
       ],
       "sources": [
-        "Insect repellent in granaries; Ibn Sina notes emmenagogue properties"
+        "Insect repellent in granaries; Ibn Sina notes emmenagogue properties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -25979,7 +26096,7 @@
       "name_sci": "Ruta graveolens",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -25991,7 +26108,9 @@
       "sources": [
         "Companion of olive; Ibn Sina: antidote to serpent bite",
         "antispasmodic",
-        "emmenagogue ⚠ Contraindicated in pregnancy (Qanun Bk. V)"
+        "emmenagogue ⚠ Contraindicated in pregnancy (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26001,7 +26120,7 @@
       "name_sci": "Thymus sp.",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26013,7 +26132,9 @@
       "sources": [
         "Dry aromatic; Ibn Sina: bronchitis",
         "pertussis-type cough",
-        "dissolves tough phlegm (Qanun)"
+        "dissolves tough phlegm (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26023,7 +26144,7 @@
       "name_sci": "Origanum majorana",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26035,7 +26156,9 @@
       "sources": [
         "Annual aromatic; Ibn Sina: cold headache",
         "nasal discharge",
-        "sinus phlegm; oil on forehead"
+        "sinus phlegm; oil on forehead",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26045,7 +26168,7 @@
       "name_sci": "Origanum vulgare",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26055,7 +26178,8 @@
         "food"
       ],
       "sources": [
-        "Wild thyme relative; fumigant and culinary"
+        "Wild thyme relative; fumigant and culinary",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26065,7 +26189,7 @@
       "name_sci": "Satureja hortensis",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26075,7 +26199,8 @@
         "food"
       ],
       "sources": [
-        "Annual aromatic; companion to beans noted"
+        "Annual aromatic; companion to beans noted",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26085,7 +26210,7 @@
       "name_sci": "Satureja montana",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26095,7 +26220,8 @@
         "food"
       ],
       "sources": [
-        "Perennial shrublet; dry rocky hillsides"
+        "Perennial shrublet; dry rocky hillsides",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26105,7 +26231,7 @@
       "name_sci": "Salvia officinalis",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26115,7 +26241,8 @@
         "food"
       ],
       "sources": [
-        "Medicinal and culinary; fumigant smoke; Ibn Sina notes warming brain properties"
+        "Medicinal and culinary; fumigant smoke; Ibn Sina notes warming brain properties",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26125,7 +26252,7 @@
       "name_sci": "Salvia rosmarinus",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26137,7 +26264,9 @@
       "sources": [
         "Aromatic shrub; Ibn al-Baytar: memory weakness",
         "phlegmatic brain",
-        "cognitive fog — opens obstructions"
+        "cognitive fog — opens obstructions",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -26147,7 +26276,7 @@
       "name_sci": "Hyssopus officinalis",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26159,7 +26288,9 @@
       "sources": [
         "Medicinal; Ibn Sina: expels thick phlegm",
         "asthma",
-        "chronic cough (Qanun); decoction with honey"
+        "chronic cough (Qanun); decoction with honey",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26169,7 +26300,7 @@
       "name_sci": "Artemisia abrotanum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26179,7 +26310,8 @@
         "food"
       ],
       "sources": [
-        "Aromatic insect deterrent; companion in gardens; medicinal properties noted"
+        "Aromatic insect deterrent; companion in gardens; medicinal properties noted",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26189,7 +26321,7 @@
       "name_sci": "Melissa officinalis",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26199,7 +26331,8 @@
         "food"
       ],
       "sources": [
-        "Bees attracted; aromatic kitchen herb; nervine calming"
+        "Bees attracted; aromatic kitchen herb; nervine calming",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26209,7 +26342,7 @@
       "name_sci": "Clinopodium nepeta",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26219,7 +26352,8 @@
         "food"
       ],
       "sources": [
-        "Aromatic; hillside herb; companion plant"
+        "Aromatic; hillside herb; companion plant",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26229,7 +26363,7 @@
       "name_sci": "Nepeta cataria",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26239,7 +26373,8 @@
         "food"
       ],
       "sources": [
-        "Aromatic; insect repellent; companion in kitchen gardens"
+        "Aromatic; insect repellent; companion in kitchen gardens",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26249,7 +26384,7 @@
       "name_sci": "Tanacetum balsamita",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26259,7 +26394,8 @@
         "food"
       ],
       "sources": [
-        "Scented herb; kitchen herb; aromatic garden beds"
+        "Scented herb; kitchen herb; aromatic garden beds",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26269,7 +26405,7 @@
       "name_sci": "Elettaria cardamomum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Al-Biruni,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26282,7 +26418,10 @@
         "Aromatic spice; Ibn Sina: strengthens stomach",
         "carminative",
         "throat phlegm",
-        "indigestion (Qanun Bk. II)"
+        "indigestion (Qanun Bk. II)",
+        "Ibn Sina",
+        "Al-Biruni",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -26292,7 +26431,7 @@
       "name_sci": "Syzygium aromaticum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26305,7 +26444,9 @@
         "Aromatic spice; Ibn Sina: toothache",
         "gum antiseptic",
         "liver tonic",
-        "antiflatulent (Qanun Bk. III)"
+        "antiflatulent (Qanun Bk. III)",
+        "Ibn Sina",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -26315,7 +26456,7 @@
       "name_sci": "Piper nigrum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26327,7 +26468,9 @@
       "sources": [
         "Universal culinary spice; Ibn Sina: warming adjuvant",
         "respiratory phlegm",
-        "carminative (Dioscorides Arabic)"
+        "carminative (Dioscorides Arabic)",
+        "Ibn Sina",
+        "Dioscorides"
       ],
       "_flags": []
     },
@@ -26337,7 +26480,7 @@
       "name_sci": "Piper longum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26350,7 +26493,9 @@
         "Ibn Sina: opens bronchi",
         "dissolves cold phlegm",
         "asthma",
-        "aphrodisiac adjuvant (Qanun Bk. II)"
+        "aphrodisiac adjuvant (Qanun Bk. II)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": []
     },
@@ -26360,7 +26505,7 @@
       "name_sci": "Piper cubeba",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn al-Baytar,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26371,7 +26516,9 @@
       ],
       "sources": [
         "Voice loss; bronchial phlegm; urinary remedy; aromatic spice (Ibn Baytar; Al-Biruni",
-        "Saydana)"
+        "Saydana)",
+        "Ibn al-Baytar",
+        "Al-Biruni"
       ],
       "_flags": []
     },
@@ -26381,7 +26528,7 @@
       "name_sci": "Cinnamomum verum",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26395,7 +26542,9 @@
         "warming",
         "liver tonic",
         "digestive",
-        "aids cold constitution (Qanun Bk. II)"
+        "aids cold constitution (Qanun Bk. II)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": []
     },
@@ -26405,7 +26554,7 @@
       "name_sci": "Myristica fragrans",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26416,7 +26565,9 @@
       ],
       "sources": [
         "Ibn Sina: brain and memory tonic (Hot 3°",
-        "Dry 3°); dries phlegm; liver ⚠ Toxic above 2–3 g (Qanun Bk. II)"
+        "Dry 3°); dries phlegm; liver ⚠ Toxic above 2–3 g (Qanun Bk. II)",
+        "Ibn Sina",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -26426,7 +26577,7 @@
       "name_sci": "Trachyspermum ammi",
       "cat": "Herbs & kitchen",
       "notes": "Both",
-      "evidence_level": "Al-Biruni,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -26437,7 +26588,9 @@
       ],
       "sources": [
         "Strongest carminative in Unani; colic; flatulence; anthelmintic; warms cold stomach (Al-Biruni",
-        "Saydana)"
+        "Saydana)",
+        "Al-Biruni",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -26447,7 +26600,7 @@
       "name_sci": "Olea europaea",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Abu al-Khayr,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26456,7 +26609,11 @@
         "food"
       ],
       "sources": [
-        "Most detailed tree chapter; Ibn Sina: warm olive oil as first-line antidote to internal poisoning (Qanun Bk. V)"
+        "Most detailed tree chapter; Ibn Sina: warm olive oil as first-line antidote to internal poisoning (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Abu al-Khayr",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26466,7 +26623,7 @@
       "name_sci": "Phoenix dactylifera",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26475,7 +26632,11 @@
         "food"
       ],
       "sources": [
-        "Hand pollination; Ibn Sina: dates restore vital moisture in elderly; aphrodisiac and longevity tonic (Qanun Bk. I)"
+        "Hand pollination; Ibn Sina: dates restore vital moisture in elderly; aphrodisiac and longevity tonic (Qanun Bk. I)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26485,7 +26646,7 @@
       "name_sci": "Vitis vinifera",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26497,7 +26658,10 @@
         "Most extensively treated; pruning calendar",
         "grafting",
         "pests",
-        "soil"
+        "soil",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Al-Tighnari"
       ],
       "_flags": []
     },
@@ -26507,7 +26671,7 @@
       "name_sci": "Ficus carica",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26516,7 +26680,10 @@
         "food"
       ],
       "sources": [
-        "Caprification noted; Ibn Sina: boiled fig gargle ripens quinsy abscess; gentle laxative; spleen tonic"
+        "Caprification noted; Ibn Sina: boiled fig gargle ripens quinsy abscess; gentle laxative; spleen tonic",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26526,7 +26693,7 @@
       "name_sci": "Ficus carica (caprifig)",
       "cat": "Fruit trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26535,7 +26702,8 @@
         "food"
       ],
       "sources": [
-        "Used for caprification of cultivated fig; separate management notes"
+        "Used for caprification of cultivated fig; separate management notes",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26545,7 +26713,7 @@
       "name_sci": "Punica granatum",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26557,7 +26725,10 @@
         "Grafting between varieties; peel: most versatile hakim astringent — fever",
         "diarrhea",
         "haemorrhoids",
-        "gum wash (Qanun)"
+        "gum wash (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26567,7 +26738,7 @@
       "name_sci": "Cydonia oblonga",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26578,7 +26749,9 @@
       "sources": [
         "Grafting rootstock; Ibn Sina: seed mucilage for stomach",
         "diabetes",
-        "excessive menstrual bleeding (Qanun Bk. III)"
+        "excessive menstrual bleeding (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26588,7 +26761,7 @@
       "name_sci": "Malus domestica",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26597,7 +26770,9 @@
         "food"
       ],
       "sources": [
-        "Grafted on quince; roasted apple pulp as classical astringent food-medicine for diarrhea"
+        "Grafted on quince; roasted apple pulp as classical astringent food-medicine for diarrhea",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26607,7 +26782,7 @@
       "name_sci": "Malus sylvestris",
       "cat": "Fruit trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26616,7 +26791,8 @@
         "food"
       ],
       "sources": [
-        "Used as rootstock for cultivated apple"
+        "Used as rootstock for cultivated apple",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26626,7 +26802,7 @@
       "name_sci": "Pyrus communis",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26635,7 +26811,8 @@
         "food"
       ],
       "sources": [
-        "Grafted on quince for improved size; soil moisture requirements"
+        "Grafted on quince for improved size; soil moisture requirements",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26645,7 +26822,7 @@
       "name_sci": "Pyrus pyraster",
       "cat": "Fruit trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26654,7 +26831,8 @@
         "food"
       ],
       "sources": [
-        "Rootstock for cultivated pear; noted as vigorous"
+        "Rootstock for cultivated pear; noted as vigorous",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26664,7 +26842,7 @@
       "name_sci": "Prunus dulcis",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26675,7 +26853,10 @@
       "sources": [
         "Early bloomer; frost protection; Ibn Sina: almond milk (shīr bādām) for wasting",
         "brain tonic",
-        "lung (Qanun Bk. II)"
+        "lung (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26685,7 +26866,7 @@
       "name_sci": "Prunus persica",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26694,7 +26875,9 @@
         "food"
       ],
       "sources": [
-        "Short-lived tree noted; grafting techniques; variety improvement"
+        "Short-lived tree noted; grafting techniques; variety improvement",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -26704,7 +26887,7 @@
       "name_sci": "Prunus armeniaca",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26713,7 +26896,8 @@
         "food"
       ],
       "sources": [
-        "Grafting techniques; drying and preservation methods"
+        "Grafting techniques; drying and preservation methods",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26723,7 +26907,7 @@
       "name_sci": "Prunus domestica",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26732,7 +26916,9 @@
         "food"
       ],
       "sources": [
-        "Multiple varieties; plum stewed as gentle laxative for constipation in the elderly (Qanun Bk. I regimen)"
+        "Multiple varieties; plum stewed as gentle laxative for constipation in the elderly (Qanun Bk. I regimen)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26742,7 +26928,7 @@
       "name_sci": "Prunus insititia",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26752,7 +26938,8 @@
       ],
       "sources": [
         "Listed as separate plum type; smaller fruit",
-        "more acid"
+        "more acid",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26762,7 +26949,7 @@
       "name_sci": "Prunus avium",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26771,7 +26958,8 @@
         "food"
       ],
       "sources": [
-        "Cool climate; grafting noted; fruiting calendar"
+        "Cool climate; grafting noted; fruiting calendar",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26781,7 +26969,7 @@
       "name_sci": "Prunus cerasus",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26790,7 +26978,8 @@
         "food"
       ],
       "sources": [
-        "Noted as distinct from sweet cherry; sour fruit uses"
+        "Noted as distinct from sweet cherry; sour fruit uses",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26800,7 +26989,7 @@
       "name_sci": "Juglans regia",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26809,7 +26998,9 @@
         "food"
       ],
       "sources": [
-        "Allelopathic; Ibn Sina: 7 walnuts + almonds + dates = classical elderly morning brain-tonic formula (Qanun Bk. I)"
+        "Allelopathic; Ibn Sina: 7 walnuts + almonds + dates = classical elderly morning brain-tonic formula (Qanun Bk. I)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26819,7 +27010,7 @@
       "name_sci": "Citrus medica",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26828,7 +27019,9 @@
         "food"
       ],
       "sources": [
-        "Earliest citrus in texts; frost sensitivity; rich soil"
+        "Earliest citrus in texts; frost sensitivity; rich soil",
+        "Ibn al-Awwam",
+        "Al-Tighnari"
       ],
       "_flags": []
     },
@@ -26838,7 +27031,7 @@
       "name_sci": "Citrus aurantium",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26847,7 +27040,9 @@
         "food"
       ],
       "sources": [
-        "Primary rootstock for other citrus; grafting extensively described"
+        "Primary rootstock for other citrus; grafting extensively described",
+        "Ibn al-Awwam",
+        "Al-Tighnari"
       ],
       "_flags": []
     },
@@ -26857,7 +27052,7 @@
       "name_sci": "Citrus limon",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26866,7 +27061,8 @@
         "food"
       ],
       "sources": [
-        "Grafted on sour orange; soil and irrigation prescriptions"
+        "Grafted on sour orange; soil and irrigation prescriptions",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26876,7 +27072,7 @@
       "name_sci": "Citrus sinensis",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26885,7 +27081,8 @@
         "food"
       ],
       "sources": [
-        "Mentioned as variant; early cultivation in Andalusia"
+        "Mentioned as variant; early cultivation in Andalusia",
+        "Al-Tighnari"
       ],
       "_flags": []
     },
@@ -26895,7 +27092,7 @@
       "name_sci": "Citrus aurantiifolia",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26904,7 +27101,8 @@
         "food"
       ],
       "sources": [
-        "Listed in citrus section; smaller sour fruit"
+        "Listed in citrus section; smaller sour fruit",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26914,7 +27112,7 @@
       "name_sci": "Morus nigra",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26923,7 +27121,8 @@
         "food"
       ],
       "sources": [
-        "Fruit and timber; cuttings propagation; shade tree"
+        "Fruit and timber; cuttings propagation; shade tree",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26933,7 +27132,7 @@
       "name_sci": "Morus alba",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26942,7 +27141,8 @@
         "food"
       ],
       "sources": [
-        "Silkworm host; leaves as fodder; noted separately"
+        "Silkworm host; leaves as fodder; noted separately",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26952,7 +27152,7 @@
       "name_sci": "Ceratonia siliqua",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26961,7 +27161,8 @@
         "food"
       ],
       "sources": [
-        "Dryland; long-lived; poor soil; pods as fodder"
+        "Dryland; long-lived; poor soil; pods as fodder",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -26971,7 +27172,7 @@
       "name_sci": "Ziziphus jujuba",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26980,7 +27181,9 @@
         "food"
       ],
       "sources": [
-        "Drought-tolerant; Ibn Sina notes jujube in throat decoctions and as cough food-medicine"
+        "Drought-tolerant; Ibn Sina notes jujube in throat decoctions and as cough food-medicine",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -26990,7 +27193,7 @@
       "name_sci": "Ziziphus lotus",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -26999,7 +27202,8 @@
         "food"
       ],
       "sources": [
-        "Wild relative of jujube; North African contexts"
+        "Wild relative of jujube; North African contexts",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -27009,7 +27213,7 @@
       "name_sci": "Pistacia vera",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27018,7 +27222,8 @@
         "food"
       ],
       "sources": [
-        "Grafted on P. terebinthus; hot dry climate"
+        "Grafted on P. terebinthus; hot dry climate",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27028,7 +27233,7 @@
       "name_sci": "Pistacia terebinthus",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27037,7 +27242,8 @@
         "food"
       ],
       "sources": [
-        "Rootstock for pistachio; resin and minor edible nut; astringent medicinal use"
+        "Rootstock for pistachio; resin and minor edible nut; astringent medicinal use",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27047,7 +27253,7 @@
       "name_sci": "Pistacia lentiscus",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27058,7 +27264,8 @@
       "sources": [
         "Resin harvest (mastic); Ibn Sina: gastric protectant",
         "gum disease",
-        "peptic pain (Qanun)"
+        "peptic pain (Qanun)",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27068,7 +27275,7 @@
       "name_sci": "Pinus pinea",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27080,7 +27287,9 @@
         "Seed harvest; Ibn Sina: lung and sexual tonic",
         "wasting",
         "anti-aging",
-        "aphrodisiac (Qanun Bk. II)"
+        "aphrodisiac (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -27090,7 +27299,7 @@
       "name_sci": "Corylus avellana",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27099,7 +27308,8 @@
         "food"
       ],
       "sources": [
-        "Nut tree; propagation from suckers; moist slopes"
+        "Nut tree; propagation from suckers; moist slopes",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27109,7 +27319,7 @@
       "name_sci": "Musa sp.",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27118,7 +27328,8 @@
         "food"
       ],
       "sources": [
-        "Southern climates; offshoot propagation; heavy irrigation"
+        "Southern climates; offshoot propagation; heavy irrigation",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27128,7 +27339,7 @@
       "name_sci": "Crataegus azarolus",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27138,7 +27349,9 @@
       ],
       "sources": [
         "Grafting rootstock; Ibn Sina and Ibn Baytar: cardiac tonic",
-        "checks palpitations (sherbet)"
+        "checks palpitations (sherbet)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar"
       ],
       "_flags": []
     },
@@ -27148,7 +27361,7 @@
       "name_sci": "Mespilus germanica",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27157,7 +27370,8 @@
         "food"
       ],
       "sources": [
-        "Cool climate fruit tree; grafted on hawthorn"
+        "Cool climate fruit tree; grafted on hawthorn",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27167,7 +27381,7 @@
       "name_sci": "Sorbus domestica",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27176,7 +27390,8 @@
         "food"
       ],
       "sources": [
-        "Listed among lesser fruit trees; astringent fruit"
+        "Listed among lesser fruit trees; astringent fruit",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27186,7 +27401,7 @@
       "name_sci": "Cornus mas",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27195,7 +27410,8 @@
         "food"
       ],
       "sources": [
-        "Sour fruit; tolerance of poor soils"
+        "Sour fruit; tolerance of poor soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27205,7 +27421,7 @@
       "name_sci": "Tamarindus indica",
       "cat": "Fruit trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27216,7 +27432,9 @@
       "sources": [
         "Tropical; Ibn Sina: sherbet for bilious fever",
         "mild laxative",
-        "quenches fever thirst (Qanun Bk. III)"
+        "quenches fever thirst (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -27226,7 +27444,7 @@
       "name_sci": "Hyphaene thebaica",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27235,7 +27453,8 @@
         "food"
       ],
       "sources": [
-        "African palm; mentioned alongside date palm cultivation"
+        "African palm; mentioned alongside date palm cultivation",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -27245,7 +27464,7 @@
       "name_sci": "Ficus sycomorus",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27254,7 +27473,8 @@
         "food"
       ],
       "sources": [
-        "Warm regions; edible fruit; cultivated"
+        "Warm regions; edible fruit; cultivated",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27264,7 +27484,7 @@
       "name_sci": "Celtis australis",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27273,7 +27493,8 @@
         "food"
       ],
       "sources": [
-        "Berry-producing shade tree; dryland contexts"
+        "Berry-producing shade tree; dryland contexts",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27283,7 +27504,7 @@
       "name_sci": "Arbutus unedo",
       "cat": "Fruit trees",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -27292,7 +27513,8 @@
         "food"
       ],
       "sources": [
-        "Edible fruit; Mediterranean scrub"
+        "Edible fruit; Mediterranean scrub",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -27302,7 +27524,7 @@
       "name_sci": "Crocus sativus",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27314,7 +27536,10 @@
         "Corm planting; drainage critical; Ibn Sina: cardiac tonic",
         "brain strengthener",
         "melancholy",
-        "aging (Qanun Bk. II)"
+        "aging (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27326,7 +27551,7 @@
       "name_sci": "Rosa damascena",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27336,7 +27561,10 @@
       ],
       "sources": [
         "Pruning calendar; rose water distillation; Ibn Sina: universal fever cooler",
-        "cardiac tonic (Qanun Bk. II)"
+        "cardiac tonic (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27348,7 +27576,7 @@
       "name_sci": "Rosa gallica",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27357,7 +27585,8 @@
         "aromatic"
       ],
       "sources": [
-        "Red rose; noted as separate cultivar; petals used medicinally"
+        "Red rose; noted as separate cultivar; petals used medicinally",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27369,7 +27598,7 @@
       "name_sci": "Rosa canina",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27378,7 +27607,8 @@
         "aromatic"
       ],
       "sources": [
-        "Wild rose; rootstock; hips as medicinal cooling astringent"
+        "Wild rose; rootstock; hips as medicinal cooling astringent",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27390,7 +27620,7 @@
       "name_sci": "Jasminum officinale",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27399,7 +27629,9 @@
         "aromatic"
       ],
       "sources": [
-        "Fragrant climber; trellis culture; perfume; warming oil uses in Ibn Sina"
+        "Fragrant climber; trellis culture; perfume; warming oil uses in Ibn Sina",
+        "Ibn al-Awwam",
+        "Al-Tighnari"
       ],
       "_flags": [
         "INC-01"
@@ -27411,7 +27643,7 @@
       "name_sci": "Jasminum sambac",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27420,7 +27652,9 @@
         "aromatic"
       ],
       "sources": [
-        "Used in perfumery; warm climate"
+        "Used in perfumery; warm climate",
+        "Ibn al-Awwam",
+        "Al-Tighnari"
       ],
       "_flags": [
         "INC-01"
@@ -27432,7 +27666,7 @@
       "name_sci": "Myrtus communis",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27443,7 +27677,9 @@
       "sources": [
         "Aromatic hedge shrub; Ibn Sina: myrtle berry for haemoptysis",
         "intestinal bleeding",
-        "astringent (Qanun)"
+        "astringent (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27455,7 +27691,7 @@
       "name_sci": "Viola odorata",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27468,7 +27704,9 @@
         "cough",
         "pleurisy",
         "chest (Cold 1°",
-        "Moist 1°)"
+        "Moist 1°)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27480,7 +27718,7 @@
       "name_sci": "Lavandula latifolia",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27492,7 +27730,9 @@
         "Drought-tolerant; Ibn Sina: melancholy",
         "cold depression",
         "epilepsy",
-        "nasal catarrh (Ma'jun Ustukhudus)"
+        "nasal catarrh (Ma'jun Ustukhudus)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27504,7 +27744,7 @@
       "name_sci": "Lavandula stoechas",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27516,7 +27756,9 @@
         "Ibn Sina: cold headache",
         "phlegmatic brain",
         "insomnia",
-        "epilepsy (Qanun Bk. II)"
+        "epilepsy (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27528,7 +27770,7 @@
       "name_sci": "Narcissus sp.",
       "cat": "Aromatics & perfume",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Al-Tighnari",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27537,7 +27779,9 @@
         "aromatic"
       ],
       "sources": [
-        "Bulb flower; heavily grown in Andalusian gardens for perfume"
+        "Bulb flower; heavily grown in Andalusian gardens for perfume",
+        "Ibn al-Awwam",
+        "Al-Tighnari"
       ],
       "_flags": [
         "INC-01"
@@ -27549,7 +27793,7 @@
       "name_sci": "Nymphaea lotus",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27558,7 +27802,9 @@
         "aromatic"
       ],
       "sources": [
-        "Aromatic aquatic; water garden; cooling and nervine properties noted"
+        "Aromatic aquatic; water garden; cooling and nervine properties noted",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -27570,7 +27816,7 @@
       "name_sci": "Iris germanica",
       "cat": "Aromatics & perfume",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27579,7 +27825,8 @@
         "aromatic"
       ],
       "sources": [
-        "Aromatic rhizome; Ibn Sina: orris root as expectorant component in respiratory formulas"
+        "Aromatic rhizome; Ibn Sina: orris root as expectorant component in respiratory formulas",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27591,7 +27838,7 @@
       "name_sci": "Lilium candidum",
       "cat": "Aromatics & perfume",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27600,7 +27847,8 @@
         "aromatic"
       ],
       "sources": [
-        "White lily; bulb cultivation; medicinal and ornamental"
+        "White lily; bulb cultivation; medicinal and ornamental",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27612,7 +27860,7 @@
       "name_sci": "Anemone coronaria",
       "cat": "Aromatics & perfume",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27621,7 +27869,8 @@
         "aromatic"
       ],
       "sources": [
-        "Garden flower; spring bloomer"
+        "Garden flower; spring bloomer",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27633,7 +27882,7 @@
       "name_sci": "Matthiola incana",
       "cat": "Aromatics & perfume",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27642,7 +27891,8 @@
         "aromatic"
       ],
       "sources": [
-        "Aromatic flowering herb; Andalusian gardens"
+        "Aromatic flowering herb; Andalusian gardens",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27654,7 +27904,7 @@
       "name_sci": "Hyacinthus orientalis",
       "cat": "Aromatics & perfume",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27663,7 +27913,8 @@
         "aromatic"
       ],
       "sources": [
-        "Bulb flower; garden beds; aromatic"
+        "Bulb flower; garden beds; aromatic",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -27675,7 +27926,7 @@
       "name_sci": "Matricaria chamomilla",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27687,7 +27938,10 @@
         "Soil indicator; Ibn Sina: children's colic",
         "cold headache",
         "warm joint poultice",
-        "antispasmodic (Qanun)"
+        "antispasmodic (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27699,7 +27953,7 @@
       "name_sci": "Inula helenium",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27710,7 +27964,10 @@
       "sources": [
         "Medicinal root; moist soil; Ibn Sina: chronic bronchitis",
         "old impacted phlegm",
-        "asthma (Qanun Bk. II)"
+        "asthma (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27722,7 +27979,7 @@
       "name_sci": "Valeriana officinalis",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27734,7 +27991,10 @@
         "Sedative root; moist soils; Ibn Sina: insomnia",
         "anxiety",
         "epilepsy",
-        "nerve spasm (Qanun Bk. III)"
+        "nerve spasm (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27746,7 +28006,7 @@
       "name_sci": "Mandragora officinarum",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn al-Baytar,Al-Zahrawi",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27755,7 +28015,10 @@
         "medicinal"
       ],
       "sources": [
-        "Narcotic root; Al-Zahrawi: third component of surgical anesthetic sponge (isfanj al-marqid) ⚠ CAUTION"
+        "Narcotic root; Al-Zahrawi: third component of surgical anesthetic sponge (isfanj al-marqid) ⚠ CAUTION",
+        "Ibn Wahshiyya",
+        "Ibn al-Baytar",
+        "Al-Zahrawi"
       ],
       "_flags": [
         "INC-01"
@@ -27767,7 +28030,7 @@
       "name_sci": "Glycyrrhiza glabra",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27780,7 +28043,10 @@
         "soothes bronchi",
         "hoarseness",
         "throat",
-        "children's cough"
+        "children's cough",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27792,7 +28058,7 @@
       "name_sci": "Zingiber officinale",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27805,7 +28071,9 @@
         "nausea",
         "joint pain",
         "obesity",
-        "reproductive"
+        "reproductive",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27817,7 +28085,7 @@
       "name_sci": "Curcuma longa",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Baytar,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27830,7 +28098,9 @@
         "jaundice",
         "joint swelling",
         "skin infections",
-        "blood purifier (Al-Biruni)"
+        "blood purifier (Al-Biruni)",
+        "Ibn al-Baytar",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -27842,7 +28112,7 @@
       "name_sci": "Aloe vera",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27853,7 +28123,10 @@
       "sources": [
         "Succulent; dry soils; Ibn Sina: purgative (latex)",
         "wound healing (gel)",
-        "liver cleanser (Qanun Bk. V)"
+        "liver cleanser (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27865,7 +28138,7 @@
       "name_sci": "Colchicum autumnale",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27874,7 +28147,10 @@
         "medicinal"
       ],
       "sources": [
-        "Corm; Ibn Sina's specific gout remedy; post-islah only — boil in vinegar 1h ⚠ CAUTION TOXIC RAW"
+        "Corm; Ibn Sina's specific gout remedy; post-islah only — boil in vinegar 1h ⚠ CAUTION TOXIC RAW",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27886,7 +28162,7 @@
       "name_sci": "Capparis spinosa",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27897,7 +28173,9 @@
       "sources": [
         "Dryland shrub; edible pickled buds; root bark: Ibn Sina's chief liver opener",
         "dropsy",
-        "spleen (Qanun Bk. III)"
+        "spleen (Qanun Bk. III)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27909,7 +28187,7 @@
       "name_sci": "Pistacia lentiscus (resin)",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27922,7 +28200,10 @@
         "peptic pain",
         "gum disease",
         "oral hygiene",
-        "memory tonic (Qanun)"
+        "memory tonic (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27934,7 +28215,7 @@
       "name_sci": "Nardostachys jatamansi",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27946,7 +28227,10 @@
         "Aromatic root; Ibn Sina: brain and memory tonic",
         "post-stroke",
         "melancholy",
-        "nerve (Qanun Bk. II)"
+        "nerve (Qanun Bk. II)",
+        "Ibn Wahshiyya",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27958,7 +28242,7 @@
       "name_sci": "Saussurea costus",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27970,7 +28254,9 @@
         "Aromatic root; anti-pest fumigant; Ibn Sina: deafness",
         "paralysis",
         "bronchitis",
-        "ear (Qanun Bk. II)"
+        "ear (Qanun Bk. II)",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -27982,7 +28268,7 @@
       "name_sci": "Acorus calamus",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -27993,7 +28279,10 @@
       "sources": [
         "Aromatic rhizome; waterside; Ibn Sina: clears phlegm from brain",
         "memory (waj)",
-        "deafness"
+        "deafness",
+        "Ibn Wahshiyya",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28005,7 +28294,7 @@
       "name_sci": "Cyperus esculentus / C. longus",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28014,7 +28303,8 @@
         "medicinal"
       ],
       "sources": [
-        "Tuber harvest; water margins; edible tiger nut; medicinal diuretic and digestive use"
+        "Tuber harvest; water margins; edible tiger nut; medicinal diuretic and digestive use",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -28026,7 +28316,7 @@
       "name_sci": "Lawsonia inermis",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28038,7 +28328,9 @@
         "Dye shrub; Ibn Sina: burns",
         "skin cooling",
         "anti-fungal",
-        "children's fever (soles) (Qanun)"
+        "children's fever (soles) (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28050,7 +28342,7 @@
       "name_sci": "Rhus coriaria",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28061,7 +28353,9 @@
       "sources": [
         "Tanning and condiment; food souring; Ibn Sina: astringent for diarrhea",
         "throat",
-        "bleeding"
+        "bleeding",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28073,7 +28367,7 @@
       "name_sci": "Glycyrrhiza echinata",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28082,7 +28376,8 @@
         "medicinal"
       ],
       "sources": [
-        "Wild form noted alongside cultivated liquorice"
+        "Wild form noted alongside cultivated liquorice",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28094,7 +28389,7 @@
       "name_sci": "Marrubium vulgare",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28103,7 +28398,8 @@
         "medicinal"
       ],
       "sources": [
-        "Medicinal bitter herb; dry soils; respiratory expectorant"
+        "Medicinal bitter herb; dry soils; respiratory expectorant",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -28115,7 +28411,7 @@
       "name_sci": "Anacyclus pyrethrum",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28127,7 +28423,9 @@
         "Stimulant root; Ibn Sina: facial palsy",
         "hemiplegia",
         "toothache",
-        "throat paralysis (Qanun Bk. III)"
+        "throat paralysis (Qanun Bk. III)",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28139,7 +28437,7 @@
       "name_sci": "Silybum marianum",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28148,7 +28446,8 @@
         "medicinal"
       ],
       "sources": [
-        "Liver medicinal; edible thistle; wild plant context"
+        "Liver medicinal; edible thistle; wild plant context",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28160,7 +28459,7 @@
       "name_sci": "Plantago ovata",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Biruni,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28172,7 +28471,9 @@
         "Bulk laxative; demulcent; soothes intestine",
         "kidney",
         "haemorrhoids (Al-Biruni",
-        "Saydana; Ibn Baytar)"
+        "Saydana; Ibn Baytar)",
+        "Al-Biruni",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28184,7 +28485,7 @@
       "name_sci": "Commiphora myrrha",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Dioscorides,Al-Zahrawi",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28197,7 +28498,10 @@
         "antiseptic",
         "dysentery",
         "emmenagogue",
-        "plague fumigant (Qanun; Dioscorides)"
+        "plague fumigant (Qanun; Dioscorides)",
+        "Ibn Sina",
+        "Dioscorides",
+        "Al-Zahrawi"
       ],
       "_flags": [
         "INC-01"
@@ -28209,7 +28513,7 @@
       "name_sci": "Boswellia sacra",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Zahrawi,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28218,7 +28522,10 @@
         "medicinal"
       ],
       "sources": [
-        "Resin; Al-Zahrawi: wound plasters; fumigant; bronchitis; plague prevention (Al-Tasrif; Qanun Bk. IV)"
+        "Resin; Al-Zahrawi: wound plasters; fumigant; bronchitis; plague prevention (Al-Tasrif; Qanun Bk. IV)",
+        "Ibn Sina",
+        "Al-Zahrawi",
+        "Dioscorides"
       ],
       "_flags": [
         "INC-01"
@@ -28230,7 +28537,7 @@
       "name_sci": "Cassia senna",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28242,7 +28549,9 @@
         "Leaf; Ibn Sina: gentle laxative",
         "liver congestion",
         "gout bile purge",
-        "jaundice (Qanun; Al-Biruni)"
+        "jaundice (Qanun; Al-Biruni)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28254,7 +28563,7 @@
       "name_sci": "Terminalia chebula",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Al-Biruni,Hakim Ajmal Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28266,7 +28575,10 @@
         "Fruit; Ibn Sina: brain tonic",
         "liver",
         "epilepsy",
-        "constipation; edible in food preparations (Qanun)"
+        "constipation; edible in food preparations (Qanun)",
+        "Ibn Sina",
+        "Al-Biruni",
+        "Hakim Ajmal Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28278,7 +28590,7 @@
       "name_sci": "Phyllanthus emblica",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Al-Biruni,Hakim Ajmal Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28291,7 +28603,9 @@
         "anti-aging",
         "women's health",
         "liver",
-        "bleeding (Saydana)"
+        "bleeding (Saydana)",
+        "Al-Biruni",
+        "Hakim Ajmal Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28303,7 +28617,7 @@
       "name_sci": "Terminalia bellirica",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Biruni,Hakim Ajmal Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28314,7 +28628,9 @@
       "sources": [
         "Fruit; Al-Biruni: phlegm expellant",
         "respiratory",
-        "component of triphala (Saydana)"
+        "component of triphala (Saydana)",
+        "Al-Biruni",
+        "Hakim Ajmal Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28326,7 +28642,7 @@
       "name_sci": "Withania somnifera",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Biruni,Hakim Ajmal Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28337,7 +28653,9 @@
       "sources": [
         "Root; Al-Biruni: anti-aging nervine tonic",
         "wasting",
-        "reproductive tonic (Saydana; Qarabadin)"
+        "reproductive tonic (Saydana; Qarabadin)",
+        "Al-Biruni",
+        "Hakim Ajmal Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28349,7 +28667,7 @@
       "name_sci": "Fumaria officinalis",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28363,7 +28681,9 @@
         "spleen",
         "melancholy",
         "jaundice",
-        "gout — 40-day course (Qanun)"
+        "gout — 40-day course (Qanun)",
+        "Ibn Sina",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28375,7 +28695,7 @@
       "name_sci": "Berberis vulgaris",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28387,7 +28707,9 @@
         "Shrub; edible tart berries; Ibn Sina: liver",
         "bile",
         "jaundice",
-        "urinary; berry sherbet (Qanun; Al-Biruni)"
+        "urinary; berry sherbet (Qanun; Al-Biruni)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28399,7 +28721,7 @@
       "name_sci": "Althaea officinalis",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28411,7 +28733,9 @@
         "Root; Ibn Sina: soothes burning urination",
         "kidney inflammation",
         "stone passage",
-        "dry cough (Qanun Bk. III)"
+        "dry cough (Qanun Bk. III)",
+        "Ibn Sina",
+        "Dioscorides"
       ],
       "_flags": [
         "INC-01"
@@ -28423,7 +28747,7 @@
       "name_sci": "Verbascum thapsus",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Dioscorides,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28434,7 +28758,9 @@
       "sources": [
         "Leaf; decoction and fumigation; Dioscorides Arabic: chest phlegm",
         "cough",
-        "hoarseness"
+        "hoarseness",
+        "Dioscorides",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28446,7 +28772,7 @@
       "name_sci": "Adiantum capillus-veneris",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Dioscorides,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28455,7 +28781,9 @@
         "medicinal"
       ],
       "sources": [
-        "Frond; Dioscorides Arabic: classical bronchial soother; syrup (sharāb al-bussfāyij) for chest"
+        "Frond; Dioscorides Arabic: classical bronchial soother; syrup (sharāb al-bussfāyij) for chest",
+        "Dioscorides",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28467,7 +28795,7 @@
       "name_sci": "Salvadora persica",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28478,7 +28806,9 @@
       "sources": [
         "Twig as toothbrush; Ibn Sina: strengthens gums",
         "antibacterial",
-        "daily oral hygiene (Qanun Bk. III)"
+        "daily oral hygiene (Qanun Bk. III)",
+        "Ibn Sina",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28490,7 +28820,7 @@
       "name_sci": "Dracaena cinnabari",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Biruni,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28501,7 +28831,9 @@
       "sources": [
         "Resin; Al-Biruni: powerful haemostatic for wounds",
         "haemoptysis",
-        "astringent (Saydana)"
+        "astringent (Saydana)",
+        "Al-Biruni",
+        "Dioscorides"
       ],
       "_flags": [
         "INC-01"
@@ -28513,7 +28845,7 @@
       "name_sci": "Peganum harmala",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28522,7 +28854,9 @@
         "medicinal"
       ],
       "sources": [
-        "Seed; Ibn Sina: lithotriptic for kidney stones; spleen; anthelmintic ⚠ Avoid in pregnancy (Qanun Bk. III)"
+        "Seed; Ibn Sina: lithotriptic for kidney stones; spleen; anthelmintic ⚠ Avoid in pregnancy (Qanun Bk. III)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28534,7 +28868,7 @@
       "name_sci": "Saxifraga granulata",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Dioscorides,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28544,7 +28878,9 @@
       ],
       "sources": [
         "Root/seed; Dioscorides Arabic: chief stone-breaker",
-        "kidney stone dissolution"
+        "kidney stone dissolution",
+        "Dioscorides",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28556,7 +28892,7 @@
       "name_sci": "Dorema ammoniacum",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28569,7 +28905,9 @@
         "asthma",
         "antispasmodic",
         "ear pain (Qanun Bk. III) ⚠ Venice Latin 'assa' is unreliable — Arabic أشق (Al-Biruni",
-        "Saydana) is primary"
+        "Saydana) is primary",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28581,7 +28919,7 @@
       "name_sci": "Agrimonia eupatoria",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Dioscorides,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28592,7 +28930,9 @@
       "sources": [
         "Herb; Dioscorides Arabic: liver tonic",
         "mild astringent",
-        "chronic liver weakness (Ibn Baytar)"
+        "chronic liver weakness (Ibn Baytar)",
+        "Dioscorides",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28604,7 +28944,7 @@
       "name_sci": "Cassia fistula",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Hakim Sharif Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28615,7 +28955,9 @@
       "sources": [
         "Pulp of pods; Ibn Sina: gentlest laxative",
         "safe for children and elderly",
-        "demulcent (Hakim Sharif Khan)"
+        "demulcent (Hakim Sharif Khan)",
+        "Ibn Sina",
+        "Hakim Sharif Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28627,7 +28969,7 @@
       "name_sci": "Ferula galbaniflua",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28639,7 +28981,9 @@
         "Resin; Ibn Sina: ear pain",
         "antispasmodic",
         "nasal errhine",
-        "phlegmatic obstruction (Qanun Bk. III)"
+        "phlegmatic obstruction (Qanun Bk. III)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28651,7 +28995,7 @@
       "name_sci": "Quercus infectoria (galls)",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Zahrawi,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28662,7 +29006,9 @@
       "sources": [
         "Galls; Al-Zahrawi: most powerful astringent — gum bleeding",
         "haemorrhoids",
-        "haemostatic (Al-Tasrif)"
+        "haemostatic (Al-Tasrif)",
+        "Al-Zahrawi",
+        "Dioscorides"
       ],
       "_flags": [
         "INC-01"
@@ -28674,7 +29020,7 @@
       "name_sci": "Sisymbrium irio",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Al-Biruni,Hakim Sharif Khan",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28685,7 +29031,9 @@
       "sources": [
         "Seed; Al-Biruni: cooling diuretic",
         "burning urination",
-        "urinary heat (Saydana; Hakim Sharif Khan)"
+        "urinary heat (Saydana; Hakim Sharif Khan)",
+        "Al-Biruni",
+        "Hakim Sharif Khan"
       ],
       "_flags": [
         "INC-01"
@@ -28697,7 +29045,7 @@
       "name_sci": "Smilax aspera",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Hakim Sharif Khan,Qarabadin",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28706,7 +29054,9 @@
         "medicinal"
       ],
       "sources": [
-        "Root; blood purifier; diaphoretic; venereal disease support (Qarabadin; Hakim Sharif Khan)"
+        "Root; blood purifier; diaphoretic; venereal disease support (Qarabadin; Hakim Sharif Khan)",
+        "Hakim Sharif Khan",
+        "Qarabadin"
       ],
       "_flags": [
         "INC-01"
@@ -28718,7 +29068,7 @@
       "name_sci": "Paeonia officinalis",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Dioscorides,Ibn al-Baytar",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28729,7 +29079,9 @@
       "sources": [
         "Root; Dioscorides Arabic: epilepsy",
         "children's convulsions",
-        "nerve spasm (Ibn Baytar)"
+        "nerve spasm (Ibn Baytar)",
+        "Dioscorides",
+        "Ibn al-Baytar"
       ],
       "_flags": [
         "INC-01"
@@ -28741,7 +29093,7 @@
       "name_sci": "Artemisia absinthium",
       "cat": "Medicinal plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28757,7 +29109,10 @@
         "gout",
         "worms",
         "dropsy",
-        "nasal catarrh (Qanun; Dioscorides Arabic)"
+        "nasal catarrh (Qanun; Dioscorides Arabic)",
+        "Ibn al-Awwam",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28769,7 +29124,7 @@
       "name_sci": "Cinnamomum camphora",
       "cat": "Medicinal plants",
       "notes": "Medical",
-      "evidence_level": "Ibn Sina,Al-Biruni",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28781,7 +29136,9 @@
         "Sublimate; Cold 4°",
         "Dry 2°; Ibn Sina: extreme fever",
         "palpitations from heat",
-        "plague fumigant ⚠ Toxic >0.3 g oral (Qanun Bk. II)"
+        "plague fumigant ⚠ Toxic >0.3 g oral (Qanun Bk. II)",
+        "Ibn Sina",
+        "Al-Biruni"
       ],
       "_flags": [
         "INC-01"
@@ -28793,7 +29150,7 @@
       "name_sci": "Gossypium herbaceum",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28805,7 +29162,9 @@
         "Full chapter; irrigation",
         "thinning",
         "harvest",
-        "heavy soil feeder"
+        "heavy soil feeder",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": [
         "INC-01"
@@ -28817,7 +29176,7 @@
       "name_sci": "Linum usitatissimum",
       "cat": "Industrial & fiber",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28826,7 +29185,10 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Fiber and oil; seed mucilage used by Ibn Sina as demulcent laxative and soothing lung remedy"
+        "Fiber and oil; seed mucilage used by Ibn Sina as demulcent laxative and soothing lung remedy",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28838,7 +29200,7 @@
       "name_sci": "Cannabis sativa",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28847,7 +29209,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Fiber use; deep soil; heavy irrigation noted"
+        "Fiber use; deep soil; heavy irrigation noted",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -28859,7 +29222,7 @@
       "name_sci": "Sesamum indicum",
       "cat": "Industrial & fiber",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28871,7 +29234,10 @@
         "Oil crop; Ibn Sina: nutritive tonic",
         "brain and nerve moisture",
         "joint lubrication",
-        "wasting (Qanun Bk. I)"
+        "wasting (Qanun Bk. I)",
+        "Ibn al-Awwam",
+        "Ibn Bassal",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28883,7 +29249,7 @@
       "name_sci": "Carthamus tinctorius",
       "cat": "Industrial & fiber",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28893,7 +29259,9 @@
       ],
       "sources": [
         "Red-yellow dye and oil; Ibn Sina: reproductive tonic (aphrodisiac)",
-        "seed powder (Qanun Bk. II)"
+        "seed powder (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28905,7 +29273,7 @@
       "name_sci": "Isatis tinctoria",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28914,7 +29282,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Blue dye; cool season; heavy nitrogen demand"
+        "Blue dye; cool season; heavy nitrogen demand",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -28926,7 +29295,7 @@
       "name_sci": "Ricinus communis",
       "cat": "Industrial & fiber",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28938,7 +29307,9 @@
         "Lamp oil; Ibn Sina: warm oil as joint massage",
         "suppository",
         "laxative",
-        "antidote emollient (Qanun Bk. V)"
+        "antidote emollient (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -28950,7 +29321,7 @@
       "name_sci": "Saccharum officinarum",
       "cat": "Industrial & fiber",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28959,7 +29330,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Irrigation-intensive; wet soil; ratoon cropping described"
+        "Irrigation-intensive; wet soil; ratoon cropping described",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -28971,7 +29343,7 @@
       "name_sci": "Rubia tinctorum",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -28980,7 +29352,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Red dye root; deep well-drained soil; root harvest after 3 years"
+        "Red dye root; deep well-drained soil; root harvest after 3 years",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -28992,7 +29365,7 @@
       "name_sci": "Indigofera tinctoria",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29001,7 +29374,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Blue dye; fermentation vat dyeing noted"
+        "Blue dye; fermentation vat dyeing noted",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29013,7 +29387,7 @@
       "name_sci": "Cyperus papyrus",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29022,7 +29396,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Wetland; writing material and basket use"
+        "Wetland; writing material and basket use",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29034,7 +29409,7 @@
       "name_sci": "Phragmites australis",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29043,7 +29418,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Thatching; water management; channel lining"
+        "Thatching; water management; channel lining",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29055,7 +29431,7 @@
       "name_sci": "Stipa tenacissima",
       "cat": "Industrial & fiber",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29064,7 +29440,8 @@
         "fiber_industrial"
       ],
       "sources": [
-        "Rope and basket fiber; dryland grass; North Africa"
+        "Rope and basket fiber; dryland grass; North Africa",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29076,7 +29453,7 @@
       "name_sci": "Medicago sativa",
       "cat": "Fodder & green manure",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -29085,7 +29462,9 @@
         "fodder"
       ],
       "sources": [
-        "Primary fodder; multiple annual cuts; soil improvement; deep roots"
+        "Primary fodder; multiple annual cuts; soil improvement; deep roots",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -29095,7 +29474,7 @@
       "name_sci": "Trifolium alexandrinum",
       "cat": "Fodder & green manure",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Bassal",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -29104,7 +29483,9 @@
         "fodder"
       ],
       "sources": [
-        "Green manure; plowed under before cereals; quick nitrogen return"
+        "Green manure; plowed under before cereals; quick nitrogen return",
+        "Ibn al-Awwam",
+        "Ibn Bassal"
       ],
       "_flags": []
     },
@@ -29114,7 +29495,7 @@
       "name_sci": "Hedysarum coronarium",
       "cat": "Fodder & green manure",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -29123,7 +29504,8 @@
         "fodder"
       ],
       "sources": [
-        "Drought-tolerant fodder legume; poor calcareous soils"
+        "Drought-tolerant fodder legume; poor calcareous soils",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29133,7 +29515,7 @@
       "name_sci": "Onobrychis viciifolia",
       "cat": "Fodder & green manure",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -29142,7 +29524,8 @@
         "fodder"
       ],
       "sources": [
-        "Forage legume; calcareous dry soils; fodder lists"
+        "Forage legume; calcareous dry soils; fodder lists",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29152,7 +29535,7 @@
       "name_sci": "Medicago lupulina",
       "cat": "Fodder & green manure",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "groundcover",
@@ -29161,7 +29544,8 @@
         "fodder"
       ],
       "sources": [
-        "Small fodder legume; self-seeds; soil improvement crop"
+        "Small fodder legume; self-seeds; soil improvement crop",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29171,14 +29555,15 @@
       "name_sci": "Cupressus sempervirens",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Windbreak; field edges; ornamental; tall structural tree"
+        "Windbreak; field edges; ornamental; tall structural tree",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29188,14 +29573,15 @@
       "name_sci": "Populus alba / P. nigra",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Canal bank stabilizer; timber; shade; fast growing"
+        "Canal bank stabilizer; timber; shade; fast growing",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29205,7 +29591,7 @@
       "name_sci": "Salix sp.",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -29213,7 +29599,9 @@
       "use": [],
       "sources": [
         "Waterway planting; basket shoots; Ibn Sina: willow bark (Cold 2°",
-        "Dry 1°) as standard fever decoction (Qanun Bk. II)"
+        "Dry 1°) as standard fever decoction (Qanun Bk. II)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -29223,14 +29611,16 @@
       "name_sci": "Tamarix gallica / T. africana",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Salt-tolerant windbreak; saline soil indicator; firewood"
+        "Salt-tolerant windbreak; saline soil indicator; firewood",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -29240,14 +29630,15 @@
       "name_sci": "Ulmus minor",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Vine support tree; shade; timber; trained vine companion"
+        "Vine support tree; shade; timber; trained vine companion",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29257,14 +29648,15 @@
       "name_sci": "Laurus nobilis",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Aromatic windbreak; pest deterrent smoke; culinary; medicinal"
+        "Aromatic windbreak; pest deterrent smoke; culinary; medicinal",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29274,14 +29666,15 @@
       "name_sci": "Platanus orientalis",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Shade tree; riverside planting; fast growing timber"
+        "Shade tree; riverside planting; fast growing timber",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29291,14 +29684,16 @@
       "name_sci": "Quercus ilex",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Evergreen oak; acorns as animal fodder; woodland structure"
+        "Evergreen oak; acorns as animal fodder; woodland structure",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -29308,14 +29703,15 @@
       "name_sci": "Quercus robur",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Deciduous oak; acorn fodder; timber; noted in IW"
+        "Deciduous oak; acorn fodder; timber; noted in IW",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -29325,14 +29721,15 @@
       "name_sci": "Quercus suber",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Cork harvest; bark-stripped tree in Mediterranean context"
+        "Cork harvest; bark-stripped tree in Mediterranean context",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29342,14 +29739,15 @@
       "name_sci": "Cedrus libani",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Prestigious timber tree; landscape references"
+        "Prestigious timber tree; landscape references",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -29359,7 +29757,7 @@
       "name_sci": "Pinus halepensis",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Al-Zahrawi",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -29367,7 +29765,9 @@
       "use": [],
       "sources": [
         "Resin and timber; hillside plantation; pine resin used in wound plasters (Al-Zahrawi",
-        "Al-Tasrif)"
+        "Al-Tasrif)",
+        "Ibn al-Awwam",
+        "Al-Zahrawi"
       ],
       "_flags": []
     },
@@ -29377,7 +29777,7 @@
       "name_sci": "Juniperus oxycedrus / J. phoenicea",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -29386,7 +29786,10 @@
       "sources": [
         "Aromatic timber; hillside; Ibn Sina: diuretic for dropsy",
         "kidney stones",
-        "urinary retention (Qanun)"
+        "urinary retention (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": []
     },
@@ -29396,14 +29799,15 @@
       "name_sci": "Fraxinus angustifolia",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Timber and structural; waterside; listed alongside elm"
+        "Timber and structural; waterside; listed alongside elm",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29413,14 +29817,15 @@
       "name_sci": "Olea europaea var. sylvestris",
       "cat": "Structural trees",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Rootstock for grafted olive; dryland hedgerow use"
+        "Rootstock for grafted olive; dryland hedgerow use",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -29430,7 +29835,7 @@
       "name_sci": "Acacia sp.",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn Wahshiyya,Ibn Sina,Dioscorides",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
@@ -29438,7 +29843,10 @@
       "use": [],
       "sources": [
         "Mesopotamian and North African contexts; gum arabic (صمغ عربي) as hakim demulcent",
-        "wound binder (Dioscorides)"
+        "wound binder (Dioscorides)",
+        "Ibn Wahshiyya",
+        "Ibn Sina",
+        "Dioscorides"
       ],
       "_flags": []
     },
@@ -29448,14 +29856,15 @@
       "name_sci": "Ziziphus spina-christi",
       "cat": "Structural trees",
       "notes": "Both",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "canopy_tree",
       "function": [],
       "use": [],
       "sources": [
-        "Hedge and shade tree; leaves and fruit edible; dry-region farming"
+        "Hedge and shade tree; leaves and fruit edible; dry-region farming",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -29465,14 +29874,17 @@
       "name_sci": "Citrullus colocynthis",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Bitter root as rodent bait; Ibn Sina: in compound purgative pill only (Hab Shiyaf) — drastic ⚠ CAUTION (Qanun Bk. V)"
+        "Bitter root as rodent bait; Ibn Sina: in compound purgative pill only (Hab Shiyaf) — drastic ⚠ CAUTION (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29484,7 +29896,7 @@
       "name_sci": "Hyoscyamus niger",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn al-Baytar,Al-Zahrawi",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29493,7 +29905,10 @@
       "sources": [
         "Narcotic pest smoke; Ibn Sina: toothache oil",
         "antispasmodic in epilepsy compound",
-        "surgical sponge (isfanj) ⚠ CAUTION"
+        "surgical sponge (isfanj) ⚠ CAUTION",
+        "Ibn Wahshiyya",
+        "Ibn al-Baytar",
+        "Al-Zahrawi"
       ],
       "_flags": [
         "INC-01"
@@ -29505,14 +29920,16 @@
       "name_sci": "Helleborus niger",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Root powder against soil insects; Ibn Sina: used in purgative compounds ⚠ CAUTION TOXIC"
+        "Root powder against soil insects; Ibn Sina: used in purgative compounds ⚠ CAUTION TOXIC",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29524,14 +29941,15 @@
       "name_sci": "Veratrum album",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Stronger poison; noted as more lethal; Ibn Sina: anthelmintic compound use ⚠ CAUTION"
+        "Stronger poison; noted as more lethal; Ibn Sina: anthelmintic compound use ⚠ CAUTION",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29543,7 +29961,7 @@
       "name_sci": "Euphorbia resinifera",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29551,7 +29969,9 @@
       "use": [],
       "sources": [
         "Caustic latex pest deterrent; Ibn Sina: post-islah — errhine for severe migraine",
-        "phlegmatic deafness ⚠ CAUTION"
+        "phlegmatic deafness ⚠ CAUTION",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29563,7 +29983,7 @@
       "name_sci": "Ferula assa-foetida",
       "cat": "Toxic & pest-control",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29574,7 +29994,9 @@
         "epilepsy",
         "paralysis",
         "dropsy",
-        "hiccup (Qanun)"
+        "hiccup (Qanun)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29586,14 +30008,15 @@
       "name_sci": "Nerium oleander",
       "cat": "Toxic & pest-control",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Toxic smoke from burned leaves; explicitly deadly fumigant"
+        "Toxic smoke from burned leaves; explicitly deadly fumigant",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29605,14 +30028,16 @@
       "name_sci": "Ecballium elaterium",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Purgative juice in pest baits; Ibn Sina: drastic purgative compound only ⚠ CAUTION TOXIC (Qanun Bk. V)"
+        "Purgative juice in pest baits; Ibn Sina: drastic purgative compound only ⚠ CAUTION TOXIC (Qanun Bk. V)",
+        "Ibn al-Awwam",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29624,14 +30049,15 @@
       "name_sci": "Delphinium staphisagria",
       "cat": "Toxic & pest-control",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Seed powder against lice and insects on plants"
+        "Seed powder against lice and insects on plants",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29643,14 +30069,15 @@
       "name_sci": "Conium maculatum",
       "cat": "Toxic & pest-control",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Deadly plant; agricultural pest-control use described"
+        "Deadly plant; agricultural pest-control use described",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29662,14 +30089,15 @@
       "name_sci": "Datura stramonium",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Narcotic smoke deterrent; Ibn Sina: antispasmodic compound use; sedative at low dose ⚠ CAUTION TOXIC"
+        "Narcotic smoke deterrent; Ibn Sina: antispasmodic compound use; sedative at low dose ⚠ CAUTION TOXIC",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29681,7 +30109,7 @@
       "name_sci": "Aconitum napellus",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya,Ibn al-Baytar,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
@@ -29689,7 +30117,10 @@
       "use": [],
       "sources": [
         "Extreme poison bait; Ibn Sina: post-islah liniment for paralysis",
-        "joint pain ⚠ CAUTION — ISLAH MANDATORY"
+        "joint pain ⚠ CAUTION — ISLAH MANDATORY",
+        "Ibn Wahshiyya",
+        "Ibn al-Baytar",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29701,14 +30132,17 @@
       "name_sci": "Drimia maritima",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya,Ibn Sina",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Bulb rodent poison bait; Ibn Sina: post-islah — cardiac dropsy diuretic ⚠ CAUTION"
+        "Bulb rodent poison bait; Ibn Sina: post-islah — cardiac dropsy diuretic ⚠ CAUTION",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya",
+        "Ibn Sina"
       ],
       "_flags": [
         "INC-01"
@@ -29720,14 +30154,15 @@
       "name_sci": "Daphne gnidium",
       "cat": "Toxic & pest-control",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Berries toxic bait; pest management sections"
+        "Berries toxic bait; pest management sections",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29739,14 +30174,15 @@
       "name_sci": "Salsola soda / Salicornia sp.",
       "cat": "Toxic & pest-control",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Burned for alkali ash; soil amendment and pest wash"
+        "Burned for alkali ash; soil amendment and pest wash",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29758,14 +30194,15 @@
       "name_sci": "Strychnos nux-vomica",
       "cat": "Toxic & pest-control",
       "notes": "Medical",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Strong rodent poison; IW pest control; Ibn Sina notes extreme toxicity ⚠ CAUTION"
+        "Strong rodent poison; IW pest control; Ibn Sina notes extreme toxicity ⚠ CAUTION",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29777,14 +30214,16 @@
       "name_sci": "Lolium temulentum",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Weed in wheat fields; confused with wheat; toxic if eaten"
+        "Weed in wheat fields; confused with wheat; toxic if eaten",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29796,14 +30235,15 @@
       "name_sci": "Salsola kali",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Dryland ash source; saline soils; alkalinity management"
+        "Dryland ash source; saline soils; alkalinity management",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29815,14 +30255,16 @@
       "name_sci": "Sarcopoterium spinosum",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Dryland indicator shrub; soil type descriptions"
+        "Dryland indicator shrub; soil type descriptions",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29834,14 +30276,15 @@
       "name_sci": "Avena fatua",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Weed of cereal fields; distinguishable from crop oat"
+        "Weed of cereal fields; distinguishable from crop oat",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29853,14 +30296,15 @@
       "name_sci": "Convolvulus arvensis",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Persistent field weed; competition noted; control methods"
+        "Persistent field weed; competition noted; control methods",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29872,14 +30316,15 @@
       "name_sci": "Urtica dioica",
       "cat": "Wild & utility plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Nitrogen indicator; noted on rich disturbed soils; edible and medicinal in folk tradition"
+        "Nitrogen indicator; noted on rich disturbed soils; edible and medicinal in folk tradition",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29891,14 +30336,15 @@
       "name_sci": "Asphodelus aestivus",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Poor-soil indicator; noted in IW soil sections"
+        "Poor-soil indicator; noted in IW soil sections",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29910,14 +30356,15 @@
       "name_sci": "Rumex obtusifolius",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Weed indicator; noted as companion problem in fields"
+        "Weed indicator; noted as companion problem in fields",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29929,14 +30376,15 @@
       "name_sci": "Rubus ulmifolius",
       "cat": "Wild & utility plants",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Thorny hedge; boundary plant; fruit edible; minor medicinal astringent"
+        "Thorny hedge; boundary plant; fruit edible; minor medicinal astringent",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29948,14 +30396,16 @@
       "name_sci": "Rhamnus lycioides",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam,Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Thorny hedge shrub; noted as boundary planting"
+        "Thorny hedge shrub; noted as boundary planting",
+        "Ibn al-Awwam",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -29967,14 +30417,15 @@
       "name_sci": "Scolymus hispanicus",
       "cat": "Wild & utility plants",
       "notes": "Food",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Edible thistle; wild food and soil pioneer"
+        "Edible thistle; wild food and soil pioneer",
+        "Ibn al-Awwam"
       ],
       "_flags": [
         "INC-01"
@@ -29986,14 +30437,15 @@
       "name_sci": "Suaeda fruticosa",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Salt-tolerant shrub; saline land indicator; ash for soap"
+        "Salt-tolerant shrub; saline land indicator; ash for soap",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -30005,14 +30457,15 @@
       "name_sci": "Euphorbia peplus",
       "cat": "Wild & utility plants",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": null,
       "function": [],
       "use": [],
       "sources": [
-        "Weed indicator; caustic sap; soil type signal"
+        "Weed indicator; caustic sap; soil type signal",
+        "Ibn Wahshiyya"
       ],
       "_flags": [
         "INC-01"
@@ -30024,14 +30477,15 @@
       "name_sci": "Nelumbo nucifera",
       "cat": "Aquatic & wetland",
       "notes": "Both",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "aquatic_wetland",
       "function": [],
       "use": [],
       "sources": [
-        "Sacred plant; Babylonian agriculture context; sedative cooling properties noted"
+        "Sacred plant; Babylonian agriculture context; sedative cooling properties noted",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -30041,14 +30495,15 @@
       "name_sci": "Typha latifolia",
       "cat": "Aquatic & wetland",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "aquatic_wetland",
       "function": [],
       "use": [],
       "sources": [
-        "Marsh plant; mat weaving; channel-side planting"
+        "Marsh plant; mat weaving; channel-side planting",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -30058,14 +30513,15 @@
       "name_sci": "Mentha aquatica",
       "cat": "Aquatic & wetland",
       "notes": "Both",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "aquatic_wetland",
       "function": [],
       "use": [],
       "sources": [
-        "Channel-edge herb; noted alongside land mint; medicinal as all mint family"
+        "Channel-edge herb; noted alongside land mint; medicinal as all mint family",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -30075,14 +30531,15 @@
       "name_sci": "Spartium junceum",
       "cat": "Shrubs & semi-shrubs",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "shrub",
       "function": [],
       "use": [],
       "sources": [
-        "Fiber; slope stabilizer; dryland; noted in IW"
+        "Fiber; slope stabilizer; dryland; noted in IW",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -30092,14 +30549,15 @@
       "name_sci": "Sambucus ebulus",
       "cat": "Shrubs & semi-shrubs",
       "notes": "Agronomic",
-      "evidence_level": "Ibn Wahshiyya",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "shrub",
       "function": [],
       "use": [],
       "sources": [
-        "Toxic; insect deterrent; noted in IW pest lists"
+        "Toxic; insect deterrent; noted in IW pest lists",
+        "Ibn Wahshiyya"
       ],
       "_flags": []
     },
@@ -30109,14 +30567,15 @@
       "name_sci": "Punica granatum (wild)",
       "cat": "Shrubs & semi-shrubs",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "shrub",
       "function": [],
       "use": [],
       "sources": [
-        "Rootstock for cultivated pomegranate"
+        "Rootstock for cultivated pomegranate",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -30126,14 +30585,15 @@
       "name_sci": "Cotoneaster sp.",
       "cat": "Shrubs & semi-shrubs",
       "notes": "Agronomic",
-      "evidence_level": "Ibn al-Awwam",
+      "evidence_level": "Uncertain",
       "source_file": "islamic_plant_catalog_v2.html",
       "kind": "plant",
       "form": "shrub",
       "function": [],
       "use": [],
       "sources": [
-        "Listed among lesser wild shrubs; hedge planting"
+        "Listed among lesser wild shrubs; hedge planting",
+        "Ibn al-Awwam"
       ],
       "_flags": []
     },
@@ -35393,8 +35853,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35411,8 +35871,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35429,8 +35889,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35447,8 +35907,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35465,8 +35925,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35483,8 +35943,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35945,8 +36405,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35963,8 +36423,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35981,8 +36441,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -35999,8 +36459,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36017,8 +36477,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36035,8 +36495,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36053,8 +36513,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36071,8 +36531,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36089,8 +36549,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36107,8 +36567,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36125,8 +36585,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36143,8 +36603,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []
@@ -36463,8 +36923,8 @@
       "form": "shrub",
       "function": [],
       "use": [
-        "food",
-        "medicinal"
+        "medicinal",
+        "food"
       ],
       "sources": [],
       "_flags": []

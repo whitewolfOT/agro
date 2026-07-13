@@ -98,6 +98,7 @@ _EXTENDED_EDGE_MAP = {
     "animal":           "animal",
 }
 
+_VALID_EVIDENCE = {"Explicit", "Strongly implied", "Modern reconstruction", "Uncertain"}
 _NITROGEN_KEYWORDS = {"nitrogen", "legume", "rhizobium", "frankia", "n-fix", "nodule"}
 _MODERN_REC_KEYWORDS = {
     "ibn al-awwam", "east malling", "uc davis", "icarda", "modern reconstruction"
@@ -180,8 +181,14 @@ def normalize(raw: dict) -> dict:
             # remove INC-01 if it was set (hubs intentionally have no form)
             node["_flags"] = [f for f in node["_flags"] if f != "INC-01"]
 
-        # 5. ensure evidence_level
-        if not node.get("evidence_level"):
+        # 5. ensure evidence_level is canonical; rescue author-name values into sources
+        ev = node.get("evidence_level", "")
+        if ev not in _VALID_EVIDENCE:
+            # looks like a source list got placed here — move it to sources
+            if ev:
+                existing_sources = node.get("sources") or []
+                extra = [s.strip() for s in ev.split(",") if s.strip()]
+                node["sources"] = list(dict.fromkeys(existing_sources + extra))
             node["evidence_level"] = "Uncertain"
 
         # 6. deduplicate function / use
