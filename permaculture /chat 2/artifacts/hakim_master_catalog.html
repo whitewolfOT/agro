@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hakim Medicine — Master Catalog</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#1a1710;--paper:#f8f5ef;--card:#fff;
+  --rule:#ddd8ce;--rule2:#c8c2b6;
+  --olive:#4a6020;--rust:#8c3a14;--indigo:#2d3678;--gold:#8a6000;
+  --sz:11.5px;
+}
+body{font-family:'Spectral',Georgia,serif;font-size:var(--sz);background:var(--paper);color:var(--ink);display:flex;flex-direction:column;height:100vh;overflow:hidden}
+
+/* TOP BAR */
+.topbar{flex-shrink:0;background:var(--ink);color:#e8e2d8;display:flex;align-items:center;gap:1rem;padding:.65rem 1.1rem}
+.topbar h1{font-size:.95rem;font-weight:300;letter-spacing:.06em;white-space:nowrap}
+.topbar h1 b{font-weight:600}
+.topbar input{flex:1;min-width:0;font-family:'Spectral',serif;font-size:.8rem;padding:.3rem .7rem;border:1px solid #555;border-radius:3px;background:#2a2820;color:#e8e2d8;outline:none}
+.topbar input::placeholder{color:#888}
+.topbar input:focus{border-color:#9a8c6a}
+.src-key{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#888;white-space:nowrap}
+
+/* BODY */
+.body{flex:1;display:flex;overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;background:#f0ece3;border-right:1px solid var(--rule2);overflow-y:auto}
+.sidebar-section{padding:.5rem .7rem .2rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#888;letter-spacing:.08em;text-transform:uppercase;border-top:1px solid var(--rule)}
+.sidebar-section:first-child{border-top:none}
+.ail-btn{display:block;width:100%;text-align:left;padding:.4rem .85rem;border:none;background:none;cursor:pointer;font-family:'Spectral',serif;font-size:.8rem;color:#3a3528;line-height:1.35;border-bottom:1px solid var(--rule)}
+.ail-btn:hover{background:#e8e3d8;color:var(--ink)}
+.ail-btn.active{background:var(--ink);color:#e8e2d8}
+.ail-code{font-family:'JetBrains Mono',monospace;font-size:.6rem;opacity:.6;margin-right:.3rem}
+.ail-count{float:right;font-family:'JetBrains Mono',monospace;font-size:.58rem;opacity:.45;padding-top:.15rem}
+
+/* MAIN */
+.main{flex:1;overflow-y:auto;padding:1rem 1.2rem 2rem}
+.ail-header{margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:2px solid var(--rule2)}
+.ail-header h2{font-size:1.1rem;font-weight:600;line-height:1.3}
+.ail-header .arabic{font-size:.85rem;color:#666;font-style:italic;margin-top:.1rem}
+.ail-header .basis{font-size:.78rem;color:#555;margin-top:.3rem;font-style:italic}
+.ail-stats{display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap}
+.astat{font-family:'JetBrains Mono',monospace;font-size:.6rem;padding:.15rem .5rem;border-radius:2px;border:1px solid var(--rule2);color:#666}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:.78rem}
+thead th{background:#f0ece3;padding:.45rem .6rem;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;color:#666;border-bottom:2px solid var(--rule2);position:sticky;top:0;white-space:nowrap;letter-spacing:.04em}
+tbody tr{border-bottom:1px solid #edeae3}
+tbody tr:hover td{background:#faf8f2}
+td{padding:.45rem .6rem;vertical-align:top;line-height:1.45}
+td:first-child{font-weight:600;font-size:.82rem;min-width:110px}
+.ar{font-style:italic;color:#555;font-size:.75rem}
+.temp{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:#3a3528;white-space:nowrap}
+.prep{color:#444;font-size:.75rem}
+.route-tag{display:inline-block;padding:.05rem .35rem;border-radius:2px;font-family:'JetBrains Mono',monospace;font-size:.58rem;font-weight:500;margin:.05rem .05rem 0 0;white-space:nowrap}
+.r-or{background:#d4e8d4;color:#1a5c1a}
+.r-top{background:#fde8c4;color:#7a4800}
+.r-inh{background:#e0d8f4;color:#3d2880}
+.r-ear{background:#fce4e4;color:#7a1414}
+.r-nas{background:#e4eef8;color:#1a3c6c}
+.r-oph{background:#e8f4e8;color:#1a4c1a}
+.r-rec{background:#f4e8f4;color:#5c1a5c}
+.ind{font-size:.76rem;color:#333;max-width:260px}
+.src{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#666}
+.flag{text-align:center;font-size:.85rem}
+.flag.toxic{color:var(--rust)}
+.flag.islah{color:#8a3a00;font-size:.65rem;font-family:'JetBrains Mono',monospace}
+td.ref{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:#888;max-width:100px;line-height:1.6}
+
+/* FOOTER BAR */
+.footbar{flex-shrink:0;background:#f0ece3;border-top:1px solid var(--rule2);padding:.4rem 1.1rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;color:#888;display:flex;gap:1.5rem;flex-wrap:wrap}
+
+/* PRINT NOTE */
+.pnote{font-family:'JetBrains Mono',monospace;font-size:.58rem;background:#fff9e6;border:1px solid #e0c84a;border-radius:3px;padding:.35rem .6rem;margin-bottom:.75rem;color:#6a5000;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1><b>Hakim Medicine</b> — Master Catalog</h1>
+  <input type="text" id="srch" placeholder="Search across all ailments…" oninput="search()">
+  <div class="src-key">Q=Qanun · IB=Ibn Baytar · AB=Al-Biruni · AZ=Al-Zahrawi · Dio=Dioscorides · AR=Al-Razi · HSK=Hakim Sharif Khan</div>
+</div>
+
+<div class="body">
+<nav class="sidebar" id="nav"></nav>
+<main class="main" id="main">
+  <p style="color:#888;font-style:italic;padding:2rem">Select an ailment from the left.</p>
+</main>
+</div>
+
+<div class="footbar">
+  <span>41 ailment categories · 220+ entries</span>
+  <span>Primary base: Ibn Sina, Al-Qanun fi al-Tibb (Bulaq ed.)</span>
+  <span>Corrections per audit: nutmeg temp H3·D3; bitter melon attribution; henbane in isfanj al-marqid</span>
+  <span>⚠ = toxic/islah required · ⚠⚠ = highly toxic · Historical record only; not a modern prescription</span>
+</div>
+
+<script>
+// TEMP FORMAT: "H/C° M/D°" e.g. "H3 D3"
+// ROUTE CODES: Or=Oral, Top=Topical, Inh=Inhalation, Ear=Ear, Nas=Nasal, Oph=Ophthalmic, Rec=Rectal
+// SOURCE CODES: Q=Qanun(Ibn Sina,Bulaq), IB=Ibn Baytar, AB=Al-Biruni(Saydana), AZ=Al-Zahrawi(Tasrif), Dio=Dioscorides(Arabic), AR=Al-Razi, HSK=Hakim Sharif Khan, QAR=Qarabadin
+// FLAG: ""=safe, "⚠"=caution/avoid pregnancy etc, "⚠⚠"=toxic/islah mandatory
+
+// Each entry: [name, arabic, temp, prep, route, indication, sources, flag]
+const AILMENTS=[
+{code:"FEV",name:"Fever & Chills",arabic:"حُمَّى — Ḥummā",basis:"Excess bile (ṣafrā') or putrid blood causing internal heat. Treatment: cool, thin, expel.",entries:[
+["Willow bark","صفصاف — ṣafṣāf","C2 D1","Dec","Or","Reduces harārat; standard fever decoction. Avoid cold constitution; add honey","Q Bk.II",""],
+["Endive root","هندباء — hindibā'","C2 M1","Dec/Juice","Or","Cools bilious fever; opens liver. Safe all temperaments; pairs with rose water","Q Bk.II",""],
+["Violet flower","بنفسج — banafsaj","C2 M1","Inf/Syr","Or/Top","Cools body in high fever; syrup 30–60 ml; forehead poultice","Q; Dio",""],
+["Sandalwood (white)","صندل أبيض — ṣandal abyaḍ","C2 D1","Pow in rose water","Or/Top","Cools heart and liver heat; checks putrid fever; paste on temples","Q Bk.II",""],
+["Rose distillate","ماء الورد — mā' al-ward","C1 D1","Dist","Or/Top/Inh","Universal fever cooler; compress on forehead; 30–60 ml oral","Q; Bakhtiar",""],
+["Tamarind pulp","تمر هندي — tamr hindī","C2 M1","Sherbet","Or","Checks bilious fever and thirst; mild purgative of yellow bile. Best in summer","AB Saydana",""],
+["Coriander seed","كزبرة — kuzbara","C1 D1","Dec/Dist","Or","Checks bile; reduces burning fever; calms palpitations of fever. Avoid prolonged use","Q Bk.II",""],
+["Barley water","ماء الشعير — mā' al-sha'īr","C1 M2","Dec","Or","Standard fever drink; nourishes, cools, thins humors. Universally safe; drink freely","Q Bk.I",""],
+["Pomegranate (sour)","رمان حامض — rummān ḥāmiḍ","C2 D2","Juice/Syr","Or","Quenches fever thirst; checks bile; astringent. Pairs with rose water","Q; IB",""],
+["Camphor","كافور — kāfūr","C4 D2","0.1g in rose water","Or/Top","Extreme fever with delirium; pestilential fever cooling","Q Bk.II","⚠⚠ Toxic >0.3 g oral"],
+["Purslane","بقلة — baqlat al-ḥamqā'","C3 M3","Juice/Raw","Or/Top","Hectic and bilious fever; quenches thirst; hot swelling poultice","Q; Dio",""],
+["Aconite (Atīs var.)","أتيس — atīs","H1 D1 (post-islah)","Islah: boil 3× in milk; then Pow","Or","Intermittent/malarial fever; chills-heat cycles","Q; HSK","⚠⚠ Islah mandatory"],
+]},
+{code:"DIG",name:"Digestive Disorders",arabic:"أمراض المعدة — Amrāḍ al-Ma'ida",basis:"Weak digestive fire, phlegm or bile in stomach, putrefied food. Divided: nausea/indigestion · diarrhea · worms.",entries:[
+["Dry ginger","زنجبيل — zanjabīl","H3 D3","Pow in honey","Or","Strengthens digestive fire; expels phlegm; nausea. Universal digestive adjuvant","Q Bk.II",""],
+["Spearmint","نعناع — na'nā'","H2 D2","Inf/Dist","Or","Nausea, vomiting; warms cold stomach; carminative. 30–60 ml distillate","Q; Dio",""],
+["Cardamom","هال / قاقلة — hāl","H3 D2","Pow/Dec","Or","Strengthens stomach; carminative; corrects foul breath from indigestion","Q Bk.II; AB",""],
+["Clove","قرنفل — qaranful","H3 D3","Pow/Oil","Or","Warms cold stomach; checks vomiting; antiflatulent; liver tonic","Q; IB",""],
+["Mastic","مصطكى — maṣṭakā","H1 D2","Chewed/El","Or","Gastric protectant; peptic pain; heartburn. Pairs with aloe as stomach protectant","Q; Dio",""],
+["Fennel seed","شمار — shamār","H2 D1","Dec/Dist","Or","Carminative; appetite; gas. 30–60 ml distillate after meals","Q Bk.II",""],
+["Anise seed","أنيسون — anīsūn","H3 D1","Inf/Dist","Or","Colic, flatulence; carminative; children's colic. Classic trio with fennel+caraway","Q; AB",""],
+["Caraway","كراويا — karāwiyā","H3 D2","Inf/Pow","Or","Intestinal gas; colic; warms cold stomach","Q",""],
+["Quince seed","بذر سفرجل — badhr safarjal","C1 D2","Mucilage","Or","Soothes inflamed stomach; checks vomiting; mild astringent. 30 ml 2–3×/day","Q",""],
+["Pomegranate peel","قشر الرمان — qishr rummān","C2 D3","Dec/Pow","Or","Stops vomiting; astringent; checks diarrhea; strengthens stomach","Dio Arabic; IB",""],
+["Ajwain / carom","أجوين — ajwān","H4 D3","Inf/Dist","Or","Strongest carminative; colic; flatulence; intestinal spasm; expels worms","AB Saydana; IB",""],
+["Ispaghol","إسبغول — isbagḥūl","C1 M2","Mucilage","Or","Diarrhea, dysentery; soothes intestine. Safest laxative. 5–10 g 2×/day","AB; IB",""],
+["Pomegranate rind (diarrhea)","قشر الرمان — qishr rummān","C2 D3","Dec","Or","Bloody diarrhea; astringent; checks intestinal heat","Q Bk.III",""],
+["Acacia bark","قرظ — qaraẓ","C2 D3","Dec/Pow","Or","Astringent; checks flux; heals intestinal ulceration","Dio Arabic; AB",""],
+["Myrrh","مرّ — murr","H2 D3","Pow in water","Or","Dysentery; antiseptic to bowel; expels worms. 1–2 g 2×/day","Q; Dio Arabic",""],
+["Garlic","ثوم — thawm","H4 D4","Raw/Dec","Or","Anthelmintic; expels roundworms. 2–3 raw cloves on empty stomach with pomegranate juice","Q; Dio Arabic",""],
+["Wormwood","أفسنتين — afsantīn","H3 D3","Inf/El","Or","Anthelmintic; expels roundworms; bitter stomach tonic. 2–4 g in honey","Dio Arabic; IB","⚠ Avoid in pregnancy"],
+["Colocynth","حنظل — ḥanẓal","H3 D3","Compound pill only","Or","Worms and toxic phlegm via purgation. Never alone","Q Bk.V; AZ","⚠⚠ In compound only"],
+["Pomegranate root bark","قشر أصل الرمان","C2 D3","Dec: 10g/300ml","Or","Tapeworm expellant; classical anthelmintic. Drink on empty stomach; follow with mild purgative","Dio Arabic; AZ",""],
+]},
+{code:"RES",name:"Respiratory Ailments",arabic:"أمراض الصدر — Amrāḍ al-Ṣadr",basis:"Excess phlegm in lungs and bronchi, or hot vapors irritating respiratory passages.",entries:[
+["Liquorice root","عرق السوس — 'irq al-sūs","H1 M2","Dec/El/Syr","Or","Loosens phlegm; soothes bronchi; hoarseness; dry cough. 5–10 g 3×/day","Q Bk.II; Bakhtiar",""],
+["Hyssop","زوفا — zūfā","H2 D2","Dec+honey/Syr","Or","Expels thick sticky phlegm; asthma; chronic cough. Avoid hot-dry constitution","Dio Arabic; Q",""],
+["Black seed oil","دهن حبة السوداء","H3 D2","Oil in honey/Fum","Or/Inh","Asthma; bronchitis; clears phlegmatic chest. 5 ml 2×/day; inhale heated oil vapors","Q; HSK",""],
+["Thyme","صعتر — ṣa'tar","H3 D3","Inf/Dec/Fum","Or/Inh","Bronchitis; pertussis-type cough; dissolves tough phlegm. Steam inhalation","Dio Arabic","⚠ Avoid hot constitution"],
+["Long pepper","دارفلفل — dārfilfil","H4 D2","Pow in honey","Or","Opens bronchi; dissolves cold phlegm; asthma. Pairs with liquorice+ginger","Q Bk.II",""],
+["Fenugreek seed","حلبة — ḥulba","H2 M1","Dec/Paste","Or","Dissolves phlegm; soothes bronchial inflammation; dry cough. 5–10 g+honey","Dio Arabic",""],
+["Gum ammoniacum","أشق — ushhaq","H3 D2","Dissolved in vinegar; Pil","Or","Tough adherent phlegm; chronic asthma; opens chest obstructions. 1–2 g","Q; AB",""],
+["Pine resin","قطران — qaṭrān","H3 D3","Fum/Pow in honey","Inh/Or","Asthma; bronchitis; clears airways. Burn small piece, inhale","AZ; Dio Arabic",""],
+["Violet syrup","شراب البنفسج","C1 M2","Syr","Or","Hot dry cough; pleurisy; chest inflammation. 30–60 ml 2–3×/day","Q Bk.III",""],
+["Costus root","قسط — qusṭ","H3 D3","Dec/Pow/Fum","Or/Inh","Asthma; phlegmatic chest; strengthens lung","Q Bk.II; AB",""],
+["Cubeb pepper","كبابة — kubāba","H2 D2","Pow/Dec","Or","Expels phlegm; clears bronchi; voice loss; laryngitis","IB; AB",""],
+["Elecampane root","راسن — rāsin","H3 D2","Dec/El","Or","Chronic bronchitis; old impacted phlegm; asthma. 5 g 2×/day","Q Bk.II; IB",""],
+["Mullein leaf","ماهودانه — māhūdāna","H1 M1","Dec/Fum","Or/Inh","Chest phlegm; cough; hoarseness; fumigation for bronchitis","Dio Arabic; IB",""],
+["Maidenhair fern","بسفايج — bussfāyij","C1 M2","Dec/Syr","Or","Bronchial soother; wet cough; pleurisy. Syrup 30–60 ml 3×/day","Dio Arabic; IB",""],
+["Flaxseed","بزر الكتان — bazr kattān","H1 M2","Mucilage","Or","Demulcent for dry irritating cough; lung inflammation; soothes bronchi","Dio Arabic; IB",""],
+["Frankincense","لبان / كندر — lubān","H2 D2","Fum/Chewed","Inh/Or","Bronchitis; pulmonary weakness; antiseptic fumigant","Dio Arabic; AZ",""],
+]},
+{code:"HRT",name:"Cardiac & Circulatory",arabic:"أمراض القلب — Amrāḍ al-Qalb",basis:"Heart = seat of vital spirit (rūḥ ḥayawānī). Weakness from cold/dryness or bilious heat; palpitations from hot thin blood.",entries:[
+["Saffron","زعفران — za'farān","H2 D1","In rose water","Or","Cardiac tonic; lifts vital spirit; checks cold palpitations. 0.1–0.5 g","Q Bk.II",""],
+["Rose distillate","ماء الورد","C1 D1","Dist","Or/Top","Cooling cardiac tonic; hot palpitations; compress on chest and temples","Q",""],
+["Borage flower","لسان الثور — lisān al-thawr","C1 M1","Inf/Syr","Or","Strengthens heart; elevates sad spirit. 5 g flower infusion 2×/day","Dio Arabic; IB",""],
+["Cinnamon","دارچين — dārchīn","H3 D2","Dec/Pow","Or","Warms and strengthens heart; cardiac weakness from cold; liver tonic","Q Bk.II; AB",""],
+["Hawthorn","زعرور — za'rūr","C1 D1","Sherbet/Dec","Or","Strengthens heart muscle; checks palpitations; mildly astringent","IB",""],
+["Amber (grey)","عنبر — 'anbar","H2 D1","In El","Or","Strengthens heart and brain; cardiac weakness; fainting. 0.1–0.3 g","Q Bk.II",""],
+["Musk","مسك — misk","H2 D1","In El","Or","Strengthens vital spirit; cardiac weakness; fainting; slow pulse. 0.05–0.1 g","Q Bk.II; QAR",""],
+["Pearl (purified)","لؤلؤ — lu'lu'","C1 D1","Pow in El","Or","Cooling cardiac tonic; checks heat palpitations. 0.1–0.3 g in rose water electuary","Q; QAR",""],
+["Lapis lazuli (calcined)","لازورد — lāzaward","C2 D1","Calcined+washed Pow","Or","Purifies blood; cardiac strengthener. 0.1–0.5 g purified only","Q Bk.II","⚠ Calcination mandatory"],
+["Camphor (cardiac)","كافور — kāfūr","C4 D2","0.1 g in rose water","Or","Checks extreme heat palpitations. Single micro-dose only","Q Bk.II","⚠⚠ Toxic >0.3 g"],
+]},
+{code:"JNT",name:"Joint, Muscle & Nerve Pain",arabic:"أوجاع المفاصل — Awjā' al-Mafāṣil",basis:"Black bile or phlegm in joints. Cold/moist = stiffness; hot/bilious = inflammation.",entries:[
+["Sesame oil","دهن السمسم","H1 M2","Warm oil massage","Top","Base for joint liniments; warms and penetrates joint","Q; Dio Arabic",""],
+["Mustard seed","خردل — khardal","H4 D4","Paste with vinegar","Top","Counter-irritant; cold phlegmatic joint pain; sciatica","Q Bk.III","⚠ Blister risk if left >20 min"],
+["Fenugreek paste","حلبة — ḥulba","H2 M1","Boiled seed paste","Top","Softens cold hard swellings; arthritis poultice. Apply warm, wrap overnight","Dio Arabic",""],
+["Turmeric","كركم — kurkum","H2 D2","Pow in oil","Or/Top","Reduces joint swelling; blood purifier; topical paste on swollen joint","AB Saydana",""],
+["Castor oil","دهن الخروع","H2 M2","Warm massage/Internal","Top/Or","Joint massage; draws phlegm downward; softens contracted joints","Dio Arabic; Q",""],
+["Aconite (post-islah)","بيش — baysh","H2 D2 (post-islah)","Islah in milk; liniment in oil","Top only","Severe rheumatism; paralysis; sciatic nerve pain. External liniment only","Q Bk.V; AZ","⚠⚠ Islah mandatory; never on broken skin"],
+["Colchicum (post-islah)","سورنجان — sūranjān","C2 D1","Boil in vinegar 1h; Pow","Or","Gout; hot arthritis; bilious joint swelling. Post-islah 0.5–1 g only","Q Bk.III; AB","⚠⚠ Toxic raw"],
+["Henbane seed oil","دهن بذر البنج","C3 D3","Seed oil in sesame oil (1:9)","Top","Severe joint/nerve pain; sciatica; cold-type pain. Dilute strictly","AZ; Q Bk.III","⚠⚠ Never near mucosa"],
+["Black seed paste","معجون حبة السوداء","H3 D2","Ground seeds in vinegar","Top","Cold phlegmatic arthritis; apply warm, wrap","HSK; QAR",""],
+]},
+{code:"HED",name:"Headache & Migraine",arabic:"صداع — Ṣudā'",basis:"Vapors ascending from stomach to brain; excess heat or cold in meninges; phlegm blocking sensory channels.",entries:[
+["Rose oil","دهن الورد","C1 D1","Cold-pressed oil","Top","Classic headache oil; cools inflamed meninges; on temples, forehead, nape","Q Bk.III",""],
+["Lavender (stoechas)","أسطوخودوس — ustukhūdūs","H1 D1","Inf/Fum/Oil","Or/Top/Inh","Cold phlegmatic migraine; depressive headache","Q Bk.II; Dio Arabic",""],
+["Marjoram oil","دهن المردقوش","H2 D2","Oil/Paste","Top","Cold phlegmatic headache; sinus headache; apply warm to forehead","Dio Arabic; IB",""],
+["Willow bark decoction","صفصاف — ṣafṣāf","C2 D1","Dec + cold compress","Or/Top","Bilious hot headache; fever headache; cool compress on forehead","Q",""],
+["Chamomile","بابونج — bābūnaj","H1 D1","Inf/Oil/Poultice","Or/Top","Cold wind-type headache; tension; warm oil compress on temples","Dio Arabic; IB",""],
+["Spikenard","سنبل الطيب — sunbul al-ṭīb","H2 D2","Pow/Oil","Or/Top","Nervous headache; melancholic headache; oil on nape","Q Bk.II; AB",""],
+["Vinegar (cold compress)","خل — khall","C2 D2","Cold compress","Top","Hot bilious migraine; cools blood; apply with rose water","Q Bk.I",""],
+["Euphorbia (post-islah)","فرفيون — farfiyūn","H4 D4","Post-islah: 1 drop in 20× oil","Nas","Severe migraine; phlegm in head; nasal errhine only","Q Bk.II; AZ","⚠⚠ Islah mandatory; never undiluted"],
+]},
+{code:"SKN",name:"Skin Diseases",arabic:"أمراض الجلد — Amrāḍ al-Jild",basis:"Eruptions from excess bile/blood/black bile at skin. Cold phlegm causing chronic lesions.",entries:[
+["Sulfur (purified)","كبريت — kibrīt","H2 D3","Ointment 10–20% in oil","Top","Scabies; fungal skin disease; psoriasis-type eruptions; fumigate clothing","Dio Arabic; AZ",""],
+["Henna","حناء — ḥinnā'","C2 D2","Paste/Powder wash","Top","Burns; skin cooling; fungal infections; cracked skin. Leave 1–2 h","Q Bk.II; IB",""],
+["Black seed oil","دهن حبة السوداء","H3 D2","Oil applied","Top","Eczema; psoriasis; alopecia; vitiligo. Massage into scalp for alopecia","Q; HSK",""],
+["Aloe gel","صبار (جل) — ṣabbār gel","C1 M2","Fresh gel","Top","Burns; inflamed eruptions; wound healing. Apply 2–3×/day","Dio Arabic",""],
+["Turmeric","كركم — kurkum","H2 D2","Paste in oil","Top","Skin infections; rashes; bruising. Apply 2×/day","AB",""],
+["Vinegar","خل — khall","C2 D2","Diluted wash","Top","Psoriasis; itching; hot erythema; lice. Wash affected area","Dio Arabic; Q",""],
+["Plantain leaf","لسان الحمل — lisān al-ḥamal","C2 D1","Poultice/Dec wash","Top","Anti-inflammatory; stings; bites; burns; hot eruptions","Dio Arabic",""],
+["Myrrh","مرّ — murr","H2 D3","Dissolved/Paste","Top","Infected ulcers; promotes granulation; antiseptic. 2×/day","Dio Arabic; Q",""],
+["Sulfur + litharge ointment","مرهم كبريت / مرتك","H2–C2 mix","Ointment (AZ formula)","Top","Chronic moist ulcers; desiccant plaster","AZ Tasrif","⚠⚠ Lead oxide. External only; small wounds only"],
+]},
+{code:"EYE",name:"Eye Disorders",arabic:"أمراض العين — Amrāḍ al-'Ayn",basis:"Excess phlegm/bile reaching eye. Heat = redness and discharge. Cold = lens opacity.",entries:[
+["Antimony kohl","كحل الإثمد — ithmid","C1 D2","Fine powder; kohl stick","Oph","Strengthens eyesight; protects from inflammation; sharpens vision","Q Bk.III; Prophetic",""],
+["Rose water","ماء الورد","C1 M1","Dist as eyewash","Oph","Red inflamed eye; conjunctivitis. Wash 2–3×/day. Universal eye remedy","Q Bk.III",""],
+["Tutty / zinc oxide","توتيا — tūtiyā","C2 D3","Purified Pow as kohl","Oph","Strengthens eye; reduces discharge; trachoma. Purification required","Q Bk.III; AB",""],
+["Honey + rose water","عسل + ماء الورد","H1 D1","1:4 dilution as eyedrop","Oph","Removes corneal opacity; antiseptic. 1–2 drops 2×/day","Q Bk.III",""],
+["Fennel seed","شمار — shamār","H2 D1","Dec as eyewash","Oph","Dim vision from phlegm; early cataract (classical). Cooled decoction","Dio Arabic; Q",""],
+["Saffron in rose water","زعفران — za'farān","H2 D1","0.05g in 10ml rose water","Oph","Strengthens sight; removes opacity. Very small drop","Q Bk.III",""],
+["Celery seed","كرفس — karafs","H2 D2","Dec as eyewash","Oph","Dim vision from phlegm; strengthens sight","Dio Arabic",""],
+]},
+{code:"LIV",name:"Liver & Spleen",arabic:"أمراض الكبد — Amrāḍ al-Kabid",basis:"Liver governs four humors. Obstruction/inflammation = root cause of many diseases. Spleen = repository of black bile.",entries:[
+["Endive / chicory root","هندباء — hindibā'","C2 M1","Dec: 10g/300ml","Or","Chief liver opener; cools hot liver; jaundice. 2–3×/day","Q Bk.III; Dio Arabic",""],
+["Fumitory","شاهترة — shāhtara","C2 D2","Juice/Dec/Syr","Or","Purifies blood; liver + spleen obstruction; jaundice; long-course management (40 days)","Q; IB","⚠ Avoid in pregnancy"],
+["Caper root bark","كبر — kabar","H2 D2","Dec/Vinegar macerate","Or","Spleen hardness; liver obstruction; jaundice; diuretic. Standard Unani liver herb","Dio Arabic; Q",""],
+["Wormwood","أفسنتين — afsantīn","H3 D3","Inf/El","Or","Opens bile and liver obstructions; kills liver parasites. 2–4 g + honey","Dio Arabic; Q","⚠ Avoid in pregnancy"],
+["Black myrobalan","هليلج أسود — halīlaj aswad","H1 D2","Pow/Dec/El","Or","Liver and spleen tonic; purges excess bile. 3–6 g in warm water or honey","Q; AB; HSK",""],
+["Senna","سنا مكي — sanā makkī","H1 D2","Inf with ginger","Or","Purges excess bile; liver congestion. Avoid prolonged use; avoid pregnancy","Q; AB","⚠ Avoid in pregnancy"],
+["Turmeric","كركم — kurkum","H2 D2","Pow in warm milk","Or","Jaundice; liver congestion; bile purification","AB Saydana",""],
+["Agrimony","جعدة — jaʿda","H1 D2","Inf/Dec","Or","Liver tonic; mild astringent; chronic liver weakness","Dio Arabic; IB",""],
+]},
+{code:"DIU",name:"Kidney & Urinary",arabic:"أمراض الكلى — Amrāḍ al-Kulā",basis:"Kidney filters water from blood. Obstructions = retention; heat = burning; stones from cold dried humors.",entries:[
+["Celery seed","كرفس — karafs","H2 D2","Dec/Dist","Or","Diuretic; kidney stone; opens urinary obstructions. 5 g 3×/day","Dio Arabic; Q",""],
+["Parsley seed","بذر البقدونس","H3 D2","Dec/Dist","Or","Diuretic; urinary retention; kidney stone","Dio Arabic","⚠ Avoid in pregnancy"],
+["Juniper berry","عرعر — 'ar'ar","H3 D2","Dec/Pow","Or","Diuretic; kidney and bladder stones; urinary infection","Dio Arabic; Q","⚠ Avoid in kidney inflammation"],
+["Marshmallow root","خطمية — khaṭmiyya","C1 M3","Dec/Mucilage","Or","Soothes burning urination; kidney/bladder inflammation; stone passage","Dio Arabic; Q",""],
+["Barberry","زرشک — zarishk","C2 D2","Sherbet/Dec","Or","Urinary infection; cleanses kidney; jaundice. Berry sherbet","Q; AB",""],
+["Asparagus root","هيوف — hāyūf","H2 M1","Root Dec","Or","Diuretic; kidney and spleen obstruction; urinary retention","Dio Arabic; Q",""],
+["Watermelon seed","بذر البطيخ","C1 M1","Ground paste in water","Or","Soothing diuretic; kidney stone; gentle urinary cleanser","HSK; QAR",""],
+["Khaksi","خاکسیر — khāksīr","C1 D1","Seeds soaked/Sherbet","Or","Cooling diuretic; burning urination; urinary heat","AB Saydana; HSK",""],
+]},
+{code:"CLM",name:"Anxiety, Insomnia & Nerve Disorders",arabic:"أمراض الأعصاب — Amrāḍ al-A'ṣāb",basis:"Excess black bile (sawdā') causing melancholy and insomnia; dry cold brain from excess; vapors from stomach disturbing brain.",entries:[
+["Valerian root","فوة السكر — fu'at al-sukkar","H1 D2","Dec/Pow/El","Or","Insomnia; anxiety; convulsions; palpitations from nerves. 3–5 g at night","Dio Arabic; Q Bk.III",""],
+["Spikenard","سنبل الطيب — sunbul al-ṭīb","H2 D2","Pow/Oil/El","Or/Top","Melancholic depression; nervine tonic; insomnia from cold. Oil on nape","Q Bk.II; AB",""],
+["Borage","لسان الثور — lisān al-thawr","C1 M1","Juice/Inf/Syr","Or","Lifts melancholy; calms anxiety palpitations; elevates vital spirit","Dio Arabic; IB",""],
+["Lavender (Ustukhudus)","أسطوخودوس","H1 D1","Inf/El/Oil","Or/Inh","Melancholy; cold phlegmatic depression; mild epilepsy. Ma'jun Ustukhudus","Q Bk.II; HSK",""],
+["Rose water","ماء الورد","C1 M1","Dist","Or/Top","Calms the spirit; cools hot anxiety; soothes palpitations. 30–60 ml 2×/day","Q",""],
+["Peony root","فاونيا — fāwaniyā","H2 D1","Dec/Pow","Or","Epilepsy; convulsions; children's nightmare terrors. 3–5 g","Dio Arabic; IB",""],
+["Asafoetida","حلتيت — ḥiltīt","H3 D2","Dissolved in water/El","Or","Hysteria; flatulent melancholy; antispasmodic; expels brain vapors. 0.3–1 g","Q; Dio Arabic","⚠ Avoid in pregnancy"],
+["Amber","عنبر — 'anbar","H2 D1","El/Inhalation","Or/Inh","Waswās; obsessive thoughts; strengthens brain vapors; grounds spirit","Q Bk.II",""],
+["Henbane (compound only)","بنج — banj","C3 D3","Post-islah Pow in compound","Or","Extreme insomnia; intractable nerve pain — last resort compound","Q Bk.II; AZ","⚠⚠ Compound only; 0.1–0.2 g max"],
+["Poppy seed (not latex)","خشخاش (بذر) — khashkhāsh","C3 M2","Dec","Or","Insomnia; pain-related sleeplessness. Seeds only — not opium latex","Q Bk.II",""],
+]},
+{code:"WOM",name:"Women's Health",arabic:"أمراض النساء — Amrāḍ al-Nisā'",basis:"Menstrual blood must flow freely; suppression causes disease. Womb governed by cold/moist.",entries:[
+["Fenugreek","حلبة — ḥulba","H2 M1","Dec/Pow in milk","Or","Suppressed menstruation; galactagogue; uterine tonic; postpartum","Dio Arabic; Q Bk.III",""],
+["Saffron","زعفران — za'farān","H2 D1","In warm water/El","Or","Emmenagogue; menstrual pain; postpartum tonic; uterine warming","Q Bk.III","⚠ Emmenagogue; avoid excess in pregnancy"],
+["Rue","سذاب — sadhāb","H3 D3","Dec/Juice/El","Or","Suppressed menstruation; expels retained afterbirth; antispasmodic","Dio Arabic; Q","⚠⚠ Contraindicated in pregnancy — miscarriage risk"],
+["Celery seed","كرفس — karafs","H2 D2","Dec/Dist","Or","Emmenagogue; regulates menstrual cycle","Dio Arabic","⚠ Avoid excess in pregnancy"],
+["Myrrh","مرّ — murr","H2 D3","Pow in warm water","Or","Emmenagogue; uterine antiseptic; postpartum; lactation support","Dio Arabic; Q","⚠ Avoid in pregnancy"],
+["Castor oil","دهن الخروع","H2 M2","Warm pessary / Oral","Top/Or","Difficult labor; retained placenta; combined with warm fomentations","AZ Tasrif",""],
+["Black seed","حبة السوداء","H3 D3","Pow in honey","Or","Galactagogue; menstrual regulation; postpartum recovery","Q; HSK",""],
+["Quince","سفرجل — safarjal","C1 D2","Jam/Mucilage","Or","Stops excessive menstrual bleeding (astringent); nausea in pregnancy","Q Bk.III",""],
+["Myrtle berry","آس — ās","C2 D3","Dec/Pessary","Or/Top","Excessive menstrual bleeding; uterine astringent","Dio Arabic; IB","⚠ Avoid in pregnancy"],
+["Emblic myrobalan","آملة — āmla","C1 D2","Pow/Jam","Or","Uterine tonic; postpartum rasayana; excessive bleeding","AB; HSK",""],
+]},
+{code:"CHI",name:"Children's Ailments",arabic:"أمراض الأطفال — Amrāḍ al-Aṭfāl",basis:"Ibn Sina dedicates Qanun Bk.I to pediatric regimen. Children = predominantly moist+warm. Dose: ¼–½ adult.",entries:[
+["Chamomile","بابونج — bābūnaj","H1 D1","Weak Inf/Oil massage","Or/Top","Colic; teething; restlessness; mild fever. Warm oil for abdominal colic massage","Q Bk.I; AZ",""],
+["Dill seed","شبث — shabbath","H2 D1","Weak Inf/Dist","Or","Infantile colic; flatulence; hiccup; promotes sleep. 10–15 ml distillate for infants","Dio Arabic; Q",""],
+["Anise","أنيسون — anīsūn","H3 D1","Very weak Inf/Dist","Or","Colic; flatulence; respiratory phlegm. Highly dilute for infants (1 g/200 ml)","Q",""],
+["Henna (feet)","حناء — ḥinnā'","C2 D2","Paste on soles","Top","Childhood fever; draws heat downward — classical pediatric technique","HSK",""],
+["Peony root","فاونيا — fāwaniyā","H2 D1","Dec (small dose)","Or","Children's convulsions; epilepsy; nightmare terrors","Dio Arabic; IB",""],
+["Rose water","ماء الورد","C1 M1","Dist","Or/Top","Feverish child; infant eye wash. Safe all ages","Q Bk.I",""],
+["Liquorice","عرق السوس","H1 M2","Dilute Dec 2g/200ml","Or","Children's cough; sore throat; soothes bronchi. Safe above 1 year","Q Bk.I; AZ",""],
+["Barley water + honey","ماء الشعير + عسل","C1 M2","Dec","Or","Standard children's fever drink. Drink freely","Q Bk.I",""],
+]},
+{code:"LAX",name:"Constipation & Laxatives",arabic:"الإمساك — Al-Imsāk",basis:"Retained waste corrupts blood via vapors. Purgation must match the humor expelled and patient strength.",entries:[
+["Senna leaf","سنا — sanā","H1 D2","Inf 3–6g + ginger","Or","Gentle laxative; purges yellow bile. Standard hakim laxative","Q; AB","⚠ Avoid in pregnancy"],
+["Cassia fistula pulp","خيار شنبر","C1 M1","Pulp in warm water","Or","Safest laxative; cold-moist constitution; children and elderly. 15–30 g","Q; HSK",""],
+["Aloe latex","صبار (لاتكس) — ṣabbār","H1 D3","2–4 g Pow + mastic","Or","Purgative of bile; liver cleanser. Always give with mastic to protect stomach","Q Bk.V","⚠ Avoid hemorrhoids; avoid pregnancy"],
+["Psyllium / ispaghol","إسبغول","C1 M2","5–10 g husk in water","Or","Bulk laxative; safest overall; hemorrhoids; constipation","AB Saydana",""],
+["Tamarind","تمر هندي — tamr hindī","C2 M1","Sherbet","Or","Mild laxative; purges yellow bile; bilious constipation","AB; IB",""],
+["Prunes / plums","إجاص — ijjāṣ","C2 M2","Stewed/Dec","Or","Gentle; moistens dry bowel; elderly. Use as food-medicine","Q Bk.I",""],
+["Flaxseed mucilage","بزر الكتان","H1 M2","10 g soaked overnight; drink with seeds","Or","Lubricating laxative; inflamed bowel; elderly","Dio Arabic; IB",""],
+["Fig (dried)","تين يابس — tīn","H2 M2","5–7 figs boiled in water","Or","Gentle; nutritive; moistens dry bowel; safe all ages","Q Bk.I; Dio Arabic",""],
+["Colocynth (compound)","حنظل — ḥanẓal","H3 D3","Compound pill only (Hab Shiyaf)","Or","Strong purgative of black bile; severe constipation","Q Bk.V","⚠⚠ Never alone; compound only"],
+["Scammony (compound)","محمودة — maḥmūda","H3 D2","Compound pill + mastic","Or","Powerful purgative of yellow bile; hepatic congestion","Q Bk.V; AZ","⚠⚠ Drastic; compound only"],
+]},
+{code:"TON",name:"Debility & General Tonics",arabic:"مقوّيات — Muqawwiyāt",basis:"Restore natural/vital/animal spirits. Replenish vital moisture (ruṭūbat gharīziyya) and natural heat.",entries:[
+["Emblic myrobalan (amla)","آملة — āmla","C1 D2","Jam/Pow/Juice","Or","Chief rasayana; all organs; anti-aging; convalescence. 3–6 g daily","AB Saydana; HSK",""],
+["Ashwagandha","أشواغاندا","H2 D1","Pow in warm milk","Or","Nervine tonic; wasting; reproductive; debility; insomnia","AB Saydana; QAR",""],
+["Saffron","زعفران — za'farān","H2 D1","In warm milk/honey","Or","Cardiac and brain tonic; mood elevator. 0.1–0.3 g daily","Q Bk.II",""],
+["Honey (raw)","عسل — 'asal","H1 D1","Raw/In El","Or","Universal tonic vehicle; antibacterial; energy; liver. 20–30 g daily","Q Bk.I",""],
+["Sesame seed","سمسم — simsim","H1 M2","Food/Tahini/Oil","Or","Nutritive tonic; lung; joint lubrication; weight restoration","Q; Dio Arabic",""],
+["Pine nuts","صنوبر — ṣanawbar","H2 M2","Raw/In El","Or","Lung and sexual tonic; restorative in wasting","Q Bk.II",""],
+["Almond","لوز حلو — lawz ḥulw","H1 M2","Raw/Oil/Almond milk","Or","Brain and nerve tonic; lung; wasting. Almond milk 200 ml daily","Q Bk.II",""],
+["Dates","تمر — tamr","H2 M1","Dried/Paste with honey","Or","Restorative of vital moisture; Ibn Sina: dates+almonds+walnuts = morning tonic for elderly","Q Bk.I; AB",""],
+["Gold leaf (varak)","ذهب — dhahab","H1 D1","0.001–0.01 g in El","Or","Cardiac and brain tonic; strengthens vital spirits; costly compound electuaries","Q Bk.II; QAR",""],
+["Goat milk","لبن الماعز — laban","C1 M2","Fresh/Warm with honey","Or","Convalescent tonic; lung; wasting. 250–500 ml daily","Q Bk.I",""],
+]},
+{code:"APH",name:"Reproductive & Sexual Health",arabic:"مقوّيات الباه — Muqawwiyāt al-Bāh",basis:"Sexual power depends on vital heat and moist nutritive essence. Weakness from cold/dry or excess expenditure.",entries:[
+["Rocket / arugula","جرجير — jurjīr","H2 D1","Raw salad/Seed Dec","Or","Ibn Sina explicit: 'al-jurjīr yuharrik al-bāh'. Seed more potent than leaf","Q Bk.III; Dio Arabic",""],
+["Asparagus root","هيوف — hāyūf","H2 M1","Root Dec","Or","Aphrodisiac and diuretic — recorded by Dioscorides and Ibn Sina","Q Bk.III; Dio Arabic",""],
+["Pine nuts","صنوبر — ṣanawbar","H2 M2","In El with honey + long pepper","Or","Classical aphrodisiac; increases vital moisture; sperm","Q Bk.III; Dio Arabic",""],
+["Onion","بصل — baṣal","H3 M1","Raw/Roasted in honey","Or","Aphrodisiac; increases semen; warms reproductive organs","Q Bk.III; Dio Arabic",""],
+["Leek","كراث — kurrāth","H3 D2","As food/Seed Dec","Or","Warms reproductive organs; increases semen production","Q Bk.III; Dio Arabic",""],
+["Carrot seed","بذر جزر — badhr jazar","H2 M1","Seed Dec","Or","Aphrodisiac; seed especially potent","Dio Arabic; IB","⚠ Avoid seed in pregnancy"],
+["Turnip seed","بذر شلجم","H3 D2","Pow in honey","Or","Stimulates desire; increases semen; warms cold constitution","Q Bk.III; IB",""],
+["Safflower seed","قرطم — qurṭum","H2 D1","Pow/Oil","Or","Reproductive tonic; aphrodisiac","Q Bk.II; AB",""],
+["Ashwagandha","أشواغاندا","H2 D1","Pow in warm milk","Or","Male reproductive tonic; sperm production; sexual debility","AB; QAR",""],
+]},
+{code:"TOX",name:"Poisoning & Antidotes",arabic:"السموم والترياق — Al-Sumūm wa al-Tiryāq",basis:"See also Theriac formulas in references/formulas.md for full 64-ingredient Theriac Magna.",entries:[
+["Theriac Magna (compound)","ترياق فاروق — tiryāq fārūq","H2 D1","Compound El (64 ingredients)","Or","Universal antidote; animal bites; pestilential fever. 3–6 g in warm water","Q Bk.V; AZ","⚠⚠ Contains opium+processed aconite+viper"],
+["Warm milk","لبن دافئ — laban dāfi'","C1 M2","Fresh warm","Or","First-line antidote for most internal poisonings; coats stomach; induces gentle emesis. Immediate","Q Bk.V; AZ",""],
+["Egg white","بياض البيض — bayāḍ al-bayḍ","C1 M2","Raw beaten","Or","Protective coating after swallowed corrosives; binds poisons. 2–3 immediately","Q Bk.V; AZ",""],
+["Garlic","ثوم — thawm","H4 D4","Raw crushed","Or","Antidote to plant poisons; food poisoning; scorpion sting","Dio Arabic; Q",""],
+["Olive oil (warm)","زيت — zayt","H1 M1","50–100 ml warm","Or","Emetic inducer; protects mucosa; specific aconite antidote","Q Bk.V; AZ",""],
+["Vinegar","خل — khall","C2 D2","Diluted","Or/Top","Alkaline poison antidote; mushroom poisoning; scorpion sting wash","Dio Arabic; Q",""],
+["Armenian bole clay","طين أرمني — ṭīn armanī","C2 D2","Dissolved in water","Or","Adsorbs poisons in stomach; gentle. 3–5 g","Q Bk.V; AB",""],
+["Black seed","حبة السوداء","H3 D3","Oil+Seed in honey","Or","General antitoxic; food poisoning; immune-protective","Q; HSK",""],
+["Rue","سذاب — sadhāb","H3 D3","Dec","Or","Serpent bite; scorpion sting; toxic mushrooms","Dio Arabic; Q Bk.V","⚠ Emmenagogue; never in pregnancy"],
+]},
+// VOL II
+{code:"ORL",name:"Oral, Dental & Gum Disorders",arabic:"أمراض الفم والأسنان — Amrāḍ al-Fam wa al-Asnān",basis:"Dental pain from bilious heat, phlegmatic cold, or worms. Gum disease from excess phlegm and blood.",entries:[
+["Clove oil","زيت القرنفل — zayt qaranful","H3 D3","Oil on pledget","Top (dental)","Toothache from cold/phlegm; gum antiseptic; halitosis","Q Bk.III; Dio Arabic",""],
+["Mastic","مصطكى — maṣṭakā","H1 D2","Chewed/Mouthwash","Top/Or","Gum disease; bleeding gums; strengthens tooth roots; halitosis","Q Bk.III",""],
+["Salt in warm water","ملح — milḥ","H2 D3","Dissolved; mouthwash","Top","Gum inflammation; loose teeth; mouth infections; astringent","Q Bk.III; AZ",""],
+["Pomegranate rind","قشر الرمان","C2 D3","Dec mouthwash","Top","Bleeding gums; gum recession; stomatitis. 5g/200ml 3×/day","Dio Arabic; IB",""],
+["Myrrh","مرّ — murr","H2 D3","In warm water; tincture","Top","Mouth ulcers; infected gums; antiseptic mouthwash","Dio Arabic; Q",""],
+["Gallnut","عفص — 'afṣ","C2 D4","Dec/Pow on gums","Top","Powerful astringent; bleeding spongy gums; mouth ulcers","Dio Arabic; AZ",""],
+["Acacia gum","صمغ عربي — ṣamgh 'arabī","C1 D1","In rose water","Top/Or","Soothes inflamed mucosa; aphthous ulcers; coating","Dio Arabic; Q",""],
+["Pellitory root","عاقرقرحا — aqarqarḥā","H4 D3","Chewed briefly","Top","Toothache from cold/phlegm; salivant draws phlegm. Chew and spit — do not swallow","Q Bk.III; AB",""],
+["Henbane seed oil","دهن بذر البنج","C3 D3","1–2 drops on cotton in cavity","Top (dental)","Severe toothache; anodyne. Never swallowed","Q Bk.III; AZ","⚠⚠ Topical dental only"],
+["Miswak / arak","أراك — arāk","H1 D2","Frayed twig","Top","Cleans teeth; strengthens gums; antibacterial. Daily use","Q; IB; Prophetic",""],
+["Vinegar (diluted)","خل معتّق — khall","C2 D2","1:3 dilution mouthwash","Top","Toothache from heat; loosens tartar; antiseptic","Dio Arabic; Q",""],
+]},
+{code:"EAR",name:"Ear Disorders & Deafness",arabic:"أمراض الأذن — Amrāḍ al-Udhn",basis:"Ear pain from phlegm or putrid matter in canal. Hearing loss from thick phlegm obstructing passages.",entries:[
+["Warm olive oil","زيت دافئ — zayt dāfi'","H1 M1","2–3 drops warmed","Ear","Universal ear oil base; softens wax; soothes cold pain","Q Bk.III; AZ",""],
+["Onion juice (warmed)","عصير البصل — 'aṣīr baṣal","H3 D1","2–3 drops warmed","Ear","Ear pain from cold; dissolves thick phlegm; antiseptic. Ibn Sina: combine with honey","Q Bk.III",""],
+["Honey in rose water","عسل + ماء الورد","H1 D1","1:3 dilution; 2–3 drops","Ear","Infected ear discharge; antiseptic; promotes healing","Q Bk.III",""],
+["Rue juice (warmed)","عصير السذاب","H3 D3","2 drops warmed","Ear","Ear pain; tinnitus from cold; phlegmatic obstruction","Q Bk.III; Dio Arabic","⚠ Ear use only; emmenagogue orally"],
+["Galbanum in olive oil","قنة — qinna","H3 D2","0.5g in 10ml oil; 2–3 drops","Ear","Chronic ear pain; tinnitus; phlegmatic deafness; hardened wax","Q Bk.III; AB",""],
+["Garlic juice (diluted)","عصير ثوم — 'aṣīr thawm","H4 D4","1 drop in 5 drops oil","Ear","Infected ear; otitis; worms in ear; antiseptic","Q Bk.III",""],
+["Castoreum in warm oil","جند بيدستر","H3 D3","0.2g in 10ml oil","Ear/Or","Tinnitus; deafness from cold. Or: 0.5 g oral for tinnitus","Q Bk.III; Dio Arabic",""],
+["Costus root","قسط — qusṭ","H3 D3","Dec oral; fumigation near ear","Or/Inh","Deafness from phlegm; opens hearing obstructions","Q Bk.II; AB",""],
+["Bitter almond oil","دهن اللوز المر","H2 D1","2–3 drops","Ear only","Wax softener; ear pain. Ear use only","Q Bk.III; AZ","⚠ Never swallow — amygdalin"],
+["Euphorbia post-islah","فرفيون — farfiyūn","H4 D4","1:20 in olive oil; 1 drop","Ear","Stubborn phlegmatic deafness; impacted cold matter","Q Bk.III; AZ","⚠⚠ Islah mandatory"],
+]},
+{code:"NOS",name:"Nasal & Sinus Disorders",arabic:"أمراض الأنف — Amrāḍ al-Anf",basis:"Nose = outlet for brain's excess phlegm. Chronic discharge from cold moist brain; nosebleeds from hot excess blood.",entries:[
+["Marjoram oil","دهن المردقوش","H2 D2","Oil inhaled on cloth; paste under nostril","Nas/Inh","Chronic nasal discharge; sinusitis; phlegm in head","Q Bk.III; Dio Arabic",""],
+["Black seed (inhaled)","حبة السوداء","H3 D3","Wrapped in cloth inhaled; oil drop","Nas/Inh","Chronic sinusitis; blocked nasal passages. 1–2 drops oil in nostril","Q; HSK",""],
+["Galbanum (errhine)","قنة — qinna","H3 D2","Fum/Snuff in vinegar","Nas","Nasal polyps (classical); phlegmatic obstruction; chronic sinusitis","Dio Arabic; Q Bk.III",""],
+["Rose water (cold)","ماء الورد بارد","C1 M1","2–3 drops in each nostril","Nas","Epistaxis from heat; hot dry nasal mucosa","Q Bk.III",""],
+["Vinegar compress","خل بارد — khall","C2 D2","Cold compress on bridge and nape","Top","Epistaxis; cools blood; astringent","Q Bk.III; AZ",""],
+["Costus snuff","قسط — qusṭ","H3 D3","Small pinch snuffed","Nas","Phlegm of brain expelled through nose; chronic cold head","Q Bk.II",""],
+["Celery seed errhine","بذر الكرفس","H2 D2","Powder snuffed gently","Nas","Opens phlegmatic obstruction; expels thick mucus. Use cautiously","Dio Arabic",""],
+["Lavender fumigation","أسطوخودوس","H1 D1","Burn dried herb; inhale through nose","Inh","Phlegmatic nasal catarrh; cold head; chronic rhinitis","Q Bk.II; IB",""],
+]},
+{code:"THR",name:"Throat, Tonsil & Voice Disorders",arabic:"أمراض الحنجرة — Amrāḍ al-Ḥanjara",basis:"Inflammation from excess bile/blood; hoarseness from phlegm or dryness; quinsy from putrid humors.",entries:[
+["Liquorice","عرق السوس","H1 M2","Dec/Lozenge","Or/Gargle","Hoarseness; laryngitis; dry cough; inflamed throat. Hold decoction in throat","Q Bk.III",""],
+["Honey + ginger","عسل + زنجبيل","H1–3 D1–3","Warm paste; licked slowly","Or","Throat phlegm; tonsil swelling; voice loss from cold; quinsy precursor","Q Bk.III",""],
+["Boiled fig","تين — tīn","H2 M2","Dec; gargle; poultice","Or/Gargle/Top","Ripens quinsy abscess; gargle for tonsillitis; external neck poultice","Q Bk.III; Dio Arabic",""],
+["Pomegranate juice (sour)","عصير الرمان الحامض","C2 D2","Fresh juice gargle","Gargle","Hot tonsil inflammation; throat burning; astringent. 3×/day","Q Bk.III; IB",""],
+["Sumac","سماق — summāq","C2 D2","Dec gargle","Gargle","Tonsil inflammation; astringent; checks hot throat bleeding. 5 g 3×/day","Dio Arabic; Q",""],
+["Sesame oil (warm)","دهن السمسم","H1 M2","Gargle + swallow slowly","Or","Dry raw throat; hoarseness; lubricates mucosa. 5–10 ml","Q Bk.III",""],
+["Cubeb pepper","كبابة — kubāba","H2 D2","Chewed/Dec gargle","Or","Voice loss; phlegm on vocal cords; chronic hoarseness","IB; AB",""],
+["Burnt alum","شب محروق — shabb maḥrūq","H2 D4","0.5g in 200ml; gargle only","Gargle","Quinsy; tonsil abscess; cauterizing astringent gargle; stops throat bleeding","AZ Tasrif; Q","⚠ Gargle only; do not swallow"],
+["Fenugreek decoction","حلبة — ḥulba","H2 M1","Dec gargle + steam","Gargle/Inh","Throat phlegm; voice loss; inflamed mucosa","Dio Arabic",""],
+["Pellitory","عاقرقرحا — aqarqarḥā","H4 D3","Dec gargle","Gargle","Throat paralysis; palate numbness; cold voice loss","Q Bk.III; AB","⚠ Gargle only; powerful salivant"],
+]},
+{code:"DRP",name:"Dropsy, Oedema & Fluid Retention",arabic:"الاستسقاء — Al-Istisqā'",basis:"Water/phlegm outside proper vessels from liver weakness. Three types: tympanic (gas+fluid), fleshy, ascitic.",entries:[
+["Caper root bark","كبر — kabar","H2 D2","Dec/Vinegar macerate","Or","Classic hepatic dropsy herb; opens liver; diuretic. 5–10 g 2×/day","Dio Arabic; Q Bk.III",""],
+["Squill (post-islah)","عنصل — 'unṣul","H3 D3","Roast/Vinegar macerate; Pow in El","Or","Cardiac dropsy; diuretic; expels phlegmatic water","Dio Arabic; Q Bk.V","⚠⚠ Raw toxic; islah mandatory"],
+["Juniper berry","عرعر — 'ar'ar","H3 D2","Dec/El","Or","Powerful diuretic; opens urinary channels. Avoid kidney inflammation","Dio Arabic; Q",""],
+["Asparagus root","هيوف — hāyūf","H2 M1","Root Dec","Or","Diuretic; kidney and spleen opening. 10–15 g 2×/day","Dio Arabic; Q",""],
+["Asafoetida","حلتيت — ḥiltīt","H3 D2","Dissolved in water","Or","Tympanic dropsy; expels flatulent phlegm; diuretic. 0.5–1 g 2×/day","Q Bk.III; Dio Arabic","⚠ Avoid in pregnancy"],
+["Wormwood","أفسنتين — afsantīn","H3 D3","Inf/El","Or","Opens liver obstruction causing dropsy; bitter tonic","Dio Arabic; Q Bk.III","⚠ Avoid in pregnancy"],
+["Radish seed","بذر الفجل","H3 D2","Dec/Pow","Or","Diuretic; expels retained water; breaks down phlegm","Dio Arabic; Q",""],
+]},
+{code:"GOT",name:"Gout",arabic:"نقرس — Nuqris",basis:"Corrupt humors — primarily black bile mixed with phlegm — descending into joints. Ibn Sina treats nuqris separately from general arthritis.",entries:[
+["Colchicum (post-islah)","سورنجان — sūranjān","C2 D1","Boil in vinegar 1h; Pow 0.5–1g","Or","Ibn Sina's specific nuqris remedy; reduces bilious joint swelling","Q Bk.III; AB","⚠⚠ Toxic raw; islah mandatory"],
+["Endive / chicory","هندباء — hindibā'","C2 M1","Juice/Dec/Vinegar","Or","Cools bilious gout heat; liver purifier. 30–50 ml juice daily","Q; Dio Arabic",""],
+["Fumitory","شاهترة — shāhtara","C2 D2","Juice/Syr","Or","Purifies blood of black bile; long-term gout (40-day course)","Q Bk.II; IB",""],
+["Celery seed","كرفس — karafs","H2 D2","Dec 3×/day","Or","Diuretic; expels uric deposits; long-term management","Dio Arabic; Q",""],
+["Castor oil (topical)","دهن الخروع","H2 M2","Warm compress","Top","Reduces acute gout swelling; draws humors away","Dio Arabic",""],
+["Vinegar fomentation","خل معتّق","C2 D2","Fomentation/Diluted oral","Or/Top","Dissolves morbid joint deposits; cuts concretions","Q; Dio Arabic",""],
+["Camel's milk","لبن الإبل","C1 M2","Fresh/Fermented; 250–500ml","Or","Long-course gout management; blood purification","Q Bk.I; Ibn Rushd",""],
+["Senna (periodic)","سنا — sanā","H1 D2","Inf with ginger","Or","Purges black bile in gout; monthly 3-day course only","Q; AB","⚠ Avoid in pregnancy"],
+]},
+{code:"PAR",name:"Paralysis & Stroke Sequelae",arabic:"الفالج — Al-Fālij",basis:"Fālij (hemiplegia) and laqwa (facial palsy) from cold phlegm blocking nerves. Stroke from sudden phlegm/black bile to brain.",entries:[
+["Pellitory root","عاقرقرحا — aqarqarḥā","H4 D3","Pow in honey; massage oil","Or/Top","Facial palsy; hemiplegia; stimulates nerve activity. 1–2 g in honey; oil massage on paralysed side","Q Bk.III; AB",""],
+["Mustard oil (massage)","دهن الخردل","H4 D3","Warm massage on limb","Top","Activates paralysed muscles; counter-irritant; stimulates blood flow to nerves","Q Bk.III; AZ",""],
+["Castoreum","جند بيدستر","H3 D3","Pow/El","Or","Antispasmodic; nervine for paralysis; facial palsy. 0.5–1 g 2×/day","Q Bk.III; Dio Arabic","⚠ Avoid in pregnancy"],
+["Costus root","قسط — qusṭ","H3 D3","Dec/Oil massage","Or/Top","Hemiplegia; sciatica; cold nerve obstruction","Q Bk.II; AB",""],
+["Spikenard","سنبل الطيب","H2 D2","El/Oil","Or/Top","Post-stroke nerve tonic; brain strengthener. Oil on nape and temples","Q Bk.II; AB",""],
+["Aconite (post-islah) liniment","بيش — baysh","H2 D2 (post-islah)","Liniment in sesame oil","Top only","Hemiplegia; cold nerve pain. External only","Q Bk.V; AZ","⚠⚠ Islah mandatory; never on broken skin"],
+["Asafoetida","حلتيت — ḥiltīt","H3 D2","Dissolved in water","Or","Antispasmodic; warming nervine; disperses cold phlegm from nerves","Q; Dio Arabic","⚠ Avoid in pregnancy"],
+]},
+{code:"EPI",name:"Epilepsy & Convulsions",arabic:"الصرع — Al-Ṣar'",basis:"Cold phlegmatic vapor ascending from stomach to brain blocks sensory spirit. Ibn Sina distinguishes epilepsy from hysteria and infantile convulsions.",entries:[
+["Black myrobalan","هليلج أسود — halīlaj aswad","H1 D2","Pow/El (Ma'jun Harad)","Or","Chief brain and nerve tonic; epilepsy. 3–6 g in warm water or in compound","Q; HSK",""],
+["Peony root","فاونيا — fāwaniyā","H2 D1","Dec/Pow","Or","Epilepsy; convulsions; nerve spasm. 3–5 g 2×/day","Dio Arabic; IB",""],
+["Asafoetida (fumigation in acute)","حلتيت — ḥiltīt","H3 D2","Dissolved in water; fum in attack","Or/Inh","Antispasmodic; disperses brain vapors; during attack: fumigation under nose","Q Bk.III; Dio Arabic","⚠ Avoid in pregnancy"],
+["Castoreum","جند بيدستر","H3 D3","Pow/El","Or","Classic antispasmodic; epilepsy; hysteria. In compound","Q; Dio Arabic","⚠ Avoid in pregnancy"],
+["Valerian","فوة السكر","H1 D2","Dec/Pow/El","Or","Antiepileptic; sedates without narcosis; 5 g 2×/day","Dio Arabic; Q",""],
+["Amber","عنبر — 'anbar","H2 D1","In El/Inhaled","Or/Inh","Prevents vapors ascending to brain; epilepsy of nervous type","Q Bk.II",""],
+["Garlic in vinegar","ثوم + خل","H4 D4","2 cloves crushed in 30ml vinegar","Or","Disperses thick phlegmatic brain vapor; morning on empty stomach","Q Bk.III",""],
+["Henbane (compound only)","بنج — banj","C3 D3","Post-islah in compound","Or","Antispasmodic component preventing convulsions; in compound only","AZ; IB","⚠⚠ Compound only; 0.05–0.1 g"],
+]},
+{code:"MEM",name:"Memory, Cognition & Brain Weakness",arabic:"ضعف الذاكرة — Ḍa'f al-Dhākira",basis:"Phlegm filling brain cells, excess black bile causing fog, or excess heat drying brain moisture.",entries:[
+["Rosemary","إكليل الجبل — iklīl al-jabal","H3 D2","Inf/Oil/Fum","Or/Inh","Memory weakness; phlegmatic brain; cognitive fog; fumigation","IB; AB",""],
+["Spikenard","سنبل الطيب","H2 D2","Pow in honey/Oil","Or/Top","Brain weakness; memory; cognitive decline from cold humors","Q Bk.II; AB",""],
+["Mastic","مصطكى","H1 D2","Chewed","Or","Brain and memory tonic; absorbs phlegmatic moisture. After meals","Q Bk.II; Dio Arabic",""],
+["Amber","عنبر","H2 D1","In El/Inhaled","Or/Inh","Strengthens brain; dries excess moisture; elevates cognition","Q Bk.II; QAR",""],
+["Saffron","زعفران","H2 D1","In warm milk","Or","Brain and heart tonic; opens brain obstructions. 0.1–0.3 g daily","Q Bk.II",""],
+["Nutmeg","جوزة الطيب — jawzat al-ṭīb","H3 D3","Pow in El","Or","Brain tonic; dries phlegmatic moisture; memory","Q Bk.II; IB","⚠ Toxic >2–3g (narcotic intoxication, sakr)"],
+["Walnut","جوز — jawz","H2 D2","Raw with honey and fig","Or","Brain tonic; 7 walnuts+almonds+dates = Ibn Sina's morning elderly formula","Q Bk.I; AB",""],
+["Calamus root","وج — waj","H3 D2","Pow/Dec/Chewed","Or","Clears phlegmatic fog from brain; memory; deafness","Dio Arabic; Q Bk.II; AB",""],
+]},
+{code:"DIA",name:"Diabetes & Excessive Thirst",arabic:"زيابيطس — Ziyābīṭus",basis:"Ibn Sina distinguishes sweet-urine type from insipidus. Kidney weakness or excessive heat dissolving body moisture.",entries:[
+["Fenugreek seed","حلبة — ḥulba","H2 M1","Soaked seeds/Pow","Or","Checks excessive thirst; cools kidney heat; thickens urine. 5–10 g on empty stomach","AB; HSK; QAR",""],
+["Bitter gourd (karela)","كريلا — kārela","Cold D2","Juice/Pow","Or","Corrects sweet excessive urination; blood cooler. 30–50 ml fresh juice. Later Unani tradition (not core Qanun)","HSK; QAR",""],
+["Emblic myrobalan","آملة — āmla","C1 D2","Pow/Jam","Or","Cools kidney heat; restores vital moisture; anti-wasting","AB; HSK",""],
+["Coriander seed","كزبرة — kuzbara","C1 D1","Dec/Dist","Or","Cooling; reduces excessive thirst; calms kidney heat. 3–5 g 3×/day","Q Bk.II; AB",""],
+["Sandalwood (white)","صندل أبيض","C2 D1","Pow in rose water","Or","Cools kidney and liver heat; reduces burning thirst. 3–5 g 2×/day","Q Bk.II",""],
+["Marshmallow root","خطمية — khaṭmiyya","C1 M3","Mucilage","Or","Soothes inflamed kidney; burning urination; retains moisture","Dio Arabic; Q",""],
+["Barberry","زرشک — zarishk","C2 D2","Sherbet/Dec","Or","Corrects liver heat causing sweet urine; cleanses blood","Q; AB",""],
+["Purslane","رجلة — rajla","C3 M3","Juice/Raw","Or","Cools excess heat dissolving body fluids; thirst-quenching","Q; Dio Arabic",""],
+]},
+{code:"OBE",name:"Obesity & Excess Weight",arabic:"السمنة — Al-Samana",basis:"Excess cold moist phlegm accumulating as fat. Insufficient natural heat to transform nutriment.",entries:[
+["Honey in warm water","عسل + ماء فاتر","H1 D1","20g honey in warm water; morning fasting","Or","Breaks phlegmatic fat; metabolic activator. First classical obesity measure","Q Bk.I",""],
+["Vinegar (before meals)","خل معتّق","C2 D2","20ml in water 3×/day before meals","Or","Cuts phlegm; reduces appetite; metabolic; dissolves fat classically","Q Bk.I; Dio Arabic",""],
+["Dry ginger","زنجبيل","H3 D3","Pow in warm water","Or","Increases digestive fire; burns off excess phlegmatic moisture","Q Bk.I; AB",""],
+["Radish (raw)","فجل — fujl","H3 D2","Raw before meals","Or","Cuts and expels phlegm; metabolic stimulant","Dio Arabic; Q",""],
+["Cumin","كمون — kammūn","H3 D3","Pow in warm water","Or","Carminative; metabolic activator; reduces phlegmatic bloating","Dio Arabic; AB",""],
+["Fumitory","شاهترة","C2 D2","Juice daily","Or","Purifies blood of phlegmatic excess; liver depurative","Q; IB",""],
+["Long pepper","دارفلفل","H4 D2","Pow in honey","Or","Intensifies digestive heat; burns phlegm; appetite corrector","Q Bk.II",""],
+]},
+{code:"EME",name:"Emaciation & Wasting Diseases",arabic:"الذبول — Al-Dhubūl",basis:"Deficiency of vital moisture (ruṭūbat gharīziyya) or natural heat consuming body substance. Includes pulmonary wasting (sill) and post-fever wasting.",entries:[
+["Ashwagandha","أشواغاندا","H2 D1","Pow in warm milk; nightly","Or","Chief wasting-disease tonic; rebuilds vital moisture; muscle and nerve restorative","AB Saydana; QAR; HSK",""],
+["Pine nuts","صنوبر","H2 M2","Raw/El with honey","Or","Lung wasting; nutritive; increases weight and vital moisture","Q Bk.II; Dio Arabic",""],
+["Almond milk","شير بادام — shīr bādām","H1 M2","Almond paste in goat milk; 200ml 2×/day","Or","Lung tonic; wasting; increases vital moisture","Q Bk.II",""],
+["Ghee","سمن — samn","H1 M2","With food/In milk/El","Or","Replenishes vital moisture; lubricates dry organs. 10–20 g with food","Q Bk.I; AB",""],
+["Emblic myrobalan","آملة","C1 D2","Jam/Pow/El","Or","Anti-wasting rasayana; rebuilds humors; liver and blood tonic","AB; HSK",""],
+["Goat milk","لبن الماعز","C1 M2","Warm with honey; 500ml 2×/day","Or","Lung wasting; general emaciation; nutritive restorative","Q Bk.III; Ibn Rushd",""],
+["Liquorice","عرق السوس","H1 M2","Dec/El","Or","Lung wasting with cough; moistens dry bronchi; nutritive","Q Bk.II",""],
+["Saffron in milk","زعفران + حليب","H2 D1","0.1–0.3g in warm milk","Or","Vitalizes all organs; cardiac and nervous tonic in wasting","Q Bk.II",""],
+]},
+{code:"HEM",name:"Haemorrhage & Bleeding Disorders",arabic:"النزيف — Al-Nazīf",basis:"Blood too hot and thin fails to congeal; excess heat opens vessel walls; excess blood overcrowds and bursts.",entries:[
+["Gallnut","عفص — 'afṣ","C2 D4","Dec/Pow applied","Or/Top","Most powerful classical astringent; all bleeding surfaces; styptic","Dio Arabic; AZ",""],
+["Dragon's blood resin","دم الأخوين — dam al-akhwayn","C2 D3","Pow/In rose water","Or/Top","Powerful haemostatic; wounds; haemoptysis; astringent. 0.5–1 g","AB Saydana; Dio Arabic",""],
+["Alum","شب — shabb","C2 D4","Dissolved/Topical Pow","Or/Top","Haemostatic powder; wound bleeding; gum bleeding; mouthwash","AZ Tasrif; Dio Arabic","⚠ Not for prolonged oral use"],
+["Pomegranate rind","قشر الرمان","C2 D3","Dec/Paste","Or/Top","Astringent; external and internal bleeding; haemoptysis. 5g oral; paste topical","Dio Arabic; Q",""],
+["Vinegar (cold)","خل بارد","C2 D2","Cold compress; oral","Or/Top","Contracts vessels; haemostatic; nosebleed; haemoptysis","Q Bk.III; AZ",""],
+["Sumac","سماق","C2 D2","Dec/Paste","Or/Top","Astringent; external and internal bleeding; bile excess","Dio Arabic; Q",""],
+["Myrtle berry","آس — ās","C2 D3","Dec","Or","Haemoptysis; intestinal bleeding; astringent; excessive menstruation","Dio Arabic; IB",""],
+["Coriander juice (fresh)","عصير الكزبرة","C1 D1","Fresh juice; cold compress","Or/Top","Haemoptysis; hot blood bleeding; cooling haemostatic","Q; Dio Arabic",""],
+["Acacia gum","صمغ عربي","C1 D1","In cold water","Or/Top","Soothes internal bleeding of gut/lung; coating haemostatic","Dio Arabic; Q",""],
+]},
+{code:"SUR",name:"Wounds, Fractures & Surgical Preparations",arabic:"الجراحة — Al-Jirāḥa",basis:"Primary source: Al-Zahrawi, Al-Tasrif (surgical book). Ibn Sina Qanun Bk.IV secondary.",entries:[
+["Honey (raw)","عسل — 'asal","H1 D1","Applied directly; cover","Top","Antiseptic wound covering; prevents putrefaction; promotes granulation. Change 2×/day","AZ Tasrif; Q Bk.IV",""],
+["Myrrh","مرّ — murr","H2 D3","Pow/Vinegar paste","Top","Antiseptic; promotes granulation; prevents putrefaction","Dio Arabic; AZ",""],
+["Frankincense","لبان — lubān","H2 D2","Pow/Plaster/Fum","Top","Wound healing; anti-putrefactive; bone fracture plaster; tissue strengthening","Dio Arabic; AZ",""],
+["Aloe (dried latex)","صبار لاتكس — ṣabbār","H1 D3","Pow on wound","Top","Haemostatic powder on bleeding wound; promotes healing","AZ Tasrif; Dio Arabic",""],
+["Egg white","بياض البيض","C1 M2","Raw/With rose water","Top","Cooling burn dressing; wound adhesive; plaster binder","AZ Tasrif",""],
+["Beeswax + olive oil","شمع + زيت","Neutral","Plaster base","Top","Base for all surgical plasters (marham); holds medicinals in contact with wound","AZ Tasrif",""],
+["Pine resin","قطران — qaṭrān","H3 D3","In plaster/Ointment","Top","Drawing agent for deep wounds; antiseptic; promotes pus drainage from abscess","AZ Tasrif; Dio Arabic",""],
+["Verdigris (in plaster)","زنجار — zanjār","H3 D4","In plaster at low %","Top","Escharotic; removes dead tissue; antifungal ulcer. AZ specifies exact proportions","AZ Tasrif","⚠⚠ Copper compound. Small amounts in plaster only"],
+["Anesthetic sponge — opium","أفيون — afyūn","C4 D4","Isfanj soaked compound","Inh (surgical)","Surgical anesthesia pre-operation — component 1: narcotic-analgesic","AZ Tasrif Bk.30","⚠⚠ Fatal in overdose; compound only"],
+["Anesthetic sponge — mandrake","يبروح — yabrūḥ","C4 D4","Isfanj soaked compound","Inh (surgical)","Surgical anesthesia pre-operation — component 2: deepens narcosis","AZ Tasrif Bk.30","⚠⚠ Fatal in overdose"],
+["Anesthetic sponge — henbane","بنج — banj","C3 D3","Isfanj soaked compound","Inh (surgical)","Surgical anesthesia pre-operation — component 3: antispasmodic, prevents convulsions","AZ Tasrif Bk.30","⚠⚠ All three required together per AZ"],
+]},
+{code:"PES",name:"Plague, Pestilential Fever & Epidemic Prevention",arabic:"الطاعون — Al-Ṭā'ūn",basis:"Corruption of air (fasad al-hawā') poisoning the vital pneuma. Ibn Sina, Qanun Bk.IV; Al-Razi on epidemic fevers.",entries:[
+["Theriac Magna","ترياق فاروق","H2 D1","Compound El","Or","Chief plague antidote and preventive. 3–6 g/day during epidemic","Q Bk.IV; AZ","⚠⚠ Contains opium+aconite (processed)"],
+["Vinegar (strong, aged)","خل معتّق","C2 D2","Inhaled/Gargle/Sprinkled","Or/Inh","Purifies air; preventive during epidemic; gargle daily; sprinkle in rooms","Q Bk.IV; Ibn al-Khatib",""],
+["Camphor (fumigation)","كافور","C4 D2","Burn small piece in room","Inh (env.)","Purifies corrupted air; pandemic prevention. Oral: 0.05–0.1g in rose water only","Q Bk.IV","⚠⚠ Fumigation: small piece only. Oral: micro-dose"],
+["Frankincense","لبان — lubān","H2 D2","Burn in rooms and on clothing","Inh (env.)","Purifies air; protective fumigant during plague","Q Bk.IV; Ibn al-Khatib",""],
+["Armenian bole clay","طين أرمني","C2 D2","Dissolved in water","Or","Antidote for plague toxin absorbed through stomach; adsorbs. Daily during epidemic","Q Bk.IV; AB",""],
+["Myrrh","مرّ — murr","H2 D3","Fum/Oral/Topical on buboes","Or/Top/Inh","Antiseptic fumigant; oral preventive; paste on plague swellings (dūmmal)","Q Bk.IV; Dio Arabic",""],
+["Garlic","ثوم","H4 D4","Raw; hang bunches in dwelling","Or/Inh (env.)","Purifies air; antidote to epidemic fever; eat 2–3 cloves/day","Q Bk.IV; Dio Arabic",""],
+["Rose water","ماء الورد","C1 M1","Sprinkle; nasal drops; oral","Or/Nas","Purifies inhaled air; refreshes vital spirit. Sprinkle in rooms","Q Bk.IV",""],
+["Black seed","حبة السوداء","H3 D3","Pow in honey; fumigation","Or/Inh","Epidemic preventive; immune tonic; Prophetic medicine reference","Q; Prophetic; HSK",""],
+]},
+{code:"MEN",name:"Mental Disorders: Melancholy, Mania & Waswās",arabic:"أمراض النفس — Amrāḍ al-Nafs",basis:"Melancholy (mālikhūliyā) from black bile; mania from hot blood/bile; waswās from mixture. Ibn Sina, Qanun Bk.III.",entries:[
+["Borage","لسان الثور","C1 M1","Juice/Inf/Syr","Or","Lifts melancholy; calms anxious heart; elevates vital spirit; waswās","IB; Dio Arabic",""],
+["Fumitory (long course)","شاهترة","C2 D2","Juice/Dec daily 40 days","Or","Purifies blood of black bile; liver depurative; melancholy management","Q; IB",""],
+["Senna + black myrobalan","سنا + هليلج","H1–2 D2","Compound Inf, monthly 3 days","Or","Periodic black bile purge — specific mental detox purgative","Q Bk.III; HSK","⚠ Avoid in pregnancy"],
+["Saffron","زعفران","H2 D1","In warm milk/sherbet","Or","Lifts mood; elevates vital spirit; calms manic agitation. Note: excess causes uncontrolled laughter (Ibn Sina warning)","Q Bk.II",""],
+["Valerian","فوة السكر","H1 D2","Dec at night","Or","Calms violent mania; sedates; antispasmodic in mental crisis","Dio Arabic; Q",""],
+["Rose water (cold, for mania)","ماء الورد بارد","C1 M1","Cold compress/Oral 60ml 3×/day","Or/Top","Mania from hot blood; cools excited vital spirit","Q Bk.III",""],
+["Amber","عنبر","H2 D1","In El/Inhaled","Or/Inh","Waswās; grounds spirit; strengthens brain vapors","Q Bk.II",""],
+["Cold water hydrotherapy","الماء البارد","—","Poured over head repeatedly","Top (physical)","Mania from hot blood — classical physical treatment. Not pharmaceutical. Documented by Ibn Sina and Al-Zahrawi","Q Bk.III; AZ",""],
+["Opium (compound, last resort)","أفيون — afyūn","C4 D4","0.05g max in compound","Or","Violent uncontrolled mania — last resort sedation only. Ibn Sina warns explicitly","Q Bk.III","⚠⚠ Compound only; highly addictive; last resort"],
+["Lavender compound","أسطوخودوس","H1 D1","Ma'jun Ustukhudus","Or","Cold phlegmatic depression; cold melancholy; purges cold vapor from brain","Q Bk.II; HSK",""],
+]},
+{code:"AGE",name:"Aging, Longevity & Anti-Senescence",arabic:"حفظ الصحة للشيخوخة — Ḥifẓ al-Ṣiḥḥa lil-Shuyūkha",basis:"Ibn Sina (Qanun Bk.I): aging = progressive drying and cooling of innate moisture and heat. Longevity medicine (ṭibb al-mashāyikh) slows this.",entries:[
+["Emblic myrobalan (amla)","آملة — āmla","C1 D2","Jam/Pow daily","Or","Chief anti-aging rasayana; replenishes vital moisture; eye, hair, skin, liver. The classical longevity simple","AB Saydana; HSK",""],
+["Honey (raw, mature)","عسل معتّق","H1 D1","Raw in El; 20–30g daily","Or","Preserves vital moisture; antiputrefactive; replenishes humors. Ibn Sina's single most praised food (Qanun Bk.I)","Q Bk.I",""],
+["Saffron (micro-dose)","زعفران","H2 D1","0.05–0.1g in warm milk; daily","Or","Preserves vital spirit; cardiac tonic; daily longevity micro-dose","Q Bk.II",""],
+["Dates + almonds + walnuts","تمر + لوز + جوز","H1–2 M1–2","7 dates + 5 walnuts + 7 almonds; morning","Or","Ibn Sina's specific morning formula for elderly brain and body restorative (Qanun Bk.I)","Q Bk.I",""],
+["Pine nuts","صنوبر","H2 M2","Raw/El; 30g daily","Or","Replenishes vital moisture in lungs and reproductive organs; anti-aging","Q Bk.II",""],
+["Rose conserve","مربى الورد — murabbā al-ward","C1 M1","10–15g rose petals in honey; daily","Or","Restores vital spirit; cooling cardiac tonic for elderly","Q Bk.I; QAR",""],
+["Ashwagandha","أشواغاندا","H2 D1","5g Pow in warm milk; nightly","Or","Anti-aging nervine and reproductive tonic; replenishes vital moisture","AB; HSK",""],
+["Gold leaf (varak)","ذهب — dhahab","H1 D1","0.001–0.01g in compound El","Or","Strengthens all three spirits; anti-aging; costly compound electuaries","Q Bk.II; QAR",""],
+["Warm bath + oil massage","—","—","Warm bath 3 days/week; sesame/violet oil massage","Physical","Replenishes skin moisture; opens pores; expels wastes. Ibn Sina: fundamental to aging protocol (Qanun Bk.I)","Q Bk.I",""],
+]},
+// VOL III — NEW CATEGORIES
+{code:"PIL",name:"Haemorrhoids & Anal Fissures",arabic:"البواسير — Al-Bawāsīr",basis:"Excess blood or black bile in rectal veins. Hot type: bright bleeding from bilious heat. Cold type: hard painless masses from phlegmatic congestion.",entries:[
+["Pomegranate rind (sitz bath)","قشر الرمان","C2 D3","Concentrated Dec sitz bath; Pow suppository","Top","Astringent; reduces hot bleeding haemorrhoids; contracts dilated veins","Q Bk.III; AZ",""],
+["Gallnut","عفص — 'afṣ","C2 D4","Pow suppository/Dec wash","Top","Most powerful astringent; bleeding haemorrhoids; contracts tissue","Dio Arabic; AZ",""],
+["Alum (sitz bath)","شب — shabb","C2 D4","1g in 1L warm water sitz bath","Top","Haemostatic; astringent; reduces prolapsed haemorrhoids","AZ Tasrif; Q",""],
+["Castor oil (suppository)","دهن الخروع","H2 M2","Warm oil suppository/Oral 15–20ml","Top/Or","Softens anal passage; lubricant for fissure; mild purgative to reduce straining","Dio Arabic; AZ",""],
+["Fumitory (long course)","شاهترة","C2 D2","Juice; 40-day course","Or","Purifies blood of black bile causing cold haemorrhoids","IB; Q",""],
+["Psyllium","إسبغول","C1 M2","10g in water 2×/day","Or","Bulk laxative; prevents straining; universally safe adjunct","AB Saydana",""],
+["Bitter almond oil (suppository)","دهن اللوز المر","H2 D1","Oil suppository","Top","Softens hard cold haemorrhoids","AZ Tasrif","⚠ Topical rectal only; never ingested"],
+["Cauterization (kayy)","الكي — al-kayy","—","Hot iron; AZ instrument specification","Surgical","AZ's preferred treatment for prolapsed bleeding haemorrhoids unresponsive to medicine","AZ Tasrif Bk.30",""],
+]},
+{code:"JAU",name:"Jaundice",arabic:"اليرقان — Al-Yaraqān",basis:"Ibn Sina distinguishes yaraqān aṣfar (hot bilious, obstruction) from yaraqān aswad (black bile type, worse prognosis).",entries:[
+["Endive / chicory root","هندباء — hindibā'","C2 M1","Dec 10g/300ml 3×/day","Or","Chief jaundice remedy; opens bile duct; cools hot liver","Q Bk.III; Dio Arabic",""],
+["Caper root bark","كبر — kabar","H2 D2","Dec/Vinegar macerate","Or","Opens hepatic and biliary obstruction; classic jaundice herb","Dio Arabic; Q Bk.III",""],
+["Turmeric","كركم — kurkum","H2 D2","Pow in warm water 2×/day","Or","Opens biliary passages; classical jaundice treatment; liver purifier","AB Saydana; QAR",""],
+["Barberry","زرشک","C2 D2","Sherbet/Dec","Or","Corrects biliary excess; cooling liver; yellow jaundice","Q; AB",""],
+["Fumitory","شاهترة","C2 D2","Juice 20–30ml daily over 40 days","Or","Purifies blood of bilious excess; long-course jaundice","Q; IB",""],
+["Wormwood","أفسنتين","H3 D3","Inf + honey 2×/day","Or","Opens obstructed bile; black jaundice (yaraqān aswad)","Dio Arabic; Q","⚠ Avoid in pregnancy"],
+["Violet syrup","شراب البنفسج","C1 M2","30–60ml 2×/day","Or","Cools hot bilious liver; soothes inflammation; yellow jaundice","Q Bk.III",""],
+["Senna (black jaundice only)","سنا — sanā","H1 D2","Inf with ginger","Or","Purges black bile in severe yaraqān aswad only","Q Bk.III","⚠ Avoid in pregnancy"],
+]},
+{code:"STN",name:"Urinary & Kidney Stones",arabic:"الحصى — Al-Ḥaṣā",basis:"Stones from thick dried cold humors precipitating in kidney/bladder. Ibn Sina distinguishes kidney stone from bladder stone. Treatment: dissolve, smooth, expel.",entries:[
+["Wild rue / harmal","حرمل — ḥarmal","H3 D3","Seed Dec","Or","Lithotriptic; classical stone-dissolving herb; spleen","Q Bk.III; AB","⚠ Avoid in pregnancy"],
+["Saxifrage","حجر الكسر — ḥajar al-kasr","H2 D2","Root/Seed Dec","Or","Chief lithotriptic; stone-breaker (name literal); kidney stone dissolution","Dio Arabic; IB",""],
+["Parsley seed","بذر البقدونس","H3 D2","Dec 3×/day","Or","Lithotriptic; diuretic; passes and dissolves small stones","Dio Arabic; Q","⚠ Avoid in pregnancy"],
+["Celery seed","كرفس — karafs","H2 D2","Dec 3×/day","Or","Lithotriptic; diuretic; dissolves and passes stones","Dio Arabic; Q Bk.III",""],
+["Marshmallow root","خطمية","C1 M3","Dec/Mucilage 3×/day","Or","Soothes passage of stones; demulcent; lubricates urinary tract","Dio Arabic; Q",""],
+["Asparagus root","هيوف","H2 M1","Root Dec 2×/day","Or","Diuretic; expels gravel; opens blocked urinary channels","Dio Arabic; Q",""],
+["Watermelon seed","بذر البطيخ","C1 M1","Ground paste in water","Or","Soothing diuretic; lubricates urinary tract; expels sand and gravel","HSK; QAR",""],
+["Chickpea broth","ماء الحمص — mā' al-ḥimmaṣ","H1 M1","100g plain cooked chickpeas; drink broth","Or","Ibn Sina specifically recommends as diuretic food-medicine for kidney stone (Qanun Bk.III)","Q Bk.III",""],
+]},
+{code:"POX",name:"Smallpox & Pox Diseases",arabic:"الجدري — Al-Jadarī",basis:"Primary sources: Ibn Sina, Qanun Bk.IV; Al-Razi, Kitab al-Jadari wa al-Haṣba (first clinical monograph on smallpox/measles). Caused by fermentation of fetal blood.",entries:[
+["Rose water (continuous)","ماء الورد","C1 M1","Cold compress continuously in acute phase","Top","Applied to pustules; prevents spread; soothes; prevents pitting","AR Jadari; Q Bk.IV",""],
+["Saffron paste","معجون الزعفران","H2 D1","In rose water; paste","Top","Applied to healing pustules — classical anti-scarring technique. Both Al-Razi and Ibn Sina specify","Q Bk.IV; AR",""],
+["Sandalwood (white + red)","صندل أبيض وأحمر","C2 D1","Paste with rose water","Top","Cooling; prevents pustule from deepening; anti-scarring. Both varieties combined","Q Bk.IV; AR",""],
+["Violet oil","دهن البنفسج","C1 M2","Cold-infused oil","Top","Soothes hot inflamed pustules; cooling; prevents skin damage","Q Bk.IV",""],
+["Barley water","ماء الشعير","C1 M2","Dec of hulled barley","Or","Standard fever/pox drink; nourishes without heating. Drink freely","AR Jadari; Q Bk.IV",""],
+["Pomegranate juice (sour)","عصير الرمان","C2 D2","Fresh juice 3×/day","Or","Quenches fever thirst; cools bilious excess driving pox","AR Jadari",""],
+["Lentil broth (eruptive phase)","ماء العدس","C1 D1","Cooked lentil water","Or","Al-Razi specifically recommends during eruptive phase","AR Jadari",""],
+["Aromatic room fumigation","البخور — al-bukhūr","—","Burn sandalwood + rose + mastic in room 2×/day","Inh (env.)","Purify sickroom air; prevent secondary infection; classical epidemic hygiene","Q Bk.IV; AR",""],
+]},
+{code:"SPL",name:"Spleen Diseases",arabic:"أمراض الطحال — Amrāḍ al-Ṭiḥāl",basis:"Spleen = organ of black bile. Splenomegaly from excess cold dark blood or black bile. Treatment: dissolve the hard mass, expel black bile.",entries:[
+["Caper root bark","كبر — kabar","H2 D2","Vinegar macerate/Dec daily","Or","Chief spleen opener; dissolves splenomegaly; standard Unani spleen herb","Dio Arabic; Q Bk.III",""],
+["Fumitory","شاهترة","C2 D2","Juice; 40-day course","Or","Purifies blood of black bile; long-course spleen cleansing","Q; IB",""],
+["Wormwood","أفسنتين","H3 D3","Inf + honey 2×/day","Or","Opens spleen obstruction; bitter tonic; disperses hard black matter","Dio Arabic; Q Bk.III","⚠ Avoid in pregnancy"],
+["Harmal seed","حرمل — ḥarmal","H3 D3","Seed Dec 2×/day","Or","Dissolves hard splenic mass; anthelmintic","AB; Q","⚠ Avoid in pregnancy"],
+["Senna + myrobalans (periodic)","سنا + هليلج","H1–2 D2","Compound Inf; monthly 3–5 days","Or","Periodic black bile purge for spleen management","Q; AB","⚠ Avoid in pregnancy"],
+["Figs (dried, daily food)","تين — tīn","H2 M2","5–7 figs/day as food","Or","Softens and opens hard spleen; gentle ongoing tonic","Dio Arabic; Q Bk.III",""],
+["Warm salt-oil compress","—","—","Warm cloth with salt and olive oil on left upper quadrant","Top (physical)","External warming of enlarged spleen — Ibn Sina prescribes alongside internal remedies (Qanun Bk.III)","Q Bk.III",""],
+]},
+{code:"VEN",name:"Venereal Disease & Syphilis",arabic:"أمراض المباشرة — Amrāḍ al-Mubāshara",basis:"Mercury preparations standard in post-medieval Unani for chronic ulcerating sexually transmitted disease. All mercury entries require complete islah (purification). Historical documentation only.",entries:[
+["Kajjali (mercury sulfide)","كجلي — kajjalī","C3 (processed)","Triturate mercury+sulfur until no copper stain; Pow in compound","Or (compound)","Anti-syphilitic; chronic venereal ulceration. 30–60 mg in compound only","HSK; QAR; AZ","⚠⚠ Mercury compound. Post-islah in compound only"],
+["Mercury ointment (Marham Zibaq)","مرهم زيبق","C3 (processed)","Mercury triturated with lard until invisible; ointment","Top (inunction)","Classical inunction for venereal skin lesions. Max 3 days transdermally","AZ Tasrif; QAR","⚠⚠ Mercury absorbed transdermally. Max 3 days"],
+["Sarsaparilla root","عشبة الليف — 'ushbat al-layf","H1 M1","Root Dec 2×/day over weeks","Or","Blood purifier; diaphoretic; supports blood cleansing alongside mercury treatment","HSK; QAR",""],
+["Fumitory","شاهترة","C2 D2","Juice daily","Or","Blood purifier; skin cleansing from corrupt humors","QAR; HSK",""],
+["Vinegar + sulfur wash","خل + كبريت","Mixed","Diluted wash","Top","Antiseptic wash for ulcerated lesions; reduces surface infection","AZ; QAR",""],
+]},
+{code:"HIC",name:"Hiccup & Belching",arabic:"الفواق — Al-Fawwāq",basis:"Diaphragm spasm from irritant vapors of stomach. Ibn Sina distinguishes hot-type (bilious) from cold-type (phlegm/wind) in Qanun Bk.III.",entries:[
+["Dry ginger","زنجبيل","H3 D3","1–2g Pow in warm water; immediately","Or","Cold-type hiccup; warms and settles cold stomach; expels wind","Q Bk.III",""],
+["Fennel distillate","عرق الشمار","H2 D1","30–60ml warm distillate","Or","Wind-type hiccup; carminative; settles diaphragmatic spasm from gas","Q Bk.III; Dio Arabic",""],
+["Vinegar (sharp, sniffed)","خل — khall","C2 D2","Strong vinegar inhaled through nose, 1–2 breaths","Nas","Hot-type hiccup; shock-stops diaphragm spasm; classical reflex technique","Q Bk.III",""],
+["Cold rose water (oral)","ماء الورد بارد","C1 M1","60ml cold; sipped slowly","Or","Hot-type hiccup from bilious stomach irritation","Q Bk.III",""],
+["Mint (strong infusion)","نعناع — na'nā'","H2 D2","5g strong Inf; immediately","Or","Wind-type and phlegmatic hiccup; carminative; settles stomach","Q Bk.III; Dio Arabic",""],
+["Asafoetida","حلتيت — ḥiltīt","H3 D2","0.3g in warm water","Or","Hiccup from retained gas and wind; disperses flatulent vapor","Q Bk.III","⚠ Avoid in pregnancy"],
+]},
+];
+
+// ROUTE DISPLAY
+const ROUTE_MAP={
+  "Or":"r-or","Top":"r-top","Inh":"r-inh","Ear":"r-ear",
+  "Nas":"r-nas","Oph":"r-oph","Rec":"r-rec","Gargle":"r-or",
+  "Or/Top":"r-or","Or/Inh":"r-inh","Or/Top/Inh":"r-inh",
+  "Top/Or":"r-top","Ear/Or":"r-ear","Or/Inh (env.)":"r-inh",
+  "Inh (env.)":"r-inh","Inh (surgical)":"r-inh","Inh (physical)":"r-inh",
+  "Nas/Inh":"r-nas","Top (dental)":"r-top","Top (physical)":"r-top",
+  "Or (compound)":"r-or","Top (inunction)":"r-top","Top only":"r-top",
+  "Surgical":"r-top","Or (surgical)":"r-or","Gargle/Inh":"r-inh"
+};
+
+function routeTag(r){
+  const parts=r.split("/");
+  const first=parts[0].replace(" only","").replace(" (compound)","").replace(" (inunction)","").replace(" (dental)","").replace(" (physical)","").replace(" (env.)","").replace(" (surgical)","").trim();
+  const cls=ROUTE_MAP[r]||ROUTE_MAP[first]||"r-or";
+  const label=r.length>12?first:r;
+  return`<span class="route-tag ${cls}">${label}</span>`;
+}
+
+// BUILD NAV
+const nav=document.getElementById("nav");
+const sections=[
+  {label:"Volume I — Common Ailments",codes:["FEV","DIG","RES","HRT","JNT","HED","SKN","EYE","LIV","DIU","CLM","WOM","CHI","LAX","TON","APH","TOX"]},
+  {label:"Volume II — Specific Conditions",codes:["ORL","EAR","NOS","THR","DRP","GOT","PAR","EPI","MEM","DIA","OBE","EME","HEM","SUR","PES","MEN","AGE"]},
+  {label:"Volume III — Verified Additions",codes:["PIL","JAU","STN","POX","SPL","VEN","HIC"]}
+];
+const ailMap=Object.fromEntries(AILMENTS.map(a=>[a.code,a]));
+
+sections.forEach(sec=>{
+  const hdr=document.createElement("div");
+  hdr.className="sidebar-section";
+  hdr.textContent=sec.label;
+  nav.appendChild(hdr);
+  sec.codes.forEach(code=>{
+    const ail=ailMap[code];
+    if(!ail)return;
+    const btn=document.createElement("button");
+    btn.className="ail-btn";
+    btn.dataset.code=code;
+    btn.innerHTML=`<span class="ail-code">${code}</span>${ail.name}<span class="ail-count">${ail.entries.length}</span>`;
+    btn.onclick=()=>showAilment(code,btn);
+    nav.appendChild(btn);
+  });
+});
+
+let activBtn=null;
+function showAilment(code,btn){
+  if(activBtn)activBtn.classList.remove("active");
+  btn.classList.add("active");
+  activBtn=btn;
+  const a=ailMap[code];
+  const main=document.getElementById("main");
+  const toxCount=a.entries.filter(e=>e[7]).length;
+  main.innerHTML=`
+    <div class="ail-header">
+      <h2><span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;opacity:.5;margin-right:.4rem">${a.code}</span>${a.name}</h2>
+      <div class="arabic">${a.arabic}</div>
+      <div class="basis">${a.basis}</div>
+      <div class="ail-stats">
+        <span class="astat">${a.entries.length} entries</span>
+        ${toxCount?`<span class="astat" style="color:#8c3a14">⚠ ${toxCount} with caution flag</span>`:""}
+      </div>
+    </div>
+    <table>
+      <thead><tr>
+        <th>Ingredient</th><th>Arabic</th><th>Mizaj</th><th>Prep</th><th>Route</th>
+        <th>Indication</th><th>Source</th><th>⚠</th>
+      </tr></thead>
+      <tbody>${a.entries.map(e=>`<tr>
+        <td>${e[0]}</td>
+        <td class="ar">${e[1]}</td>
+        <td class="temp">${e[2]||"—"}</td>
+        <td class="prep">${e[3]}</td>
+        <td>${routeTag(e[4])}</td>
+        <td class="ind">${e[5]}</td>
+        <td class="ref">${e[6]}</td>
+        <td class="flag ${e[7]&&e[7].includes("⚠⚠")?"toxic":e[7]?"":""}"><span class="flag-inner">${e[7]||""}</span></td>
+      </tr>`).join("")}
+      </tbody>
+    </table>`;
+}
+
+// SEARCH
+function search(){
+  const q=document.getElementById("srch").value.trim().toLowerCase();
+  if(!q)return;
+  const results=[];
+  AILMENTS.forEach(a=>{
+    a.entries.forEach(e=>{
+      const text=[e[0],e[1],e[2],e[3],e[4],e[5],e[6]].join(" ").toLowerCase();
+      if(text.includes(q))results.push({ail:a,entry:e});
+    });
+  });
+  const main=document.getElementById("main");
+  if(!results.length){main.innerHTML=`<p style="padding:2rem;color:#888;font-style:italic">No results for "${q}".</p>`;return;}
+  main.innerHTML=`
+    <div class="ail-header">
+      <h2>Search: "${q}"</h2>
+      <div class="basis">${results.length} result${results.length!==1?"s":""} across ${[...new Set(results.map(r=>r.ail.code))].length} ailment categories</div>
+    </div>
+    <table>
+      <thead><tr><th>Ailment</th><th>Ingredient</th><th>Arabic</th><th>Mizaj</th><th>Prep</th><th>Indication</th><th>Source</th><th>⚠</th></tr></thead>
+      <tbody>${results.map(r=>`<tr>
+        <td style="font-size:.7rem;font-family:'JetBrains Mono',monospace">${r.ail.code}<br><span style="opacity:.6;font-size:.6rem">${r.ail.name}</span></td>
+        <td><strong>${r.entry[0]}</strong></td>
+        <td class="ar">${r.entry[1]}</td>
+        <td class="temp">${r.entry[2]||"—"}</td>
+        <td class="prep">${r.entry[3]}</td>
+        <td class="ind">${r.entry[5]}</td>
+        <td class="ref">${r.entry[6]}</td>
+        <td class="flag">${r.entry[7]||""}</td>
+      </tr>`).join("")}
+      </tbody>
+    </table>`;
+}
+document.getElementById("srch").addEventListener("keydown",e=>{if(e.key==="Enter")search();});
+</script>
+</body>
+</html>

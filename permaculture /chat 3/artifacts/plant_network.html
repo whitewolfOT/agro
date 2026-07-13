@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Plant Relationship Network — Permaculture Knowledge Graph</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e0a;
+  --panel:#0f1810;
+  --border:#1f3020;
+  --text:#c8d8c0;
+  --text-dim:#5a7050;
+  --accent:#4caf50;
+  --green:#27ae60;
+  --red:#e74c3c;
+  --amber:#f39c12;
+  --gray:#7f8c8d;
+  --purple:#8e44ad;
+  --blue:#3498db;
+  --font-mono:'Space Mono',monospace;
+  --font-display:'Syne',sans-serif;
+  /* Categories */
+  --c-hub:#c0392b;
+  --c-nfixer:#2ecc71;
+  --c-pioneer:#e67e22;
+  --c-food:#f1c40f;
+  --c-annual:#ff7675;
+  --c-ground:#1abc9c;
+  --c-grass:#a8b5a0;
+  --c-herb:#a29bfe;
+  --c-aquatic:#74b9ff;
+  --c-remediator:#00cec9;
+  --c-indicator:#636e72;
+  --c-rootstock:#b2bec3;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-mono)}
+
+/* ─── LAYOUT ─── */
+#app{display:flex;height:100vh;width:100vw}
+#graph-area{flex:1;position:relative;overflow:hidden}
+#sidebar{width:300px;min-width:280px;background:var(--panel);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+
+/* ─── HEADER ─── */
+#header{padding:14px 16px 10px;border-bottom:1px solid var(--border)}
+#header h1{font-family:var(--font-display);font-size:13px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);line-height:1.3}
+#header p{font-size:9px;color:var(--text-dim);margin-top:3px;letter-spacing:0.05em}
+
+/* ─── SEARCH ─── */
+#search-wrap{padding:10px 12px;border-bottom:1px solid var(--border)}
+#search{width:100%;background:#060a06;border:1px solid var(--border);color:var(--text);font-family:var(--font-mono);font-size:11px;padding:7px 10px;border-radius:2px;outline:none}
+#search:focus{border-color:var(--accent)}
+#search::placeholder{color:var(--text-dim)}
+
+/* ─── CONTROLS ─── */
+#controls{padding:10px 12px;border-bottom:1px solid var(--border)}
+.ctrl-label{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px}
+.toggle-row{display:flex;align-items:center;gap:8px;margin-bottom:5px;cursor:pointer}
+.toggle-row label{font-size:10px;cursor:pointer;color:var(--text)}
+.toggle-row input[type=checkbox]{accent-color:var(--accent);cursor:pointer}
+
+/* ─── EDGE FILTERS ─── */
+#edge-filters{padding:10px 12px;border-bottom:1px solid var(--border)}
+.edge-item{display:flex;align-items:center;gap:8px;margin-bottom:5px;cursor:pointer}
+.edge-swatch{width:28px;height:3px;border-radius:1px;flex-shrink:0}
+.edge-label{font-size:10px;cursor:pointer;color:var(--text);flex:1}
+.edge-count{font-size:9px;color:var(--text-dim)}
+.edge-item input{accent-color:var(--accent);cursor:pointer}
+
+/* ─── CATEGORY LEGEND ─── */
+#cat-legend{padding:10px 12px;border-bottom:1px solid var(--border)}
+.cat-item{display:flex;align-items:center;gap:7px;margin-bottom:4px;cursor:pointer;border-radius:2px;padding:2px 3px;transition:background .15s}
+.cat-item:hover{background:#ffffff08}
+.cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.cat-name{font-size:10px;flex:1;cursor:pointer}
+.cat-ct{font-size:9px;color:var(--text-dim)}
+.cat-item.off .cat-name{color:var(--text-dim)}
+.cat-item.off .cat-dot{opacity:.3}
+
+/* ─── NODE DETAIL PANEL ─── */
+#detail-panel{flex:1;overflow-y:auto;padding:12px;font-size:11px}
+#detail-panel::-webkit-scrollbar{width:4px}
+#detail-panel::-webkit-scrollbar-thumb{background:var(--border)}
+#detail-empty{color:var(--text-dim);font-size:10px;padding:8px 0}
+#detail-title{font-family:var(--font-display);font-size:14px;font-weight:800;margin-bottom:2px;color:#fff}
+#detail-sci{font-style:italic;font-size:9px;color:var(--text-dim);margin-bottom:8px}
+#detail-cat-badge{display:inline-block;font-size:9px;letter-spacing:.07em;text-transform:uppercase;padding:2px 7px;border-radius:2px;margin-bottom:10px}
+.rel-section-title{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin:8px 0 4px;border-bottom:1px solid var(--border);padding-bottom:3px}
+.rel-item{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;padding:4px 5px;background:#ffffff05;border-radius:2px;border-left:2px solid transparent}
+.rel-item .rel-arrow{font-size:10px;flex-shrink:0;margin-top:1px}
+.rel-item .rel-target{font-size:10px;color:#dfe6e9}
+.rel-item .rel-conf{font-size:9px;color:var(--text-dim);margin-left:auto;flex-shrink:0}
+.conf-H{color:#2ecc71}
+.conf-M{color:#f39c12}
+.conf-L{color:#e74c3c}
+
+/* ─── TOOLTIP ─── */
+#tooltip{position:fixed;background:var(--panel);border:1px solid var(--border);padding:7px 10px;font-size:10px;pointer-events:none;display:none;border-radius:2px;max-width:200px;z-index:100;box-shadow:0 4px 20px #000a}
+#tooltip strong{font-family:var(--font-display);font-size:12px;color:#fff;display:block;margin-bottom:2px}
+#tooltip em{color:var(--text-dim);font-style:italic}
+#tooltip .tt-links{color:var(--accent);font-size:9px;margin-top:3px}
+
+/* ─── STATS BAR ─── */
+#stats-bar{position:absolute;bottom:10px;left:10px;display:flex;gap:12px;pointer-events:none}
+.stat-chip{background:#0f1810cc;border:1px solid var(--border);padding:4px 9px;font-size:9px;letter-spacing:.07em;border-radius:2px;color:var(--text-dim)}
+.stat-chip strong{color:var(--text)}
+
+/* ─── SVG ─── */
+svg{width:100%;height:100%;cursor:grab}
+svg:active{cursor:grabbing}
+.link{stroke-opacity:.75;transition:stroke-opacity .2s}
+.link.dimmed{stroke-opacity:.06}
+.node circle{stroke-width:1.5px;cursor:pointer;transition:opacity .2s}
+.node circle:hover{stroke-width:2.5px}
+.node.dimmed circle{opacity:.1}
+.node.dimmed text{opacity:.08}
+.node text{pointer-events:none;text-anchor:middle;dominant-baseline:central;font-family:var(--font-mono);fill:#fff;font-size:9px;paint-order:stroke;stroke:#0a0e0a;stroke-width:3px}
+.node.hub-node text{font-size:10px;font-weight:700}
+.node.hub-node circle{stroke-width:3px}
+
+/* ─── ISOLATED LIST ─── */
+#isolated-panel{position:absolute;bottom:0;left:0;right:300px;background:var(--panel);border-top:1px solid var(--border);max-height:0;overflow:hidden;transition:max-height .3s ease}
+#isolated-panel.open{max-height:160px;overflow-y:auto}
+#isolated-toggle{position:absolute;bottom:0;left:0;right:300px;background:var(--panel);border-top:1px solid var(--border);padding:6px 14px;cursor:pointer;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-dim);display:flex;justify-content:space-between;z-index:10}
+#isolated-toggle:hover{background:#0f1810}
+#isolated-toggle .arrow{transition:transform .3s}
+#isolated-toggle.open .arrow{transform:rotate(180deg)}
+#isolated-content{padding:10px 14px 8px}
+#isolated-content .iso-title{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:7px}
+#iso-plant-list{display:flex;flex-wrap:wrap;gap:4px}
+.iso-tag{background:#060a06;border:1px solid var(--border);padding:2px 7px;font-size:9px;border-radius:2px;color:var(--text-dim);cursor:default}
+.iso-tag:hover{border-color:var(--accent);color:var(--text)}
+
+/* ─── SCROLLBAR ─── */
+*::-webkit-scrollbar{width:4px;height:4px}
+*::-webkit-scrollbar-track{background:#060a06}
+*::-webkit-scrollbar-thumb{background:#1f3020}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="graph-area">
+    <svg id="viz"></svg>
+    <div id="stats-bar">
+      <div class="stat-chip">Nodes: <strong id="stat-nodes">-</strong></div>
+      <div class="stat-chip">Edges: <strong id="stat-edges">-</strong></div>
+      <div class="stat-chip">Showing: <strong id="stat-showing">all</strong></div>
+    </div>
+    <div id="isolated-toggle" onclick="toggleIsolated()">
+      <span>⬇ Plants awaiting relationship extraction (<span id="iso-count">0</span>)</span>
+      <span class="arrow">▲</span>
+    </div>
+    <div id="isolated-panel">
+      <div id="isolated-content">
+        <div class="iso-title">Isolated nodes — no documented edges yet. Tag for future processing.</div>
+        <div id="iso-plant-list"></div>
+      </div>
+    </div>
+  </div>
+  <div id="sidebar">
+    <div id="header">
+      <h1>Plant Relationship<br>Network</h1>
+      <p>Permaculture Knowledge Graph · 3 sources · ~300 videos</p>
+    </div>
+    <div id="search-wrap">
+      <input id="search" type="text" placeholder="Search plant..." autocomplete="off">
+    </div>
+    <div id="controls">
+      <div class="ctrl-label">Display</div>
+      <div class="toggle-row"><input type="checkbox" id="tog-isolated" onchange="toggleIsolatedNodes()"><label for="tog-isolated">Hide isolated nodes</label></div>
+      <div class="toggle-row"><input type="checkbox" id="tog-cluster" onchange="toggleCluster()"><label for="tog-cluster">Cluster by category</label></div>
+      <div class="toggle-row"><input type="checkbox" id="tog-labels" checked onchange="toggleLabels()"><label for="tog-labels">Show labels</label></div>
+      <div class="toggle-row"><input type="checkbox" id="tog-conf" onchange="toggleLowConf()"><label for="tog-conf">Hide low-confidence edges</label></div>
+    </div>
+    <div id="edge-filters">
+      <div class="ctrl-label">Edge Types</div>
+    </div>
+    <div id="cat-legend">
+      <div class="ctrl-label">Categories</div>
+    </div>
+    <div id="detail-panel">
+      <div id="detail-empty">Click any node to see relationships</div>
+    </div>
+  </div>
+</div>
+<div id="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════════════
+
+const CATEGORIES = {
+  hub:        {label:"SOIL Hub",        color:"#c0392b"},
+  nitrogen_fixer:{label:"Nitrogen Fixer",  color:"#2ecc71"},
+  pioneer:    {label:"Pioneer/Support",  color:"#e67e22"},
+  food_tree:  {label:"Food Tree/Perennial",color:"#f1c40f"},
+  food_annual:{label:"Annual/Vegetable", color:"#ff7675"},
+  ground_cover:{label:"Ground Cover",   color:"#1abc9c"},
+  grass_bamboo:{label:"Grass/Bamboo",   color:"#a8b5a0"},
+  herb:       {label:"Herb/Medicinal",   color:"#a29bfe"},
+  aquatic:    {label:"Aquatic/Wetland",  color:"#74b9ff"},
+  remediator: {label:"Remediator",       color:"#00cec9"},
+  indicator:  {label:"Indicator Weed",   color:"#636e72"},
+  rootstock:  {label:"Rootstock (EXT)",  color:"#b2bec3"},
+};
+
+const EDGE_TYPES = {
+  companion:    {label:"Companion/Friendship",   stroke:"#27ae60", dash:"none",    width:2},
+  hostile:      {label:"Hostile/Allelopathic",   stroke:"#e74c3c", dash:"none",    width:2},
+  soil_restore: {label:"Restores Soil",          stroke:"#f39c12", dash:"6,3",     width:1.5},
+  soil_exhaust: {label:"Exhausts Soil",          stroke:"#7f8c8d", dash:"4,4",     width:1.5},
+  support:      {label:"Support/Windbreak",      stroke:"#3498db", dash:"2,2",     width:1.5},
+  grafting:     {label:"Grafting/Rootstock",     stroke:"#9b59b6", dash:"10,4",    width:2},
+};
+
+// ─── ALL NODES ───────────────────────────────────────────────
+const RAW_NODES = [
+  // HUB
+  {id:"SOIL",           label:"SOIL Hub",          cat:"hub",          sci:"Central soil-fertility hub"},
+  // NITROGEN FIXERS
+  {id:"Leucaena",       label:"Leucaena",           cat:"nitrogen_fixer",sci:"Leucaena leucocephala"},
+  {id:"Casuarina",      label:"Casuarina",          cat:"nitrogen_fixer",sci:"Casuarina spp."},
+  {id:"Tagasaste",      label:"Tagasaste",          cat:"nitrogen_fixer",sci:"Chamaecytisus proliferus"},
+  {id:"Tipuana",        label:"Tipuana",            cat:"nitrogen_fixer",sci:"Tipuana tipu"},
+  {id:"Pigeon_Pea",     label:"Pigeon Pea",         cat:"nitrogen_fixer",sci:"Cajanus cajan"},
+  {id:"Cowpea",         label:"Cowpea",             cat:"nitrogen_fixer",sci:"Vigna unguiculata"},
+  {id:"Albizia_leb",    label:"Albizia lebbeck",    cat:"nitrogen_fixer",sci:"Albizia lebbeck"},
+  {id:"Albizia_jul",    label:"Albizia julibrissin",cat:"nitrogen_fixer",sci:"Albizia julibrissin"},
+  {id:"Sesbania",       label:"Sesbania",           cat:"nitrogen_fixer",sci:"Sesbania sesban"},
+  {id:"Cassia",         label:"Cassia",             cat:"nitrogen_fixer",sci:"Senna spp."},
+  {id:"Inga",           label:"Ice Cream Bean",     cat:"nitrogen_fixer",sci:"Inga edulis"},
+  {id:"Pea",            label:"Pea",                cat:"nitrogen_fixer",sci:"Pisum sativum"},
+  {id:"Fava_Beans",     label:"Fava/Broad Beans",   cat:"nitrogen_fixer",sci:"Vicia faba"},
+  {id:"Lablab",         label:"Lablab",             cat:"nitrogen_fixer",sci:"Lablab purpureus"},
+  {id:"Crotalaria",     label:"Crotalaria",         cat:"nitrogen_fixer",sci:"Crotalaria spp."},
+  // PIONEERS
+  {id:"Acacia_mel",     label:"Acacia melanoxylon", cat:"pioneer",      sci:"Acacia melanoxylon"},
+  {id:"Acacia_flo",     label:"Acacia floribunda",  cat:"pioneer",      sci:"Acacia floribunda"},
+  {id:"Moringa",        label:"Moringa",            cat:"pioneer",      sci:"Moringa oleifera"},
+  {id:"Mesquite",       label:"Mesquite",           cat:"pioneer",      sci:"Prosopis spp."},
+  {id:"Willow",         label:"Willow",             cat:"pioneer",      sci:"Salix spp."},
+  {id:"Lantana",        label:"Lantana",            cat:"pioneer",      sci:"Lantana camara"},
+  {id:"Wild_Tobacco",   label:"Wild Tobacco",       cat:"pioneer",      sci:"Nicotiana glauca"},
+  {id:"Camphor_Laurel", label:"Camphor Laurel",     cat:"pioneer",      sci:"Cinnamomum camphora"},
+  {id:"Creosote",       label:"Creosote Bush",      cat:"pioneer",      sci:"Larrea tridentata"},
+  {id:"Black_Bean",     label:"Black Bean",         cat:"pioneer",      sci:"Castanospermum australe"},
+  // GRASS/BAMBOO
+  {id:"Bamboo",         label:"Giant Bamboo",       cat:"grass_bamboo", sci:"Bambusa oldhammii"},
+  {id:"Vetiver",        label:"Vetiver",            cat:"grass_bamboo", sci:"Chrysopogon zizanioides"},
+  {id:"Bana_Grass",     label:"Bana Grass",         cat:"grass_bamboo", sci:"Pennisetum purpureum hybrid"},
+  {id:"Sorghum",        label:"Sorghum",            cat:"grass_bamboo", sci:"Sorghum bicolor"},
+  // GROUND COVERS
+  {id:"Red_Clover",     label:"Red Clover",         cat:"ground_cover", sci:"Trifolium pratense"},
+  {id:"Vetch",          label:"Vetch",              cat:"ground_cover", sci:"Vicia sativa"},
+  {id:"Field_Pea",      label:"Field Pea",          cat:"ground_cover", sci:"Pisum sativum subsp."},
+  {id:"Lupin",          label:"Lupin",              cat:"ground_cover", sci:"Lupinus spp."},
+  {id:"Pinto_Peanut",   label:"Pinto Peanut",       cat:"ground_cover", sci:"Arachis pintoi"},
+  {id:"Sing_Daisy",     label:"Singapore Daisy",    cat:"ground_cover", sci:"Sphagneticola trilobata"},
+  {id:"Sweet_Potato",   label:"Sweet Potato",       cat:"ground_cover", sci:"Ipomoea batatas"},
+  {id:"Nasturtium",     label:"Nasturtium",         cat:"ground_cover", sci:"Tropaeolum majus"},
+  // FOOD TREES
+  {id:"Date_Palm",      label:"Date Palm",          cat:"food_tree",    sci:"Phoenix dactylifera"},
+  {id:"Jelly_Palm",     label:"Jelly Palm",         cat:"food_tree",    sci:"Butia capitata"},
+  {id:"Phoenix_can",    label:"Ph. canariensis",    cat:"food_tree",    sci:"Phoenix canariensis"},
+  {id:"Climbing_Yam",   label:"Climbing Yam",       cat:"food_tree",    sci:"Dioscorea spp."},
+  {id:"Dragon_Fruit",   label:"Dragon Fruit",       cat:"food_tree",    sci:"Selenicereus undatus"},
+  {id:"Coffee",         label:"Coffee",             cat:"food_tree",    sci:"Coffea arabica"},
+  {id:"Mulberry",       label:"Mulberry",           cat:"food_tree",    sci:"Morus spp."},
+  {id:"Passion_Fruit",  label:"Passion Fruit",      cat:"food_tree",    sci:"Passiflora edulis"},
+  {id:"Grape",          label:"Grape",              cat:"food_tree",    sci:"Vitis vinifera"},
+  {id:"Choko",          label:"Choko/Chayote",      cat:"food_tree",    sci:"Sechium edule"},
+  {id:"Fig",            label:"Fig",                cat:"food_tree",    sci:"Ficus carica"},
+  {id:"Pomegranate",    label:"Pomegranate",        cat:"food_tree",    sci:"Punica granatum"},
+  {id:"Olive",          label:"Olive",              cat:"food_tree",    sci:"Olea europaea"},
+  {id:"Citrus",         label:"Citrus",             cat:"food_tree",    sci:"Citrus spp."},
+  {id:"Mango",          label:"Mango",              cat:"food_tree",    sci:"Mangifera indica"},
+  {id:"Avocado",        label:"Avocado",            cat:"food_tree",    sci:"Persea americana"},
+  {id:"Blueberry",      label:"Blueberry",          cat:"food_tree",    sci:"Vaccinium spp."},
+  {id:"Banana",         label:"Banana",             cat:"food_tree",    sci:"Musa spp."},
+  {id:"Papaya",         label:"Papaya",             cat:"food_tree",    sci:"Carica papaya"},
+  {id:"Custard_Apple",  label:"Custard Apple",      cat:"food_tree",    sci:"Annona squamosa"},
+  {id:"Walnut",         label:"Walnut",             cat:"food_tree",    sci:"Juglans regia"},
+  {id:"Chestnut",       label:"Chestnut",           cat:"food_tree",    sci:"Castanea sativa"},
+  {id:"Pecan",          label:"Pecan",              cat:"food_tree",    sci:"Carya illinoinensis"},
+  // ANNUALS
+  {id:"Corn",           label:"Corn/Maize",         cat:"food_annual",  sci:"Zea mays"},
+  {id:"Carrot",         label:"Carrot",             cat:"food_annual",  sci:"Daucus carota"},
+  {id:"Tomato",         label:"Tomato",             cat:"food_annual",  sci:"Solanum lycopersicum"},
+  {id:"Lettuce",        label:"Lettuce",            cat:"food_annual",  sci:"Lactuca sativa"},
+  {id:"Potato",         label:"Potato",             cat:"food_annual",  sci:"Solanum tuberosum"},
+  {id:"Brassicas",      label:"Brassicas",          cat:"food_annual",  sci:"Brassica spp."},
+  {id:"Squash",         label:"Squash/Pumpkin",     cat:"food_annual",  sci:"Cucurbita spp."},
+  {id:"Garlic",         label:"Garlic",             cat:"food_annual",  sci:"Allium sativum"},
+  {id:"Onion",          label:"Onion",              cat:"food_annual",  sci:"Allium cepa"},
+  {id:"Capsicum",       label:"Capsicum/Pepper",    cat:"food_annual",  sci:"Capsicum annuum"},
+  // HERBS
+  {id:"Comfrey",        label:"Comfrey",            cat:"herb",         sci:"Symphytum officinale"},
+  {id:"Fennel",         label:"Fennel",             cat:"herb",         sci:"Foeniculum vulgare"},
+  {id:"Basil",          label:"Basil",              cat:"herb",         sci:"Ocimum basilicum"},
+  {id:"Parsley",        label:"Parsley",            cat:"herb",         sci:"Petroselinum crispum"},
+  {id:"Lavender",       label:"Lavender",           cat:"herb",         sci:"Lavandula spp."},
+  {id:"Rosemary",       label:"Rosemary",           cat:"herb",         sci:"Salvia rosmarinus"},
+  // AQUATIC
+  {id:"Reeds",          label:"Reeds",              cat:"aquatic",      sci:"Phragmites australis"},
+  {id:"Water_Hyacinth", label:"Water Hyacinth",     cat:"aquatic",      sci:"Eichhornia crassipes"},
+  // REMEDIATORS
+  {id:"Tamarisk",       label:"Tamarisk",           cat:"remediator",   sci:"Tamarix spp."},
+  // INDICATORS
+  {id:"Parthenium",     label:"Parthenium",         cat:"indicator",    sci:"Parthenium hysterophorus"},
+  {id:"Bracken_Fern",   label:"Bracken Fern",       cat:"indicator",    sci:"Pteridium aquilinum"},
+  {id:"Cogon_Grass",    label:"Cogon Grass",        cat:"indicator",    sci:"Imperata cylindrica"},
+  // ROOTSTOCKS (EXT)
+  {id:"Poncirus",       label:"Poncirus trifoliata",cat:"rootstock",    sci:"Poncirus trifoliata [rootstock]"},
+  {id:"Sour_Orange",    label:"Sour Orange",        cat:"rootstock",    sci:"Citrus aurantium [rootstock]"},
+  {id:"M9",             label:"M9 Rootstock",       cat:"rootstock",    sci:"Malus M9 [rootstock]"},
+  {id:"MM111",          label:"MM111 Rootstock",    cat:"rootstock",    sci:"Malus MM111 [rootstock]"},
+  {id:"Oleaster",       label:"Oleaster",           cat:"rootstock",    sci:"Olea europaea sylvestris [rootstock]"},
+  // ─── ISOLATED (no edges yet) ───────────────────────────────
+  {id:"Arrowroot",    label:"Arrowroot",          cat:"food_annual",  isolated:true, sci:"Maranta arundinacea"},
+  {id:"Cassava",      label:"Cassava",            cat:"food_annual",  isolated:true, sci:"Manihot esculenta"},
+  {id:"Davidson_Plum",label:"Davidson Plum",      cat:"food_tree",    isolated:true, sci:"Davidsonia purpurea"},
+  {id:"Hazelnut",     label:"Hazelnut",           cat:"food_tree",    isolated:true, sci:"Corylus avellana"},
+  {id:"Macadamia",    label:"Macadamia",          cat:"food_tree",    isolated:true, sci:"Macadamia integrifolia"},
+  {id:"Bunya_Pine",   label:"Bunya Pine",         cat:"food_tree",    isolated:true, sci:"Araucaria bidwillii"},
+  {id:"Asparagus",    label:"Asparagus",          cat:"food_annual",  isolated:true, sci:"Asparagus officinalis"},
+  {id:"Strawberry",   label:"Strawberry",         cat:"food_annual",  isolated:true, sci:"Fragaria spp."},
+  {id:"Raspberry",    label:"Raspberry",          cat:"food_annual",  isolated:true, sci:"Rubus idaeus"},
+  {id:"Kiwi",         label:"Kiwi",               cat:"food_tree",    isolated:true, sci:"Actinidia deliciosa"},
+  {id:"Guava",        label:"Guava",              cat:"food_tree",    isolated:true, sci:"Psidium guajava"},
+  {id:"Rice",         label:"Rice",               cat:"food_annual",  isolated:true, sci:"Oryza sativa"},
+  {id:"Taro",         label:"Taro",               cat:"food_annual",  isolated:true, sci:"Colocasia esculenta"},
+  {id:"Lotus",        label:"Lotus",              cat:"aquatic",      isolated:true, sci:"Nelumbo nucifera"},
+  {id:"Water_Chestnut",label:"Water Chestnut",    cat:"aquatic",      isolated:true, sci:"Eleocharis dulcis"},
+  {id:"Yarrow",       label:"Yarrow",             cat:"herb",         isolated:true, sci:"Achillea millefolium"},
+  {id:"Nettles",      label:"Nettles",            cat:"herb",         isolated:true, sci:"Urtica dioica"},
+  {id:"Wormwood",     label:"Wormwood",           cat:"herb",         isolated:true, sci:"Artemisia absinthium"},
+  {id:"Mint",         label:"Mint",               cat:"herb",         isolated:true, sci:"Mentha spp."},
+  {id:"Aloe_Vera",    label:"Aloe Vera",          cat:"herb",         isolated:true, sci:"Aloe vera"},
+  {id:"Turmeric",     label:"Turmeric",           cat:"herb",         isolated:true, sci:"Curcuma longa"},
+  {id:"Lemongrass",   label:"Lemongrass",         cat:"herb",         isolated:true, sci:"Cymbopogon citratus"},
+  {id:"Curry_Leaf",   label:"Curry Leaf Tree",    cat:"herb",         isolated:true, sci:"Murraya koenigii"},
+  {id:"Sacred_Basil", label:"Sacred Basil",       cat:"herb",         isolated:true, sci:"Ocimum tenuiflorum"},
+  {id:"Mugwort",      label:"Mugwort",            cat:"herb",         isolated:true, sci:"Artemisia vulgaris"},
+  {id:"Sheep_Sorrel", label:"Sheep Sorrel",       cat:"herb",         isolated:true, sci:"Rumex acetosella"},
+  {id:"Ashwagandha",  label:"Ashwagandha",        cat:"herb",         isolated:true, sci:"Withania somnifera"},
+  {id:"Goji_Berry",   label:"Goji Berry",         cat:"food_tree",    isolated:true, sci:"Lycium barbarum"},
+  {id:"Sugar_Cane",   label:"Sugar Cane",         cat:"grass_bamboo", isolated:true, sci:"Saccharum officinarum"},
+  {id:"Sea_Purslane", label:"Sea Purslane",       cat:"ground_cover", isolated:true, sci:"Sesuvium portulacastrum"},
+  {id:"Brazil_Spinach",label:"Brazil Spinach",    cat:"food_annual",  isolated:true, sci:"Alternanthera sissoo"},
+  {id:"Pigface",      label:"Pigface/Ice Plant",  cat:"ground_cover", isolated:true, sci:"Carpobrotus edulis"},
+  {id:"Silver_Birch", label:"Silver Birch",       cat:"pioneer",      isolated:true, sci:"Betula pendula"},
+  {id:"Duckweed",     label:"Duckweed",           cat:"aquatic",      isolated:true, sci:"Lemna spp."},
+  {id:"Azolla",       label:"Azolla",             cat:"aquatic",      isolated:true, sci:"Azolla filiculoides"},
+  {id:"Jujube",       label:"Jujube",             cat:"food_tree",    isolated:true, sci:"Ziziphus jujuba"},
+  {id:"Carob",        label:"Carob (non-fixer!)", cat:"food_tree",    isolated:true, sci:"Ceratonia siliqua"},
+  {id:"Tamarind",     label:"Tamarind (non-fixer)",cat:"food_tree",   isolated:true, sci:"Tamarindus indica"},
+  {id:"Jackfruit",    label:"Jackfruit",          cat:"food_tree",    isolated:true, sci:"Artocarpus heterophyllus"},
+  {id:"Red_Cedar",    label:"Red Cedar",          cat:"pioneer",      isolated:true, sci:"Toona ciliata"},
+  {id:"Silky_Oak",    label:"Silky Oak",          cat:"pioneer",      isolated:true, sci:"Grevillea robusta"},
+  {id:"Jaboticaba",   label:"Jaboticaba",         cat:"food_tree",    isolated:true, sci:"Plinia cauliflora"},
+  {id:"Feijoa",       label:"Feijoa",             cat:"food_tree",    isolated:true, sci:"Acca sellowiana"},
+  {id:"Brazil_Cherry",label:"Brazil Cherry",      cat:"food_tree",    isolated:true, sci:"Eugenia uniflora"},
+  {id:"Tamarillo",    label:"Tamarillo",          cat:"food_tree",    isolated:true, sci:"Solanum betaceum"},
+  {id:"Galangal",     label:"Galangal",           cat:"herb",         isolated:true, sci:"Alpinia galanga"},
+  {id:"Canaf",        label:"Canaf/Kenaf",        cat:"pioneer",      isolated:true, sci:"Hibiscus cannabinus"},
+  {id:"JerusalemA",   label:"Jerusalem Artichoke",cat:"food_annual",  isolated:true, sci:"Helianthus tuberosus"},
+  {id:"Ailanthus",    label:"Ailanthus",          cat:"pioneer",      isolated:true, sci:"Ailanthus altissima"},
+  {id:"Thistles",     label:"Thistles (indicator)",cat:"indicator",   isolated:true, sci:"Cirsium spp."},
+  {id:"Mushrooms",    label:"Mushrooms/Fungi",    cat:"remediator",   isolated:true, sci:"Basidiomycota spp."},
+  {id:"Acerola",      label:"Acerola Cherry",     cat:"food_tree",    isolated:true, sci:"Malpighia emarginata"},
+  {id:"Mangroves",    label:"Mangroves",          cat:"aquatic",      isolated:true, sci:"Rhizophora spp."},
+  {id:"Indigofera",   label:"Indigofera",         cat:"nitrogen_fixer",isolated:true,sci:"Indigofera spp."},
+  {id:"Pistachio",    label:"Pistachio",          cat:"food_tree",    isolated:true, sci:"Pistacia vera"},
+  {id:"White_Sapote", label:"White Sapote",       cat:"food_tree",    isolated:true, sci:"Casimiroa edulis"},
+];
+
+// ─── ALL EDGES ───────────────────────────────────────────────
+const RAW_EDGES = [
+// ── SOIL RESTORE (amber dashed, → SOIL)
+  {s:"Leucaena",    t:"SOIL", type:"soil_restore", conf:"H", note:"Rhizobium N-fixation; 38% green leaf protein"},
+  {s:"Casuarina",   t:"SOIL", type:"soil_restore", conf:"H", note:"Frankia N-fixation + mycorrhizal P solubilization"},
+  {s:"Acacia_mel",  t:"SOIL", type:"soil_restore", conf:"H", note:"Rhizobium N-fixation; 12–20yr lifespan"},
+  {s:"Acacia_flo",  t:"SOIL", type:"soil_restore", conf:"H", note:"Fast N-fixer; dies ~7yr, compost corridors"},
+  {s:"Tagasaste",   t:"SOIL", type:"soil_restore", conf:"H", note:"Mediterranean N-fixer; regrows vigorously after cut"},
+  {s:"Tipuana",     t:"SOIL", type:"soil_restore", conf:"M", note:"Long-term overstory legume; mulch pulse on pollard"},
+  {s:"Pigeon_Pea",  t:"SOIL", type:"soil_restore", conf:"H", note:"Bradyrhizobium; piscidic acid mobilises Fe-P"},
+  {s:"Cowpea",      t:"SOIL", type:"soil_restore", conf:"H", note:"Bradyrhizobium elkanii; 50–150 kg N/ha in 90 days"},
+  {s:"Red_Clover",  t:"SOIL", type:"soil_restore", conf:"M", note:"Rhizobium trifolii; requires bumblebee pollination"},
+  {s:"Vetch",       t:"SOIL", type:"soil_restore", conf:"H", note:"Winter legume mix; 80–200 kg N/ha combined"},
+  {s:"Field_Pea",   t:"SOIL", type:"soil_restore", conf:"H", note:"Winter legume mix"},
+  {s:"Lupin",       t:"SOIL", type:"soil_restore", conf:"H", note:"Bradyrhizobium lupini; phosphate mobiliser"},
+  {s:"Comfrey",     t:"SOIL", type:"soil_restore", conf:"H", note:"Deep taproot mines subsoil K, Ca, Mg; 3.5% K DW"},
+  {s:"Moringa",     t:"SOIL", type:"soil_restore", conf:"M", note:"Deep taproot; leaf litter C:N ~20:1; bee attractor"},
+  {s:"Albizia_leb", t:"SOIL", type:"soil_restore", conf:"H", note:"Deciduous N-fixer; pulse on leaf-fall"},
+  {s:"Albizia_jul", t:"SOIL", type:"soil_restore", conf:"M", note:"Mediterranean N-fixer"},
+  {s:"Mesquite",    t:"SOIL", type:"soil_restore", conf:"H", note:"N-fixer; hydraulic lift 48m; moves subsoil water up"},
+  {s:"Sesbania",    t:"SOIL", type:"soil_restore", conf:"H", note:"Azorhizobium; stem + root nodules; 3–4m/yr growth"},
+  {s:"Cassia",      t:"SOIL", type:"soil_restore", conf:"M", note:"Short-term legume; 5–6yr succession tool"},
+  {s:"Pinto_Peanut",t:"SOIL", type:"soil_restore", conf:"M", note:"Bradyrhizobium; 80–150 kg N/ha/yr; stoloniferous cover"},
+  {s:"Inga",        t:"SOIL", type:"soil_restore", conf:"H", note:"Rhizobium; fast-growing legume; nurse tree for coffee"},
+  {s:"Pea",         t:"SOIL", type:"soil_restore", conf:"H", note:"Rhizobium leguminosarum"},
+  {s:"Fava_Beans",  t:"SOIL", type:"soil_restore", conf:"H", note:"Winter N-fixer; carbon crop; high biomass"},
+  {s:"Lablab",      t:"SOIL", type:"soil_restore", conf:"H", note:"Heavy N-fixation + shade cover for young trees"},
+  {s:"Crotalaria",  t:"SOIL", type:"soil_restore", conf:"M", note:"Local soil bacteria; tropics N-fixer"},
+  {s:"Black_Bean",  t:"SOIL", type:"soil_restore", conf:"M", note:"Large native legume; very long-term N input"},
+  {s:"Reeds",       t:"SOIL", type:"soil_restore", conf:"H", note:"Rhizofiltration; bonds heavy metals and toxins in roots"},
+  {s:"Water_Hyacinth",t:"SOIL",type:"soil_restore",conf:"M", note:"Extracts N, P, K from water; harvest for compost"},
+  {s:"Date_Palm",   t:"SOIL", type:"soil_restore", conf:"M", note:"VAM fungi solubilise Ca-P; phosphate accumulator"},
+  {s:"Willow",      t:"SOIL", type:"soil_restore", conf:"M", note:"Hairnet roots capture N from runoff; biomass mulch"},
+  {s:"Tamarisk",    t:"SOIL", type:"soil_restore", conf:"M", note:"After composting: salt locked as insoluble carbonate"},
+  {s:"Camphor_Laurel",t:"SOIL",type:"soil_restore",conf:"M",note:"Decomp stage: ear-fungus oxidises camphor; seed bank trigger"},
+  {s:"Jelly_Palm",  t:"SOIL", type:"soil_restore", conf:"M", note:"VAM phosphate accumulator via plasmic streaming"},
+
+// ── SOIL EXHAUST (gray dashed, → SOIL)
+  {s:"Corn",      t:"SOIL", type:"soil_exhaust", conf:"H", note:"C4; 160–200 kg N/ha demand; acidifies rhizosphere"},
+  {s:"Brassicas", t:"SOIL", type:"soil_exhaust", conf:"M", note:"High Ca, Mg extraction; drops pH without amendment"},
+  {s:"Carrot",    t:"SOIL", type:"soil_exhaust", conf:"L", note:"N-sensitive indicator; twisted roots if N > 50ppm"},
+  {s:"Potato",    t:"SOIL", type:"soil_exhaust", conf:"M", note:"Heavy K and P feeder; compacts soil with machinery"},
+
+// ── HOSTILE / ALLELOPATHIC (solid red, directed)
+  {s:"Bamboo",         t:"Vetiver",       type:"hostile", conf:"H", note:"Hair roots dominate drip zone (0–75cm); allelopathic phenolics suppress vetiver germination"},
+  {s:"Bamboo",         t:"Sing_Daisy",    type:"hostile", conf:"M", note:"Drip zone allelopathy; leaf litter ferulic/coumaric acids"},
+  {s:"Bamboo",         t:"Cogon_Grass",   type:"hostile", conf:"M", note:"Allelopathic suppression of low-fertility weed"},
+  {s:"Bamboo",         t:"Lantana",       type:"hostile", conf:"M", note:"Chemical growth suppression under drip line"},
+  {s:"Camphor_Laurel", t:"Citrus",        type:"hostile", conf:"H", note:"Mature stage: camphor volatiles + root phenolics prevent establishment below canopy"},
+  {s:"Camphor_Laurel", t:"Coffee",        type:"hostile", conf:"H", note:"Mature stage: monoterpene inhibition of shade-tolerant crops"},
+  {s:"Camphor_Laurel", t:"Fig",           type:"hostile", conf:"M", note:"Mature stage: tannins inhibit root establishment"},
+  {s:"Camphor_Laurel", t:"Tomato",        type:"hostile", conf:"M", note:"Mature stage: volatile camphor damages solanaceous plants"},
+  {s:"Creosote",       t:"Mesquite",      type:"hostile", conf:"M", note:"NDGA root exudates competitive in arid zone; ring of bare soil"},
+  {s:"Creosote",       t:"Lantana",       type:"hostile", conf:"L", note:"Competitive exclusion in same arid niche"},
+  {s:"Tamarisk",       t:"Citrus",        type:"hostile", conf:"M", note:"Raw state: NaCl leaf glands deposit salt; osmotic stress"},
+  {s:"Tamarisk",       t:"Olive",         type:"hostile", conf:"M", note:"Raw state: salt deposition on soil surface (50–100g/kg)"},
+  {s:"Tamarisk",       t:"Pomegranate",   type:"hostile", conf:"L", note:"Raw state: high soil EC stress (>8 dS/m)"},
+  {s:"Fennel",         t:"Tomato",        type:"hostile", conf:"M", note:"Trans-anethole diffuses into adjacent roots; stunts growth"},
+  {s:"Fennel",         t:"Citrus",        type:"hostile", conf:"M", note:"Root exudate migration; ferulic acid growth inhibitor"},
+  {s:"Lantana",        t:"Carrot",        type:"hostile", conf:"M", note:"Pioneer phase: lantanolic acid + β-caryophyllene suppress small-seeded germination"},
+  {s:"Lantana",        t:"Lettuce",       type:"hostile", conf:"M", note:"Pioneer allelopathy; lantadene cytotoxicity in seedlings"},
+  {s:"Walnut",         t:"Apple",         type:"hostile", conf:"H", note:"[EXT] Juglone (5-hydroxyjuglone) inhibits oxidative phosphorylation; prevents rooting in soil within 15–18m"},
+  {s:"Walnut",         t:"Tomato",        type:"hostile", conf:"H", note:"[EXT] Juglone; extreme sensitivity; wilt within days"},
+  {s:"Walnut",         t:"Potato",        type:"hostile", conf:"H", note:"[EXT] Juglone allelopathy documented by USDA"},
+  {s:"Walnut",         t:"Blueberry",     type:"hostile", conf:"H", note:"[EXT] Juglone; blueberry among most sensitive species"},
+  {s:"Walnut",         t:"Brassicas",     type:"hostile", conf:"M", note:"[EXT] Moderate juglone sensitivity in Brassicaceae"},
+  {s:"Cogon_Grass",    t:"Cowpea",        type:"hostile", conf:"M", note:"Competitive exclusion; invades N-fixed areas in low fertility"},
+  {s:"Garlic",         t:"Pea",           type:"hostile", conf:"M", note:"Garlic exudate inhibits Rhizobium nodulation; reduces N-fixation 20–40%"},
+  {s:"Garlic",         t:"Fava_Beans",    type:"hostile", conf:"M", note:"Same mechanism: allicin disrupts Bradyrhizobium signaling"},
+
+// ── COMPANION (solid green, bidirectional)
+  {s:"Casuarina",   t:"Passion_Fruit", type:"companion", conf:"H", note:"Vertical trellis; Frankia N feeds vine; straight trunk for climbing"},
+  {s:"Casuarina",   t:"Grape",         type:"companion", conf:"H", note:"Trellis + windbreak + N-fixation for vine root zone"},
+  {s:"Casuarina",   t:"Climbing_Yam",  type:"companion", conf:"H", note:"Prime trellis tree; Frankia stress may increase N-fixation under vine load"},
+  {s:"Casuarina",   t:"Choko",         type:"companion", conf:"H", note:"Large climbing vine trellis; silica-rich trunk resists vine pull"},
+  {s:"Leucaena",    t:"Coffee",        type:"companion", conf:"H", note:"Optimal shade 30–40% for C3 coffee; N in litter creates pH 5.5–6.0 humus; shared AM mycorrhizae"},
+  {s:"Leucaena",    t:"Dragon_Fruit",  type:"companion", conf:"H", note:"Pollard stump = structural trellis; N in root zone; ethylene at downward tips triggers flowering"},
+  {s:"Date_Palm",   t:"Citrus",        type:"companion", conf:"H", note:"Desert oasis guild (Ibn al-Awwam); 30–60% radiation reduction; 3–5°C cooling; VAM overlap"},
+  {s:"Date_Palm",   t:"Fig",           type:"companion", conf:"H", note:"Classic MENA oasis trio; shared VAM network; water retention under palm root net"},
+  {s:"Date_Palm",   t:"Pomegranate",   type:"companion", conf:"H", note:"Ibn al-Awwam: olive-pomegranate-palm polyculture documented in Andalusia"},
+  {s:"Date_Palm",   t:"Olive",         type:"companion", conf:"H", note:"3-tier arid system; complementary harvests; shared Glomus mycorrhizae"},
+  {s:"Date_Palm",   t:"Banana",        type:"companion", conf:"M", note:"Palm shade reduces evaporation; banana utilises secondary moisture in root net zone"},
+  {s:"Date_Palm",   t:"Moringa",       type:"companion", conf:"M", note:"Desert food forest: moringa provides N; palm provides shade canopy"},
+  {s:"Corn",        t:"Cowpea",        type:"companion", conf:"H", note:"Classic intercrop: C4 corn depletes N → cowpea restores; LER > 1.2; structural support"},
+  {s:"Sorghum",     t:"Cowpea",        type:"companion", conf:"H", note:"Seed guild: sorghum=carbon, cowpea=N; sorgoleone inhibits weeds; N deposits for following crop"},
+  {s:"Corn",        t:"Squash",        type:"companion", conf:"M", note:"Scatter mulch: squash shades soil, reduces weed/evaporation; Three Sisters variant"},
+  {s:"Cowpea",      t:"Squash",        type:"companion", conf:"M", note:"N provision from cowpea for squash; shared ground layer"},
+  {s:"Corn",        t:"Capsicum",      type:"companion", conf:"M", note:"Seed guild: corn windbreak for capsicum; complementary heights"},
+  {s:"Sorghum",     t:"Capsicum",      type:"companion", conf:"M", note:"Seed guild interplanting documented in source texts"},
+  {s:"Tomato",      t:"Basil",         type:"companion", conf:"H", note:"Basil linalool/ocimol volatile oils repel thrips/aphids; 50–60cm radius effect"},
+  {s:"Tomato",      t:"Lettuce",       type:"companion", conf:"H", note:"Companion guild: staggered canopy heights maximise light use"},
+  {s:"Tomato",      t:"Parsley",       type:"companion", conf:"H", note:"Companion guild: parsley attracts Trichogramma parasitoid wasps"},
+  {s:"Potato",      t:"Pea",           type:"companion", conf:"H", note:"Pea Rhizobium deposits N in zone exploited by potato feeder roots"},
+  {s:"Garlic",      t:"Tomato",        type:"companion", conf:"M", note:"Garlic allicin repels aphids and spider mites from tomato"},
+  {s:"Garlic",      t:"Potato",        type:"companion", conf:"M", note:"Garlic repels potato blight spores; rotating block planting"},
+  {s:"Garlic",      t:"Onion",         type:"companion", conf:"M", note:"Allium guild: same pest/disease deterrence zone; rotating blocks"},
+  {s:"Banana",      t:"Pigeon_Pea",    type:"companion", conf:"H", note:"Banana circle guild: pigeon pea provides N on mound; both use greywater pit"},
+  {s:"Banana",      t:"Papaya",        type:"companion", conf:"H", note:"Both planted on greywater pit mounds; complementary nutrient cycling"},
+  {s:"Papaya",      t:"Pigeon_Pea",    type:"companion", conf:"M", note:"N from pigeon pea feeds papaya in mulch pit"},
+  {s:"Sing_Daisy",  t:"Coffee",        type:"companion", conf:"M", note:"Living mulch; cool damp microenvironment; fungal dominance"},
+  {s:"Sing_Daisy",  t:"Citrus",        type:"companion", conf:"M", note:"Weed suppression under citrus; moisture retention; fungal soil formation"},
+  {s:"Comfrey",     t:"Citrus",        type:"companion", conf:"H", note:"Mineral accumulator: K, Ca, Mg mined from subsoil fed to citrus as chop-and-drop"},
+  {s:"Comfrey",     t:"Fig",           type:"companion", conf:"M", note:"Mineral feed + rapid mulch; recovers quickly from chickens"},
+  {s:"Fig",         t:"Pomegranate",   type:"companion", conf:"M", note:"Mediterranean companion guild; complementary harvests"},
+  {s:"Fig",         t:"Olive",         type:"companion", conf:"M", note:"Dry aerobic soil preference; complementary root depths"},
+  {s:"Pomegranate", t:"Olive",         type:"companion", conf:"M", note:"Ibn al-Awwam documents olive-pomegranate polyculture; shared mycorrhizae"},
+  {s:"Coffee",      t:"Inga",          type:"companion", conf:"H", note:"Classic coffee-shade system: Inga provides N + 30–40% shade; shared AM network"},
+  {s:"Mango",       t:"Custard_Apple", type:"companion", conf:"M", note:"Seasonal complement: mango excels in dry springs; custard apple in wet springs"},
+  {s:"Mulberry",    t:"Reeds",         type:"companion", conf:"M", note:"Water edge companion: mulberry shoreline + reed bio-filter"},
+  {s:"Willow",      t:"Reeds",         type:"companion", conf:"H", note:"Bio-swale system: willow hairnet roots + reed rhizofiltration; no taproot in dam wall"},
+  {s:"Blueberry",   t:"Avocado",       type:"companion", conf:"M", note:"Different soil zones: blueberry in anaerobic acidic zone; avocado on aerobic mound; no competition"},
+  {s:"Sweet_Potato",t:"Banana",        type:"companion", conf:"H", note:"Greywater soakage pit: sweet potato ground cover extracts nutrients; banana utilises pit moisture"},
+  {s:"Nasturtium",  t:"Brassicas",     type:"companion", conf:"M", note:"Nasturtium volatile glucosinolates repel cabbage moth; edge plant pest management"},
+  {s:"Nasturtium",  t:"Comfrey",       type:"companion", conf:"M", note:"Perennial microclimate guild: maintain moist, fungal ground layer"},
+  {s:"Pinto_Peanut",t:"Vetiver",       type:"companion", conf:"M", note:"Bank stabilisation: complementary root depths (peanut surface, vetiver 3m+)"},
+  {s:"Bana_Grass",  t:"Banana",        type:"companion", conf:"H", note:"Mulch pit system: bana grass continuously cut; banana uses nutrient-rich mulch"},
+  {s:"Lavender",    t:"Rosemary",      type:"companion", conf:"M", note:"Aromatic companion guild: both repel insects; chicken bedding use"},
+  {s:"Lavender",    t:"Brassicas",     type:"companion", conf:"M", note:"Lavender linalool deters cabbage moth and whitefly"},
+  {s:"Rosemary",    t:"Brassicas",     type:"companion", conf:"M", note:"Rosemary camphor + borneol volatiles deter brassica pests"},
+  {s:"Fennel",      t:"Casuarina",     type:"companion", conf:"L", note:"Fennel umbels attract Trichogramma wasps for forest pest control"},
+  {s:"Mesquite",    t:"Date_Palm",     type:"companion", conf:"M", note:"Desert pioneer → production transition: mesquite creates initial microclimate for palm establishment"},
+  {s:"Albizia_leb", t:"Mango",         type:"companion", conf:"H", note:"Desert food forest: deciduous shade in summer; winter light; N-fixation feeds mango"},
+  {s:"Jelly_Palm",  t:"Citrus",        type:"companion", conf:"M", note:"VAM phosphate accumulation benefits adjacent citrus root zone"},
+  {s:"Wild_Tobacco",t:"Camphor_Laurel",type:"companion", conf:"M", note:"Wild tobacco berries attract pigeons that deposit seeds activating Camphor Laurel's post-death seed bank"},
+
+// ── SUPPORT / WINDBREAK (blue dotted, directed)
+  {s:"Bamboo",      t:"Citrus",        type:"support", conf:"H", note:"Windbreak: 50–70% wind reduction in leeward zone; spray drift protection"},
+  {s:"Bamboo",      t:"Mango",         type:"support", conf:"M", note:"Windbreak for fruit drop prevention; buffers evapotranspiration"},
+  {s:"Bamboo",      t:"Avocado",       type:"support", conf:"M", note:"Critical windbreak: avocado fruit drops and branch snap in wind"},
+  {s:"Bamboo",      t:"Coffee",        type:"support", conf:"M", note:"Windbreak reduces coffee leaf scorch and cherry drop"},
+  {s:"Casuarina",   t:"Passion_Fruit", type:"support", conf:"H", note:"Physical trellis: straight 10–20m trunk; silica resists vine pull"},
+  {s:"Vetiver",     t:"Bamboo",        type:"support", conf:"H", note:"Simultaneous planting stabilises bamboo establishment zone; prevents bamboo dominance"},
+  {s:"Willow",      t:"Avocado",       type:"support", conf:"M", note:"Dam wall stability creates wetland buffer zone; indirect moisture support"},
+  {s:"Leucaena",    t:"Dragon_Fruit",  type:"support", conf:"H", note:"Pollard stump physical scaffold; N in soil; 3D support for cactus"},
+  {s:"Tipuana",     t:"Citrus",        type:"support", conf:"M", note:"Overstory shade: 50% solar reduction; drip irrigation effect"},
+  {s:"Albizia_leb", t:"Citrus",        type:"support", conf:"H", note:"High leggy canopy lets winter light through; summer shade reduces evaporation"},
+  {s:"Mesquite",    t:"Citrus",        type:"support", conf:"H", note:"Pioneer windbreak in arid zone; initial shade for citrus establishment"},
+  {s:"Bana_Grass",  t:"Pigeon_Pea",    type:"support", conf:"M", note:"Microclimate windbreak inside mulch pit"},
+
+// ── GRAFTING / ROOTSTOCK (purple long-dash) [EXT = from external lit]
+  {s:"Citrus",    t:"Poncirus",    type:"grafting", conf:"H", note:"[EXT] Trifoliate orange: Phytophthora resistance + cold hardiness (−15°C); standard Mediterranean rootstock"},
+  {s:"Citrus",    t:"Sour_Orange", type:"grafting", conf:"H", note:"[EXT] Historic rootstock (Ibn al-Awwam); drought tolerance; CTV sensitive"},
+  {s:"Avocado",   t:"Date_Palm",   type:"grafting", conf:"L", note:"[EXT] Duke 7 rootstock: Phytophthora resistance; callose deposition in root cells"},
+  {s:"Mango",     t:"Mesquite",    type:"grafting", conf:"M", note:"[EXT] Turpentine mango polyembryonic rootstock; deep taproot for arid sites"},
+  {s:"Olive",     t:"Oleaster",    type:"grafting", conf:"H", note:"[EXT] Oleaster (wild olive): drought + calcareous soil tolerance; same-species compatibility"},
+  {s:"Apple",     t:"M9",          type:"grafting", conf:"H", note:"[EXT] M9 dwarfing: 30–40% tree size; precocity yr2; needs staking; Backyard Orchard Culture"},
+  {s:"Apple",     t:"MM111",       type:"grafting", conf:"H", note:"[EXT] MM111 vigorous: deep roots; drought tolerant; dryland food forests"},
+  {s:"Date_Palm", t:"Phoenix_can", type:"grafting", conf:"L", note:"[EXT] Experimental: P. canariensis higher NaCl tolerance; cleft graft at 2yr sapling; ~40% success rate"},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+
+// Calculate connection counts
+const connCount = {};
+RAW_NODES.forEach(n => connCount[n.id] = 0);
+RAW_EDGES.forEach(e => {
+  if (!e.isolated_skip) {
+    connCount[e.s] = (connCount[e.s]||0) + 1;
+    connCount[e.t] = (connCount[e.t]||0) + 1;
+  }
+});
+
+const nodes = RAW_NODES.map(n => ({...n, connections: connCount[n.id]||0}));
+const edges = RAW_EDGES.map((e,i) => ({...e, id:i}));
+
+// Active filter state
+const activeEdgeTypes = new Set(Object.keys(EDGE_TYPES));
+const activeCategories = new Set(Object.keys(CATEGORIES));
+let hideIsolated = false;
+let hideLabels = false;
+let hideLowConf = false;
+let useClusters = false;
+let selectedNode = null;
+let searchTerm = '';
+
+// Cluster positions (% of width/height)
+const CLUSTER_POS = {
+  hub:          {x:0.50, y:0.50},
+  nitrogen_fixer:{x:0.20,y:0.25},
+  pioneer:      {x:0.20, y:0.75},
+  food_tree:    {x:0.70, y:0.28},
+  food_annual:  {x:0.80, y:0.65},
+  ground_cover: {x:0.35, y:0.80},
+  grass_bamboo: {x:0.15, y:0.50},
+  herb:         {x:0.65, y:0.80},
+  aquatic:      {x:0.85, y:0.35},
+  remediator:   {x:0.85, y:0.15},
+  indicator:    {x:0.35, y:0.15},
+  rootstock:    {x:0.60, y:0.15},
+};
+
+// ═══════════════════════════════════════════════════════════════
+// BUILD UI
+// ═══════════════════════════════════════════════════════════════
+
+function buildEdgeFilters() {
+  const container = document.getElementById('edge-filters');
+  const counts = {};
+  edges.forEach(e => counts[e.type] = (counts[e.type]||0)+1);
+  Object.entries(EDGE_TYPES).forEach(([key,cfg]) => {
+    const div = document.createElement('div');
+    div.className = 'edge-item';
+    const dashStyle = cfg.dash === 'none'
+      ? `background:${cfg.stroke};height:2px`
+      : `background:repeating-linear-gradient(90deg,${cfg.stroke} 0,${cfg.stroke} 8px,transparent 8px,transparent 14px);height:2px`;
+    div.innerHTML = `
+      <input type="checkbox" id="et-${key}" checked onchange="toggleEdgeType('${key}')">
+      <span class="edge-swatch" style="${dashStyle}"></span>
+      <label class="edge-label" for="et-${key}">${cfg.label}</label>
+      <span class="edge-count">${counts[key]||0}</span>`;
+    container.appendChild(div);
+  });
+}
+
+function buildCatLegend() {
+  const container = document.getElementById('cat-legend');
+  const counts = {};
+  nodes.forEach(n => counts[n.cat] = (counts[n.cat]||0)+1);
+  Object.entries(CATEGORIES).forEach(([key,cfg]) => {
+    const div = document.createElement('div');
+    div.className = 'cat-item';
+    div.id = `cat-${key}`;
+    div.innerHTML = `
+      <div class="cat-dot" style="background:${cfg.color}"></div>
+      <span class="cat-name">${cfg.label}</span>
+      <span class="cat-ct">${counts[key]||0}</span>`;
+    div.onclick = () => toggleCategory(key);
+    container.appendChild(div);
+  });
+}
+
+function buildIsolatedList() {
+  const iso = nodes.filter(n => n.isolated);
+  document.getElementById('iso-count').textContent = iso.length;
+  const container = document.getElementById('iso-plant-list');
+  iso.forEach(n => {
+    const tag = document.createElement('span');
+    tag.className = 'iso-tag';
+    tag.textContent = n.label;
+    tag.title = n.sci || '';
+    container.appendChild(tag);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// D3 GRAPH
+// ═══════════════════════════════════════════════════════════════
+
+const svg = d3.select('#viz');
+let W = 0, H = 0;
+
+const g = svg.append('g');
+const linkGroup = g.append('g').attr('class','links');
+const nodeGroup = g.append('g').attr('class','nodes');
+
+// Arrow markers
+const defs = svg.append('defs');
+Object.entries(EDGE_TYPES).forEach(([key,cfg]) => {
+  defs.append('marker')
+    .attr('id',`arrow-${key}`)
+    .attr('viewBox','0 -5 10 10')
+    .attr('refX',18).attr('refY',0)
+    .attr('markerWidth',5).attr('markerHeight',5)
+    .attr('orient','auto')
+    .append('path')
+    .attr('d','M0,-5L10,0L0,5')
+    .attr('fill',cfg.stroke)
+    .attr('opacity',.7);
+});
+
+const zoom = d3.zoom()
+  .scaleExtent([0.1, 4])
+  .on('zoom', e => g.attr('transform', e.transform));
+svg.call(zoom);
+
+// Force simulation
+const simulation = d3.forceSimulation()
+  .force('link', d3.forceLink().id(d => d.id).distance(d => {
+    if (d.type === 'soil_restore' || d.type === 'soil_exhaust') return 100;
+    if (d.type === 'grafting') return 80;
+    return 130;
+  }).strength(0.3))
+  .force('charge', d3.forceManyBody().strength(d => d.isolated ? -30 : -200))
+  .force('collision', d3.forceCollide().radius(d => nodeRadius(d) + 12))
+  .force('center', d3.forceCenter())
+  .alphaDecay(0.02)
+  .on('tick', ticked);
+
+function nodeRadius(d) {
+  if (d.id === 'SOIL') return 24;
+  const base = 8;
+  const extra = Math.min(d.connections * 2.5, 18);
+  return base + extra;
+}
+
+function getVisibleNodes() {
+  return nodes.filter(n => {
+    if (hideIsolated && n.isolated) return false;
+    if (!activeCategories.has(n.cat)) return false;
+    return true;
+  });
+}
+
+function getVisibleEdges(visNodeIds) {
+  return edges.filter(e => {
+    if (!activeEdgeTypes.has(e.type)) return false;
+    if (hideLowConf && e.conf === 'L') return false;
+    if (!visNodeIds.has(e.s) || !visNodeIds.has(e.t)) return false;
+    return true;
+  });
+}
+
+function render() {
+  const visNodes = getVisibleNodes();
+  const visNodeIds = new Set(visNodes.map(n => n.id));
+  const visEdges = getVisibleEdges(visNodeIds);
+
+  document.getElementById('stat-nodes').textContent = visNodes.length;
+  document.getElementById('stat-edges').textContent = visEdges.length;
+  document.getElementById('stat-showing').textContent =
+    (hideIsolated ? 'connected' : 'all') + (searchTerm ? ` · "${searchTerm}"` : '');
+
+  // Links
+  const link = linkGroup.selectAll('.link')
+    .data(visEdges, d => d.id)
+    .join(
+      enter => enter.append('line').attr('class', d => `link link-${d.type}`),
+      update => update,
+      exit => exit.remove()
+    )
+    .attr('stroke', d => EDGE_TYPES[d.type].stroke)
+    .attr('stroke-width', d => EDGE_TYPES[d.type].width)
+    .attr('stroke-dasharray', d => EDGE_TYPES[d.type].dash === 'none' ? null : EDGE_TYPES[d.type].dash)
+    .attr('marker-end', d => {
+      const directed = ['hostile','soil_restore','soil_exhaust','support'];
+      return directed.includes(d.type) ? `url(#arrow-${d.type})` : null;
+    });
+
+  // Nodes
+  const node = nodeGroup.selectAll('.node')
+    .data(visNodes, d => d.id)
+    .join(
+      enter => {
+        const g = enter.append('g')
+          .attr('class', d => `node${d.id==='SOIL'?' hub-node':''}${d.isolated?' isolated-node':''}`)
+          .call(d3.drag()
+            .on('start', dragStarted)
+            .on('drag', dragged)
+            .on('end', dragEnded))
+          .on('click', (event, d) => {
+            event.stopPropagation();
+            selectNode(d);
+          })
+          .on('mouseover', (event, d) => showTooltip(event, d))
+          .on('mousemove', (event) => moveTooltip(event))
+          .on('mouseout', hideTooltip);
+
+        g.append('circle')
+          .attr('r', d => nodeRadius(d))
+          .attr('fill', d => CATEGORIES[d.cat]?.color || '#555')
+          .attr('stroke', d => d.isolated ? '#2a3a2a' : d3.color(CATEGORIES[d.cat]?.color)?.brighter(0.5) || '#fff')
+          .attr('fill-opacity', d => d.isolated ? 0.3 : 0.85);
+
+        g.append('text')
+          .text(d => d.label.length > 14 ? d.label.slice(0,12)+'…' : d.label)
+          .attr('dy', d => nodeRadius(d) + 10)
+          .attr('font-size', d => d.id==='SOIL' ? '11px' : '9px')
+          .attr('fill', d => d.isolated ? '#4a5a4a' : '#dfe6e9');
+
+        return g;
+      },
+      update => update,
+      exit => exit.remove()
+    );
+
+  // Labels visibility
+  nodeGroup.selectAll('text').style('display', hideLabels ? 'none' : null);
+
+  simulation.nodes(visNodes);
+  simulation.force('link').links(visEdges);
+
+  // Cluster force
+  if (useClusters) {
+    simulation.force('cluster', clusterForce());
+  } else {
+    simulation.force('cluster', null);
+  }
+
+  // SOIL hub pinning
+  const soilNode = visNodes.find(n => n.id === 'SOIL');
+  if (soilNode) { soilNode.fx = W/2; soilNode.fy = H/2; }
+
+  simulation.alpha(0.5).restart();
+}
+
+function clusterForce() {
+  return function(alpha) {
+    nodes.forEach(node => {
+      const cp = CLUSTER_POS[node.cat];
+      if (!cp) return;
+      node.vx = (node.vx || 0) + (cp.x * W - node.x) * alpha * 0.08;
+      node.vy = (node.vy || 0) + (cp.y * H - node.y) * alpha * 0.08;
+    });
+  };
+}
+
+function ticked() {
+  linkGroup.selectAll('.link')
+    .attr('x1', d => d.source.x)
+    .attr('y1', d => d.source.y)
+    .attr('x2', d => d.target.x)
+    .attr('y2', d => d.target.y);
+
+  nodeGroup.selectAll('.node')
+    .attr('transform', d => `translate(${d.x||0},${d.y||0})`);
+
+  applyHighlight();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INTERACTIONS
+// ═══════════════════════════════════════════════════════════════
+
+function selectNode(d) {
+  selectedNode = d;
+  applyHighlight();
+  showDetail(d);
+}
+
+svg.on('click', () => {
+  selectedNode = null;
+  applyHighlight();
+  document.getElementById('detail-panel').innerHTML = '<div id="detail-empty">Click any node to see relationships</div>';
+});
+
+function applyHighlight() {
+  const term = searchTerm.toLowerCase();
+
+  if (!selectedNode && !term) {
+    nodeGroup.selectAll('.node').classed('dimmed', false);
+    linkGroup.selectAll('.link').classed('dimmed', false);
+    return;
+  }
+
+  if (term) {
+    nodeGroup.selectAll('.node').classed('dimmed', d =>
+      !d.label.toLowerCase().includes(term) && !d.sci?.toLowerCase().includes(term)
+    );
+    linkGroup.selectAll('.link').classed('dimmed', d => {
+      const sMatch = d.source.label?.toLowerCase().includes(term) || d.source.sci?.toLowerCase().includes(term);
+      const tMatch = d.target.label?.toLowerCase().includes(term) || d.target.sci?.toLowerCase().includes(term);
+      return !sMatch && !tMatch;
+    });
+    return;
+  }
+
+  if (selectedNode) {
+    const neighbors = new Set([selectedNode.id]);
+    edges.forEach(e => {
+      if (e.s === selectedNode.id) neighbors.add(e.t);
+      if (e.t === selectedNode.id) neighbors.add(e.s);
+    });
+    nodeGroup.selectAll('.node').classed('dimmed', d => !neighbors.has(d.id));
+    linkGroup.selectAll('.link').classed('dimmed', d =>
+      d.source.id !== selectedNode.id && d.target.id !== selectedNode.id
+    );
+  }
+}
+
+function showDetail(d) {
+  const panel = document.getElementById('detail-panel');
+  const catCfg = CATEGORIES[d.cat] || {};
+  const rels = edges.filter(e => e.s === d.id || e.t === d.id);
+
+  const byType = {};
+  rels.forEach(e => {
+    const type = e.type;
+    if (!byType[type]) byType[type] = [];
+    const other = e.s === d.id ? e.t : e.s;
+    const dir = e.s === d.id ? '→' : '←';
+    const otherNode = nodes.find(n => n.id === other);
+    byType[type].push({node: otherNode||{label:other}, dir, conf:e.conf, note:e.note});
+  });
+
+  let html = `
+    <div id="detail-title">${d.label}</div>
+    <div id="detail-sci">${d.sci||''}</div>
+    <div id="detail-cat-badge" style="background:${catCfg.color}22;color:${catCfg.color};border:1px solid ${catCfg.color}44">${catCfg.label||d.cat}</div>
+    <div style="font-size:9px;color:var(--text-dim)">${d.connections} connections${d.isolated?' · awaiting extraction':''}</div>`;
+
+  Object.entries(byType).forEach(([type, list]) => {
+    const cfg = EDGE_TYPES[type] || {};
+    html += `<div class="rel-section-title" style="color:${cfg.stroke||'#888'}">${cfg.label||type} (${list.length})</div>`;
+    list.forEach(item => {
+      html += `<div class="rel-item" style="border-left-color:${cfg.stroke||'#888'}">
+        <span class="rel-arrow">${item.dir}</span>
+        <div>
+          <div class="rel-target">${item.node.label}</div>
+          <div style="font-size:9px;color:var(--text-dim)">${item.note||''}</div>
+        </div>
+        <span class="rel-conf conf-${item.conf}">${item.conf}</span>
+      </div>`;
+    });
+  });
+
+  if (!rels.length) html += `<div style="color:var(--text-dim);font-size:10px;margin-top:8px">No relationships extracted yet. Add to processing list.</div>`;
+  panel.innerHTML = html;
+}
+
+function showTooltip(event, d) {
+  const tt = document.getElementById('tooltip');
+  const catCfg = CATEGORIES[d.cat] || {};
+  tt.innerHTML = `<strong>${d.label}</strong><em>${d.sci||''}</em><div class="tt-links">${d.connections} links · ${catCfg.label||d.cat}</div>`;
+  tt.style.display = 'block';
+  moveTooltip(event);
+}
+function moveTooltip(event) {
+  const tt = document.getElementById('tooltip');
+  tt.style.left = (event.clientX+14)+'px';
+  tt.style.top = (event.clientY-10)+'px';
+}
+function hideTooltip() { document.getElementById('tooltip').style.display='none'; }
+
+// Search
+document.getElementById('search').addEventListener('input', function() {
+  searchTerm = this.value.trim();
+  if (searchTerm) {
+    const match = nodes.find(n => n.label.toLowerCase() === searchTerm.toLowerCase());
+    if (match) { selectedNode = match; showDetail(match); }
+  } else { selectedNode = null; }
+  applyHighlight();
+});
+
+// Toggles
+function toggleEdgeType(key) {
+  if (activeEdgeTypes.has(key)) activeEdgeTypes.delete(key);
+  else activeEdgeTypes.add(key);
+  render();
+}
+
+function toggleCategory(key) {
+  const el = document.getElementById(`cat-${key}`);
+  if (activeCategories.has(key)) {
+    activeCategories.delete(key);
+    el.classList.add('off');
+  } else {
+    activeCategories.add(key);
+    el.classList.remove('off');
+  }
+  render();
+}
+
+function toggleIsolatedNodes() {
+  hideIsolated = document.getElementById('tog-isolated').checked;
+  render();
+}
+
+function toggleCluster() {
+  useClusters = document.getElementById('tog-cluster').checked;
+  render();
+}
+
+function toggleLabels() {
+  hideLabels = !document.getElementById('tog-labels').checked;
+  nodeGroup.selectAll('text').style('display', hideLabels ? 'none' : null);
+}
+
+function toggleLowConf() {
+  hideLowConf = document.getElementById('tog-conf').checked;
+  render();
+}
+
+let isolatedOpen = false;
+function toggleIsolated() {
+  isolatedOpen = !isolatedOpen;
+  const panel = document.getElementById('isolated-panel');
+  const toggle = document.getElementById('isolated-toggle');
+  if (isolatedOpen) { panel.classList.add('open'); toggle.classList.add('open'); }
+  else { panel.classList.remove('open'); toggle.classList.remove('open'); }
+}
+
+// Drag
+function dragStarted(event, d) {
+  if (!event.active) simulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragged(event, d) {
+  d.fx = event.x; d.fy = event.y;
+}
+function dragEnded(event, d) {
+  if (!event.active) simulation.alphaTarget(0);
+  if (d.id !== 'SOIL') { d.fx = null; d.fy = null; }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RESIZE + INIT
+// ═══════════════════════════════════════════════════════════════
+
+function resize() {
+  const area = document.getElementById('graph-area');
+  W = area.clientWidth;
+  H = area.clientHeight;
+  svg.attr('width', W).attr('height', H);
+  simulation.force('center', d3.forceCenter(W/2, H/2));
+  const soilNode = nodes.find(n => n.id === 'SOIL');
+  if (soilNode) { soilNode.fx = W/2; soilNode.fy = H/2; }
+  simulation.alpha(0.3).restart();
+}
+
+window.addEventListener('resize', resize);
+
+// Startup
+buildEdgeFilters();
+buildCatLegend();
+buildIsolatedList();
+resize();
+render();
+</script>
+</body>
+</html>

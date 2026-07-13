@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Islamic Golden Age Agronomy — Plant Relationship Network</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:system-ui,sans-serif;font-size:12px;background:#f8f8f5;color:#222}
+#app{display:flex;height:100vh;overflow:hidden}
+#sidebar{width:270px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid #e0dfd8;background:#fff;overflow:hidden}
+#sidebar-header{padding:.75rem;border-bottom:1px solid #e0dfd8;flex-shrink:0}
+#sidebar-header h1{font-size:13.5px;font-weight:700;color:#222;line-height:1.3}
+#sidebar-header p{font-size:10px;color:#999;margin-top:2px}
+#sidebar-body{overflow-y:auto;flex:1;padding:.75rem}
+#canvas{flex:1;position:relative;overflow:hidden;background:#f8f8f5}
+svg#net{width:100%;height:100%;display:block;cursor:grab}
+svg#net:active{cursor:grabbing}
+
+/* Search */
+#search{width:100%;padding:6px 10px;font-size:12px;border:1px solid #d5d4cc;border-radius:6px;background:#fafaf7;color:#222;margin-bottom:.75rem}
+#search:focus{outline:none;border-color:#777;background:#fff}
+
+/* Section heading */
+.sh{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#999;margin-bottom:.45rem}
+
+/* Edge filter */
+.ef-row{display:flex;align-items:center;gap:7px;margin-bottom:5px;cursor:pointer;user-select:none;font-size:11.5px;color:#444}
+.ef-row:hover{color:#111}
+.ef-row input{width:13px;height:13px;flex-shrink:0;accent-color:#555;cursor:pointer}
+.ef-swatch{width:24px;height:3px;flex-shrink:0;border-radius:2px}
+.ef-count{margin-left:auto;font-size:10px;color:#aaa;font-weight:600}
+
+/* Category legend */
+.cat-grid{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:.5rem}
+.cl{display:flex;align-items:center;gap:3px;font-size:10px;color:#555;padding:2px 5px;border-radius:4px;cursor:pointer;border:1px solid transparent}
+.cl:hover{background:#f0f0ec}
+.cl.off{opacity:.25}
+.cl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* Stats */
+.stat-row{display:flex;justify-content:space-between;font-size:11px;color:#777;margin-bottom:3px}
+.stat-row b{color:#333;font-weight:600}
+
+/* Buttons */
+.btn{width:100%;padding:6px 10px;font-size:11.5px;border:1px solid #d5d4cc;border-radius:6px;background:#f5f5f0;color:#555;cursor:pointer;margin-top:5px;text-align:left}
+.btn:hover{background:#eee;color:#222}
+.btn.on{background:#333;color:#fff;border-color:#333}
+
+.divider{height:1px;background:#eeeee8;margin:.65rem 0}
+
+/* Tooltip */
+#tt{position:absolute;pointer-events:none;background:#fff;border:1px solid #d5d4cc;border-radius:8px;padding:8px 11px;font-size:11.5px;max-width:230px;line-height:1.55;box-shadow:0 3px 12px rgba(0,0,0,.1);display:none;z-index:200}
+#tt .tn{font-weight:700;font-size:13px;color:#222;margin-bottom:2px}
+#tt .tc{font-size:10px;color:#888;margin-bottom:5px}
+#tt .tr{font-size:11px;color:#555}
+
+/* Info panel */
+#info{position:absolute;top:12px;right:12px;width:220px;max-height:calc(100vh - 24px);overflow-y:auto;background:#fff;border:1px solid #d5d4cc;border-radius:10px;padding:12px;font-size:11.5px;line-height:1.6;box-shadow:0 3px 16px rgba(0,0,0,.1);display:none;z-index:150}
+#info .ih{font-weight:700;font-size:13px;color:#222;margin-bottom:1px}
+#info .ic{font-size:10px;color:#999;margin-bottom:8px;border-bottom:1px solid #f0f0e8;padding-bottom:6px}
+#info .il{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;font-size:11px;color:#444}
+#info .idot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}
+#info .iclose{float:right;font-size:14px;color:#aaa;cursor:pointer;line-height:1;margin-left:6px}
+#info .iclose:hover{color:#333}
+#info .isec{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#bbb;margin:8px 0 4px}
+
+/* SVG elements */
+.link{stroke-linecap:round;transition:stroke-opacity .2s}
+text.nlabel{font-family:system-ui,sans-serif;paint-order:stroke;stroke-linejoin:round;pointer-events:none;font-size:8.5px}
+text.nlabel.hub-label{font-size:11px;font-weight:700;fill:#222;stroke:#f8f8f5;stroke-width:3}
+circle.node{transition:r .15s}
+</style>
+</head>
+<body>
+<div id="app">
+<aside id="sidebar">
+  <div id="sidebar-header">
+    <h1>Plant Relationship Network</h1>
+    <p>Islamic Golden Age Agronomy · 248 plants · Ibn al-Awwam, Ibn Bassal, Ibn Wahshiyya</p>
+  </div>
+  <div id="sidebar-body">
+    <input type="text" id="search" placeholder="Search plant name…" oninput="doSearch(this.value)" autocomplete="off">
+
+    <div class="sh">Relationship types</div>
+    <div id="ef-container"></div>
+
+    <div class="divider"></div>
+    <div class="sh">Categories <span style="font-size:9px;color:#bbb;font-weight:400;text-transform:none">(click to toggle)</span></div>
+    <div class="cat-grid" id="cat-grid"></div>
+
+    <div class="divider"></div>
+    <div class="sh">Network stats</div>
+    <div id="stats-area"></div>
+
+    <div class="divider"></div>
+    <button class="btn" id="btn-conn" onclick="toggleConnected()">Hide isolated nodes</button>
+    <button class="btn" id="btn-clust" onclick="toggleCluster()">Cluster by category</button>
+    <button class="btn" onclick="resetAll()">Reset all filters</button>
+  </div>
+</aside>
+<main id="canvas">
+  <svg id="net">
+    <defs id="defs-markers"></defs>
+    <g id="g-links"></g>
+    <g id="g-nodes"></g>
+    <g id="g-labels"></g>
+  </svg>
+  <div id="tt"></div>
+  <div id="info"></div>
+</main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════════════
+//  METADATA
+// ═══════════════════════════════════════════════════════════════════════
+
+const CAT = {
+  CG:{l:"Cereals & grains",    c:"#7EB53A"},
+  LP:{l:"Legumes & pulses",    c:"#18A070"},
+  VG:{l:"Vegetables",          c:"#4A9FDC"},
+  HK:{l:"Herbs & kitchen",     c:"#1870A0"},
+  FT:{l:"Fruit trees",         c:"#E8920A"},
+  AP:{l:"Aromatics & perfume", c:"#C84070"},
+  MP:{l:"Medicinal plants",    c:"#7060CC"},
+  IF:{l:"Industrial & fiber",  c:"#888880"},
+  FG:{l:"Fodder & green manure",c:"#4A8010"},
+  ST:{l:"Structural trees",    c:"#605850"},
+  TP:{l:"Toxic & pest-control",c:"#CC3030"},
+  WU:{l:"Wild & utility",      c:"#B07818"},
+  AW:{l:"Aquatic & wetland",   c:"#0848A0"},
+  SS:{l:"Shrubs & semi-shrubs",c:"#A09888"},
+  HB:{l:"Soil Hub",            c:"#222222"}
+};
+
+const ETYPE = {
+  F:{l:"Friendship / companion",  c:"#1D9E75", dash:null,  w:1.8},
+  H:{l:"Hostility / allelopathy", c:"#D85A30", dash:null,  w:1.8},
+  R:{l:"Restores soil",           c:"#BA7517", dash:"6,3", w:1.5},
+  E:{l:"Exhausts soil",           c:"#888780", dash:"4,4", w:1.5},
+  G:{l:"Grafting / rootstock",    c:"#7F77DD", dash:"8,3", w:1.5},
+  S:{l:"Structural support",      c:"#378ADD", dash:"3,3", w:1.5}
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+//  NODES  [id, category_code]
+// ═══════════════════════════════════════════════════════════════════════
+const RAW_NODES = [
+["SOIL","HB"],
+// Cereals
+["Wheat","CG"],["Barley","CG"],["Emmer wheat","CG"],["Einkorn","CG"],
+["Spelt","CG"],["Rice","CG"],["Sorghum","CG"],["Broomcorn millet","CG"],
+["Foxtail millet","CG"],["Pearl millet","CG"],["Oats","CG"],["Rye","CG"],
+// Legumes
+["Broad bean","LP"],["Chickpea","LP"],["Lentil","LP"],["Lupin","LP"],
+["Cowpea","LP"],["Garden pea","LP"],["Fenugreek","LP"],["Vetch","LP"],
+["Bitter vetch","LP"],["Grass pea","LP"],["Moth bean","LP"],["Hyacinth bean","LP"],
+// Vegetables
+["Eggplant","VG"],["Cucumber","VG"],["Watermelon","VG"],["Melon","VG"],
+["Gourd","VG"],["Bottle gourd","VG"],["Spinach","VG"],["Chard","VG"],
+["Beetroot","VG"],["Turnip","VG"],["Cabbage","VG"],["Kohlrabi","VG"],
+["Cauliflower","VG"],["Carrot","VG"],["Parsnip","VG"],["Radish","VG"],
+["Onion","VG"],["Garlic","VG"],["Leek","VG"],["Shallot","VG"],
+["Chives","VG"],["Lettuce","VG"],["Chicory","VG"],["Endive","VG"],
+["Artichoke","VG"],["Cardoon","VG"],["Asparagus","VG"],["Purslane","VG"],
+["Mallow","VG"],["Borage","VG"],["Sorrel","VG"],["Orach","VG"],
+["Rocket","VG"],["Garden cress","VG"],["Watercress","VG"],
+["Salsify","VG"],["Black salsify","VG"],["Lovage","VG"],["Mustard","VG"],
+// Herbs & kitchen
+["Parsley","HK"],["Coriander","HK"],["Dill","HK"],["Fennel","HK"],
+["Celery","HK"],["Cumin","HK"],["Anise","HK"],["Caraway","HK"],
+["Nigella","HK"],["Basil","HK"],["Mint","HK"],["Pennyroyal","HK"],
+["Rue","HK"],["Thyme","HK"],["Marjoram","HK"],["Oregano","HK"],
+["Summer savory","HK"],["Winter savory","HK"],["Sage","HK"],["Rosemary","HK"],
+["Hyssop","HK"],["Southernwood","HK"],["Lemon balm","HK"],
+["Calamint","HK"],["Catmint","HK"],["Costmary","HK"],
+// Fruit trees
+["Olive","FT"],["Date palm","FT"],["Grapevine","FT"],["Fig","FT"],
+["Wild fig","FT"],["Pomegranate","FT"],["Quince","FT"],["Apple","FT"],
+["Crab apple","FT"],["Pear","FT"],["Wild pear","FT"],["Almond","FT"],
+["Peach","FT"],["Apricot","FT"],["Plum","FT"],["Damson","FT"],
+["Cherry","FT"],["Sour cherry","FT"],["Walnut","FT"],
+["Citron","FT"],["Sour orange","FT"],["Lemon","FT"],["Sweet orange","FT"],
+["Lime","FT"],["Black mulberry","FT"],["White mulberry","FT"],
+["Carob","FT"],["Jujube","FT"],["Lote tree","FT"],
+["Pistachio","FT"],["Terebinth","FT"],["Lentisk","FT"],["Pine nut","FT"],
+["Hazel","FT"],["Banana","FT"],["Hawthorn","FT"],["Medlar","FT"],
+["Service tree","FT"],["Cornelian cherry","FT"],["Tamarind","FT"],
+["Doum palm","FT"],["Sycamore fig","FT"],["Hackberry","FT"],["Arbutus","FT"],
+// Aromatics & perfume
+["Saffron","AP"],["Damascus rose","AP"],["Gallica rose","AP"],["Dog rose","AP"],
+["Common jasmine","AP"],["Arabian jasmine","AP"],["Myrtle","AP"],["Violet","AP"],
+["Lavender","AP"],["Spike lavender","AP"],["Narcissus","AP"],
+["Water lily","AP"],["Iris","AP"],["Madonna lily","AP"],
+["Anemone","AP"],["Stock","AP"],["Hyacinth","AP"],
+// Medicinal
+["Chamomile","MP"],["Elecampane","MP"],["Valerian","MP"],["Mandrake","MP"],
+["Liquorice","MP"],["Ginger","MP"],["Turmeric","MP"],["Aloe","MP"],
+["Autumn crocus","MP"],["Caper","MP"],["Mastic","MP"],["Spikenard","MP"],
+["Costus root","MP"],["Sweet flag","MP"],["Galingale","MP"],["Henna","MP"],
+["Sumac","MP"],["White horehound","MP"],["Pellitory","MP"],["Milk thistle","MP"],
+// Industrial & fiber
+["Cotton","IF"],["Flax","IF"],["Hemp","IF"],["Sesame","IF"],["Safflower","IF"],
+["Woad","IF"],["Castor","IF"],["Sugar cane","IF"],["Madder","IF"],["Indigo","IF"],
+["Papyrus","IF"],["Common reed","IF"],["Esparto grass","IF"],
+// Fodder & green manure
+["Alfalfa","FG"],["Egyptian clover","FG"],["Sulla","FG"],
+["Sainfoin","FG"],["Black medick","FG"],
+// Structural trees
+["Cypress","ST"],["Poplar","ST"],["Willow","ST"],["Tamarisk tree","ST"],
+["Elm","ST"],["Bay laurel","ST"],["Plane tree","ST"],["Holm oak","ST"],
+["Pedunculate oak","ST"],["Cork oak","ST"],["Cedar","ST"],
+["Aleppo pine","ST"],["Juniper","ST"],["Ash tree","ST"],
+["Wild olive","ST"],["Acacia","ST"],["Christ's thorn","ST"],
+// Toxic & pest-control
+["Colocynth","TP"],["Henbane","TP"],["Black hellebore","TP"],["White hellebore","TP"],
+["Euphorbia","TP"],["Asafoetida","TP"],["Oleander","TP"],["Wormwood","TP"],
+["Squirting cucumber","TP"],["Stavesacre","TP"],["Hemlock","TP"],
+["Datura","TP"],["Aconite","TP"],["Squill","TP"],
+["Spurge laurel","TP"],["Glasswort ash","TP"],["Nux vomica","TP"],
+// Wild & utility
+["Darnel","WU"],["Glasswort saline","WU"],["Thorny burnet","WU"],
+["Wild oat","WU"],["Bindweed","WU"],["Nettle","WU"],["Asphodel","WU"],
+["Dock","WU"],["Bramble","WU"],["Buckthorn","WU"],
+["Wild golden thistle","WU"],["Sea blite","WU"],["Field spurge","WU"],
+// Aquatic & wetland
+["Sacred lotus","AW"],["Bulrush","AW"],["Water mint","AW"],
+// Shrubs & semi-shrubs
+["Spanish broom","SS"],["Dwarf elder","SS"],
+["Wild pomegranate","SS"],["Cotoneaster","SS"]
+];
+
+// ═══════════════════════════════════════════════════════════════════════
+//  LINKS  [source, target, type, note]
+//  Types: F=friendship, H=hostility, R=restores soil, E=exhausts soil
+//         G=grafting/rootstock, S=structural support
+// ═══════════════════════════════════════════════════════════════════════
+const RAW_LINKS = [
+// ─── FRIENDSHIP / COMPANION PLANTING ──────────────────────────────────
+["Grapevine","Elm","F","Vine trained on elm; classic Andalusian support practice — Ibn al-Awwam"],
+["Grapevine","Fig","F","Routinely planted together as compatible orchard companions — Ibn al-Awwam"],
+["Grapevine","Olive","F","Mediterranean orchard neighbors; mutually compatible in shared soil — Ibn al-Awwam"],
+["Cucumber","Grapevine","F","Grown near vine without ill effect; ground shade companion — Ibn al-Awwam"],
+["Basil","Grapevine","F","Aromatic companion; deters insects from vine — Ibn al-Awwam"],
+["Garlic","Grapevine","F","Planted at vine base; repels soil pests and insects — Ibn al-Awwam"],
+["Rue","Olive","F","Rue at olive base; explicitly noted as protective and stimulating — Ibn al-Awwam"],
+["Rue","Fig","F","Rue at base of fig noted as beneficial to tree health — Ibn al-Awwam"],
+["Garlic","Damascus rose","F","Garlic at rose base improves blooming and deters pests — Ibn al-Awwam"],
+["Garlic","Pomegranate","F","Garlic at pomegranate base; soil health and pest protection — Ibn al-Awwam"],
+["Garlic","Almond","F","Protective companion planted at almond base — Ibn al-Awwam"],
+["Garlic","Olive","F","Garlic planted at olive base; soil disinfectant — Ibn al-Awwam"],
+["Garlic","Fig","F","Pest deterrent planted at fig base — Ibn al-Awwam"],
+["Garlic","Date palm","F","Soil pest protection; planted at palm base — Ibn al-Awwam"],
+["Basil","Damascus rose","F","Fragrant companions; mutually beneficial in garden beds — Ibn al-Awwam"],
+["Basil","Fig","F","Aromatic companion at fig base — Ibn al-Awwam"],
+["Basil","Eggplant","F","Insect deterrent companion near eggplant — Ibn al-Awwam"],
+["Damascus rose","Myrtle","F","Aromatic companions; traditionally planted together — Ibn al-Awwam"],
+["Marjoram","Damascus rose","F","Fragrant garden companions — Ibn al-Awwam"],
+["Violet","Damascus rose","F","Traditional garden companions; shared bed planting — Ibn al-Awwam"],
+["Narcissus","Violet","F","Garden bed companions; spring bulb pairing — Al-Tighnari"],
+["Onion","Carrot","F","Classic intercrop; onion deters carrot pests — Ibn al-Awwam"],
+["Lettuce","Radish","F","Lettuce shades radish roots; radish breaks soil for lettuce — Ibn al-Awwam"],
+["Pennyroyal","Wheat","F","Granary insect protection; hung to protect stored wheat — Ibn al-Awwam"],
+["Pennyroyal","Barley","F","Granary insect protection for stored barley — Ibn al-Awwam"],
+["Wormwood","Wheat","F","Dried and burned; protects stored wheat from insects — Ibn al-Awwam"],
+["Wormwood","Barley","F","Protects stored barley from granary insects — Ibn al-Awwam"],
+["Squill","Wheat","F","Rodent-poison bait protecting wheat grain stores — Ibn al-Awwam, Ibn Wahshiyya"],
+["Oleander","Olive","F","Toxic smoke from leaves used as fumigant for olive pests — Ibn al-Awwam"],
+["Oleander","Fig","F","Fumigant smoke for fig tree pests — Ibn al-Awwam"],
+["Asafoetida","Grapevine","F","Strong resin buried near vine roots to repel soil pests — Ibn al-Awwam"],
+["Asafoetida","Fig","F","Soil pest repellent at fig base — Ibn al-Awwam"],
+["Stavesacre","Grapevine","F","Seed powder against vine lice and insects — Ibn al-Awwam"],
+["Henbane","Olive","F","Narcotic fumigant smoke for olive pests — Ibn Wahshiyya"],
+["Rue","Grapevine","F","Insect repellent aromatic companion near vine — Ibn al-Awwam"],
+["Rue","Pomegranate","F","Protective aromatic companion at pomegranate base — Ibn al-Awwam"],
+["Rosemary","Grapevine","F","Hillside aromatic companion — Ibn al-Awwam"],
+["Sage","Grapevine","F","Aromatic companion; pest deterrent near vine — Ibn al-Awwam"],
+["Hyssop","Grapevine","F","Aromatic companion planted with vine — Ibn al-Awwam"],
+["Southernwood","Grapevine","F","Insect deterrent companion — Ibn al-Awwam"],
+["Southernwood","Cotton","F","Protects stored cotton seed from insects — Ibn al-Awwam"],
+["Lemon balm","Grapevine","F","Bees attracted; beneficial pollination of vine and orchard — Ibn al-Awwam"],
+["Anise","Coriander","F","Companion sowing; noted together in spring planting — Ibn al-Awwam"],
+["Chamomile","Wheat","F","Soil indicator; mild tonic effect on cereal fields — Ibn al-Awwam"],
+["Lavender","Olive","F","Dryland hillside companion for olive — Ibn al-Awwam"],
+["Thyme","Olive","F","Hillside aromatic companion for olive groves — Ibn al-Awwam"],
+["Elecampane","Wheat","F","Root used as fumigant; protects cereal stores — Ibn al-Awwam"],
+["Catmint","Eggplant","F","Insect repellent companion near eggplant — Ibn al-Awwam"],
+["Summer savory","Broad bean","F","Companion noted with beans; savory and legumes — Ibn al-Awwam"],
+["Fennel","Asparagus","F","Fennel and asparagus noted as compatible in Ibn al-Awwam"],
+["Coriander","Chickpea","F","Companion sowing noted — Ibn al-Awwam"],
+["Mint","Eggplant","F","Aromatic companion deterring pests near eggplant — Ibn al-Awwam"],
+["Colocynth","Cotton","F","Bitter root bait placed to protect cotton fields from rodents — Ibn al-Awwam"],
+["Nux vomica","Wheat","F","Rodent poison bait protecting grain stores — Ibn Wahshiyya"],
+["Colocynth","Wheat","F","Bitter bait against rodents threatening wheat — Ibn al-Awwam, Ibn Wahshiyya"],
+// ─── ROTATION FRIENDSHIPS ──────────────────────────────────────────────
+["Broad bean","Wheat","F","Rotation: broad bean directly improves following wheat yield — Ibn al-Awwam, Ibn Bassal"],
+["Lupin","Barley","F","Explicit green manure predecessor to barley; Ibn al-Awwam: 'restores exhausted soil'"],
+["Fenugreek","Wheat","F","Green manure rotation predecessor to wheat — Ibn al-Awwam"],
+["Chickpea","Barley","F","Rotation companion; leaves soil enriched for barley — Ibn al-Awwam, Ibn Bassal"],
+["Lentil","Wheat","F","Cool-season rotation predecessor to wheat — Ibn al-Awwam"],
+["Vetch","Wheat","F","Turned-in green manure before wheat planting — Ibn al-Awwam"],
+["Sulla","Barley","F","Fodder-rotation predecessor; calcareous soil improvement — Ibn al-Awwam"],
+["Alfalfa","Wheat","F","Deep-root rotation predecessor; multi-year soil improvement — Ibn al-Awwam, Ibn Bassal"],
+["Egyptian clover","Barley","F","Green manure plowed before barley; quick nitrogen return — Ibn al-Awwam, Ibn Bassal"],
+["Broad bean","Vetch","F","Companion legumes in the same rotation block — Ibn al-Awwam"],
+["Cowpea","Sorghum","F","Summer legume preceding sorghum in warm rotation — Ibn al-Awwam"],
+["Bitter vetch","Barley","F","Bitter vetch as rotation predecessor to barley — Ibn al-Awwam"],
+["Black medick","Wheat","F","Self-seeding soil improver in wheat margins — Ibn al-Awwam"],
+// ─── HOSTILITY / ALLELOPATHY ───────────────────────────────────────────
+["Walnut","Olive","H","Root secretions explicitly described as strongly harmful to olive — Ibn al-Awwam"],
+["Walnut","Grapevine","H","Walnut allelopathy damages vine; must be kept well separated — Ibn al-Awwam"],
+["Walnut","Wheat","H","Crops fail beneath walnut canopy; juglone toxicity — Ibn al-Awwam"],
+["Walnut","Barley","H","Barley weakened and fails under walnut — Ibn al-Awwam"],
+["Walnut","Fig","H","Fig harmed by walnut proximity; root competition and allelopathy — Ibn al-Awwam"],
+["Fennel","Coriander","H","Fennel inhibits coriander germination and growth — Ibn al-Awwam"],
+["Fennel","Cumin","H","Fennel suppresses cumin; antagonism between these umbellifers — Ibn al-Awwam"],
+["Fennel","Carrot","H","Fennel competes heavily and suppresses carrot root development — Ibn al-Awwam"],
+["Cabbage","Grapevine","H","Cabbage near vine damages vine health and wine quality — Ibn al-Awwam"],
+["Wormwood","Fennel","H","Wormwood and fennel noted as mutually antagonistic aromatics — Ibn al-Awwam"],
+["Onion","Garlic","H","Heavy allium competition when planted too close — Ibn al-Awwam"],
+["Leek","Onion","H","Compete heavily when too close; both strong allium feeders — Ibn al-Awwam"],
+["Fig","Carrot","H","Aggressive fig surface roots compete with nearby annuals — Ibn al-Awwam"],
+["Darnel","Wheat","H","Toxic weed; mixes with wheat at harvest; poisons grain — Ibn al-Awwam, Ibn Wahshiyya"],
+["Darnel","Barley","H","Weed competition in barley fields — Ibn al-Awwam"],
+["Wild oat","Wheat","H","Heavy weed competitor in cereal fields — Ibn al-Awwam"],
+["Wild oat","Barley","H","Weed competition in barley fields — Ibn al-Awwam"],
+["Bindweed","Wheat","H","Persistent weed; strangles wheat stems — Ibn al-Awwam"],
+["Bindweed","Barley","H","Persistent weed in barley fields — Ibn al-Awwam"],
+["Dock","Wheat","H","Weed indicator; strong root competitor in fields — Ibn al-Awwam"],
+["Thorny burnet","Barley","H","Dryland weed competitor in barley fields — Ibn al-Awwam"],
+["Hemlock","Wheat","H","Toxic plant; if mixed in harvest, poisons grain — Ibn Wahshiyya"],
+["Hemlock","Barley","H","Poisonous presence in barley noted — Ibn Wahshiyya"],
+["Black hellebore","Wheat","H","Root toxins damage soil around wheat — Ibn al-Awwam"],
+["Euphorbia","Grapevine","H","Caustic latex noted as damaging to vine roots — Ibn al-Awwam"],
+["Asphodel","Wheat","H","Poor soil indicator; competes on degraded cereal land — Ibn Wahshiyya"],
+["Wild golden thistle","Barley","H","Weed competition in barley fields — Ibn al-Awwam"],
+["Field spurge","Wheat","H","Caustic sap weed; noted as problem in cereal fields — Ibn Wahshiyya"],
+["Colocynth","Barley","H","Root toxins damage barley growing in proximity — Ibn Wahshiyya"],
+["Darnel","Rice","H","Weed competitor in wet rice fields — Ibn Wahshiyya"],
+["Cabbage","Cotton","H","Cabbage depletes soil nutrients needed by cotton — Ibn al-Awwam"],
+["Thorny burnet","Wheat","H","Competitor on calcareous dryland — Ibn al-Awwam"],
+// ─── RESTORES SOIL → SOIL HUB ──────────────────────────────────────────
+["Broad bean","SOIL","R","Ibn al-Awwam: root nodules; strongly improves depleted soil"],
+["Lupin","SOIL","R","Ibn al-Awwam explicitly: 'restores exhausted and depleted soil'; plowed in green"],
+["Chickpea","SOIL","R","Root nodules leave soil enriched; noted in rotation schedules — Ibn al-Awwam, Ibn Bassal"],
+["Lentil","SOIL","R","Light feeder; leaves soil in better condition than cereals — Ibn al-Awwam"],
+["Cowpea","SOIL","R","Warm-season nitrogen fixer; soil improvement noted — Ibn al-Awwam"],
+["Garden pea","SOIL","R","Nitrogen-fixing legume; rotation benefit — Ibn al-Awwam"],
+["Fenugreek","SOIL","R","Green manure; improves tilth and organic matter — Ibn al-Awwam"],
+["Vetch","SOIL","R","Turned under before plowing; restores organic matter — Ibn al-Awwam"],
+["Bitter vetch","SOIL","R","Fodder legume turned in as green manure — Ibn al-Awwam"],
+["Grass pea","SOIL","R","Drought-tolerant nitrogen fixer; rotation legume — Ibn al-Awwam"],
+["Alfalfa","SOIL","R","Deep roots bring subsoil nutrients up; long-term soil structure — Ibn al-Awwam, Ibn Bassal"],
+["Egyptian clover","SOIL","R","Rapid nitrogen return; standard green manure — Ibn al-Awwam, Ibn Bassal"],
+["Sulla","SOIL","R","Calcareous dryland soil improvement; fodder green manure — Ibn al-Awwam"],
+["Black medick","SOIL","R","Self-seeding soil improver; nitrogen fixation — Ibn al-Awwam"],
+["Radish","SOIL","R","Taproot breaks compacted layers; pioneer crop before main planting — Ibn al-Awwam"],
+["Chamomile","SOIL","R","Soil tonic; noted self-seeding on disturbed or recovering ground — Ibn al-Awwam"],
+// ─── EXHAUSTS SOIL → SOIL HUB ─────────────────────────────────────────
+["Wheat","SOIL","E","Heavy feeder; rapidly depletes fertility; legume rotation required — Ibn al-Awwam"],
+["Barley","SOIL","E","Heavy cereal feeder; depletes over repeated seasons — Ibn al-Awwam"],
+["Turnip","SOIL","E","Heavy N and K demand; leaves soil depleted — Ibn al-Awwam"],
+["Cabbage","SOIL","E","Heavy potassium feeder; richly manured beds required — Ibn al-Awwam, Ibn Bassal"],
+["Cotton","SOIL","E","Very exhausting; heavy manuring prescribed after cotton season — Ibn al-Awwam, Ibn Bassal"],
+["Sugar cane","SOIL","E","Nutrient-intensive perennial; soil heavily depleted — Ibn al-Awwam"],
+["Hemp","SOIL","E","Deep feeder; heavy irrigation depletes soil — Ibn al-Awwam"],
+["Rice","SOIL","E","Nutrient-intensive wet crop — Ibn al-Awwam"],
+["Watermelon","SOIL","E","Heavy feeder in sandy soils — Ibn al-Awwam"],
+["Melon","SOIL","E","Rich soil and heavy watering; exhausting to fertility — Ibn al-Awwam"],
+["Eggplant","SOIL","E","Demands rich prepared soil; depletes over seasons — Ibn al-Awwam"],
+["Sorghum","SOIL","E","Summer heavy feeder in warm soils — Ibn al-Awwam"],
+// ─── GRAFTING / ROOTSTOCK ──────────────────────────────────────────────
+["Quince","Apple","G","Quince as standard dwarfing rootstock for apple — Ibn al-Awwam"],
+["Quince","Pear","G","Best-known grafting combination; quince gives size improvement — Ibn al-Awwam"],
+["Crab apple","Apple","G","Crab apple as vigorous rootstock for cultivated apple — Ibn al-Awwam"],
+["Wild pear","Pear","G","Wild pear as vigorous rootstock for cultivated pear — Ibn al-Awwam"],
+["Hawthorn","Pear","G","Hawthorn as alternate pear rootstock — Ibn al-Awwam"],
+["Hawthorn","Medlar","G","Hawthorn as standard medlar rootstock — Ibn al-Awwam"],
+["Peach","Almond","G","Peach used as rootstock for almond; compatibility noted — Ibn al-Awwam, Ibn Bassal"],
+["Almond","Plum","G","Almond rootstock for plum grafting — Ibn al-Awwam"],
+["Damson","Plum","G","Damson and plum grafted interchangeably — Ibn al-Awwam"],
+["Terebinth","Pistachio","G","Terebinth as standard pistachio rootstock — Ibn al-Awwam"],
+["Sour orange","Lemon","G","Sour orange: primary citrus rootstock for lemon — Ibn al-Awwam"],
+["Sour orange","Sweet orange","G","Sour orange rootstock for sweet orange — Al-Tighnari"],
+["Sour orange","Citron","G","Sour orange rootstock for citron — Ibn al-Awwam, Al-Tighnari"],
+["Sour orange","Lime","G","Sour orange rootstock for lime — Ibn al-Awwam"],
+["Dog rose","Damascus rose","G","Dog rose as rootstock for cultivated Damascus rose — Ibn al-Awwam"],
+["Wild fig","Fig","G","Wild fig (caprifig) used in caprification of cultivated fig — Ibn al-Awwam"],
+["Wild olive","Olive","G","Wild olive as rootstock for grafted cultivated olive — Ibn al-Awwam"],
+["Wild pomegranate","Pomegranate","G","Wild pomegranate as rootstock for cultivated pomegranate — Ibn al-Awwam"],
+// ─── STRUCTURAL SUPPORT / WINDBREAK ────────────────────────────────────
+["Elm","Grapevine","S","Elm as trellis and structural support tree for vine — Ibn al-Awwam"],
+["Cypress","Olive","S","Cypress windbreak protecting olive groves from wind — Ibn al-Awwam"],
+["Cypress","Grapevine","S","Cypress windbreak protecting vine from desiccating wind — Ibn al-Awwam"],
+["Cypress","Wheat","S","Field edge windbreak protecting cereal plots — Ibn al-Awwam"],
+["Cypress","Date palm","S","Windbreak in date palm garden courtyards — Ibn al-Awwam"],
+["Tamarisk tree","Date palm","S","Salt-tolerant windbreak; saline companion to palm — Ibn al-Awwam, Ibn Wahshiyya"],
+["Tamarisk tree","Cotton","S","Windbreak for cotton in semi-arid zones — Ibn al-Awwam"],
+["Poplar","Rice","S","Irrigation canal bank stabilizer alongside rice fields — Ibn al-Awwam"],
+["Poplar","Sugar cane","S","Canal bank stabilizer for sugar cane irrigation — Ibn al-Awwam"],
+["Willow","Rice","S","Waterway planting alongside rice irrigation channels — Ibn al-Awwam"],
+["Bay laurel","Grapevine","S","Aromatic windbreak; pest deterrent smoke for vine — Ibn al-Awwam"],
+["Plane tree","Grapevine","S","Occasional shade companion and vine support — Ibn al-Awwam"],
+["Christ's thorn","Date palm","S","Thorny hedge windbreak protecting date palm gardens — Ibn Wahshiyya"],
+];
+
+// ═══════════════════════════════════════════════════════════════════════
+//  BUILD GRAPH DATA
+// ═══════════════════════════════════════════════════════════════════════
+
+const nodeMap = {};
+RAW_NODES.forEach(([id, cat]) => {
+  nodeMap[id] = { id, cat, links: [] };
+});
+
+const links = RAW_LINKS.map(([s, t, type, note]) => {
+  const src = nodeMap[s], tgt = nodeMap[t];
+  if (!src) { console.warn("Missing source:", s); return null; }
+  if (!tgt) { console.warn("Missing target:", t); return null; }
+  src.links.push({ to: t, type, note });
+  tgt.links.push({ to: s, type, note });
+  return { source: s, target: t, type, note };
+}).filter(Boolean);
+
+const nodes = RAW_NODES.map(([id, cat]) => ({
+  id, cat,
+  degree: nodeMap[id].links.length,
+  linkData: nodeMap[id].links
+}));
+
+// ═══════════════════════════════════════════════════════════════════════
+//  D3 SETUP
+// ═══════════════════════════════════════════════════════════════════════
+
+const svg = d3.select("#net");
+const W = () => document.getElementById("canvas").clientWidth;
+const H = () => document.getElementById("canvas").clientHeight;
+
+// Markers
+const defs = d3.select("#defs-markers");
+Object.entries(ETYPE).forEach(([k, v]) => {
+  defs.append("marker")
+    .attr("id", "m-" + k)
+    .attr("viewBox", "0 -4 10 8")
+    .attr("refX", 22).attr("refY", 0)
+    .attr("markerWidth", 5).attr("markerHeight", 5)
+    .attr("orient", "auto")
+    .append("path")
+    .attr("d", "M0,-4L10,0L0,4")
+    .attr("fill", v.c).attr("opacity", .75);
+});
+
+const gLinks = d3.select("#g-links");
+const gNodes = d3.select("#g-nodes");
+const gLabels = d3.select("#g-labels");
+
+// State
+let activeTypes = new Set(Object.keys(ETYPE));
+let activeCats = new Set(Object.keys(CAT));
+let showConnectedOnly = false;
+let clusterMode = false;
+let searchTerm = "";
+let selectedNode = null;
+
+// ─── Force simulation ──────────────────────────────────────────────────
+
+const sim = d3.forceSimulation(nodes)
+  .force("link", d3.forceLink(links).id(d => d.id).distance(d => {
+    if (d.type === "R" || d.type === "E") return 160;
+    if (d.type === "G") return 90;
+    if (d.type === "S") return 110;
+    return 100;
+  }).strength(0.5))
+  .force("charge", d3.forceManyBody().strength(d => {
+    if (d.id === "SOIL") return -600;
+    if (d.degree > 8) return -300;
+    if (d.degree > 4) return -180;
+    if (d.degree > 0) return -100;
+    return -40;
+  }))
+  .force("center", d3.forceCenter(W() / 2, H() / 2))
+  .force("collide", d3.forceCollide(d => nodeR(d) + 8))
+  .alphaDecay(0.02)
+  .velocityDecay(0.4);
+
+// Cluster forces (inactive by default)
+let clusterForceX = null, clusterForceY = null;
+
+function nodeR(d) {
+  if (d.id === "SOIL") return 14;
+  if (d.degree === 0) return 3;
+  return Math.min(4 + d.degree * 1.4, 14);
+}
+
+// ─── Zoom ──────────────────────────────────────────────────────────────
+
+const zoom = d3.zoom().scaleExtent([0.1, 8]).on("zoom", e => {
+  gLinks.attr("transform", e.transform);
+  gNodes.attr("transform", e.transform);
+  gLabels.attr("transform", e.transform);
+});
+svg.call(zoom);
+svg.on("click", () => { selectedNode = null; updateHighlight(); hideInfo(); });
+
+// ─── Render links ──────────────────────────────────────────────────────
+
+let linkSel = gLinks.selectAll("line.link").data(links, d => d.source.id + d.target.id + d.type)
+  .join("line")
+  .attr("class", "link")
+  .attr("stroke", d => ETYPE[d.type].c)
+  .attr("stroke-width", d => ETYPE[d.type].w)
+  .attr("stroke-dasharray", d => ETYPE[d.type].dash)
+  .attr("stroke-opacity", 0.55)
+  .attr("marker-end", d => `url(#m-${d.type})`);
+
+// ─── Render nodes ──────────────────────────────────────────────────────
+
+let nodeSel = gNodes.selectAll("circle.node").data(nodes, d => d.id)
+  .join("circle")
+  .attr("class", "node")
+  .attr("r", d => nodeR(d))
+  .attr("fill", d => CAT[d.cat]?.c || "#ccc")
+  .attr("stroke", d => d.id === "SOIL" ? "#111" : "rgba(255,255,255,0.8)")
+  .attr("stroke-width", d => d.id === "SOIL" ? 2 : 1.2)
+  .attr("cursor", "pointer")
+  .on("mouseenter", showTooltip)
+  .on("mousemove", moveTooltip)
+  .on("mouseleave", hideTooltip)
+  .on("click", (e, d) => { e.stopPropagation(); selectedNode = d.id; updateHighlight(); showInfo(d); })
+  .call(d3.drag()
+    .on("start", (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag",  (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on("end",   (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+// ─── Render labels ─────────────────────────────────────────────────────
+
+let labelSel = gLabels.selectAll("text.nlabel").data(nodes, d => d.id)
+  .join("text")
+  .attr("class", d => d.id === "SOIL" ? "nlabel hub-label" : "nlabel")
+  .attr("text-anchor", "middle")
+  .attr("dy", d => nodeR(d) + 9)
+  .attr("fill", "#333")
+  .attr("stroke", "#f8f8f5")
+  .attr("stroke-width", 2.5)
+  .attr("font-size", d => d.id === "SOIL" ? "11px" : d.degree > 4 ? "9.5px" : "8px")
+  .text(d => d.id);
+
+// ─── Simulation tick ───────────────────────────────────────────────────
+
+sim.on("tick", () => {
+  linkSel
+    .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+  nodeSel.attr("cx", d => d.x).attr("cy", d => d.y);
+  labelSel.attr("x", d => d.x).attr("y", d => d.y);
+});
+
+// ═══════════════════════════════════════════════════════════════════════
+//  FILTER & HIGHLIGHT
+// ═══════════════════════════════════════════════════════════════════════
+
+function updateVisibility() {
+  const visibleLinks = links.filter(l =>
+    activeTypes.has(l.type) &&
+    activeCats.has(nodeMap[l.source.id || l.source]?.cat) &&
+    activeCats.has(nodeMap[l.target.id || l.target]?.cat)
+  );
+  const connectedIds = new Set(["SOIL"]);
+  visibleLinks.forEach(l => {
+    connectedIds.add(l.source.id || l.source);
+    connectedIds.add(l.target.id || l.target);
+  });
+
+  linkSel.attr("display", d => {
+    const sid = d.source.id, tid = d.target.id;
+    if (!activeTypes.has(d.type)) return "none";
+    if (!activeCats.has(nodeMap[sid]?.cat)) return "none";
+    if (!activeCats.has(nodeMap[tid]?.cat)) return "none";
+    return null;
+  });
+
+  nodeSel.attr("display", d => {
+    if (!activeCats.has(d.cat)) return "none";
+    if (showConnectedOnly && !connectedIds.has(d.id)) return "none";
+    return null;
+  });
+
+  labelSel.attr("display", d => {
+    if (!activeCats.has(d.cat)) return "none";
+    if (showConnectedOnly && !connectedIds.has(d.id)) return "none";
+    return null;
+  });
+
+  updateHighlight();
+  updateStats();
+}
+
+function updateHighlight() {
+  if (!selectedNode && !searchTerm) {
+    linkSel.attr("stroke-opacity", 0.55);
+    nodeSel.attr("opacity", 1);
+    labelSel.attr("opacity", 1);
+    return;
+  }
+
+  const focus = new Set();
+  if (selectedNode) {
+    focus.add(selectedNode);
+    links.forEach(l => {
+      const s = l.source.id, t = l.target.id;
+      if (s === selectedNode || t === selectedNode) { focus.add(s); focus.add(t); }
+    });
+  }
+
+  const searchMatches = new Set();
+  if (searchTerm) {
+    nodes.forEach(n => {
+      if (n.id.toLowerCase().includes(searchTerm)) searchMatches.add(n.id);
+    });
+  }
+
+  linkSel.attr("stroke-opacity", d => {
+    const s = d.source.id, t = d.target.id;
+    if (selectedNode && (focus.has(s) && focus.has(t))) return 0.9;
+    if (selectedNode) return 0.04;
+    return 0.55;
+  });
+
+  nodeSel.attr("opacity", d => {
+    if (searchTerm && !searchMatches.has(d.id)) return 0.08;
+    if (selectedNode && !focus.has(d.id)) return 0.08;
+    return 1;
+  });
+
+  labelSel.attr("opacity", d => {
+    if (searchTerm && !searchMatches.has(d.id)) return 0;
+    if (selectedNode && !focus.has(d.id)) return 0.05;
+    return 1;
+  });
+}
+
+function updateStats() {
+  const visL = links.filter(l => activeTypes.has(l.type));
+  const visN = nodes.filter(n => activeCats.has(n.cat));
+  const counts = {};
+  Object.keys(ETYPE).forEach(k => counts[k] = 0);
+  visL.forEach(l => counts[l.type]++);
+  document.getElementById("stats-area").innerHTML =
+    `<div class="stat-row"><span>Plants shown</span><b>${visN.length}</b></div>` +
+    `<div class="stat-row"><span>Total relationships</span><b>${visL.length}</b></div>` +
+    Object.entries(ETYPE).map(([k,v]) =>
+      `<div class="stat-row"><span style="color:${v.c}">${v.l}</span><b>${counts[k]}</b></div>`
+    ).join("") +
+    `<div class="stat-row" style="margin-top:4px"><span>Most connected</span><b style="font-size:10px">Garlic (${nodeMap["Garlic"]?.links.length})</b></div>`;
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  UI CONTROLS
+// ═══════════════════════════════════════════════════════════════════════
+
+// Edge filter checkboxes
+const efCont = document.getElementById("ef-container");
+Object.entries(ETYPE).forEach(([k, v]) => {
+  const cnt = links.filter(l => l.type === k).length;
+  const row = document.createElement("label");
+  row.className = "ef-row";
+  row.innerHTML = `<input type="checkbox" checked onchange="toggleType('${k}', this.checked)">
+    <span class="ef-swatch" style="background:${v.c};${v.dash ? `background:repeating-linear-gradient(90deg,${v.c} 0,${v.c} 6px,transparent 6px,transparent 9px)` : ""}"></span>
+    <span>${v.l}</span>
+    <span class="ef-count">${cnt}</span>`;
+  efCont.appendChild(row);
+});
+
+function toggleType(k, on) {
+  if (on) activeTypes.add(k); else activeTypes.delete(k);
+  updateVisibility();
+}
+
+// Category legend
+const catGrid = document.getElementById("cat-grid");
+Object.entries(CAT).forEach(([k, v]) => {
+  if (k === "HB") return;
+  const el = document.createElement("span");
+  el.className = "cl";
+  el.title = v.l;
+  el.innerHTML = `<span class="cl-dot" style="background:${v.c}"></span>${v.l.replace(" & "," &\u00A0")}`;
+  el.onclick = () => {
+    if (activeCats.has(k)) activeCats.delete(k); else activeCats.add(k);
+    el.classList.toggle("off", !activeCats.has(k));
+    updateVisibility();
+  };
+  catGrid.appendChild(el);
+});
+
+function doSearch(v) {
+  searchTerm = v.trim().toLowerCase();
+  updateHighlight();
+}
+
+function toggleConnected() {
+  showConnectedOnly = !showConnectedOnly;
+  document.getElementById("btn-conn").classList.toggle("on", showConnectedOnly);
+  document.getElementById("btn-conn").textContent = showConnectedOnly ? "Show all nodes" : "Hide isolated nodes";
+  updateVisibility();
+}
+
+// Category centroids for cluster mode
+const CAT_CENTROIDS = {
+  CG:{x:0.2, y:0.15}, LP:{x:0.5, y:0.1},  VG:{x:0.8, y:0.15},
+  HK:{x:0.85,y:0.45}, FT:{x:0.75,y:0.75}, AP:{x:0.5, y:0.9},
+  MP:{x:0.25,y:0.85}, IF:{x:0.1, y:0.7},  FG:{x:0.1, y:0.4},
+  ST:{x:0.1, y:0.15}, TP:{x:0.35,y:0.55}, WU:{x:0.6, y:0.5},
+  AW:{x:0.35,y:0.3},  SS:{x:0.6, y:0.25}, HB:{x:0.5, y:0.5}
+};
+
+function toggleCluster() {
+  clusterMode = !clusterMode;
+  document.getElementById("btn-clust").classList.toggle("on", clusterMode);
+  if (clusterMode) {
+    sim.force("clusterX", d3.forceX(d => CAT_CENTROIDS[d.cat]?.x * W() || W()/2).strength(0.2));
+    sim.force("clusterY", d3.forceY(d => CAT_CENTROIDS[d.cat]?.y * H() || H()/2).strength(0.2));
+  } else {
+    sim.force("clusterX", null).force("clusterY", null);
+  }
+  sim.alpha(0.5).restart();
+}
+
+function resetAll() {
+  activeTypes = new Set(Object.keys(ETYPE));
+  activeCats = new Set(Object.keys(CAT));
+  showConnectedOnly = false;
+  searchTerm = "";
+  selectedNode = null;
+  document.getElementById("search").value = "";
+  document.getElementById("btn-conn").classList.remove("on");
+  document.getElementById("btn-conn").textContent = "Hide isolated nodes";
+  document.querySelectorAll(".ef-row input").forEach(c => c.checked = true);
+  document.querySelectorAll(".cl").forEach(c => c.classList.remove("off"));
+  updateVisibility();
+  hideInfo();
+}
+
+function resetView() {
+  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity.translate(0, 0).scale(1));
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  TOOLTIP
+// ═══════════════════════════════════════════════════════════════════════
+
+function showTooltip(e, d) {
+  const tt = document.getElementById("tt");
+  const cnt = {};
+  Object.keys(ETYPE).forEach(k => cnt[k] = 0);
+  d.linkData.forEach(l => cnt[l.type]++);
+  const rel = Object.entries(cnt).filter(([,v]) => v > 0)
+    .map(([k,v]) => `<span style="color:${ETYPE[k].c}">${ETYPE[k].l}: ${v}</span>`).join(" · ");
+  tt.innerHTML = `<div class="tn">${d.id}</div><div class="tc">${CAT[d.cat]?.l || d.cat}</div>` +
+    (d.degree ? `<div class="tr">${d.degree} link${d.degree !== 1 ? 's' : ''} · ${rel}</div>` : `<div class="tr" style="color:#aaa">No documented relationships</div>`);
+  tt.style.display = "block";
+  moveTooltip(e);
+}
+
+function moveTooltip(e) {
+  const tt = document.getElementById("tt");
+  const cvs = document.getElementById("canvas").getBoundingClientRect();
+  let x = e.clientX - cvs.left + 12, y = e.clientY - cvs.top - 40;
+  if (x + 240 > cvs.width) x -= 260;
+  if (y < 0) y += 70;
+  tt.style.left = x + "px"; tt.style.top = y + "px";
+}
+
+function hideTooltip() { document.getElementById("tt").style.display = "none"; }
+
+// ═══════════════════════════════════════════════════════════════════════
+//  INFO PANEL
+// ═══════════════════════════════════════════════════════════════════════
+
+function showInfo(d) {
+  const panel = document.getElementById("info");
+  if (d.id === "SOIL") {
+    panel.innerHTML = `<span class="iclose" onclick="hideInfo()">✕</span>
+      <div class="ih">SOIL</div>
+      <div class="ic">Central fertility hub · All restoration and exhaustion relationships</div>
+      <div class="isec">Restores soil (${links.filter(l => l.type === "R").length} plants)</div>
+      ${links.filter(l => l.type === "R").map(l => `<div class="il"><span class="idot" style="background:${ETYPE.R.c}"></span>${l.source.id || l.source}</div>`).join("")}
+      <div class="isec">Exhausts soil (${links.filter(l => l.type === "E").length} plants)</div>
+      ${links.filter(l => l.type === "E").map(l => `<div class="il"><span class="idot" style="background:${ETYPE.E.c}"></span>${l.source.id || l.source}</div>`).join("")}`;
+    panel.style.display = "block"; return;
+  }
+  const byType = {};
+  Object.keys(ETYPE).forEach(k => byType[k] = []);
+  links.forEach(l => {
+    const s = l.source.id || l.source, t = l.target.id || l.target;
+    if (s === d.id) byType[l.type].push({ other: t, note: l.note, dir: "→" });
+    if (t === d.id) byType[l.type].push({ other: s, note: l.note, dir: "←" });
+  });
+  const sections = Object.entries(ETYPE).map(([k, v]) => {
+    if (!byType[k].length) return "";
+    return `<div class="isec">${v.l} (${byType[k].length})</div>` +
+      byType[k].map(r => `<div class="il"><span class="idot" style="background:${v.c}"></span>
+        <span><b>${r.dir === "→" ? "→ " : "← "}${r.other}</b><br>
+        <span style="font-size:10px;color:#999">${r.note.split(" — ")[1] || ""}</span></span></div>`).join("");
+  }).join("");
+  panel.innerHTML = `<span class="iclose" onclick="hideInfo()">✕</span>
+    <div class="ih">${d.id}</div>
+    <div class="ic">${CAT[d.cat]?.l || d.cat} · ${d.degree} relationship${d.degree !== 1 ? 's' : ''}</div>
+    ${sections || '<div style="color:#aaa;font-size:11px">No documented relationships</div>'}`;
+  panel.style.display = "block";
+}
+
+function hideInfo() {
+  document.getElementById("info").style.display = "none";
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════════════
+
+updateVisibility();
+// Center SOIL hub
+const soilNode = nodes.find(n => n.id === "SOIL");
+if (soilNode) { soilNode.x = W() / 2; soilNode.y = H() / 2; }
+
+window.addEventListener("resize", () => {
+  sim.force("center", d3.forceCenter(W() / 2, H() / 2));
+  sim.alpha(0.1).restart();
+});
+</script>
+</body>
+</html>

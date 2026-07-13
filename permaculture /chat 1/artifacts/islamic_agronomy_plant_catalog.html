@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Islamic Golden Age Agronomy — Complete Plant Catalog</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;font-size:13px;background:#fff;color:#222;padding:1rem}
+h1{font-size:18px;font-weight:600;margin-bottom:4px}
+.sub{font-size:12px;color:#666;margin-bottom:1rem}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.75rem}
+.ctrls input{flex:1;min-width:200px;padding:6px 11px;font-size:12px;border:1px solid #ccc;border-radius:6px}
+.ctrls select{padding:6px 9px;font-size:12px;border:1px solid #ccc;border-radius:6px;background:#fff}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.75rem}
+.stat{background:#f5f5f2;border-radius:6px;padding:6px 12px;font-size:11px;color:#666}
+.stat span{display:block;font-size:17px;font-weight:600;color:#222}
+.wrap{overflow:auto;border:1px solid #e0e0d8;border-radius:8px;max-height:600px}
+table{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed}
+thead th{background:#f5f5f2;padding:8px 10px;text-align:left;font-size:10.5px;font-weight:600;color:#555;border-bottom:1px solid #e0e0d8;position:sticky;top:0;z-index:2;white-space:nowrap;cursor:pointer}
+th:nth-child(1){width:14%}th:nth-child(2){width:12%}th:nth-child(3){width:15%}th:nth-child(4){width:13%}th:nth-child(5){width:18%}th:nth-child(6){width:17%}th:nth-child(7){width:11%}
+tbody tr{border-bottom:1px solid #eee}
+tbody tr:hover td{background:#fafaf8}
+td{padding:7px 10px;vertical-align:top;line-height:1.4}
+.cat{display:inline-block;padding:2px 7px;border-radius:9px;font-size:10px;font-weight:600;white-space:nowrap}
+.sci{font-style:italic;color:#666;font-size:10.5px}
+.ar{font-style:italic;color:#777}
+.stag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:9.5px;background:#f0f0ec;border:1px solid #e0e0d8;color:#555;white-space:nowrap;margin:1px}
+.ev{display:flex;align-items:center;gap:4px;font-size:10.5px;color:#666}
+.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.nr{padding:2rem;text-align:center;color:#888}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:10px;color:#666;margin-bottom:.5rem;align-items:center}
+.leg-i{display:flex;align-items:center;gap:3px}
+</style>
+</head>
+<body>
+<h1>Islamic Golden Age Agronomy — Complete Plant Catalog</h1>
+<p class="sub">Ibn al-Awwam (Kitāb al-Filāḥa) · Ibn Bassal (Dīwān al-Filāḥa) · Ibn Wahshiyya (Nabataean Agriculture) · Andalusian school · Ibn al-Baytar · Ibn Sina</p>
+
+<div class="ctrls">
+  <input type="text" id="srch" placeholder="Search — common name, Arabic, scientific name, role…" oninput="R()">
+  <select id="fcat" onchange="R()"><option value="">All categories</option></select>
+  <select id="fsrc" onchange="R()">
+    <option value="">All sources</option>
+    <option>Ibn al-Awwam</option><option>Ibn Bassal</option><option>Ibn Wahshiyya</option>
+    <option>Abu al-Khayr</option><option>Al-Tighnari</option><option>Ibn al-Baytar</option><option>Ibn Sina</option>
+  </select>
+  <select id="fev" onchange="R()">
+    <option value="">All evidence levels</option>
+    <option>Explicit</option><option>Strongly implied</option><option>Modern reconstruction</option><option>Uncertain</option>
+  </select>
+</div>
+<div class="legend">
+  <span style="font-size:10.5px;color:#555">Evidence:</span>
+  <span class="leg-i"><span class="dot" style="background:#1D9E75"></span>Explicit</span>
+  <span class="leg-i"><span class="dot" style="background:#378ADD"></span>Strongly implied</span>
+  <span class="leg-i"><span class="dot" style="background:#BA7517"></span>Modern reconstruction</span>
+  <span class="leg-i"><span class="dot" style="background:#888780"></span>Uncertain</span>
+</div>
+<div class="stats">
+  <div class="stat"><span id="st">0</span>Total plants</div>
+  <div class="stat"><span id="ss">0</span>Showing</div>
+  <div class="stat"><span id="sc">0</span>Categories</div>
+  <div class="stat"><span id="s3">0</span>Ibn al-Awwam</div>
+  <div class="stat"><span id="s4">0</span>Ibn Bassal</div>
+  <div class="stat"><span id="s5">0</span>Ibn Wahshiyya</div>
+</div>
+<div class="wrap">
+<table><thead>
+<tr>
+  <th onclick="sort(0)">Common name ↕</th>
+  <th onclick="sort(1)">Arabic / historical ↕</th>
+  <th onclick="sort(2)">Scientific name ↕</th>
+  <th onclick="sort(3)">Category ↕</th>
+  <th>Agricultural role</th>
+  <th>Sources</th>
+  <th>Evidence</th>
+</tr>
+</thead><tbody id="tb"></tbody></table>
+</div>
+
+<script>
+const CC={
+  "Cereals & grains":    {bg:"#C0DD97",tx:"#27500A"},
+  "Legumes & pulses":    {bg:"#9FE1CB",tx:"#085041"},
+  "Vegetables":          {bg:"#B5D4F4",tx:"#0C447C"},
+  "Herbs & kitchen":     {bg:"#E6F1FB",tx:"#185FA5"},
+  "Fruit trees":         {bg:"#FAC775",tx:"#633806"},
+  "Aromatics & perfume": {bg:"#F4C0D1",tx:"#72243E"},
+  "Medicinal plants":    {bg:"#CECBF6",tx:"#3C3489"},
+  "Industrial & fiber":  {bg:"#D3D1C7",tx:"#444441"},
+  "Fodder & green manure":{bg:"#EAF3DE",tx:"#3B6D11"},
+  "Structural trees":    {bg:"#B4B2A9",tx:"#2C2C2A"},
+  "Toxic & pest-control":{bg:"#F7C1C1",tx:"#791F1F"},
+  "Wild & utility plants":{bg:"#FAEEDA",tx:"#412402"},
+  "Aquatic & wetland":   {bg:"#B5D4F4",tx:"#042C53"},
+  "Shrubs & semi-shrubs":{bg:"#D3D1C7",tx:"#2C2C2A"}
+};
+const EV={"Explicit":"#1D9E75","Strongly implied":"#378ADD","Modern reconstruction":"#BA7517","Uncertain":"#888780"};
+
+const D=[
+["Wheat","قمح (qamḥ)","Triticum aestivum / T. durum","Cereals & grains","Primary staple; sowing calendars, rotation, soil exhaustion warnings","Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya","Explicit"],
+["Barley","شعير (shaʿīr)","Hordeum vulgare","Cereals & grains","Dryland staple; tolerates poor soils; rotation after legumes","Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya","Explicit"],
+["Emmer wheat","حنطة البر (ḥinṭat al-barr)","Triticum dicoccum","Cereals & grains","Ancient wheat type; noted in Nabataean traditions","Ibn Wahshiyya","Explicit"],
+["Einkorn","هرطمان (hartamān)","Triticum monococcum","Cereals & grains","Early primitive wheat; mentioned among grain types","Ibn al-Awwam","Strongly implied"],
+["Spelt","كوسج (kawsaj)","Triticum spelta","Cereals & grains","Cold-tolerant wheat relative; listed among cereal varieties","Ibn al-Awwam","Uncertain"],
+["Rice","أرز (aruzz)","Oryza sativa","Cereals & grains","Wet cultivation; flooding and irrigation techniques detailed","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Sorghum","ذرة (dhura)","Sorghum bicolor","Cereals & grains","Summer grain; heat-tolerant; sowing in warm soils","Ibn al-Awwam","Explicit"],
+["Broomcorn millet","دخن (dukhn)","Panicum miliaceum","Cereals & grains","Fast-growing summer grain; light soil preference","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Foxtail millet","جاورس (jāwars)","Setaria italica","Cereals & grains","Smaller millet; warm season; noted alongside dukhn","Ibn al-Awwam","Strongly implied"],
+["Pearl millet","دخن هندي","Pennisetum glaucum","Cereals & grains","Drought-tolerant; southern cultivation","Ibn al-Awwam","Strongly implied"],
+["Oats","شوفان (shawfān)","Avena sativa","Cereals & grains","Fodder and grain; cooler climate","Ibn al-Awwam","Explicit"],
+["Rye","شيلم (shaylam)","Secale cereale","Cereals & grains","Cold-tolerant cereal; noted among northern grains","Ibn al-Awwam","Strongly implied"],
+["Broad bean / fava","باقلاء (bāqillāʾ)","Vicia faba","Legumes & pulses","Soil restorer; intercropped; sown before cereals; full cultivation chapter","Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya","Explicit"],
+["Chickpea","حمص (ḥummuṣ)","Cicer arietinum","Legumes & pulses","Dryland pulse; improves soil fertility; rotation schedules","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Lentil","عدس (ʿadas)","Lens culinaris","Legumes & pulses","Cool-season; rotation after wheat; light feeder","Ibn al-Awwam","Explicit"],
+["Lupin","ترمس (turmus)","Lupinus albus","Legumes & pulses","Explicit green manure; plowed in to restore exhausted soils","Ibn al-Awwam","Explicit"],
+["Cowpea","لوبيا (lūbiyāʾ)","Vigna unguiculata","Legumes & pulses","Warm-season legume; soil improvement noted","Ibn al-Awwam","Explicit"],
+["Garden pea","بازلاء (bāzillāʾ)","Pisum sativum","Legumes & pulses","Cool-season pulse; sowing timing detailed","Ibn al-Awwam","Explicit"],
+["Fenugreek","حلبة (ḥilba)","Trigonella foenum-graecum","Legumes & pulses","Green manure and fodder; aromatic soil amendment","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Vetch","كرسنة (kursanna)","Vicia sativa","Legumes & pulses","Fodder legume; turned in as green manure","Ibn al-Awwam","Explicit"],
+["Bitter vetch","جلبان (julbān)","Vicia ervilia","Legumes & pulses","Fodder; tougher conditions than common vetch","Ibn al-Awwam","Explicit"],
+["Grass pea","كرسنة الجبل","Lathyrus sativus","Legumes & pulses","Drought-tolerant pulse; listed among legume varieties","Ibn al-Awwam","Strongly implied"],
+["Moth bean","دجر (dajar)","Vigna aconitifolia","Legumes & pulses","Hot-season pulse; sandy soils; summer crops","Ibn al-Awwam","Uncertain"],
+["Hyacinth bean","دليب (dulayb)","Lablab purpureus","Legumes & pulses","Warm-season climbing legume; Andalusian gardens","Ibn al-Awwam","Uncertain"],
+["Eggplant / aubergine","باذنجان (bādhinjān)","Solanum melongena","Vegetables","Irrigation, soil prep, pest control; full cultivation chapter","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Cucumber","قثاء (qiththāʾ)","Cucumis sativus","Vegetables","Warm-season; companion of vine; ground cover","Ibn al-Awwam","Explicit"],
+["Watermelon","بطيخ هندي (baṭṭīkh hindī)","Citrullus lanatus","Vegetables","Sandy soil; hot climate; irrigation timing","Ibn al-Awwam","Explicit"],
+["Melon","شمام (shammām)","Cucumis melo","Vegetables","Rich soil; heavy watering; grafting to improve variety","Ibn al-Awwam","Explicit"],
+["Gourd / pumpkin","قرع (qarʿ)","Cucurbita sp.","Vegetables","Fast-growing companion; covers bare soil","Ibn al-Awwam","Explicit"],
+["Bottle gourd","قرع يابس","Lagenaria siceraria","Vegetables","Grown for shell use; noted separate from fleshy gourd","Ibn al-Awwam","Strongly implied"],
+["Spinach","إسفاناخ (isfānākh)","Spinacia oleracea","Vegetables","Cool-season; noted as recent Persian introduction","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Chard / beet (leaf)","سلق (silq)","Beta vulgaris var. cicla","Vegetables","Year-round production; salinity tolerance noted","Ibn al-Awwam","Explicit"],
+["Beetroot","شمندر (shammandar)","Beta vulgaris var. vulgaris","Vegetables","Root vegetable; listed alongside chard","Ibn al-Awwam","Strongly implied"],
+["Turnip","لفت (lift)","Brassica rapa","Vegetables","Winter crop; heavy feeder; rotation with legumes advised","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Cabbage / kale","كرنب (kurnub)","Brassica oleracea","Vegetables","Heavy feeder; harms vine when nearby; manured beds","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Kohlrabi","قنبيط (qunbīṭ)","Brassica oleracea var. gongylodes","Vegetables","Distinct cabbage variant in Andalusian texts","Ibn Bassal","Strongly implied"],
+["Cauliflower","زهرة الكرنب","Brassica oleracea var. botrytis","Vegetables","Mentioned as cultivated cabbage variant","Ibn al-Awwam","Uncertain"],
+["Carrot","جزر (jazar)","Daucus carota sativa","Vegetables","Deep tillage required; intercropped with onions","Ibn al-Awwam","Explicit"],
+["Parsnip","جزر الشيطان","Pastinaca sativa","Vegetables","Root vegetable; listed among carrots; cooler climate","Ibn al-Awwam","Strongly implied"],
+["Radish","فجل (fujl)","Raphanus sativus","Vegetables","Fast-growing soil-breaker; pioneer crop before main planting","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Onion","بصل (baṣal)","Allium cepa","Vegetables","Pest deterrent; heavy feeder; storage techniques described","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Garlic","ثوم (thūm)","Allium sativum","Vegetables","Pest repellent; planted at orchard bases; soil disinfectant","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Leek","كراث (kurrāth)","Allium ampeloprasum","Vegetables","Sowing and transplanting calendar; kitchen vegetable","Ibn al-Awwam","Explicit"],
+["Shallot","كراث أحمر","Allium cepa var. aggregatum","Vegetables","Listed as a distinct onion variety with milder flavor","Ibn al-Awwam","Strongly implied"],
+["Chives","بصيل صغير","Allium schoenoprasum","Vegetables","Small allium; border plant; noted in gardens","Ibn al-Awwam","Uncertain"],
+["Lettuce","خس (khass)","Lactuca sativa","Vegetables","Shade-tolerant; intercropped under fruit trees","Ibn al-Awwam","Explicit"],
+["Chicory","شكاعى (shakāʿā)","Cichorium intybus","Vegetables","Wild and cultivated forms noted; bitter leaf crop","Ibn al-Awwam","Explicit"],
+["Endive","هندباء (hindibāʾ)","Cichorium endivia","Vegetables","Cool-season bitter green; medicinal digestive properties noted","Ibn al-Awwam","Explicit"],
+["Artichoke","خرشوف (khurshūf)","Cynara scolymus","Vegetables","Perennial; propagation from offsets described in full","Ibn al-Awwam","Explicit"],
+["Cardoon","شوك الأرض (shawk al-arḍ)","Cynara cardunculus","Vegetables","Wild relative of artichoke; edible thistle","Ibn al-Awwam","Strongly implied"],
+["Asparagus","هيليون (hīlyūn)","Asparagus officinalis","Vegetables","Long establishment period; salt-tolerant; deep soil","Ibn al-Awwam","Explicit"],
+["Purslane","رجلة (rajla)","Portulaca oleracea","Vegetables","Heat-tolerant; eaten fresh; self-seeds in garden","Ibn al-Awwam","Explicit"],
+["Mallow","خبازى (khubāzā)","Malva sylvestris","Vegetables","Pot-herb; mucilaginous; cool moist soils","Ibn al-Awwam","Explicit"],
+["Borage","لسان الثور (lisān al-thawr)","Borago officinalis","Vegetables","Edible flower and leaf; cooling medicinal properties","Ibn al-Awwam","Explicit"],
+["Sorrel","حماض (ḥamāḍ)","Rumex acetosa","Vegetables","Sour pot-herb; wild and cultivated; moist soils","Ibn al-Awwam","Explicit"],
+["Orach","قطف (qaṭaf)","Atriplex hortensis","Vegetables","Salt-tolerant leaf vegetable; saline soils","Ibn al-Awwam","Strongly implied"],
+["Rocket / arugula","جرجير (jurjīr)","Eruca vesicaria sativa","Vegetables","Spicy leaf; fast-growing; medicinal warming noted","Ibn al-Awwam","Explicit"],
+["Garden cress","حرف (ḥarf)","Lepidium sativum","Vegetables","Fast-sprouting; pioneer or edge crop","Ibn al-Awwam","Explicit"],
+["Watercress","حرف الماء","Nasturtium officinale","Vegetables","Semi-aquatic; near irrigation channels","Ibn al-Awwam","Strongly implied"],
+["Salsify","قحفة (qaḥfa)","Tragopogon porrifolius","Vegetables","Root vegetable; listed in plant lists","Ibn al-Awwam","Uncertain"],
+["Black salsify","يبروح (yabrūḥ)","Scorzonera hispanica","Vegetables","Root vegetable; distinct from mandrake in agronomy texts","Ibn al-Awwam","Uncertain"],
+["Lovage","كرفس الجبل","Levisticum officinale","Vegetables","Strong-flavored celery relative; kitchen gardens","Ibn al-Awwam","Strongly implied"],
+["Mustard","خردل (khardal)","Sinapis alba / Brassica nigra","Vegetables","Condiment; medicinal; sown fast; soil warming use","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Parsley","بقدونس (baqdunis)","Petroselinum crispum","Herbs & kitchen","Slow germination techniques described; kitchen and medicinal","Ibn al-Awwam","Explicit"],
+["Coriander","كزبرة (kuzbara)","Coriandrum sativum","Herbs & kitchen","Fresh and dried; companion planting; sowing calendar","Ibn al-Awwam","Explicit"],
+["Dill","شبت (shibitt)","Anethum graveolens","Herbs & kitchen","Annual aromatic; sown with other herbs in spring","Ibn al-Awwam","Explicit"],
+["Fennel","رازيانج (rāziyānaj)","Foeniculum vulgare","Herbs & kitchen","Allelopathic to coriander and cumin; medicinal","Ibn al-Awwam","Explicit"],
+["Celery","كرفس (karafs)","Apium graveolens","Herbs & kitchen","Wet soil; medicinal properties alongside culinary use","Ibn al-Awwam","Explicit"],
+["Cumin","كمون (kammūn)","Cuminum cyminum","Herbs & kitchen","Light soils; spring sowing; harvested before full ripening","Ibn al-Awwam","Explicit"],
+["Anise","أنيسون (anīsūn)","Pimpinella anisum","Herbs & kitchen","Annual spice; warm soils; companion to coriander","Ibn al-Awwam","Explicit"],
+["Caraway","كراويا (karāwiyā)","Carum carvi","Herbs & kitchen","Biennial spice; cool climate; drainage noted","Ibn al-Awwam","Explicit"],
+["Nigella","حبة السوداء (ḥabbat al-sawdāʾ)","Nigella sativa","Herbs & kitchen","Autumn sowing; medicinal seed; light soil preference","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Basil","ريحان (rayḥān)","Ocimum basilicum","Herbs & kitchen","Garden companion; insect deterrent near vine and rose","Ibn al-Awwam","Explicit"],
+["Mint","نعناع (naʿnāʿ)","Mentha spicata / M. piperita","Herbs & kitchen","Wet soil; invasive spread warned; medicinal cooling","Ibn al-Awwam","Explicit"],
+["Pennyroyal","فوتنج (fūtanj)","Mentha pulegium","Herbs & kitchen","Insect repellent; hung in granaries to protect stored wheat","Ibn al-Awwam","Explicit"],
+["Rue","سذاب (sadhāb)","Ruta graveolens","Herbs & kitchen","Protective companion of olive and fig; strong insect repellent","Ibn al-Awwam","Explicit"],
+["Thyme","صعتر (ṣaʿtar)","Thymus sp.","Herbs & kitchen","Dry aromatic; hillside culture; fumigant and seasoning","Ibn al-Awwam","Explicit"],
+["Marjoram","مردقوش (mardaqūsh)","Origanum majorana","Herbs & kitchen","Annual aromatic; warm soil; kitchen and medicinal","Ibn al-Awwam","Explicit"],
+["Oregano","زعتر بري (zaʿtar barrī)","Origanum vulgare","Herbs & kitchen","Wild thyme relative; hillside cultivation; fumigant","Ibn al-Awwam","Explicit"],
+["Summer savory","صعتر بستاني","Satureja hortensis","Herbs & kitchen","Annual aromatic; companion to beans noted","Ibn al-Awwam","Strongly implied"],
+["Winter savory","صعتر جبلي","Satureja montana","Herbs & kitchen","Perennial shrublet; dry rocky hillsides","Ibn al-Awwam","Strongly implied"],
+["Sage","مريمية (maryamiyya)","Salvia officinalis","Herbs & kitchen","Medicinal and culinary; dry soils; fumigant smoke","Ibn al-Awwam","Explicit"],
+["Rosemary","إكليل الجبل (iklīl al-jabal)","Salvia rosmarinus","Herbs & kitchen","Aromatic shrub; dry hillsides; hedging and fumigant use","Ibn al-Awwam","Explicit"],
+["Hyssop","زوفا (zūfā)","Hyssopus officinalis","Herbs & kitchen","Medicinal; dry rocky soils; aromatic companion","Ibn al-Awwam","Explicit"],
+["Southernwood","قيصوم (qaysūm)","Artemisia abrotanum","Herbs & kitchen","Aromatic shrublet; insect deterrent; companion in gardens","Ibn al-Awwam","Explicit"],
+["Lemon balm","ترنجان (taranjān)","Melissa officinalis","Herbs & kitchen","Bees attracted; noted near hives; aromatic kitchen herb","Ibn al-Awwam","Strongly implied"],
+["Calamint","نبت حار","Clinopodium nepeta","Herbs & kitchen","Aromatic; hillside herb; companion plant","Ibn al-Awwam","Uncertain"],
+["Catmint","نبت القطط","Nepeta cataria","Herbs & kitchen","Aromatic; insect repellent; companion in kitchen gardens","Ibn al-Awwam","Uncertain"],
+["Costmary","نبات الزبدة","Tanacetum balsamita","Herbs & kitchen","Scented herb; used in garden beds; kitchen herb","Ibn al-Awwam","Uncertain"],
+["Olive","زيتون (zaytūn)","Olea europaea","Fruit trees","Most detailed tree chapter; pruning, grafting, manuring, pests","Ibn al-Awwam,Ibn Bassal,Abu al-Khayr","Explicit"],
+["Date palm","نخل (nakhl)","Phoenix dactylifera","Fruit trees","Hand pollination; water and soil needs; offshoots; variety descriptions","Ibn al-Awwam,Ibn Bassal,Ibn Wahshiyya","Explicit"],
+["Grapevine","كرم / عنب (karm / ʿinab)","Vitis vinifera","Fruit trees","Most extensively treated; pruning calendar, grafting, pests, soil","Ibn al-Awwam,Ibn Bassal,Al-Tighnari","Explicit"],
+["Fig","تين (tīn)","Ficus carica","Fruit trees","Caprification with wild fig; grafting; ripening acceleration","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Wild fig / caprifig","جميز البر","Ficus carica (caprifig)","Fruit trees","Used for caprification of cultivated fig; separate management notes","Ibn al-Awwam","Explicit"],
+["Pomegranate","رمان (rummān)","Punica granatum","Fruit trees","Grafting between varieties; cracking prevention; soil amendments","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Quince","سفرجل (safarjal)","Cydonia oblonga","Fruit trees","Grafting rootstock for pear and apple; cool climate preference","Ibn al-Awwam","Explicit"],
+["Apple","تفاح (tuffāḥ)","Malus domestica","Fruit trees","Grafted on quince; pruning and irrigation calendar","Ibn al-Awwam","Explicit"],
+["Crab apple","تفاح بري","Malus sylvestris","Fruit trees","Used as rootstock for cultivated apple","Ibn al-Awwam","Strongly implied"],
+["Pear","كمثرى (kummathrā)","Pyrus communis","Fruit trees","Grafted on quince for improved size; soil moisture requirements","Ibn al-Awwam","Explicit"],
+["Wild pear","إجاص بري","Pyrus pyraster","Fruit trees","Rootstock for cultivated pear; noted as vigorous","Ibn al-Awwam","Strongly implied"],
+["Almond","لوز (lawz)","Prunus dulcis","Fruit trees","Early bloomer; frost protection; grafting on peach","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Peach","خوخ (khawkh)","Prunus persica","Fruit trees","Short-lived tree noted; grafting techniques; variety improvement","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Apricot","مشمش (mishmish)","Prunus armeniaca","Fruit trees","Grafting techniques; drying and preservation methods","Ibn al-Awwam","Explicit"],
+["Plum","برقوق (barqūq)","Prunus domestica","Fruit trees","Multiple varieties; grafting on almond and other Prunus","Ibn al-Awwam","Explicit"],
+["Damson","إجاص بستاني","Prunus insititia","Fruit trees","Listed as separate plum type; smaller fruit, more acid","Ibn al-Awwam","Strongly implied"],
+["Cherry (sweet)","قراصيا (qarāsiyā)","Prunus avium","Fruit trees","Cool climate; grafting noted; fruiting calendar","Ibn al-Awwam","Explicit"],
+["Sour cherry","حماض الكرز","Prunus cerasus","Fruit trees","Noted as distinct from sweet cherry; sour fruit uses","Ibn al-Awwam","Strongly implied"],
+["Walnut","جوز (jawz)","Juglans regia","Fruit trees","Allelopathic; harms five named plant neighbors explicitly","Ibn al-Awwam","Explicit"],
+["Citron","أترج (utrujj)","Citrus medica","Fruit trees","Earliest citrus in texts; frost sensitivity; rich soil","Ibn al-Awwam,Al-Tighnari","Explicit"],
+["Sour orange","نارنج (nāranj)","Citrus aurantium","Fruit trees","Primary rootstock for other citrus; grafting extensively described","Ibn al-Awwam,Al-Tighnari","Explicit"],
+["Lemon","ليمون (laymūn)","Citrus limon","Fruit trees","Grafted on sour orange; soil and irrigation prescriptions","Ibn al-Awwam","Explicit"],
+["Sweet orange","برتقال (burtuqāl)","Citrus sinensis","Fruit trees","Mentioned as variant; early cultivation in Andalusia","Al-Tighnari","Strongly implied"],
+["Lime","ليمون بلدي","Citrus aurantiifolia","Fruit trees","Listed in citrus section; smaller sour fruit","Ibn al-Awwam","Uncertain"],
+["Black mulberry","توت أسود (tūt aswad)","Morus nigra","Fruit trees","Fruit and timber; cuttings propagation; shade tree","Ibn al-Awwam","Explicit"],
+["White mulberry","توت أبيض (tūt abyaḍ)","Morus alba","Fruit trees","Silkworm host; leaves as fodder; noted separately","Ibn al-Awwam","Explicit"],
+["Carob","خروب (kharrūb)","Ceratonia siliqua","Fruit trees","Dryland; long-lived; poor soil; pods as fodder","Ibn al-Awwam","Explicit"],
+["Jujube","عناب (ʿunnāb)","Ziziphus jujuba","Fruit trees","Medicinal fruit; hedge use noted; drought-tolerant","Ibn al-Awwam","Explicit"],
+["Lote tree","سدر (sidr)","Ziziphus lotus","Fruit trees","Wild relative of jujube; North African contexts","Ibn Wahshiyya","Explicit"],
+["Pistachio","فستق (fustuq)","Pistacia vera","Fruit trees","Grafted on P. terebinthus; hot dry climate","Ibn al-Awwam","Explicit"],
+["Terebinth","بطم (baṭm)","Pistacia terebinthus","Fruit trees","Rootstock for pistachio; resin and minor edible nut","Ibn al-Awwam","Explicit"],
+["Lentisk / mastic tree","ضرو (ḍarw)","Pistacia lentiscus","Fruit trees","Resin harvest (mastic); wild dryland shrub","Ibn al-Awwam","Explicit"],
+["Pine nut / stone pine","صنوبر (ṣanawbar)","Pinus pinea","Fruit trees","Seed harvest; resin uses; windbreak role","Ibn al-Awwam","Explicit"],
+["Hazel","بندق (bunduq)","Corylus avellana","Fruit trees","Nut tree; propagation from suckers; moist slopes","Ibn al-Awwam","Strongly implied"],
+["Banana","موز (mawz)","Musa sp.","Fruit trees","Southern climates; offshoot propagation; heavy irrigation","Ibn al-Awwam","Explicit"],
+["Hawthorn / azarole","زعرور (zaʿrūr)","Crataegus azarolus","Fruit trees","Grafting rootstock; edible acid fruit; hedge plant","Ibn al-Awwam","Explicit"],
+["Medlar","مزة (mizza)","Mespilus germanica","Fruit trees","Cool climate fruit tree; grafted on hawthorn","Ibn al-Awwam","Explicit"],
+["Service tree","زعرور الجبل","Sorbus domestica","Fruit trees","Listed among lesser fruit trees; astringent fruit","Ibn al-Awwam","Strongly implied"],
+["Cornelian cherry","قراص (qurāṣ)","Cornus mas","Fruit trees","Sour fruit; tolerance of poor soils","Ibn al-Awwam","Strongly implied"],
+["Tamarind","تمر هندي (tamr hindī)","Tamarindus indica","Fruit trees","Tropical; mentioned as imported fruit; cultivation hints","Ibn al-Awwam","Strongly implied"],
+["Doum palm","دوم (dawm)","Hyphaene thebaica","Fruit trees","African palm; mentioned alongside date palm cultivation","Ibn Wahshiyya","Strongly implied"],
+["Sycamore fig","جميز (jamīz)","Ficus sycomorus","Fruit trees","Warm regions; edible fruit; cultivated","Ibn al-Awwam","Explicit"],
+["Hackberry","نبق (nabq)","Celtis australis","Fruit trees","Berry-producing shade tree; dryland contexts","Ibn al-Awwam","Strongly implied"],
+["Arbutus / strawberry tree","قيقب (qaykab)","Arbutus unedo","Fruit trees","Edible fruit; Mediterranean scrub","Ibn al-Awwam","Explicit"],
+["Saffron","زعفران (zaʿfarān)","Crocus sativus","Aromatics & perfume","Corm planting; drainage critical; precise harvest timing described","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Damascus rose","ورد الجوري (ward al-jūrī)","Rosa damascena","Aromatics & perfume","Pruning calendar; propagation; rose water distillation noted","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Gallica rose","ورد أحمر","Rosa gallica","Aromatics & perfume","Red rose; noted as separate cultivar from Damascus rose","Ibn al-Awwam","Strongly implied"],
+["Dog rose","ورد بري","Rosa canina","Aromatics & perfume","Wild rose; rootstock; hips as medicinal","Ibn al-Awwam","Strongly implied"],
+["Common jasmine","ياسمين (yāsamīn)","Jasminum officinale","Aromatics & perfume","Fragrant climber; trellis culture; propagation by layering","Ibn al-Awwam,Al-Tighnari","Explicit"],
+["Arabian jasmine","زنبق (zunbaq)","Jasminum sambac","Aromatics & perfume","Used in perfumery; warm climate","Ibn al-Awwam,Al-Tighnari","Strongly implied"],
+["Myrtle","آس (ās)","Myrtus communis","Aromatics & perfume","Aromatic hedge shrub; companion of rose; ornamental","Ibn al-Awwam","Explicit"],
+["Violet","بنفسج (banafsaj)","Viola odorata","Aromatics & perfume","Spring flower; garden beds; medicinal cooling use noted","Ibn al-Awwam","Explicit"],
+["Lavender (broad-leaf)","خزامى (khuzāmā)","Lavandula latifolia","Aromatics & perfume","Drought-tolerant; hillside culture; fumigant and aromatic","Ibn al-Awwam","Explicit"],
+["Lavender (narrow-leaf)","إذخر (idhkhir)","Lavandula angustifolia","Aromatics & perfume","Listed alongside khuzāmā as related aromatic","Ibn al-Awwam","Strongly implied"],
+["Narcissus","نرجس (narjis)","Narcissus sp.","Aromatics & perfume","Bulb flower; heavily grown in Andalusian gardens for perfume","Ibn al-Awwam,Al-Tighnari","Explicit"],
+["Water lily / blue lotus","نيلوفر (naylūfar)","Nymphaea lotus","Aromatics & perfume","Aromatic aquatic; noted in water garden culture","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Iris / orris root","سوسن أزرق (sawsan azraq)","Iris germanica","Aromatics & perfume","Aromatic rhizome (orris root); medicinal and perfume uses","Ibn al-Awwam","Explicit"],
+["Madonna lily","سوسن أبيض (sawsan abyaḍ)","Lilium candidum","Aromatics & perfume","White lily; bulb cultivation; medicinal and ornamental","Ibn al-Awwam","Explicit"],
+["Anemone","شقائق النعمان (shaqāʾiq al-nuʿmān)","Anemone coronaria","Aromatics & perfume","Garden flower; spring bloomer","Ibn al-Awwam","Strongly implied"],
+["Stock / gilliflower","خيري (khīrī)","Matthiola incana","Aromatics & perfume","Aromatic flowering herb; Andalusian gardens","Ibn al-Awwam","Explicit"],
+["Hyacinth","منثور (manthūr)","Hyacinthus orientalis","Aromatics & perfume","Bulb flower; garden beds; aromatic","Ibn al-Awwam","Strongly implied"],
+["Chamomile","بابونج (bābūnaj)","Matricaria chamomilla","Medicinal plants","Soil indicator; self-seeding; medicinal anti-inflammatory use","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Elecampane","راسن (rāsan)","Inula helenium","Medicinal plants","Medicinal root; moist soil; pest-deterrent fumigant smoke","Ibn al-Awwam","Explicit"],
+["Valerian","سنبل الطيب (sunbul al-ṭīb)","Valeriana officinalis","Medicinal plants","Sedative root; moist soils; medicinal herb sections","Ibn al-Awwam,Ibn al-Baytar","Strongly implied"],
+["Mandrake","لفاح (laffāḥ)","Mandragora officinarum","Medicinal plants","Narcotic root; magical associations; agricultural pest uses in IW","Ibn Wahshiyya,Ibn al-Baytar","Explicit"],
+["Liquorice","عرق السوس (ʿirq al-sūs)","Glycyrrhiza glabra","Medicinal plants","Root harvest; moist deep soils; medicinal and flavoring","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Ginger","زنجبيل (zanjabīl)","Zingiber officinale","Medicinal plants","Rhizome cultivation; warm moist soil; warming properties","Ibn al-Baytar,Ibn Sina","Explicit"],
+["Turmeric","كركم (kurkum)","Curcuma longa","Medicinal plants","Rhizome; medicinal and yellow dye; humid cultivation","Ibn al-Baytar","Explicit"],
+["Aloe","صبر (ṣabr)","Aloe vera","Medicinal plants","Succulent; dry soils; wound healing and purgative uses","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Autumn crocus","سورنجان (sūranjān)","Colchicum autumnale","Medicinal plants","Corm; toxic but medicinally used; noted with caution","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Caper","كبر (kabar)","Capparis spinosa","Medicinal plants","Dryland shrub; edible bud; root bark medicinal","Ibn al-Awwam","Explicit"],
+["Mastic (resin)","مصطكى (maṣṭakā)","Pistacia lentiscus (resin)","Medicinal plants","Resin; digestive and dental medicinal uses","Ibn al-Awwam,Ibn al-Baytar","Explicit"],
+["Spikenard","نارد (nārd)","Nardostachys jatamansi","Medicinal plants","Aromatic root; traded; noted in IW","Ibn Wahshiyya,Ibn al-Baytar","Explicit"],
+["Costus root","قسط (qusṭ)","Saussurea costus","Medicinal plants","Aromatic root; traded; anti-pest fumigant uses","Ibn Wahshiyya","Explicit"],
+["Sweet flag / calamus","قصب الذريرة (qaṣab al-dharīra)","Acorus calamus","Medicinal plants","Aromatic rhizome; waterside cultivation; insect repellent","Ibn Wahshiyya,Ibn al-Baytar","Explicit"],
+["Galingale","سعد (saʿd)","Cyperus esculentus / C. longus","Medicinal plants","Tuber harvest; water margins; medicinal and minor food use","Ibn Wahshiyya","Strongly implied"],
+["Henna","حناء (ḥinnāʾ)","Lawsonia inermis","Medicinal plants","Dye shrub; warm climate; propagation by cuttings; skin uses","Ibn al-Awwam","Explicit"],
+["Sumac","سماق (summāq)","Rhus coriaria","Medicinal plants","Tanning and condiment; dryland hillside shrub; astringent","Ibn al-Awwam","Explicit"],
+["Liquorice root (wild)","سوس بري","Glycyrrhiza echinata","Medicinal plants","Wild form noted alongside cultivated liquorice","Ibn al-Baytar","Strongly implied"],
+["White horehound","فراسيون (farāsiyūn)","Marrubium vulgare","Medicinal plants","Medicinal bitter herb; dry soils; herb sections","Ibn al-Awwam","Strongly implied"],
+["Pellitory","عاقرقرحا (ʿāqirqarḥā)","Anacyclus pyrethrum","Medicinal plants","Stimulant root; dryland Mediterranean; medical sections","Ibn al-Baytar","Explicit"],
+["Milk thistle","شوك الحمار","Silybum marianum","Medicinal plants","Liver medicinal; edible thistle; wild plant context","Ibn al-Baytar","Strongly implied"],
+["Cotton","قطن (quṭun)","Gossypium herbaceum","Industrial & fiber","Full chapter; irrigation, thinning, harvest, heavy soil feeder","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Flax / linen","كتان (kittān)","Linum usitatissimum","Industrial & fiber","Fiber and oil; retting in water; rotation crop after cereals","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Hemp","قنب (qannab)","Cannabis sativa","Industrial & fiber","Fiber use; deep soil; heavy irrigation noted","Ibn al-Awwam","Explicit"],
+["Sesame","سمسم (simsim)","Sesamum indicum","Industrial & fiber","Oil crop; hot climate; harvested before shattering","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Safflower","عصفر (ʿuṣfur)","Carthamus tinctorius","Industrial & fiber","Red-yellow dye and oil; dryland; poor soils tolerated","Ibn al-Awwam","Explicit"],
+["Woad","وسمة (wasma)","Isatis tinctoria","Industrial & fiber","Blue dye; cool season; heavy nitrogen demand","Ibn al-Awwam","Explicit"],
+["Castor","خروع (kharwaʿ)","Ricinus communis","Industrial & fiber","Lamp oil; also crushed as pest deterrent around gardens","Ibn al-Awwam","Explicit"],
+["Sugar cane","قصب السكر (qaṣab al-sukkar)","Saccharum officinarum","Industrial & fiber","Irrigation-intensive; wet soil; ratoon cropping described","Ibn al-Awwam","Explicit"],
+["Madder","فوة (fuwwa)","Rubia tinctorum","Industrial & fiber","Red dye root; deep well-drained soil; root harvest after 3 years","Ibn al-Awwam","Explicit"],
+["Indigo","نيل (nīl)","Indigofera tinctoria","Industrial & fiber","Blue dye; fermentation vat dyeing noted","Ibn al-Awwam","Explicit"],
+["Papyrus","بردي (bardī)","Cyperus papyrus","Industrial & fiber","Wetland; writing material and basket use","Ibn Wahshiyya","Explicit"],
+["Common reed","قصب عادي (qaṣab ʿādī)","Phragmites australis","Industrial & fiber","Thatching; water management; channel lining","Ibn Wahshiyya","Explicit"],
+["Esparto grass","حلفاء (ḥalfāʾ)","Stipa tenacissima","Industrial & fiber","Rope and basket fiber; dryland grass; North Africa","Ibn Wahshiyya","Strongly implied"],
+["Alfalfa / lucerne","قت (qaṭṭ)","Medicago sativa","Fodder & green manure","Primary fodder; multiple annual cuts; soil improvement; deep roots","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Egyptian clover","نفل (nafal)","Trifolium alexandrinum","Fodder & green manure","Green manure; plowed under before cereals; quick nitrogen return","Ibn al-Awwam,Ibn Bassal","Explicit"],
+["Sulla / Spanish sainfoin","حجة (ḥajja)","Hedysarum coronarium","Fodder & green manure","Drought-tolerant fodder legume; poor calcareous soils","Ibn al-Awwam","Strongly implied"],
+["Sainfoin","إسبرست (isbarst)","Onobrychis viciifolia","Fodder & green manure","Forage legume; calcareous dry soils; fodder lists","Ibn al-Awwam","Uncertain"],
+["Black medick","نفل أسود","Medicago lupulina","Fodder & green manure","Small fodder legume; self-seeds; soil improvement crop","Ibn al-Awwam","Strongly implied"],
+["Cypress","سرو (sarw)","Cupressus sempervirens","Structural trees","Windbreak; field edges; ornamental; tall structural tree","Ibn al-Awwam","Explicit"],
+["Poplar","حور (ḥawr)","Populus alba / P. nigra","Structural trees","Canal bank stabilizer; timber; shade; fast growing","Ibn al-Awwam","Explicit"],
+["Willow","صفصاف (ṣafṣāf)","Salix sp.","Structural trees","Waterway planting; basket shoots; moisture indicator","Ibn al-Awwam","Explicit"],
+["Tamarisk","أثل (athl)","Tamarix gallica / T. africana","Structural trees","Salt-tolerant windbreak; saline soil indicator; firewood","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Elm","دردار (dardār)","Ulmus minor","Structural trees","Vine support tree; shade; timber; trained vine companion","Ibn al-Awwam","Explicit"],
+["Bay / laurel","غار (ghār)","Laurus nobilis","Structural trees","Aromatic windbreak; pest deterrent smoke; medicinal","Ibn al-Awwam","Explicit"],
+["Plane tree","دلب (dulb)","Platanus orientalis","Structural trees","Shade tree; riverside planting; fast growing timber","Ibn al-Awwam","Explicit"],
+["Holm oak","بلوط حجري (ballūṭ ḥajarī)","Quercus ilex","Structural trees","Evergreen oak; acorns as animal fodder; woodland structure","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Pedunculate oak","بلوط (ballūṭ)","Quercus robur","Structural trees","Deciduous oak; acorn fodder; timber; noted in IW","Ibn Wahshiyya","Explicit"],
+["Cork oak","فلين (filīn)","Quercus suber","Structural trees","Cork harvest; bark-stripped tree in Mediterranean context","Ibn al-Awwam","Strongly implied"],
+["Cedar of Lebanon","أرز لبنان (arz lubnān)","Cedrus libani","Structural trees","Prestigious timber tree; landscape references","Ibn Wahshiyya","Strongly implied"],
+["Aleppo pine","صنوبر حلبي","Pinus halepensis","Structural trees","Resin and timber; hillside plantation; drier contexts","Ibn al-Awwam","Strongly implied"],
+["Juniper","عرعر (ʿarʿar)","Juniperus oxycedrus / J. phoenicea","Structural trees","Aromatic timber; hillside; fumigant and structural uses","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Ash tree","دردار بري","Fraxinus angustifolia","Structural trees","Timber and structural; waterside; listed alongside elm","Ibn al-Awwam","Strongly implied"],
+["Wild olive","زيتون بري","Olea europaea var. sylvestris","Structural trees","Rootstock for grafted olive; dryland hedgerow use","Ibn al-Awwam","Explicit"],
+["Acacia","سنط (sunṭ)","Acacia sp.","Structural trees","Mesopotamian and North African agricultural contexts","Ibn Wahshiyya","Explicit"],
+["Christ's thorn","سدر (sidr)","Ziziphus spina-christi","Structural trees","Hedge and shade tree; dry-region farming","Ibn Wahshiyya","Explicit"],
+["Colocynth","حنظل (ḥanẓal)","Citrullus colocynthis","Toxic & pest-control","Bitter root used as rodent bait; soil treatment powder","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Henbane","بنج (banj)","Hyoscyamus niger","Toxic & pest-control","Narcotic smoke against pests; highly toxic — safety implied","Ibn Wahshiyya,Ibn al-Baytar","Explicit"],
+["Black hellebore","خربق أسود (kharbaq aswad)","Helleborus niger","Toxic & pest-control","Root powder against soil insects and rodents; caustic","Ibn al-Awwam","Explicit"],
+["White hellebore","خربق أبيض (kharbaq abyaḍ)","Veratrum album","Toxic & pest-control","Stronger poison; noted as more lethal variant of kharbaq","Ibn al-Awwam","Explicit"],
+["Euphorbia","فربيون (farbiyūn)","Euphorbia resinifera","Toxic & pest-control","Caustic latex as pest deterrent; handle with care noted","Ibn al-Awwam","Explicit"],
+["Asafoetida","حلتيت (ḥiltīt)","Ferula assa-foetida","Toxic & pest-control","Strong resin buried near roots to repel soil pests","Ibn al-Awwam","Explicit"],
+["Oleander","دفلى (diflā)","Nerium oleander","Toxic & pest-control","Toxic smoke from burned leaves; explicitly deadly fumigant","Ibn al-Awwam","Explicit"],
+["Wormwood","شيح (shīḥ)","Artemisia absinthium","Toxic & pest-control","Dried and burned; insect repellent in stores and orchards","Ibn al-Awwam","Explicit"],
+["Squirting cucumber","قثاء الحمار (qiththāʾ al-ḥimār)","Ecballium elaterium","Toxic & pest-control","Purgative juice in pest baits; toxic to animals","Ibn al-Awwam","Explicit"],
+["Stavesacre","خانق القمل","Delphinium staphisagria","Toxic & pest-control","Seed powder against lice and insects on plants","Ibn al-Awwam","Explicit"],
+["Hemlock","شوكران (shawkarān)","Conium maculatum","Toxic & pest-control","Deadly plant; agricultural pest-control use described","Ibn Wahshiyya","Explicit"],
+["Datura / thorn apple","بنج خراساني","Datura stramonium","Toxic & pest-control","Narcotic smoke; rodent and insect deterrent; noted in IW","Ibn Wahshiyya","Explicit"],
+["Aconite / wolfsbane","خانق الذئب (khāniq al-dhiʾb)","Aconitum napellus","Toxic & pest-control","Extreme poison; bait for large pests; safety warnings explicit","Ibn Wahshiyya,Ibn al-Baytar","Explicit"],
+["Squill / sea onion","عنصل (ʿunṣul)","Drimia maritima","Toxic & pest-control","Bulb rodent poison bait; toxic to mice; noted explicitly","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Spurge laurel","لازرون (lāzarūn)","Daphne gnidium","Toxic & pest-control","Berries toxic bait; pest management sections","Ibn al-Awwam","Strongly implied"],
+["Glasswort (ash source)","قلى (qalā)","Salsola soda / Salicornia sp.","Toxic & pest-control","Burned for alkali ash; soil amendment and pest wash","Ibn Wahshiyya","Explicit"],
+["Nux vomica","جوز القيء (jawz al-qayʾ)","Strychnos nux-vomica","Toxic & pest-control","Strong rodent poison noted in IW pest control passages","Ibn Wahshiyya","Explicit"],
+["Darnel / ryegrass","زؤان (zuʾān)","Lolium temulentum","Wild & utility plants","Weed in wheat fields; confused with wheat; toxic if eaten","Ibn al-Awwam,Ibn Wahshiyya","Explicit"],
+["Glasswort (saline)","شنان (shannān)","Salsola kali","Wild & utility plants","Dryland ash source; saline soils; alkalinity management","Ibn Wahshiyya","Explicit"],
+["Thorny burnet","نتش (natsh)","Sarcopoterium spinosum","Wild & utility plants","Dryland indicator shrub; soil type descriptions","Ibn al-Awwam,Ibn Wahshiyya","Strongly implied"],
+["Wild oat","شيلم بري","Avena fatua","Wild & utility plants","Weed of cereal fields; distinguishable from crop oat","Ibn al-Awwam","Strongly implied"],
+["Bindweed","لبلاب الحقل","Convolvulus arvensis","Wild & utility plants","Persistent field weed; competition noted; control methods","Ibn al-Awwam","Strongly implied"],
+["Nettle","قريص (qurrayṣ)","Urtica dioica","Wild & utility plants","Nitrogen indicator; noted on rich disturbed soils","Ibn al-Awwam","Strongly implied"],
+["Asphodel","خنثى (khuntha)","Asphodelus aestivus","Wild & utility plants","Poor-soil indicator; noted in IW soil sections","Ibn Wahshiyya","Strongly implied"],
+["Dock (broad-leaved)","حماض بري","Rumex obtusifolius","Wild & utility plants","Weed indicator; noted as companion problem in fields","Ibn al-Awwam","Strongly implied"],
+["Bramble / blackberry","عليق (ʿulayq)","Rubus ulmifolius","Wild & utility plants","Thorny hedge; boundary plant; fruit minor","Ibn al-Awwam","Strongly implied"],
+["Buckthorn","عوسج (ʿawsaj)","Rhamnus lycioides","Wild & utility plants","Thorny hedge shrub; noted as boundary planting","Ibn al-Awwam,Ibn Wahshiyya","Strongly implied"],
+["Wild artichoke / golden thistle","شوك ذهبي","Scolymus hispanicus","Wild & utility plants","Edible thistle; wild food and soil pioneer","Ibn al-Awwam","Strongly implied"],
+["Sea blite","قلاّم (qallām)","Suaeda fruticosa","Wild & utility plants","Salt-tolerant shrub; saline land indicator; ash for soap","Ibn Wahshiyya","Strongly implied"],
+["Spurge (field)","فرفيون بري","Euphorbia peplus","Wild & utility plants","Weed indicator; caustic sap; soil type signal","Ibn Wahshiyya","Strongly implied"],
+["Lotus (sacred)","لوتس النيل","Nelumbo nucifera","Aquatic & wetland","Sacred plant; noted in IW in Babylonian agriculture context","Ibn Wahshiyya","Explicit"],
+["Bulrush / cattail","بردي الماء","Typha latifolia","Aquatic & wetland","Marsh plant; mat weaving; channel-side planting","Ibn Wahshiyya","Strongly implied"],
+["Water mint","نعناع الماء","Mentha aquatica","Aquatic & wetland","Channel-edge herb; noted alongside land mint","Ibn al-Awwam","Strongly implied"],
+["Broom (Spanish)","اسبارت (isbārt)","Spartium junceum","Shrubs & semi-shrubs","Fiber; slope stabilizer; dryland; noted in IW","Ibn Wahshiyya","Strongly implied"],
+["Dwarf elder","خروع صغير","Sambucus ebulus","Shrubs & semi-shrubs","Toxic; insect deterrent; noted in IW pest lists","Ibn Wahshiyya","Uncertain"],
+["Wild pomegranate","رمان بري","Punica granatum (wild)","Shrubs & semi-shrubs","Rootstock for cultivated pomegranate","Ibn al-Awwam","Strongly implied"],
+["Cotoneaster","زعرور الجبل صغير","Cotoneaster sp.","Shrubs & semi-shrubs","Listed among lesser wild shrubs; hedge planting","Ibn al-Awwam","Uncertain"],
+];
+
+const CATS=[...new Set(D.map(r=>r[3]))].sort();
+const fcat=document.getElementById("fcat");
+CATS.forEach(c=>{const o=document.createElement("option");o.value=c;o.text=c;fcat.appendChild(o);});
+
+let sortCol=-1,sortAsc=true;
+function sort(c){if(sortCol===c)sortAsc=!sortAsc;else{sortCol=c;sortAsc=true;}R();}
+
+function R(){
+  const q=document.getElementById("srch").value.toLowerCase();
+  const fc=document.getElementById("fcat").value;
+  const fs=document.getElementById("fsrc").value;
+  const fe=document.getElementById("fev").value;
+  let rows=[...D];
+  if(fc)rows=rows.filter(r=>r[3]===fc);
+  if(fs)rows=rows.filter(r=>r[5].includes(fs));
+  if(fe)rows=rows.filter(r=>r[6]===fe);
+  if(q)rows=rows.filter(r=>r.join(" ").toLowerCase().includes(q));
+  if(sortCol>=0)rows.sort((a,b)=>{
+    const x=(a[sortCol]||"").toLowerCase(),y=(b[sortCol]||"").toLowerCase();
+    return sortAsc?x.localeCompare(y):y.localeCompare(x);
+  });
+  const cats=new Set(rows.map(r=>r[3]));
+  document.getElementById("st").textContent=D.length;
+  document.getElementById("ss").textContent=rows.length;
+  document.getElementById("sc").textContent=cats.size;
+  document.getElementById("s3").textContent=rows.filter(r=>r[5].includes("Ibn al-Awwam")).length;
+  document.getElementById("s4").textContent=rows.filter(r=>r[5].includes("Ibn Bassal")).length;
+  document.getElementById("s5").textContent=rows.filter(r=>r[5].includes("Ibn Wahshiyya")).length;
+  document.getElementById("tb").innerHTML=rows.length?rows.map(r=>{
+    const cc=CC[r[3]]||{bg:"#eee",tx:"#333"};
+    const ev=EV[r[6]]||"#888";
+    const srcs=r[5].split(",").map(s=>`<span class="stag">${s.trim()}</span>`).join("");
+    return`<tr>
+      <td style="font-weight:600">${r[0]}</td>
+      <td class="ar">${r[1]}</td>
+      <td class="sci">${r[2]}</td>
+      <td><span class="cat" style="background:${cc.bg};color:${cc.tx}">${r[3]}</span></td>
+      <td style="font-size:11px;color:#555">${r[4]}</td>
+      <td>${srcs}</td>
+      <td><div class="ev"><span class="dot" style="background:${ev}"></span>${r[6]}</div></td>
+    </tr>`;}).join(""):`<tr><td colspan="7" class="nr">No plants match your filters.</td></tr>`;
+}
+R();
+</script>
+</body>
+</html>

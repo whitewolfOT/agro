@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Islamic Agronomy — Plant Relationship Network (Corrected)</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:system-ui,sans-serif;font-size:12px;background:#f8f8f5;color:#222}
+#app{display:flex;height:100vh;overflow:hidden}
+#sb{width:272px;flex-shrink:0;display:flex;flex-direction:column;border-right:1px solid #e0dfd8;background:#fff;overflow:hidden}
+#sb-h{padding:.75rem;border-bottom:1px solid #e0dfd8;flex-shrink:0}
+#sb-h h1{font-size:13px;font-weight:700;line-height:1.3;color:#111}
+#sb-h p{font-size:10px;color:#999;margin-top:2px}
+#sb-b{overflow-y:auto;flex:1;padding:.75rem}
+#cv{flex:1;position:relative;overflow:hidden;background:#f8f8f5}
+svg#net{width:100%;height:100%;display:block;cursor:grab}
+svg#net:active{cursor:grabbing}
+input#srch{width:100%;padding:6px 10px;font-size:12px;border:1px solid #d5d4cc;border-radius:6px;background:#fafaf7;margin-bottom:.75rem}
+input#srch:focus{outline:none;border-color:#777;background:#fff}
+.sh{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#aaa;margin-bottom:.4rem}
+.ef{display:flex;align-items:center;gap:7px;margin-bottom:5px;cursor:pointer;font-size:11.5px;color:#444;user-select:none}
+.ef:hover{color:#111}
+.ef input{width:13px;height:13px;flex-shrink:0;cursor:pointer;accent-color:#555}
+.sw{width:22px;height:3px;flex-shrink:0;border-radius:2px}
+.cnt{margin-left:auto;font-size:10px;color:#bbb;font-weight:600}
+.div{height:1px;background:#eee;margin:.65rem 0}
+.cg{display:flex;flex-wrap:wrap;gap:4px}
+.cl{display:flex;align-items:center;gap:3px;font-size:10px;color:#555;padding:2px 5px;border-radius:4px;cursor:pointer;border:1px solid transparent}
+.cl:hover{background:#f0f0ec}.cl.off{opacity:.22}
+.cld{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sr{display:flex;justify-content:space-between;font-size:11px;color:#777;margin-bottom:3px}
+.sr b{color:#333;font-weight:600}
+.btn{width:100%;padding:6px 10px;font-size:11.5px;border:1px solid #d5d4cc;border-radius:6px;background:#f5f5f0;color:#555;cursor:pointer;margin-top:5px;text-align:left}
+.btn:hover{background:#eee;color:#222}.btn.on{background:#333;color:#fff;border-color:#333}
+#tt{position:absolute;pointer-events:none;background:#fff;border:1px solid #d5d4cc;border-radius:8px;padding:8px 11px;font-size:11.5px;max-width:230px;line-height:1.55;box-shadow:0 3px 12px rgba(0,0,0,.1);display:none;z-index:200}
+#tt .tn{font-weight:700;font-size:13px;color:#222;margin-bottom:2px}
+#tt .tc{font-size:10px;color:#999;margin-bottom:5px}
+#ip{position:absolute;top:12px;right:12px;width:220px;max-height:calc(100vh - 24px);overflow-y:auto;background:#fff;border:1px solid #d5d4cc;border-radius:10px;padding:12px;font-size:11.5px;line-height:1.6;box-shadow:0 3px 16px rgba(0,0,0,.1);display:none;z-index:150}
+#ip .ih{font-weight:700;font-size:13px;color:#222;margin-bottom:1px}
+#ip .ic{font-size:10px;color:#999;margin-bottom:8px;border-bottom:1px solid #f0f0e8;padding-bottom:6px}
+#ip .il{display:flex;align-items:flex-start;gap:6px;margin-bottom:4px;font-size:11px;color:#444}
+#ip .idot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}
+#ip .ix{float:right;font-size:14px;color:#bbb;cursor:pointer;margin-left:6px}
+#ip .ix:hover{color:#333}
+#ip .is{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#ccc;margin:8px 0 4px}
+</style>
+</head>
+<body>
+<div id="app">
+<aside id="sb">
+  <div id="sb-h">
+    <h1>Plant Relationship Network</h1>
+    <p>Islamic Golden Age Agronomy · Corrected · 8 relationship types</p>
+  </div>
+  <div id="sb-b">
+    <input type="text" id="srch" placeholder="Search plant…" oninput="doSearch(this.value)" autocomplete="off">
+    <div class="sh">Relationship types</div>
+    <div id="ef-c"></div>
+    <div class="div"></div>
+    <div class="sh">Categories <span style="font-size:9px;color:#ccc;font-weight:400;text-transform:none">(click to toggle)</span></div>
+    <div class="cg" id="cg"></div>
+    <div class="div"></div>
+    <div class="sh">Stats</div>
+    <div id="sta"></div>
+    <div class="div"></div>
+    <button class="btn" id="btn-co" onclick="toggleConn()">Hide isolated nodes</button>
+    <button class="btn" id="btn-cl" onclick="toggleCluster()">Cluster by category</button>
+    <button class="btn" onclick="resetAll()">Reset all</button>
+  </div>
+</aside>
+<main id="cv">
+  <svg id="net"><defs id="defs"></defs><g id="gl"></g><g id="gn"></g><g id="glb"></g></svg>
+  <div id="tt"></div>
+  <div id="ip"></div>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════
+//  METADATA
+// ═══════════════════════════════════════════════════════════
+const CAT={
+  CG:{l:"Cereals & grains",    c:"#7EB53A"},
+  LP:{l:"Legumes & pulses",    c:"#18A070"},
+  VG:{l:"Vegetables",          c:"#4A9FDC"},
+  HK:{l:"Herbs & kitchen",     c:"#1870A0"},
+  FT:{l:"Fruit trees",         c:"#E8920A"},
+  AP:{l:"Aromatics & perfume", c:"#C84070"},
+  MP:{l:"Medicinal plants",    c:"#7060CC"},
+  IF:{l:"Industrial & fiber",  c:"#888880"},
+  FG:{l:"Fodder & green manure",c:"#4A8010"},
+  ST:{l:"Structural trees",    c:"#605850"},
+  TP:{l:"Toxic & pest-control",c:"#CC3030"},
+  WU:{l:"Wild & utility",      c:"#B07818"},
+  AW:{l:"Aquatic & wetland",   c:"#0848A0"},
+  SS:{l:"Shrubs",              c:"#A09888"},
+  HB:{l:"Hub",                 c:"#222222"}
+};
+
+// 8 relationship types — corrected from original 6
+const ET={
+  F: {l:"Companion planting",      c:"#1D9E75", dash:null,  w:1.8},
+  H: {l:"Hostility / allelopathy", c:"#D85A30", dash:null,  w:1.8},
+  Ro:{l:"Rotation sequence",       c:"#18AAAA", dash:"7,3", w:1.5},
+  R: {l:"Restores soil",           c:"#BA7517", dash:"5,3", w:1.5},
+  E: {l:"Exhausts soil",           c:"#888780", dash:"4,4", w:1.5},
+  G: {l:"Grafting / rootstock",    c:"#7F77DD", dash:"8,3", w:1.5},
+  S: {l:"Structural support",      c:"#378ADD", dash:"3,3", w:1.5},
+  P: {l:"Pest control (practice)", c:"#D040A0", dash:null,  w:1.5}
+};
+
+// ═══════════════════════════════════════════════════════════
+//  NODES  [id, cat]
+// ═══════════════════════════════════════════════════════════
+const RN=[
+["SOIL","HB"],
+["Wheat","CG"],["Barley","CG"],["Emmer wheat","CG"],["Einkorn","CG"],
+["Spelt","CG"],["Rice","CG"],["Sorghum","CG"],["Broomcorn millet","CG"],
+["Foxtail millet","CG"],["Pearl millet","CG"],["Oats","CG"],["Rye","CG"],
+["Broad bean","LP"],["Chickpea","LP"],["Lentil","LP"],["Lupin","LP"],
+["Cowpea","LP"],["Garden pea","LP"],["Fenugreek","LP"],["Vetch","LP"],
+["Bitter vetch","LP"],["Grass pea","LP"],["Moth bean","LP"],["Hyacinth bean","LP"],
+["Eggplant","VG"],["Cucumber","VG"],["Watermelon","VG"],["Melon","VG"],
+["Gourd","VG"],["Bottle gourd","VG"],["Spinach","VG"],["Chard","VG"],
+["Beetroot","VG"],["Turnip","VG"],["Cabbage","VG"],["Kohlrabi","VG"],
+["Cauliflower","VG"],["Carrot","VG"],["Parsnip","VG"],["Radish","VG"],
+["Onion","VG"],["Garlic","VG"],["Leek","VG"],["Shallot","VG"],
+["Chives","VG"],["Lettuce","VG"],["Chicory","VG"],["Endive","VG"],
+["Artichoke","VG"],["Cardoon","VG"],["Asparagus","VG"],["Purslane","VG"],
+["Mallow","VG"],["Borage","VG"],["Sorrel","VG"],["Orach","VG"],
+["Rocket","VG"],["Garden cress","VG"],["Watercress","VG"],
+["Salsify","VG"],["Black salsify","VG"],["Lovage","VG"],["Mustard","VG"],
+["Parsley","HK"],["Coriander","HK"],["Dill","HK"],["Fennel","HK"],
+["Celery","HK"],["Cumin","HK"],["Anise","HK"],["Caraway","HK"],
+["Nigella","HK"],["Basil","HK"],["Mint","HK"],["Pennyroyal","HK"],
+["Rue","HK"],["Thyme","HK"],["Marjoram","HK"],["Oregano","HK"],
+["Summer savory","HK"],["Winter savory","HK"],["Sage","HK"],["Rosemary","HK"],
+["Hyssop","HK"],["Southernwood","HK"],["Lemon balm","HK"],
+["Calamint","HK"],["Catmint","HK"],["Costmary","HK"],
+["Olive","FT"],["Date palm","FT"],["Grapevine","FT"],["Fig","FT"],
+["Wild fig","FT"],["Pomegranate","FT"],["Quince","FT"],["Apple","FT"],
+["Crab apple","FT"],["Pear","FT"],["Wild pear","FT"],["Almond","FT"],
+["Peach","FT"],["Apricot","FT"],["Plum","FT"],["Damson","FT"],
+["Cherry","FT"],["Sour cherry","FT"],["Walnut","FT"],
+["Citron","FT"],["Sour orange","FT"],["Lemon","FT"],["Sweet orange","FT"],
+["Lime","FT"],["Black mulberry","FT"],["White mulberry","FT"],
+["Carob","FT"],["Jujube","FT"],["Lote tree","FT"],
+["Pistachio","FT"],["Terebinth","FT"],["Lentisk","FT"],["Pine nut","FT"],
+["Hazel","FT"],["Banana","FT"],["Hawthorn","FT"],["Medlar","FT"],
+["Service tree","FT"],["Cornelian cherry","FT"],["Tamarind","FT"],
+["Doum palm","FT"],["Sycamore fig","FT"],["Hackberry","FT"],["Arbutus","FT"],
+["Saffron","AP"],["Damascus rose","AP"],["Gallica rose","AP"],["Dog rose","AP"],
+["Common jasmine","AP"],["Arabian jasmine","AP"],["Myrtle","AP"],["Violet","AP"],
+["Lavender","AP"],["Spike lavender","AP"],["Narcissus","AP"],
+["Water lily","AP"],["Iris","AP"],["Madonna lily","AP"],
+["Anemone","AP"],["Stock","AP"],["Hyacinth","AP"],
+["Chamomile","MP"],["Elecampane","MP"],["Valerian","MP"],["Mandrake","MP"],
+["Liquorice","MP"],["Ginger","MP"],["Turmeric","MP"],["Aloe","MP"],
+["Autumn crocus","MP"],["Caper","MP"],["Mastic","MP"],["Spikenard","MP"],
+["Costus root","MP"],["Sweet flag","MP"],["Galingale","MP"],["Henna","MP"],
+["Sumac","MP"],["White horehound","MP"],["Pellitory","MP"],["Milk thistle","MP"],
+["Cotton","IF"],["Flax","IF"],["Hemp","IF"],["Sesame","IF"],["Safflower","IF"],
+["Woad","IF"],["Castor","IF"],["Sugar cane","IF"],["Madder","IF"],["Indigo","IF"],
+["Papyrus","IF"],["Common reed","IF"],["Esparto grass","IF"],
+["Alfalfa","FG"],["Egyptian clover","FG"],["Sulla","FG"],["Sainfoin","FG"],["Black medick","FG"],
+["Cypress","ST"],["Poplar","ST"],["Willow","ST"],["Tamarisk tree","ST"],
+["Elm","ST"],["Bay laurel","ST"],["Plane tree","ST"],["Holm oak","ST"],
+["Pedunculate oak","ST"],["Cork oak","ST"],["Cedar","ST"],
+["Aleppo pine","ST"],["Juniper","ST"],["Ash tree","ST"],
+["Wild olive","ST"],["Acacia","ST"],["Christ's thorn","ST"],
+["Colocynth","TP"],["Henbane","TP"],["Black hellebore","TP"],["White hellebore","TP"],
+["Euphorbia","TP"],["Asafoetida","TP"],["Oleander","TP"],["Wormwood","TP"],
+["Squirting cucumber","TP"],["Stavesacre","TP"],["Hemlock","TP"],
+["Datura","TP"],["Aconite","TP"],["Squill","TP"],
+["Spurge laurel","TP"],["Glasswort ash","TP"],["Nux vomica","TP"],
+["Darnel","WU"],["Glasswort saline","WU"],["Thorny burnet","WU"],
+["Wild oat","WU"],["Bindweed","WU"],["Nettle","WU"],["Asphodel","WU"],
+["Dock","WU"],["Bramble","WU"],["Buckthorn","WU"],
+["Wild golden thistle","WU"],["Sea blite","WU"],["Field spurge","WU"],
+["Sacred lotus","AW"],["Bulrush","AW"],["Water mint","AW"],
+["Spanish broom","SS"],["Dwarf elder","SS"],
+["Wild pomegranate","SS"],["Cotoneaster","SS"]
+];
+
+// ═══════════════════════════════════════════════════════════
+//  LINKS — 8 corrected types  [source, target, type, note]
+//
+//  F  = Companion planting (simultaneous, verified in texts)
+//  H  = Hostility / allelopathy
+//  Ro = Rotation sequence (temporal, not simultaneous)
+//  R  = Restores soil → SOIL hub
+//  E  = Exhausts soil → SOIL hub
+//  G  = Grafting / rootstock
+//  S  = Structural support / windbreak
+//  P  = Pest-control practice (human-mediated, plant used as tool)
+// ═══════════════════════════════════════════════════════════
+const RL=[
+// ─── COMPANION PLANTING (F) — 21 verified ──────────────────
+["Grapevine","Elm","F","Vine trained on elm for support — Ibn al-Awwam, Explicit"],
+["Grapevine","Fig","F","Routinely planted together as orchard companions — Ibn al-Awwam, Explicit"],
+["Grapevine","Olive","F","Mediterranean orchard neighbors — Ibn al-Awwam, Explicit"],
+["Cucumber","Grapevine","F","Ground companion near vine — Ibn al-Awwam, Explicit"],
+["Basil","Grapevine","F","Insect deterrent planted near vine — Ibn al-Awwam, Explicit"],
+["Garlic","Grapevine","F","Pest repellent at vine base — Ibn al-Awwam, Explicit"],
+["Rue","Olive","F","Protective companion at olive base — Ibn al-Awwam, Explicit"],
+["Rue","Fig","F","Beneficial companion at fig base — Ibn al-Awwam, Explicit"],
+["Garlic","Damascus rose","F","Improves bloom; deters pests — Ibn al-Awwam, Explicit"],
+["Garlic","Pomegranate","F","Pest protection and soil health — Ibn al-Awwam, Explicit"],
+["Garlic","Almond","F","Protective companion at base — Ibn al-Awwam, Explicit"],
+["Garlic","Olive","F","Base planting; soil disinfectant — Ibn al-Awwam, Explicit"],
+["Basil","Damascus rose","F","Fragrant companions in garden beds — Ibn al-Awwam, Explicit"],
+["Damascus rose","Myrtle","F","Traditional aromatic garden pairing — Ibn al-Awwam, Explicit"],
+["Marjoram","Damascus rose","F","Fragrant garden companions — Ibn al-Awwam, Explicit"],
+["Onion","Carrot","F","Classic intercrop; onion deters carrot pests — Ibn al-Awwam, Explicit"],
+["Lettuce","Radish","F","Lettuce shades radish; radish breaks soil — Ibn al-Awwam, Explicit"],
+["Fennel","Asparagus","F","Named exception to fennel's general hostility — Ibn al-Awwam, Explicit"],
+["Garlic","Date palm","F","Pest protection at base — Ibn al-Awwam, Strongly implied"],
+["Basil","Eggplant","F","Insect deterrent companion — Ibn al-Awwam, Strongly implied"],
+["Rue","Pomegranate","F","Protective aromatic companion — Ibn al-Awwam, Strongly implied"],
+// ─── ROTATION SEQUENCES (Ro) — 11 verified ─────────────────
+// Note: predecessor is plowed in or harvested BEFORE the successor is sown
+["Lupin","Wheat","Ro","Ibn al-Awwam Explicit: 'restores exhausted soil'; plowed green"],
+["Lupin","Barley","Ro","Same green manure principle — Ibn al-Awwam, Explicit"],
+["Broad bean","Wheat","Ro","Rotation benefit; soil improved after legume — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Chickpea","Barley","Ro","Root nodules; leaves soil enriched — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Lentil","Wheat","Ro","Light feeder; improves after cereal — Ibn al-Awwam, Explicit"],
+["Fenugreek","Wheat","Ro","Green manure rotation — Ibn al-Awwam, Explicit"],
+["Egyptian clover","Barley","Ro","Plowed under; quick nitrogen return — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Vetch","Wheat","Ro","Organic matter return when turned in — Ibn al-Awwam, Strongly implied"],
+["Alfalfa","Wheat","Ro","Multi-year predecessor; deep-root soil improvement — Ibn al-Awwam, Ibn Bassal, Strongly implied"],
+["Sulla","Barley","Ro","Calcareous dryland rotation — Ibn al-Awwam, Strongly implied"],
+["Bitter vetch","Barley","Ro","Green manure predecessor — Ibn al-Awwam, Strongly implied"],
+// ─── HOSTILITY / ALLELOPATHY (H) — 21 verified ─────────────
+["Walnut","Olive","H","Root secretions explicitly described as strongly harmful — Ibn al-Awwam, Explicit"],
+["Walnut","Grapevine","H","Allelopathy damages vine; keep separated — Ibn al-Awwam, Explicit"],
+["Walnut","Wheat","H","Crops fail beneath walnut canopy — Ibn al-Awwam, Explicit"],
+["Walnut","Barley","H","Barley weakened under walnut — Ibn al-Awwam, Strongly implied"],
+["Walnut","Fig","H","Root competition and allelopathy — Ibn al-Awwam, Strongly implied"],
+["Fennel","Coriander","H","Fennel inhibits coriander germination — Ibn al-Awwam, Explicit"],
+["Fennel","Cumin","H","Fennel suppresses cumin — Ibn al-Awwam, Explicit"],
+["Fennel","Carrot","H","Fennel suppresses carrot root development — Ibn al-Awwam, Strongly implied"],
+["Cabbage","Grapevine","H","Damages vine health and wine quality — Ibn al-Awwam, Explicit"],
+["Onion","Garlic","H","Heavy allium competition when too close — Ibn al-Awwam, Explicit"],
+["Colocynth","Wheat","H","Root exudates poison surrounding soil — Ibn Wahshiyya, Explicit"],
+["Colocynth","Barley","H","Root toxins damage nearby barley — Ibn Wahshiyya, Explicit"],
+["Darnel","Wheat","H","Toxic weed; poisons grain at harvest — Ibn al-Awwam, Explicit"],
+["Darnel","Barley","H","Weed competition in barley fields — Ibn al-Awwam, Explicit"],
+["Wild oat","Wheat","H","Heavy weed competitor — Ibn al-Awwam, Explicit"],
+["Wild oat","Barley","H","Weed competition in barley — Ibn al-Awwam, Explicit"],
+["Bindweed","Wheat","H","Strangles wheat stems — Ibn al-Awwam, Explicit"],
+["Bindweed","Barley","H","Persistent weed in barley — Ibn al-Awwam, Explicit"],
+["Dock","Wheat","H","Strong root competitor — Ibn al-Awwam, Explicit"],
+["Hemlock","Wheat","H","Toxic if mixed at harvest — Ibn Wahshiyya, Explicit"],
+["Leek","Onion","H","Allium competition when too close — Ibn al-Awwam, Strongly implied"],
+// ─── RESTORES SOIL → SOIL HUB (R) — 14 verified ────────────
+["Lupin","SOIL","R","Ibn al-Awwam Explicit: 'restores exhausted and depleted soil'; plowed in green"],
+["Broad bean","SOIL","R","Root nodules; soil improved after legume cycle — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Chickpea","SOIL","R","Root nodules; noted in rotation schedules — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Lentil","SOIL","R","Light feeder; leaves soil better than cereals — Ibn al-Awwam, Explicit"],
+["Fenugreek","SOIL","R","Green manure; improves tilth and organic matter — Ibn al-Awwam, Explicit"],
+["Vetch","SOIL","R","Turned under; organic matter return — Ibn al-Awwam, Explicit"],
+["Egyptian clover","SOIL","R","Rapid nitrogen return; green manure — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Alfalfa","SOIL","R","Deep roots bring subsoil nutrients up; long-term structure — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Radish","SOIL","R","Taproot breaks compaction; pioneer crop — Ibn al-Awwam, Explicit"],
+["Cowpea","SOIL","R","Warm-season nitrogen fixer — Ibn al-Awwam, Strongly implied"],
+["Garden pea","SOIL","R","Nitrogen-fixing legume — Ibn al-Awwam, Strongly implied"],
+["Bitter vetch","SOIL","R","Green manure when turned in — Ibn al-Awwam, Strongly implied"],
+["Sulla","SOIL","R","Calcareous dryland soil improvement — Ibn al-Awwam, Strongly implied"],
+["Grass pea","SOIL","R","Rotation legume; nitrogen fixer — Ibn al-Awwam, Strongly implied"],
+// ─── EXHAUSTS SOIL → SOIL HUB (E) — 11 verified ────────────
+["Wheat","SOIL","E","Heavy feeder; depletes rapidly; rotation required — Ibn al-Awwam, Explicit"],
+["Barley","SOIL","E","Heavy cereal feeder; depletes over seasons — Ibn al-Awwam, Explicit"],
+["Turnip","SOIL","E","Heavy N and K demand; leaves soil depleted — Ibn al-Awwam, Explicit"],
+["Cabbage","SOIL","E","Heavy potassium feeder; richly manured beds required — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Cotton","SOIL","E","Very exhausting; heavy manuring prescribed after — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Sugar cane","SOIL","E","Nutrient-intensive perennial; heavily depletes soil — Ibn al-Awwam, Strongly implied"],
+["Hemp","SOIL","E","Deep feeder; heavy irrigation; demanding crop — Ibn al-Awwam, Strongly implied"],
+["Rice","SOIL","E","Nutrient-intensive wet crop — Ibn al-Awwam, Strongly implied"],
+["Watermelon","SOIL","E","Heavy feeder in sandy soils — Ibn al-Awwam, Strongly implied"],
+["Melon","SOIL","E","Rich soil required; exhausting fertility — Ibn al-Awwam, Strongly implied"],
+["Eggplant","SOIL","E","Demands rich prepared soil; depletes — Ibn al-Awwam, Strongly implied"],
+// ─── GRAFTING / ROOTSTOCK (G) — 16 verified ────────────────
+["Quince","Apple","G","Dwarfing rootstock — Ibn al-Awwam, Explicit"],
+["Quince","Pear","G","Size improvement; most-cited pairing — Ibn al-Awwam, Explicit"],
+["Crab apple","Apple","G","Vigorous rootstock — Ibn al-Awwam, Explicit"],
+["Wild pear","Pear","G","Vigorous rootstock — Ibn al-Awwam, Explicit"],
+["Hawthorn","Pear","G","Alternate pear rootstock — Ibn al-Awwam, Explicit"],
+["Hawthorn","Medlar","G","Standard medlar rootstock — Ibn al-Awwam, Explicit"],
+["Peach","Almond","G","Compatibility documented — Ibn al-Awwam, Ibn Bassal, Explicit"],
+["Almond","Plum","G","Almond rootstock for plum — Ibn al-Awwam, Explicit"],
+["Terebinth","Pistachio","G","Standard pistachio rootstock — Ibn al-Awwam, Explicit"],
+["Sour orange","Lemon","G","Primary citrus rootstock — Ibn al-Awwam, Explicit"],
+["Sour orange","Citron","G","Citrus rootstock — Ibn al-Awwam, Al-Tighnari, Explicit"],
+["Sour orange","Lime","G","Citrus rootstock — Ibn al-Awwam, Explicit"],
+["Dog rose","Damascus rose","G","Rose rootstock — Ibn al-Awwam, Explicit"],
+["Wild olive","Olive","G","Rootstock for grafted olive — Ibn al-Awwam, Explicit"],
+["Wild fig","Fig","G","Caprification (cross-pollination via wasps, not grafting) — Ibn al-Awwam, Explicit"],
+["Wild pomegranate","Pomegranate","G","Rootstock — Ibn al-Awwam, Strongly implied"],
+// ─── STRUCTURAL SUPPORT / WINDBREAK (S) — 6 verified ────────
+["Elm","Grapevine","S","Physical vine support; vine trained on elm — Ibn al-Awwam, Explicit"],
+["Tamarisk tree","Date palm","S","Salt-tolerant windbreak; saline companion to palm — Ibn al-Awwam, Ibn Wahshiyya, Explicit"],
+["Poplar","Rice","S","Irrigation canal bank stabilizer — Ibn al-Awwam, Strongly implied"],
+["Poplar","Sugar cane","S","Canal bank stabilizer for sugar cane — Ibn al-Awwam, Strongly implied"],
+["Willow","Rice","S","Waterway planting alongside rice channels — Ibn al-Awwam, Explicit"],
+["Cypress","Olive","S","General windbreak context for orchards — Ibn al-Awwam, Explicit (general)"],
+// ─── PEST CONTROL PRACTICES (P) — 13 verified ───────────────
+// Human-mediated: farmer uses Plant A to protect Crop B from a pest
+// NOT a biological growing relationship
+["Pennyroyal","Wheat","P","Hung in granaries; repels grain insects — Ibn al-Awwam, Explicit"],
+["Pennyroyal","Barley","P","Granary insect protection — Ibn al-Awwam, Explicit"],
+["Wormwood","Wheat","P","Dried and placed; repels stored-grain insects — Ibn al-Awwam, Explicit"],
+["Wormwood","Barley","P","Protects stored barley from insects — Ibn al-Awwam, Explicit"],
+["Oleander","Olive","P","Toxic smoke from burned leaves; fumigant for olive pests — Ibn al-Awwam, Explicit"],
+["Oleander","Fig","P","Fumigant smoke for fig pests — Ibn al-Awwam, Explicit"],
+["Asafoetida","Grapevine","P","Resin buried near roots; repels soil insects — Ibn al-Awwam, Explicit"],
+["Asafoetida","Fig","P","Soil pest repellent at fig base — Ibn al-Awwam, Explicit"],
+["Stavesacre","Grapevine","P","Seed powder against vine lice and insects — Ibn al-Awwam, Explicit"],
+["Squill","Wheat","P","Bulb as rodent-poison bait protecting grain stores — Ibn al-Awwam, Ibn Wahshiyya, Explicit"],
+["Squill","Barley","P","Rodent bait for grain stores — Ibn al-Awwam, Explicit"],
+["Henbane","Olive","P","Narcotic fumigant smoke for olive pests — Ibn Wahshiyya, Explicit"],
+["Colocynth","Wheat","P","Bitter fruit as rodent bait (separate from its hostility via root toxins) — Ibn al-Awwam, Ibn Wahshiyya, Explicit"],
+];
+
+// ═══════════════════════════════════════════════════════════
+//  BUILD GRAPH
+// ═══════════════════════════════════════════════════════════
+const nMap={};
+RN.forEach(([id,cat])=>{nMap[id]={id,cat,links:[]};});
+const links=RL.map(([s,t,type,note])=>{
+  const src=nMap[s],tgt=nMap[t];
+  if(!src){console.warn("Missing node:",s);return null;}
+  if(!tgt){console.warn("Missing node:",t);return null;}
+  src.links.push({to:t,type,note});
+  tgt.links.push({to:s,type,note});
+  return{source:s,target:t,type,note};
+}).filter(Boolean);
+const nodes=RN.map(([id,cat])=>({id,cat,degree:nMap[id].links.length,linkData:nMap[id].links}));
+
+// ═══════════════════════════════════════════════════════════
+//  D3 SETUP
+// ═══════════════════════════════════════════════════════════
+const svg=d3.select("#net");
+const W=()=>document.getElementById("cv").clientWidth;
+const H=()=>document.getElementById("cv").clientHeight;
+
+// Markers
+const defs=d3.select("#defs");
+Object.entries(ET).forEach(([k,v])=>{
+  defs.append("marker").attr("id","m-"+k)
+    .attr("viewBox","0 -4 10 8").attr("refX",22).attr("refY",0)
+    .attr("markerWidth",5).attr("markerHeight",5).attr("orient","auto")
+    .append("path").attr("d","M0,-4L10,0L0,4")
+    .attr("fill",v.c).attr("opacity",.75);
+});
+
+const gL=d3.select("#gl"),gN=d3.select("#gn"),gLb=d3.select("#glb");
+let actT=new Set(Object.keys(ET)),actC=new Set(Object.keys(CAT));
+let showConn=false,clMode=false,srch="",selN=null;
+
+const nR=d=>{if(d.id==="SOIL")return 14;if(d.degree===0)return 3;return Math.min(4+d.degree*1.4,14);};
+
+const sim=d3.forceSimulation(nodes)
+  .force("link",d3.forceLink(links).id(d=>d.id).distance(d=>{
+    if(d.type==="R"||d.type==="E")return 165;
+    if(d.type==="Ro")return 140;
+    if(d.type==="G")return 90;
+    if(d.type==="S")return 115;
+    if(d.type==="P")return 130;
+    return 100;
+  }).strength(0.5))
+  .force("charge",d3.forceManyBody().strength(d=>{
+    if(d.id==="SOIL")return -650;
+    if(d.degree>8)return -300;
+    if(d.degree>4)return -180;
+    if(d.degree>0)return -100;
+    return -40;
+  }))
+  .force("center",d3.forceCenter(W()/2,H()/2))
+  .force("collide",d3.forceCollide(d=>nR(d)+9))
+  .alphaDecay(0.02).velocityDecay(0.4);
+
+const zoom=d3.zoom().scaleExtent([0.1,8]).on("zoom",e=>{
+  gL.attr("transform",e.transform);
+  gN.attr("transform",e.transform);
+  gLb.attr("transform",e.transform);
+});
+svg.call(zoom);
+svg.on("click",()=>{selN=null;updHL();hideInfo();});
+
+let lkSel=gL.selectAll("line").data(links,d=>d.source+d.target+d.type).join("line")
+  .attr("stroke",d=>ET[d.type].c)
+  .attr("stroke-width",d=>ET[d.type].w)
+  .attr("stroke-dasharray",d=>ET[d.type].dash)
+  .attr("stroke-opacity",.55)
+  .attr("marker-end",d=>"url(#m-"+d.type+")");
+
+let ndSel=gN.selectAll("circle").data(nodes,d=>d.id).join("circle")
+  .attr("r",d=>nR(d))
+  .attr("fill",d=>CAT[d.cat]?.c||"#ccc")
+  .attr("stroke",d=>d.id==="SOIL"?"#111":"rgba(255,255,255,0.85)")
+  .attr("stroke-width",d=>d.id==="SOIL"?2:1.2)
+  .attr("cursor","pointer")
+  .on("mouseenter",showTT).on("mousemove",moveTT).on("mouseleave",hideTT)
+  .on("click",(e,d)=>{e.stopPropagation();selN=d.id;updHL();showInfo(d);})
+  .call(d3.drag()
+    .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(0.3).restart();d.fx=d.x;d.fy=d.y;})
+    .on("drag",(e,d)=>{d.fx=e.x;d.fy=e.y;})
+    .on("end",(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}));
+
+let lbSel=gLb.selectAll("text").data(nodes,d=>d.id).join("text")
+  .attr("text-anchor","middle")
+  .attr("dy",d=>nR(d)+9)
+  .attr("fill",d=>d.id==="SOIL"?"#222":"#444")
+  .attr("font-size",d=>d.id==="SOIL"?"11px":d.degree>4?"9.5px":"8px")
+  .attr("font-weight",d=>d.id==="SOIL"?"700":"400")
+  .attr("stroke","#f8f8f5").attr("stroke-width",2.5).attr("paint-order","stroke")
+  .attr("pointer-events","none")
+  .text(d=>d.id);
+
+sim.on("tick",()=>{
+  lkSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+       .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  ndSel.attr("cx",d=>d.x).attr("cy",d=>d.y);
+  lbSel.attr("x",d=>d.x).attr("y",d=>d.y);
+});
+
+// ═══════════════════════════════════════════════════════════
+//  FILTER & HIGHLIGHT
+// ═══════════════════════════════════════════════════════════
+function updVis(){
+  const vl=links.filter(l=>actT.has(l.type)&&
+    actC.has(nMap[l.source.id||l.source]?.cat)&&
+    actC.has(nMap[l.target.id||l.target]?.cat));
+  const ci=new Set(["SOIL"]);
+  vl.forEach(l=>{ci.add(l.source.id||l.source);ci.add(l.target.id||l.target);});
+  lkSel.attr("display",d=>{
+    if(!actT.has(d.type))return"none";
+    if(!actC.has(nMap[d.source.id]?.cat))return"none";
+    if(!actC.has(nMap[d.target.id]?.cat))return"none";
+    return null;
+  });
+  ndSel.attr("display",d=>{
+    if(!actC.has(d.cat))return"none";
+    if(showConn&&!ci.has(d.id))return"none";
+    return null;
+  });
+  lbSel.attr("display",d=>{
+    if(!actC.has(d.cat))return"none";
+    if(showConn&&!ci.has(d.id))return"none";
+    return null;
+  });
+  updHL();updStats();
+}
+
+function updHL(){
+  if(!selN&&!srch){
+    lkSel.attr("stroke-opacity",.55);
+    ndSel.attr("opacity",1);lbSel.attr("opacity",1);return;
+  }
+  const focus=new Set();
+  if(selN){
+    focus.add(selN);
+    links.forEach(l=>{const s=l.source.id,t=l.target.id;
+      if(s===selN||t===selN){focus.add(s);focus.add(t);}});
+  }
+  const sm=new Set();
+  if(srch)nodes.forEach(n=>{if(n.id.toLowerCase().includes(srch))sm.add(n.id);});
+  lkSel.attr("stroke-opacity",d=>{
+    const s=d.source.id,t=d.target.id;
+    if(selN&&focus.has(s)&&focus.has(t))return .9;
+    if(selN)return .04;
+    return .55;
+  });
+  ndSel.attr("opacity",d=>{
+    if(srch&&!sm.has(d.id))return .08;
+    if(selN&&!focus.has(d.id))return .08;
+    return 1;
+  });
+  lbSel.attr("opacity",d=>{
+    if(srch&&!sm.has(d.id))return 0;
+    if(selN&&!focus.has(d.id))return .05;
+    return 1;
+  });
+}
+
+function updStats(){
+  const vl=links.filter(l=>actT.has(l.type));
+  const vn=nodes.filter(n=>actC.has(n.cat));
+  const cx={};Object.keys(ET).forEach(k=>cx[k]=0);
+  vl.forEach(l=>cx[l.type]++);
+  const top=nodes.filter(n=>n.id!=="SOIL").sort((a,b)=>b.degree-a.degree)[0];
+  document.getElementById("sta").innerHTML=
+    `<div class="sr"><span>Plants showing</span><b>${vn.length}</b></div>`+
+    `<div class="sr"><span>Relationships</span><b>${vl.length}</b></div>`+
+    Object.entries(ET).map(([k,v])=>
+      `<div class="sr"><span style="color:${v.c}">${v.l}</span><b>${cx[k]}</b></div>`).join("")+
+    (top?`<div class="sr" style="margin-top:4px"><span>Most connected</span><b style="font-size:10px">${top.id} (${top.degree})</b></div>`:"");
+}
+
+// ═══════════════════════════════════════════════════════════
+//  UI CONTROLS
+// ═══════════════════════════════════════════════════════════
+const efc=document.getElementById("ef-c");
+Object.entries(ET).forEach(([k,v])=>{
+  const cnt=links.filter(l=>l.type===k).length;
+  const row=document.createElement("label");
+  row.className="ef";
+  const swStyle=v.dash
+    ?`background:repeating-linear-gradient(90deg,${v.c} 0,${v.c} 6px,transparent 6px,transparent 9px)`
+    :`background:${v.c}`;
+  row.innerHTML=`<input type="checkbox" checked onchange="togT('${k}',this.checked)">
+    <span class="sw" style="${swStyle}"></span>
+    <span>${v.l}</span><span class="cnt">${cnt}</span>`;
+  efc.appendChild(row);
+});
+function togT(k,on){if(on)actT.add(k);else actT.delete(k);updVis();}
+
+const cgEl=document.getElementById("cg");
+Object.entries(CAT).forEach(([k,v])=>{
+  if(k==="HB")return;
+  const el=document.createElement("span");
+  el.className="cl";
+  el.innerHTML=`<span class="cld" style="background:${v.c}"></span>${v.l}`;
+  el.onclick=()=>{if(actC.has(k))actC.delete(k);else actC.add(k);el.classList.toggle("off",!actC.has(k));updVis();};
+  cgEl.appendChild(el);
+});
+
+function doSearch(v){srch=v.trim().toLowerCase();updHL();}
+function toggleConn(){showConn=!showConn;document.getElementById("btn-co").classList.toggle("on",showConn);document.getElementById("btn-co").textContent=showConn?"Show all nodes":"Hide isolated nodes";updVis();}
+
+const CC2={
+  CG:{x:.2,y:.15},LP:{x:.5,y:.1},VG:{x:.8,y:.15},HK:{x:.85,y:.45},
+  FT:{x:.75,y:.75},AP:{x:.5,y:.9},MP:{x:.25,y:.85},IF:{x:.1,y:.7},
+  FG:{x:.1,y:.4},ST:{x:.1,y:.15},TP:{x:.35,y:.55},WU:{x:.6,y:.5},
+  AW:{x:.35,y:.3},SS:{x:.6,y:.25},HB:{x:.5,y:.5}
+};
+function toggleCluster(){
+  clMode=!clMode;
+  document.getElementById("btn-cl").classList.toggle("on",clMode);
+  if(clMode){
+    sim.force("cx",d3.forceX(d=>CC2[d.cat]?.x*W()||W()/2).strength(.2));
+    sim.force("cy",d3.forceY(d=>CC2[d.cat]?.y*H()||H()/2).strength(.2));
+  }else{sim.force("cx",null).force("cy",null);}
+  sim.alpha(.5).restart();
+}
+function resetAll(){
+  actT=new Set(Object.keys(ET));actC=new Set(Object.keys(CAT));
+  showConn=false;srch="";selN=null;
+  document.getElementById("srch").value="";
+  document.getElementById("btn-co").classList.remove("on");
+  document.getElementById("btn-co").textContent="Hide isolated nodes";
+  document.querySelectorAll("#ef-c input").forEach(c=>c.checked=true);
+  document.querySelectorAll(".cl").forEach(c=>c.classList.remove("off"));
+  updVis();hideInfo();
+}
+
+// ═══════════════════════════════════════════════════════════
+//  TOOLTIP
+// ═══════════════════════════════════════════════════════════
+function showTT(e,d){
+  const tt=document.getElementById("tt");
+  const cx={};Object.keys(ET).forEach(k=>cx[k]=0);
+  d.linkData.forEach(l=>cx[l.type]++);
+  const rel=Object.entries(cx).filter(([,v])=>v>0)
+    .map(([k,v])=>`<span style="color:${ET[k].c}">${ET[k].l}: ${v}</span>`).join("<br>");
+  tt.innerHTML=`<div class="tn">${d.id}</div><div class="tc">${CAT[d.cat]?.l||d.cat}</div>`+
+    (d.degree?`<div class="tr" style="font-size:10.5px">${d.degree} link${d.degree!==1?'s':''}<br>${rel}</div>`:`<div class="tr" style="color:#bbb">No documented relationships</div>`);
+  tt.style.display="block";moveTT(e);
+}
+function moveTT(e){
+  const tt=document.getElementById("tt");
+  const cv=document.getElementById("cv").getBoundingClientRect();
+  let x=e.clientX-cv.left+12,y=e.clientY-cv.top-45;
+  if(x+245>cv.width)x-=260;if(y<0)y+=75;
+  tt.style.left=x+"px";tt.style.top=y+"px";
+}
+function hideTT(){document.getElementById("tt").style.display="none";}
+
+// ═══════════════════════════════════════════════════════════
+//  INFO PANEL
+// ═══════════════════════════════════════════════════════════
+function showInfo(d){
+  const ip=document.getElementById("ip");
+  if(d.id==="SOIL"){
+    const rs=links.filter(l=>l.type==="R").map(l=>l.source.id||l.source);
+    const es=links.filter(l=>l.type==="E").map(l=>l.source.id||l.source);
+    ip.innerHTML=`<span class="ix" onclick="hideInfo()">✕</span>
+      <div class="ih">SOIL</div>
+      <div class="ic">Central fertility hub</div>
+      <div class="is">Restores (${rs.length})</div>
+      ${rs.map(n=>`<div class="il"><span class="idot" style="background:${ET.R.c}"></span>${n}</div>`).join("")}
+      <div class="is">Exhausts (${es.length})</div>
+      ${es.map(n=>`<div class="il"><span class="idot" style="background:${ET.E.c}"></span>${n}</div>`).join("")}`;
+    ip.style.display="block";return;
+  }
+  const byt={};Object.keys(ET).forEach(k=>byt[k]=[]);
+  links.forEach(l=>{
+    const s=l.source.id||l.source,t=l.target.id||l.target;
+    if(s===d.id)byt[l.type].push({other:t,note:l.note,dir:"→"});
+    if(t===d.id)byt[l.type].push({other:s,note:l.note,dir:"←"});
+  });
+  const secs=Object.entries(ET).map(([k,v])=>{
+    if(!byt[k].length)return"";
+    return`<div class="is">${v.l} (${byt[k].length})</div>`+
+      byt[k].map(r=>`<div class="il"><span class="idot" style="background:${v.c}"></span>
+        <span><b>${r.dir==="→"?"→ ":"← "}${r.other}</b><br>
+        <span style="font-size:10px;color:#aaa">${(r.note.split(" — ")[1]||"").replace(/, (Explicit|Strongly implied|Uncertain)$/,"")}</span></span></div>`).join("");
+  }).join("");
+  ip.innerHTML=`<span class="ix" onclick="hideInfo()">✕</span>
+    <div class="ih">${d.id}</div>
+    <div class="ic">${CAT[d.cat]?.l||d.cat} · ${d.degree} link${d.degree!==1?'s':''}</div>
+    ${secs||'<div style="color:#bbb;font-size:11px">No documented relationships</div>'}`;
+  ip.style.display="block";
+}
+function hideInfo(){document.getElementById("ip").style.display="none";}
+
+// ═══════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════
+updVis();
+const sn=nodes.find(n=>n.id==="SOIL");
+if(sn){sn.x=W()/2;sn.y=H()/2;}
+window.addEventListener("resize",()=>{
+  sim.force("center",d3.forceCenter(W()/2,H()/2));
+  sim.alpha(.1).restart();
+});
+</script>
+</body>
+</html>

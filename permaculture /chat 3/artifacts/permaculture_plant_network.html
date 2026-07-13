@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Plant Relationship Network — Permaculture Document</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d1117;color:#e0e0e0;display:flex;height:100vh;overflow:hidden}
+#sidebar{width:272px;min-width:272px;background:#161b27;border-right:1px solid #21273a;display:flex;flex-direction:column;overflow-y:auto;overflow-x:hidden;padding:14px 12px;gap:11px;scrollbar-width:thin;scrollbar-color:#2a3048 transparent}
+#sidebar::-webkit-scrollbar{width:4px}
+#sidebar::-webkit-scrollbar-thumb{background:#2a3048;border-radius:4px}
+#canvas-wrap{flex:1;position:relative;overflow:hidden;background:#0d1117}
+svg{width:100%;height:100%}
+.node{cursor:pointer}
+.node circle{transition:opacity .15s}
+.node text{pointer-events:none;user-select:none}
+.link{fill:none}
+.s-title{font-size:14px;font-weight:700;color:#fff;letter-spacing:.2px}
+.s-sub{font-size:10px;color:#667;margin-top:3px}
+.s-divider{border:none;border-top:1px solid #1e2438;margin:1px 0}
+.search-box{width:100%;padding:7px 10px;background:#1e2438;border:1px solid #2d3555;border-radius:7px;color:#e0e0e0;font-size:12px;outline:none;transition:border-color .2s}
+.search-box:focus{border-color:#5a5fd4}
+.s-label{font-size:9.5px;font-weight:600;letter-spacing:.9px;text-transform:uppercase;color:#667;margin-bottom:4px}
+.type-row,.cat-row{display:flex;align-items:center;gap:7px;padding:3px 5px;border-radius:5px;cursor:pointer;font-size:11px;user-select:none;transition:background .15s}
+.type-row:hover,.cat-row:hover{background:#1e2438}
+.type-row.off,.cat-row.off{opacity:.3}
+.swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.row-name{flex:1;color:#bbb}
+.row-count{font-size:10px;color:#555}
+.stats-box{background:#1e2438;border-radius:7px;padding:9px 10px;font-size:11px;color:#8a9;line-height:1.75}
+.stats-box strong{color:#dde}
+.btn{padding:6px 8px;background:#1e2438;border:1px solid #2d3555;border-radius:6px;color:#9ab;font-size:11px;cursor:pointer;text-align:center;transition:all .15s;user-select:none}
+.btn:hover{background:#262e48;border-color:#5a5fd4;color:#fff}
+.btn.on{background:#303670;border-color:#5a5fd4;color:#c0c4ff}
+.btn-row{display:flex;gap:6px}
+#info-panel{position:absolute;top:14px;right:14px;width:258px;background:#161b27ee;border:1px solid #2d3555;border-radius:11px;padding:14px 13px;font-size:11px;color:#bbc;display:none;max-height:82vh;overflow-y:auto;backdrop-filter:blur(8px);z-index:100;scrollbar-width:thin;scrollbar-color:#2a3048 transparent}
+#info-panel::-webkit-scrollbar{width:3px}
+#info-panel::-webkit-scrollbar-thumb{background:#2a3048;border-radius:3px}
+.ip-name{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+.ip-cat{font-size:10px;color:#667;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #1e2438}
+.ip-section{font-size:9.5px;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin:9px 0 4px}
+.ip-rel{padding:4px 0 4px 6px;border-left:2px solid #1e2438;margin-bottom:3px}
+.ip-dir{font-weight:700;font-size:12px}
+.ip-partner{font-weight:600;color:#cce}
+.ip-note{color:#667;font-style:italic;font-size:10px;margin-top:2px;line-height:1.4}
+.ip-close{position:absolute;top:11px;right:13px;cursor:pointer;color:#556;font-size:13px;line-height:1}
+.ip-close:hover{color:#aaa}
+.ip-empty{color:#445;margin-top:8px;font-style:italic;font-size:10px;line-height:1.5}
+#tooltip{position:absolute;pointer-events:none;background:#161b27f0;border:1px solid #2d3555;border-radius:8px;padding:9px 12px;font-size:11px;color:#bbc;display:none;z-index:200;min-width:170px;max-width:250px;backdrop-filter:blur(8px)}
+.tt-name{font-weight:700;color:#fff;font-size:12px}
+.tt-cat{color:#667;font-size:10px;margin-top:1px}
+.tt-deg{color:#9ab;margin-top:5px}
+.tt-tags{margin-top:4px;display:flex;flex-wrap:wrap;gap:3px}
+.tt-tag{display:inline-block;font-size:9px;font-weight:600;padding:2px 5px;border-radius:3px}
+#isolated-note{background:#1a1620;border:1px solid #3a2a4a;border-radius:7px;padding:8px 10px;font-size:10px;color:#8a7a9a;line-height:1.6}
+</style>
+</head>
+<body>
+<div id="sidebar">
+  <div>
+    <div class="s-title">🌿 Plant Relationship Network</div>
+    <div class="s-sub">Permaculture Document &nbsp;·&nbsp; <span id="nc">0</span> nodes &nbsp;·&nbsp; <span id="lc">0</span> links</div>
+  </div>
+  <hr class="s-divider">
+  <div>
+    <input class="search-box" id="search" placeholder="🔍  Search plants or roles…"/>
+  </div>
+  <div>
+    <div class="s-label">Relationship Types</div>
+    <div id="type-filter"></div>
+  </div>
+  <div>
+    <div class="s-label">Categories</div>
+    <div id="cat-filter"></div>
+  </div>
+  <div>
+    <div class="s-label">Live Stats</div>
+    <div class="stats-box" id="stats">
+      <div>Nodes visible: <strong id="sv">–</strong></div>
+      <div>Links visible: <strong id="sl">–</strong></div>
+      <div>Most connected: <strong id="sm">–</strong></div>
+      <div>Isolated nodes: <strong id="si">–</strong></div>
+    </div>
+  </div>
+  <div class="btn-row">
+    <div class="btn" id="btn-iso">Hide isolated</div>
+    <div class="btn" id="btn-cluster">Cluster</div>
+  </div>
+  <div class="btn-row">
+    <div class="btn" id="btn-reset" style="flex:1">↺  Reset all filters</div>
+  </div>
+  <div id="isolated-note">
+    <strong style="color:#b09ac0">⚠ Isolated nodes</strong> — plants mentioned in the document with no extractable ecological relationship. Included for completeness; flagged for further research.
+  </div>
+</div>
+
+<div id="canvas-wrap">
+  <svg id="svg"></svg>
+  <div id="info-panel">
+    <span class="ip-close" id="ipc">✕</span>
+    <div class="ip-name" id="ipn"></div>
+    <div class="ip-cat"  id="ipt"></div>
+    <div id="ipr"></div>
+  </div>
+  <div id="tooltip">
+    <div class="tt-name" id="ttn"></div>
+    <div class="tt-cat"  id="ttc"></div>
+    <div class="tt-deg"  id="ttd"></div>
+    <div class="tt-tags" id="ttt"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════
+// CONSTANTS
+// ═══════════════════════════════════════════════════════════════
+const CATS=[
+  "Ecosystem hub","Animal integration","Canopy tree","Mid-layer tree",
+  "Pioneer species","Shrub","Groundcover","Climber","Nitrogen fixer",
+  "Grass & grain","Aquatic & wetland","Medicinal","Industrial & fiber"
+];
+const CCOLOR={
+  "Ecosystem hub":    "#FF6B35",
+  "Animal integration":"#C84070",
+  "Canopy tree":      "#2D6A4F",
+  "Mid-layer tree":   "#52B788",
+  "Pioneer species":  "#E76F51",
+  "Shrub":            "#95D5B2",
+  "Groundcover":      "#B7E4C7",
+  "Climber":          "#F4A261",
+  "Nitrogen fixer":   "#1D9E75",
+  "Grass & grain":    "#E9C46A",
+  "Aquatic & wetland":"#0096C7",
+  "Medicinal":        "#9B5DE5",
+  "Industrial & fiber":"#8D6E63"
+};
+const TMETA={
+  N:{name:"Nitrogen fixation",  color:"#1D9E75",dash:"6,3",  label:"Plant → SOIL"},
+  M:{name:"Mulch / biomass",    color:"#BA7517",dash:"4,4",  label:"Plant → SOIL"},
+  F:{name:"Companion / guild",  color:"#378ADD",dash:"",     label:"Plant ↔ Plant"},
+  H:{name:"Hostile / allelopathy",color:"#D85A30",dash:"",  label:"Plant → Plant"},
+  S:{name:"Succession",         color:"#7F77DD",dash:"8,3",  label:"Pioneer → Climax"},
+  W:{name:"Water relationship", color:"#0848A0",dash:"3,3",  label:"Plant → WATER"},
+  C:{name:"Canopy / shade",     color:"#4A8010",dash:"5,2",  label:"Tall → Understory"},
+  A:{name:"Animal integration", color:"#C84070",dash:"",     label:"Plant ↔ Animal"}
+};
+const CPOS={
+  "Ecosystem hub":    [.50,.50],
+  "Animal integration":[.82,.22],
+  "Canopy tree":      [.32,.13],
+  "Mid-layer tree":   [.58,.18],
+  "Pioneer species":  [.18,.22],
+  "Shrub":            [.50,.40],
+  "Groundcover":      [.50,.62],
+  "Climber":          [.76,.44],
+  "Nitrogen fixer":   [.20,.38],
+  "Grass & grain":    [.15,.60],
+  "Aquatic & wetland":[.40,.82],
+  "Medicinal":        [.82,.65],
+  "Industrial & fiber":[.72,.78]
+};
+const HUBS=new Set(["SOIL","WATER","PIONEER ZONE","CLIMAX ZONE"]);
+
+// ═══════════════════════════════════════════════════════════════
+// NODES
+// ═══════════════════════════════════════════════════════════════
+const ND=[
+// ── Ecosystem Hubs ──
+{id:"SOIL",           cat:"Ecosystem hub"},
+{id:"WATER",          cat:"Ecosystem hub"},
+{id:"PIONEER ZONE",   cat:"Ecosystem hub"},
+{id:"CLIMAX ZONE",    cat:"Ecosystem hub"},
+// ── Animal Integration ──
+{id:"Chickens",       cat:"Animal integration"},
+{id:"Ducks",          cat:"Animal integration"},
+{id:"Bumblebees",     cat:"Animal integration"},
+{id:"Birds & Pigeons",cat:"Animal integration"},
+{id:"Fish & Silkworms",cat:"Animal integration"},
+// ── Canopy Trees ──
+{id:"Date Palm",      cat:"Canopy tree"},
+{id:"Bunya Pine",     cat:"Canopy tree"},
+{id:"Casuarina",      cat:"Canopy tree"},
+{id:"Leucaena",       cat:"Canopy tree"},
+{id:"Acacia",         cat:"Canopy tree"},
+{id:"Albizia",        cat:"Canopy tree"},
+{id:"Tipuana",        cat:"Canopy tree"},
+{id:"Camphor Laurel", cat:"Canopy tree"},
+{id:"Willow",         cat:"Canopy tree"},
+{id:"Bamboo",         cat:"Canopy tree"},
+{id:"Ficus",          cat:"Canopy tree"},
+{id:"Jackfruit",      cat:"Canopy tree"},
+{id:"Sesbania",       cat:"Canopy tree"},
+{id:"Mesquite",       cat:"Canopy tree"},
+{id:"Jerusalem Thorn",cat:"Canopy tree"},
+{id:"Ice Cream Bean", cat:"Canopy tree"},
+{id:"Moringa",        cat:"Canopy tree"},
+{id:"Tamarisk",       cat:"Canopy tree"},
+{id:"Red Cedar",      cat:"Canopy tree"},
+{id:"Mulberry",       cat:"Canopy tree"},
+{id:"Silky Oak",      cat:"Canopy tree"},
+{id:"Palms",          cat:"Canopy tree"},
+{id:"Douglas Fir",    cat:"Canopy tree", iso:true},
+{id:"Hoop Pine",      cat:"Canopy tree", iso:true},
+{id:"Silver Birch",   cat:"Canopy tree", iso:true},
+// ── Mid-layer Trees ──
+{id:"Citrus",         cat:"Mid-layer tree"},
+{id:"Fig",            cat:"Mid-layer tree"},
+{id:"Pomegranate",    cat:"Mid-layer tree"},
+{id:"Olive",          cat:"Mid-layer tree"},
+{id:"Mango",          cat:"Mid-layer tree"},
+{id:"Avocado",        cat:"Mid-layer tree"},
+{id:"Macadamia",      cat:"Mid-layer tree"},
+{id:"Coffee",         cat:"Mid-layer tree"},
+{id:"Apricot",        cat:"Mid-layer tree"},
+{id:"Neem",           cat:"Mid-layer tree"},
+{id:"Tagasaste",      cat:"Mid-layer tree"},
+{id:"Pigeon Pea",     cat:"Mid-layer tree"},
+{id:"Banana",         cat:"Mid-layer tree"},
+{id:"Papaya",         cat:"Mid-layer tree"},
+{id:"Stone Fruits",   cat:"Mid-layer tree"},
+{id:"Blueberries",    cat:"Mid-layer tree"},
+{id:"Guava",          cat:"Mid-layer tree", iso:true},
+{id:"Hazelnut",       cat:"Mid-layer tree", iso:true},
+{id:"Custard Apple",  cat:"Mid-layer tree", iso:true},
+{id:"Brazil Cherry",  cat:"Mid-layer tree", iso:true},
+// ── Pioneer Species ──
+{id:"Lantana",        cat:"Pioneer species"},
+{id:"Blackberry",     cat:"Pioneer species"},
+{id:"Wild Tobacco",   cat:"Pioneer species"},
+{id:"Privet",         cat:"Pioneer species"},
+{id:"Creosote Bush",  cat:"Pioneer species"},
+{id:"Parthenium",     cat:"Pioneer species"},
+{id:"Thistles",       cat:"Pioneer species", iso:true},
+{id:"Bracken Fern",   cat:"Pioneer species", iso:true},
+// ── Shrubs ──
+{id:"Comfrey",        cat:"Shrub"},
+{id:"Nasturtium",     cat:"Shrub"},
+{id:"Singapore Daisy",cat:"Shrub"},
+{id:"Coprosma",       cat:"Shrub",           iso:true},
+// ── Medicinal ──
+{id:"Wormwood",       cat:"Medicinal"},
+{id:"Lemongrass",     cat:"Medicinal"},
+{id:"Aloe Vera",      cat:"Medicinal",       iso:true},
+{id:"Sheep Sorrel",   cat:"Medicinal",       iso:true},
+{id:"Sacred Basil",   cat:"Medicinal",       iso:true},
+{id:"Curry-leaf Tree",cat:"Medicinal",       iso:true},
+// ── Groundcovers ──
+{id:"Sweet Potato",   cat:"Groundcover"},
+{id:"Ice Plant",      cat:"Groundcover"},
+{id:"Sea Purslane",   cat:"Groundcover"},
+{id:"Carrots",        cat:"Groundcover"},
+{id:"Radish",         cat:"Groundcover"},
+{id:"Strawberries",   cat:"Groundcover",     iso:true},
+{id:"Brazil Spinach", cat:"Groundcover",     iso:true},
+{id:"Lettuce",        cat:"Groundcover",     iso:true},
+{id:"Brassicas",      cat:"Groundcover",     iso:true},
+{id:"Pumpkin & Squash",cat:"Groundcover",    iso:true},
+{id:"Cassava",        cat:"Groundcover",     iso:true},
+{id:"Garlic & Onions",cat:"Groundcover",     iso:true},
+{id:"Asparagus",      cat:"Groundcover",     iso:true},
+// ── Climbers ──
+{id:"Climbing Yam",   cat:"Climber"},
+{id:"Dragon Fruit",   cat:"Climber"},
+{id:"Grapes",         cat:"Climber"},
+{id:"Passion Fruit",  cat:"Climber"},
+{id:"Choko",          cat:"Climber"},
+{id:"Ipomoea",        cat:"Climber"},
+{id:"Kiwi",           cat:"Climber",         iso:true},
+// ── Nitrogen Fixers ──
+{id:"Red Clover",     cat:"Nitrogen fixer"},
+{id:"Cowpea",         cat:"Nitrogen fixer"},
+{id:"Vetch",          cat:"Nitrogen fixer"},
+{id:"Lupin",          cat:"Nitrogen fixer"},
+{id:"Field Pea",      cat:"Nitrogen fixer"},
+{id:"Fava Beans",     cat:"Nitrogen fixer"},
+{id:"Alfalfa",        cat:"Nitrogen fixer"},
+{id:"Pinto Peanut",   cat:"Nitrogen fixer"},
+// ── Grasses & Grains ──
+{id:"Sorghum",        cat:"Grass & grain"},
+{id:"Corn",           cat:"Grass & grain"},
+{id:"Wheat & Barley", cat:"Grass & grain"},
+{id:"Rice",           cat:"Grass & grain"},
+{id:"Wild Rice",      cat:"Grass & grain"},
+{id:"Vetiver",        cat:"Grass & grain"},
+{id:"Bana Grass",     cat:"Grass & grain"},
+// ── Aquatic & Wetland ──
+{id:"Reeds",          cat:"Aquatic & wetland"},
+{id:"Duckweed",       cat:"Aquatic & wetland"},
+{id:"Water Hyacinth", cat:"Aquatic & wetland"},
+{id:"Water Chestnut", cat:"Aquatic & wetland"},
+{id:"Kang Kong",      cat:"Aquatic & wetland"},
+{id:"Taro",           cat:"Aquatic & wetland"},
+{id:"Papyrus",        cat:"Aquatic & wetland"},
+{id:"Lilies",         cat:"Aquatic & wetland"},
+// ── Industrial & Fiber ──
+{id:"Sugar Cane",     cat:"Industrial & fiber"},
+{id:"Cotton",         cat:"Industrial & fiber"},
+// ── Misc/Shrub food ──
+{id:"Jasmine",        cat:"Shrub",           iso:true},
+{id:"Tomato",         cat:"Shrub",           iso:true},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// LINKS
+// ═══════════════════════════════════════════════════════════════
+const LD=[
+// ── N – Nitrogen fixation ──────────────────────────────────────
+{source:"Leucaena",      target:"SOIL",  type:"N",note:"38% green leaf protein; Rhizobium nodules; pollarded chop-and-drop; medium-term 10-15yr"},
+{source:"Acacia",        target:"SOIL",  type:"N",note:"Fast pioneer N-fixer 7-12yr; compost corridors form when roots die"},
+{source:"Casuarina",     target:"SOIL",  type:"N",note:"Fixes N via Frankia bacteria AND phosphate via mycorrhizal fungi — unique dual fixer"},
+{source:"Albizia",       target:"SOIL",  type:"N",note:"Long-term deciduous overstory legume; winter leaf pulse provides N"},
+{source:"Tipuana",       target:"SOIL",  type:"N",note:"Long-term overstory legume (100+yr); stable N input for permanent food forests"},
+{source:"Sesbania",      target:"SOIL",  type:"N",note:"Fast-growing 7-yr legume; stem + root nodules; immediate N input"},
+{source:"Mesquite",      target:"SOIL",  type:"N",note:"Deep-tap pioneer N-fixer; roots to 48m; hydraulic lift brings subsoil water"},
+{source:"Jerusalem Thorn",target:"SOIL", type:"N",note:"Spiky arid pioneer legume; branches buried in spiky pits become deep soil"},
+{source:"Ice Cream Bean",target:"SOIL",  type:"N",note:"Fast N-fixer; nurse tree for swale food forests; biomass for mulch"},
+{source:"Moringa",       target:"SOIL",  type:"N",note:"Deep taproot mines subsoil Ca, K, Mg; leaf litter C:N ~20:1 fast mineralisation"},
+{source:"Tagasaste",     target:"SOIL",  type:"N",note:"Classic Mediterranean N-fixer; regrows vigorously after cutting; 50-150 kg N/ha/yr"},
+{source:"Pigeon Pea",    target:"SOIL",  type:"N",note:"Edible dhal pea; Bradyrhizobium nodules; also mobilises Fe-bound phosphate"},
+{source:"Red Clover",    target:"SOIL",  type:"N",note:"100-200 kg N/ha/yr; requires long-tongued Bombus pollinator for seed set"},
+{source:"Cowpea",        target:"SOIL",  type:"N",note:"Summer cover crop; 50-150 kg N/ha in 60-90 days; fast establishment"},
+{source:"Vetch",         target:"SOIL",  type:"N",note:"Winter legume mix for high rampancy and soil improvement"},
+{source:"Lupin",         target:"SOIL",  type:"N",note:"Winter legume; fixes N AND mobilises phosphate in alkaline soils"},
+{source:"Field Pea",     target:"SOIL",  type:"N",note:"Winter cover crop legume; green manure; spring N release"},
+{source:"Fava Beans",    target:"SOIL",  type:"N",note:"Winter carbon + N crop; dual mulch + N-fixation function"},
+{source:"Alfalfa",       target:"SOIL",  type:"N",note:"Fast-degrading N-rich mulch; feeds soil rapidly; pair with high-carbon layer"},
+{source:"Pinto Peanut",  target:"SOIL",  type:"N",note:"Prostrate legume; fixes N; replaces grass on roadsides and stabilises swales"},
+// ── M – Mulch / biomass ───────────────────────────────────────
+{source:"Willow",        target:"SOIL",  type:"M",note:"High-carbon mulch with bonded N; large cuttings sledgehammered in = fast biomass"},
+{source:"Bamboo",        target:"SOIL",  type:"M",note:"High-silica carbon mulch; slow decomposition; weed suppression under drip line"},
+{source:"Corn",          target:"SOIL",  type:"M",note:"High-carbon biomass from stalks; dual food + mulch carbon crop"},
+{source:"Sorghum",       target:"SOIL",  type:"M",note:"High-carbon crop; slow-break mulch for soil; seed for chickens"},
+{source:"Comfrey",       target:"SOIL",  type:"M",note:"Deep mineral accumulator K=3.5% DW; chop-and-drop fertiliser; compost activator"},
+{source:"Bana Grass",    target:"SOIL",  type:"M",note:"80-150t/ha/yr fresh biomass; continuously cut for mulch inside soakage pits"},
+{source:"Banana",        target:"SOIL",  type:"M",note:"Leaves = high-volume organic sheet mulch; stems used in banana circles"},
+{source:"Wheat & Barley",target:"SOIL",  type:"M",note:"High-carbon straws C:N 150:1; slow decomposition; long-term mulch layer"},
+{source:"Singapore Daisy",target:"SOIL", type:"M",note:"Traps dead mulch; builds fungal-dominated soil crumb structure underneath"},
+{source:"Macadamia",     target:"SOIL",  type:"M",note:"Shells used as deep carbon mulch for surrounding trees"},
+{source:"Reeds",         target:"SOIL",  type:"M",note:"Harvested reeds used as non-toxic nutrient-rich mulch after filtration duty"},
+{source:"Date Palm",     target:"SOIL",  type:"M",note:"Palm fronds and detritus = high-phosphate slow-release mulch via VAM fungi"},
+{source:"Leucaena",      target:"SOIL",  type:"M",note:"Chop-and-drop; 38% protein green material; 'vegan compost' manure replacement"},
+{source:"Ice Plant",     target:"SOIL",  type:"M",note:"Succulent matter builds organic layer; can create soil on bare rock surfaces"},
+{source:"Cotton",        target:"SOIL",  type:"M",note:"Grown for soil mass; leaves contribute organic matter; hardy in extreme heat"},
+{source:"Sugar Cane",    target:"SOIL",  type:"M",note:"Leaf trash and chaff provide carbon mulch; simultaneous poultry forage"},
+{source:"Ficus",         target:"SOIL",  type:"M",note:"Continuous falling leaf mulch near chicken pens; chickens kick into compost"},
+{source:"Palms",         target:"SOIL",  type:"M",note:"Palm frond detritus = phosphate-rich slow-release mulch in palm circles"},
+{source:"Vetiver",       target:"SOIL",  type:"M",note:"Clumping grass aerial biomass used as mulch; deep roots stabilise banks"},
+{source:"Sea Purslane",  target:"SOIL",  type:"M",note:"Succulent ground cover; decomposes to build organic matter even on bare rock"},
+{source:"Parthenium",    target:"SOIL",  type:"M",note:"Compaction-indicator weed; deep taproot becomes compost corridor improving drainage"},
+// ── F – Companion / guild ─────────────────────────────────────
+{source:"Corn",          target:"Cowpea",       type:"F",note:"Classic intercrop guild; corn depletes N, cowpea restores it; LER>1.2"},
+{source:"Sorghum",       target:"Cowpea",       type:"F",note:"Seed guild; sorghum carbon + cowpea nitrogen synergy; sorgoleone deters weeds"},
+{source:"Casuarina",     target:"Climbing Yam", type:"F",note:"Straight trunk as vertical trellis; vine stress may increase Frankia N fixation"},
+{source:"Casuarina",     target:"Grapes",       type:"F",note:"Vertical trellis for large climbing food vines; wind buffering for vine health"},
+{source:"Casuarina",     target:"Passion Fruit",type:"F",note:"Vertical trellis; whippy silica tops buffer wind while supporting vines"},
+{source:"Casuarina",     target:"Choko",        type:"F",note:"Vertical trellis support for large climbing food vine"},
+{source:"Leucaena",      target:"Coffee",       type:"F",note:"Shade canopy; leaf litter creates preferred acidic humus pH 5.5-6.0 for coffee"},
+{source:"Leucaena",      target:"Dragon Fruit", type:"F",note:"Pollard stumps as structural trellis; litter provides Ca, Mg, P for cactus"},
+{source:"Date Palm",     target:"Citrus",       type:"F",note:"Desert oasis guild; palm reduces solar radiation 30-60%; cuts ET 40-60%"},
+{source:"Date Palm",     target:"Fig",          type:"F",note:"Classic 3-tier arid oasis system documented since Ibn al-Awwam 12th century"},
+{source:"Date Palm",     target:"Pomegranate",  type:"F",note:"Desert polyculture; palm canopy moderates temperature and evapotranspiration"},
+{source:"Date Palm",     target:"Olive",        type:"F",note:"Arid oasis shade polyculture; all prefer dry aerobic conditions"},
+{source:"Banana",        target:"Papaya",       type:"F",note:"Planted together in banana circles and greywater mounds; mutual support"},
+{source:"Pigeon Pea",    target:"Banana",       type:"F",note:"Pigeon pea on mound edges provides N; banana at soakage pit centre"},
+{source:"Nasturtium",    target:"Comfrey",      type:"F",note:"Grown together as perennial groundcovers; create friendly microclimate"},
+{source:"Singapore Daisy",target:"Coffee",      type:"F",note:"Living mulch; cool damp microclimate and fungal soil for understory crops"},
+{source:"Ice Cream Bean",target:"Coffee",       type:"F",note:"Nurse tree canopy; fast biomass and shade enabling coffee establishment"},
+{source:"Apricot",       target:"Fig",          type:"F",note:"Integrated in polycultures to diversify farm income and soil biology"},
+{source:"Apricot",       target:"Pomegranate",  type:"F",note:"Diversify income and soil biology in Mediterranean polycultures"},
+{source:"Radish",        target:"Cowpea",       type:"F",note:"Daikon mixed into cover crops; deep root penetration works alongside legumes"},
+{source:"Blueberries",   target:"Avocado",      type:"F",note:"Anaerobic waterlogged zones suit blueberries; adjacent aerobic mounds for avocado"},
+{source:"Stone Fruits",  target:"CLIMAX ZONE",  type:"F",note:"Productive temperate climax layer in Mediterranean food forest assemblies"},
+{source:"Ipomoea",       target:"WATER",        type:"F",note:"Powerful climber for high-level shade over desert water structures"},
+// ── H – Hostile / allelopathy ──────────────────────────────────
+{source:"Bamboo",        target:"Vetiver",      type:"H",note:"Hair roots dominate landscape; Vetiver must be planted simultaneously or excluded"},
+{source:"Camphor Laurel",target:"PIONEER ZONE", type:"H",note:"Strongly allelopathic 120yr cycle; monoterpene camphor suppresses all understory"},
+{source:"Creosote Bush", target:"PIONEER ZONE", type:"H",note:"NDGA root exudates inhibit NAD-linked enzymes; bare allelopathic ring 1-2m radius"},
+{source:"Tamarisk",      target:"PIONEER ZONE", type:"H",note:"Salt glands deposit NaCl on soil surface in raw state; inhibits competitors"},
+{source:"Corn",          target:"Carrots",      type:"H",note:"High N before carrots = auxin-driven root twisting; plant carrots AFTER corn depletes N"},
+{source:"Lantana",       target:"PIONEER ZONE", type:"H",note:"Lantanolic acid in litter suppresses small-seeded plants in pioneer phase"},
+{source:"Bamboo",        target:"Singapore Daisy",type:"H",note:"Allelopathic drip zone phenolics suppress groundcovers under bamboo canopy"},
+// ── S – Succession ─────────────────────────────────────────────
+{source:"PIONEER ZONE",  target:"CLIMAX ZONE",  type:"S",note:"Core successional flow: pioneers stabilise soil, create conditions for climax"},
+{source:"Mesquite",      target:"Leucaena",     type:"S",note:"Spiky pioneer exits by defoliation; replaced by user-friendly legume"},
+{source:"Jerusalem Thorn",target:"Leucaena",    type:"S",note:"Rugged spiky pioneer cleared; medium-term Leucaena takes the support role"},
+{source:"Acacia",        target:"Silky Oak",    type:"S",note:"Short-lived pioneer N-fixer prepares soil for high-value climax timber"},
+{source:"Lantana",       target:"Red Cedar",    type:"S",note:"Pioneer prepares soil; Red Cedar replanted into Lantana gaps to restore ecology"},
+{source:"Wild Tobacco",  target:"CLIMAX ZONE",  type:"S",note:"Berries attract pigeons; pigeons manure out native rainforest seeds → succession"},
+{source:"Camphor Laurel",target:"CLIMAX ZONE",  type:"S",note:"After 120yr death, ear fungi break allelopathy; triggers rainforest germination"},
+{source:"Blackberry",    target:"CLIMAX ZONE",  type:"S",note:"Scrambling pioneer protects soil; prepares microclimate for forest succession"},
+{source:"Privet",        target:"Coffee",       type:"S",note:"Privet indicates understory niche ready for coffee replacement"},
+{source:"Sesbania",      target:"Albizia",      type:"S",note:"Fast 7-yr pioneer replaced by long-term deciduous overstory legume"},
+{source:"Leucaena",      target:"Citrus",       type:"S",note:"Leucaena builds fungal soil + microclimate; citrus introduced as production crop"},
+{source:"Acacia",        target:"CLIMAX ZONE",  type:"S",note:"Pioneer N + carbon provision enables successive forest stages"},
+// ── W – Water relationship ─────────────────────────────────────
+{source:"Willow",        target:"WATER",        type:"W",note:"Hairnet roots filter excess N from runoff; no taproot = structurally safe for dams"},
+{source:"Reeds",         target:"WATER",        type:"W",note:"Primary reedbed plant; bonds toxins and heavy metals inside carbon body"},
+{source:"Bamboo",        target:"WATER",        type:"W",note:"Clumping roots filter groundwater contamination; safe near water systems"},
+{source:"Date Palm",     target:"WATER",        type:"W",note:"Root nets trap water in arid zone; VAM network reduces evaporation"},
+{source:"Palms",         target:"WATER",        type:"W",note:"Hairnet root system filters water; deployed in palm circles along water path"},
+{source:"Vetiver",       target:"WATER",        type:"W",note:"2.5-3.5m deep roots intercept and filter runoff; bank stabilisation for dams"},
+{source:"Mulberry",      target:"WATER",        type:"W",note:"Shoreline planting; pleached over dams; fruit drops feed fish in pond"},
+{source:"Water Hyacinth",target:"WATER",        type:"W",note:"Extracts N, P, K from polluted water; doubles every 10 days; harvest for compost"},
+{source:"Kang Kong",     target:"WATER",        type:"W",note:"Aquatic leafy green in natural swimming pool; food + biological filtration"},
+{source:"Taro",          target:"WATER",        type:"W",note:"Wet paddy field crop; managed in flooded terraces"},
+{source:"Rice",          target:"WATER",        type:"W",note:"Paddy staple; sustainable in floodable paddy swales and chinampas"},
+{source:"Wild Rice",     target:"WATER",        type:"W",note:"Water polyculture staple; seeds stored underwater over winter"},
+{source:"Papyrus",       target:"WATER",        type:"W",note:"Aquatic filtration species in natural swimming pool biological systems"},
+{source:"Lilies",        target:"WATER",        type:"W",note:"Anchored aquatic plants; habitat and nutrient cycling in ponds up to 2.4m deep"},
+{source:"Tamarisk",      target:"WATER",        type:"W",note:"Salt remediation; locks salt in mulch; builds organic matter in saline flats"},
+{source:"Sweet Potato",  target:"WATER",        type:"W",note:"Planted in greywater soakage pits for biological nutrient extraction"},
+{source:"Duckweed",      target:"WATER",        type:"W",note:"Floating N, P extractor; high-quality duck and fish feed; rapid growth"},
+{source:"Water Chestnut",target:"WATER",        type:"W",note:"Edible aquatic crop; suitable for floodable paddy swale systems"},
+{source:"Lemongrass",    target:"WATER",        type:"W",note:"Integrated in wicking beds; thrives in consistent sub-irrigated moisture"},
+// ── C – Canopy / shade ──────────────────────────────────────────
+{source:"Date Palm",     target:"Citrus",       type:"C",note:"Overstory in arid; reduces solar radiation 30-60%; cuts evapotranspiration 40-60%"},
+{source:"Date Palm",     target:"Fig",          type:"C",note:"3-tier desert oasis system; shade agriculture reduces salinisation risk"},
+{source:"Leucaena",      target:"Coffee",       type:"C",note:"30-40% full sun ideal for coffee peak photosynthesis; legume canopy optimal"},
+{source:"Casuarina",     target:"Climbing Yam", type:"C",note:"Vertical structural support; 10-20m straight trunk as trellis scaffold"},
+{source:"Albizia",       target:"Citrus",       type:"C",note:"Dense summer shade for understory; deciduous winter allows light to garden"},
+{source:"Albizia",       target:"Coffee",       type:"C",note:"High shade in summer; opens in winter for seasonal light management"},
+{source:"Bamboo",        target:"WATER",        type:"C",note:"Shading and cooling dams; bamboo pleached over water reduces evaporation"},
+{source:"Willow",        target:"WATER",        type:"C",note:"Pleached willows shade water bodies; significantly reduces evaporation"},
+{source:"Mulberry",      target:"WATER",        type:"C",note:"Pleaching over dams; shade reduces evaporation; fruit feeds fish"},
+{source:"Ice Cream Bean",target:"Coffee",       type:"C",note:"Nurse tree canopy; fast biomass; shade enables coffee establishment"},
+{source:"Jackfruit",     target:"Coffee",       type:"C",note:"Large tropical canopy; coffee thrives in filtered shade beneath jackfruit"},
+// ── A – Animal integration ──────────────────────────────────────
+{source:"Chickens",      target:"SOIL",         type:"A",note:"1 chicken per 4m² over 6 weeks clears and fertilises bed for planting"},
+{source:"Ducks",         target:"SOIL",         type:"A",note:"Superior slug predators (Muscovies preferred); manure fertilises soil"},
+{source:"Birds & Pigeons",target:"PIONEER ZONE",type:"A",note:"Drop manure and native seeds in pioneer zone; advance succession cycles"},
+{source:"Bumblebees",    target:"Red Clover",   type:"A",note:"Long-tongued Bombus essential pollinator; corolla 8-12mm; nests in rodent burrows"},
+{source:"Fish & Silkworms",target:"WATER",      type:"A",note:"Fish maintain pond quality; silkworms fed mulberry leaves → protein fish food"},
+{source:"Comfrey",       target:"Chickens",     type:"A",note:"Chickens graze comfrey; comfrey recovers quickly; mutual forage relationship"},
+{source:"Pigeon Pea",    target:"Chickens",     type:"A",note:"Hard seed protein forage for chickens; dhal pea also for humans"},
+{source:"Tagasaste",     target:"Chickens",     type:"A",note:"Cut as supplemental chicken feed; classic legume for cool Mediterranean climates"},
+{source:"Leucaena",      target:"Chickens",     type:"A",note:"High-nitrogen green material; gourmet protein feed for poultry and cattle"},
+{source:"Mulberry",      target:"Fish & Silkworms",type:"A",note:"White mulberry foliage → silkworm forage → high-protein fish food production"},
+{source:"Duckweed",      target:"Ducks",        type:"A",note:"High-quality floating feed for ducks; grown on pond surface"},
+{source:"Duckweed",      target:"Fish & Silkworms",type:"A",note:"Nutrient-dense fish feed; N and P absorbed from water passed to fish"},
+{source:"Wild Tobacco",  target:"Birds & Pigeons",type:"A",note:"Berries attract rainforest pigeons; birds drop native seeds advancing succession"},
+{source:"Lantana",       target:"Birds & Pigeons",type:"A",note:"Provides habitat for manure-adding birds; berry-bearing pioneer habitat"},
+{source:"Moringa",       target:"Bumblebees",   type:"A",note:"Mother tree flowers attract wild bees for forest pollination services"},
+{source:"Wormwood",      target:"Chickens",     type:"A",note:"Antiparasitic; powder in chicken nesting boxes deters mites and red lice"},
+{source:"Sorghum",       target:"Chickens",     type:"A",note:"Grain seed provides hard-seed protein feed for chickens in forage guilds"},
+{source:"Sugar Cane",    target:"Chickens",     type:"A",note:"Chaff-cut thin layers as supplemental forage for poultry"},
+{source:"Neem",          target:"Chickens",     type:"A",note:"Natural pesticide shampoo for lice; fire-proof indicator species"},
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DEGREE COMPUTATION
+// ═══════════════════════════════════════════════════════════════
+const DEG={};
+ND.forEach(n=>{DEG[n.id]=0});
+LD.forEach(l=>{DEG[l.source]=(DEG[l.source]||0)+1; DEG[l.target]=(DEG[l.target]||0)+1;});
+
+// ═══════════════════════════════════════════════════════════════
+// SETUP SVG + ZOOM
+// ═══════════════════════════════════════════════════════════════
+const svgEl=document.getElementById("svg");
+const wrap=document.getElementById("canvas-wrap");
+let W=wrap.clientWidth, H=wrap.clientHeight;
+
+const svg=d3.select("#svg");
+const g=svg.append("g").attr("id","mg");
+
+const zoom=d3.zoom().scaleExtent([0.08,10])
+  .on("zoom",e=>g.attr("transform",e.transform));
+svg.call(zoom);
+
+// ── Arrow markers ──────────────────────────────────────────────
+const defs=svg.append("defs");
+Object.entries(TMETA).forEach(([t,m])=>{
+  defs.append("marker").attr("id","arr-"+t)
+    .attr("viewBox","0 -4 9 8").attr("refX",13).attr("refY",0)
+    .attr("markerWidth",6).attr("markerHeight",6).attr("orient","auto")
+  .append("path").attr("d","M0,-4L9,0L0,4").attr("fill",m.color).attr("opacity",.85);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// FORCE SIMULATION
+// ═══════════════════════════════════════════════════════════════
+function nodeR(d){
+  if(HUBS.has(d.id))return 14;
+  return Math.min(4+(DEG[d.id]||0)*1.4,14);
+}
+function charge(d){
+  if(HUBS.has(d.id))return -600;
+  const dg=DEG[d.id]||0;
+  if(dg>8)return -300; if(dg>4)return -180; if(dg>0)return -100; return -40;
+}
+function lDist(l){
+  const t=l.type;
+  if(t==="W"||t==="N"||t==="M")return 160;
+  if(t==="S")return 130; if(t==="C")return 110; if(t==="A")return 120;
+  if(t==="F")return 100; return 90;
+}
+
+const sim=d3.forceSimulation(ND)
+  .force("link",d3.forceLink(LD).id(d=>d.id).distance(lDist).strength(.5))
+  .force("charge",d3.forceManyBody().strength(charge))
+  .force("center",d3.forceCenter(W/2,H/2))
+  .force("collide",d3.forceCollide().radius(d=>nodeR(d)+8))
+  .alphaDecay(.02).velocityDecay(.4);
+
+// ── Links ──────────────────────────────────────────────────────
+let linkG=g.append("g").attr("id","lg");
+let lSel=linkG.selectAll("line").data(LD).join("line")
+  .attr("class","link")
+  .attr("stroke",d=>TMETA[d.type].color)
+  .attr("stroke-width",d=>d.type==="H"?2:1.2)
+  .attr("stroke-opacity",.7)
+  .attr("stroke-dasharray",d=>TMETA[d.type].dash||null)
+  .attr("marker-end",d=>"url(#arr-"+d.type+")");
+
+// ── Nodes ──────────────────────────────────────────────────────
+let nodeG=g.append("g").attr("id","ng");
+let nSel=nodeG.selectAll("g").data(ND).join("g")
+  .attr("class","node")
+  .call(d3.drag()
+    .on("start",(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;})
+    .on("drag", (e,d)=>{d.fx=e.x;d.fy=e.y;})
+    .on("end",  (e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}))
+  .on("click",nodeClick).on("mouseover",nodeHover).on("mouseout",nodeOut);
+
+nSel.append("circle")
+  .attr("r",d=>nodeR(d))
+  .attr("fill",d=>CCOLOR[d.cat])
+  .attr("stroke",d=>HUBS.has(d.id)?"#2a2a2a":"white")
+  .attr("stroke-width",d=>HUBS.has(d.id)?2:1.2);
+
+nSel.append("text")
+  .text(d=>d.id)
+  .attr("dy",d=>nodeR(d)+10)
+  .attr("text-anchor","middle")
+  .attr("font-size",d=>HUBS.has(d.id)?"11px":"8.5px")
+  .attr("font-weight",d=>HUBS.has(d.id)?"700":"400")
+  .attr("fill",d=>d.iso?"#445":"#ddd")
+  .style("paint-order","stroke")
+  .style("-webkit-text-stroke","2.5px #0d1117");
+
+sim.on("tick",()=>{
+  lSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y)
+      .attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  nSel.attr("transform",d=>`translate(${d.x},${d.y})`);
+});
+
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+let hideIso=false, clusterOn=false, selNode=null;
+let atypes=new Set(Object.keys(TMETA));
+let acats=new Set(CATS);
+let srch="";
+
+// ═══════════════════════════════════════════════════════════════
+// TOOLTIP
+// ═══════════════════════════════════════════════════════════════
+const ttEl=document.getElementById("tooltip");
+function gId(id){return document.getElementById(id);}
+function sid(l){return typeof l.source==="object"?l.source.id:l.source;}
+function tid(l){return typeof l.target==="object"?l.target.id:l.target;}
+
+function nodeHover(event,d){
+  const deg=DEG[d.id]||0;
+  const types=[...new Set(LD.filter(l=>sid(l)===d.id||tid(l)===d.id).map(l=>l.type))];
+  gId("ttn").textContent=d.id;
+  gId("ttc").textContent=d.cat+(d.iso?" · ⚠ isolated":"");
+  gId("ttd").textContent=`${deg} connection${deg!==1?"s":""}`;
+  gId("ttt").innerHTML=types.map(t=>`<span class="tt-tag" style="background:${TMETA[t].color}22;color:${TMETA[t].color};border:1px solid ${TMETA[t].color}44">${TMETA[t].name}</span>`).join("");
+  ttEl.style.display="block";
+  posTooltip(event);
+}
+function nodeOut(){ttEl.style.display="none";}
+function posTooltip(e){
+  const ox=e.clientX-document.getElementById("sidebar").offsetWidth;
+  const oy=e.clientY;
+  ttEl.style.left=(ox+16>W-250?ox-256:ox+16)+"px";
+  ttEl.style.top =(oy+16>H-100?oy-110:oy+16)+"px";
+}
+svg.on("mousemove",e=>{if(ttEl.style.display==="block")posTooltip(e);});
+
+// ═══════════════════════════════════════════════════════════════
+// INFO PANEL
+// ═══════════════════════════════════════════════════════════════
+const ip=document.getElementById("info-panel");
+gId("ipc").onclick=()=>{selNode=null;ip.style.display="none";clearHL();};
+svg.on("click",()=>{selNode=null;ip.style.display="none";clearHL();});
+
+function nodeClick(event,d){
+  event.stopPropagation();
+  if(selNode===d.id){selNode=null;ip.style.display="none";clearHL();return;}
+  selNode=d.id;
+  showIP(d);
+  hlNode(d.id);
+}
+
+function showIP(d){
+  gId("ipn").textContent=d.id;
+  gId("ipt").textContent=d.cat+(d.iso?" · ⚠ no documented relationships — grouped for later analysis":"");
+  const rels=LD.filter(l=>sid(l)===d.id||tid(l)===d.id);
+  const grp={};
+  rels.forEach(l=>{
+    if(!grp[l.type])grp[l.type]=[];
+    const s=sid(l),t=tid(l),partner=s===d.id?t:s,dir=s===d.id?"→":"←";
+    grp[l.type].push({partner,dir,note:l.note});
+  });
+  let html="";
+  Object.entries(grp).forEach(([tp,items])=>{
+    html+=`<div class="ip-section" style="color:${TMETA[tp].color}">${TMETA[tp].name} <span style="font-weight:300;font-size:9px;color:${TMETA[tp].color}88">${TMETA[tp].label}</span></div>`;
+    items.forEach(it=>{
+      html+=`<div class="ip-rel"><span class="ip-dir" style="color:${TMETA[tp].color}">${it.dir}</span> <span class="ip-partner">${it.partner}</span><div class="ip-note">${it.note}</div></div>`;
+    });
+  });
+  if(!html)html=`<div class="ip-empty">No documented ecological relationship found in source document.<br>Included for completeness. Candidate for further research.</div>`;
+  gId("ipr").innerHTML=html;
+  ip.style.display="block";
+}
+
+function hlNode(id){
+  const nbrs=new Set([id]);
+  LD.forEach(l=>{const s=sid(l),t=tid(l);if(s===id)nbrs.add(t);if(t===id)nbrs.add(s);});
+  nSel.select("circle").style("opacity",nd=>nbrs.has(nd.id)?null:.07);
+  nSel.select("text").style("opacity",nd=>nbrs.has(nd.id)?null:.05);
+  lSel.style("opacity",l=>(sid(l)===id||tid(l)===id)?.9:.04);
+}
+function clearHL(){
+  nSel.select("circle").style("opacity",null);
+  nSel.select("text").style("opacity",null);
+  lSel.style("opacity",null);
+  applyFilters();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SIDEBAR — TYPE FILTERS
+// ═══════════════════════════════════════════════════════════════
+const tfEl=gId("type-filter");
+Object.entries(TMETA).forEach(([tp,m])=>{
+  const cnt=LD.filter(l=>l.type===tp).length;
+  const row=document.createElement("div");
+  row.className="type-row";
+  row.innerHTML=`<span class="swatch" style="background:${m.color}"></span><span class="row-name">${m.name}</span><span class="row-count">${cnt}</span>`;
+  row.onclick=()=>{atypes.has(tp)?atypes.delete(tp):atypes.add(tp);row.classList.toggle("off",!atypes.has(tp));applyFilters();};
+  tfEl.appendChild(row);
+});
+
+// ── Category filters ──────────────────────────────────────────
+const cfEl=gId("cat-filter");
+CATS.forEach(cat=>{
+  const cnt=ND.filter(n=>n.cat===cat).length;
+  const row=document.createElement("div");
+  row.className="cat-row";
+  row.innerHTML=`<span class="dot" style="background:${CCOLOR[cat]}"></span><span class="row-name">${cat}</span><span class="row-count">${cnt}</span>`;
+  row.onclick=()=>{acats.has(cat)?acats.delete(cat):acats.add(cat);row.classList.toggle("off",!acats.has(cat));applyFilters();};
+  cfEl.appendChild(row);
+});
+
+// ── Search ────────────────────────────────────────────────────
+gId("search").oninput=function(){srch=this.value.toLowerCase().trim();applyFilters();};
+
+// ── Buttons ───────────────────────────────────────────────────
+gId("btn-iso").onclick=function(){
+  hideIso=!hideIso;this.classList.toggle("on",hideIso);
+  this.textContent=hideIso?"Show isolated":"Hide isolated";applyFilters();
+};
+gId("btn-cluster").onclick=function(){
+  clusterOn=!clusterOn;this.classList.toggle("on",clusterOn);
+  this.textContent=clusterOn?"Uncluster":"Cluster";applyCluster();
+};
+gId("btn-reset").onclick=()=>{
+  atypes=new Set(Object.keys(TMETA));acats=new Set(CATS);srch="";
+  hideIso=false;clusterOn=false;
+  gId("search").value="";
+  document.querySelectorAll(".type-row,.cat-row").forEach(r=>r.classList.remove("off"));
+  gId("btn-iso").classList.remove("on");gId("btn-iso").textContent="Hide isolated";
+  gId("btn-cluster").classList.remove("on");gId("btn-cluster").textContent="Cluster";
+  sim.force("clusterX",null).force("clusterY",null);
+  sim.alpha(.4).restart();
+  applyFilters();
+};
+
+// ═══════════════════════════════════════════════════════════════
+// APPLY FILTERS
+// ═══════════════════════════════════════════════════════════════
+function applyFilters(){
+  const vis=new Set();
+  nSel.each(function(d){
+    const ok=acats.has(d.cat)&&!(hideIso&&d.iso)&&(!srch||d.id.toLowerCase().includes(srch));
+    if(ok)vis.add(d.id);
+    d3.select(this).select("circle").style("opacity",ok?null:.07);
+    d3.select(this).select("text").style("opacity",ok?null:.04);
+  });
+  lSel.each(function(l){
+    const ok=atypes.has(l.type)&&vis.has(sid(l))&&vis.has(tid(l));
+    d3.select(this).style("opacity",ok?.7:.03);
+  });
+  updateStats(vis);
+}
+
+function updateStats(vis){
+  const vn=vis?vis.size:ND.length;
+  const vl=LD.filter(l=>atypes.has(l.type)&&(!vis||(vis.has(sid(l))&&vis.has(tid(l))))).length;
+  let mx="–",mxd=0;ND.forEach(n=>{if((DEG[n.id]||0)>mxd){mxd=DEG[n.id];mx=n.id;}});
+  const isoCount=ND.filter(n=>n.iso).length;
+  gId("sv").textContent=`${vn} / ${ND.length}`;
+  gId("sl").textContent=`${vl} / ${LD.length}`;
+  gId("sm").textContent=`${mx} (${mxd})`;
+  gId("si").textContent=`${isoCount} plants`;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CLUSTER MODE
+// ═══════════════════════════════════════════════════════════════
+function applyCluster(){
+  if(!clusterOn){sim.force("clusterX",null).force("clusterY",null);}
+  else{
+    sim.force("clusterX",d3.forceX(d=>{const p=CPOS[d.cat];return p?p[0]*W:W/2;}).strength(.2))
+       .force("clusterY",d3.forceY(d=>{const p=CPOS[d.cat];return p?p[1]*H:H/2;}).strength(.2));
+  }
+  sim.alpha(.4).restart();
+}
+
+// ── Initial counts ─────────────────────────────────────────────
+gId("nc").textContent=ND.length;
+gId("lc").textContent=LD.length;
+updateStats(null);
+
+// ═══════════════════════════════════════════════════════════════
+// RESIZE
+// ═══════════════════════════════════════════════════════════════
+window.onresize=()=>{
+  W=wrap.clientWidth;H=wrap.clientHeight;
+  sim.force("center",d3.forceCenter(W/2,H/2));
+  sim.alpha(.2).restart();
+};
+</script>
+</body>
+</html>
