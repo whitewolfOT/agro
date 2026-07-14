@@ -86,9 +86,15 @@ def enrich(merged_path: str):
     out.mkdir(exist_ok=True)
 
     nodes = json.loads((out / "master_nodes.json").read_text(encoding="utf-8"))
-    edges = json.loads((out / "master_edges.json").read_text(encoding="utf-8"))
 
-    original_edge_count = len(edges)
+    # Resume from enriched_edges.json if it exists (previous partial run)
+    enriched_path = out / "enriched_edges.json"
+    if enriched_path.exists():
+        edges = json.loads(enriched_path.read_text(encoding="utf-8"))
+    else:
+        edges = json.loads((out / "master_edges.json").read_text(encoding="utf-8"))
+
+    original_edge_count = sum(1 for e in edges if not e.get("origin") == "enriched")
 
     # ── Step 2: backfill origin on existing edges ─────────────────────────────
     edges = _backfill_origin(edges)
@@ -117,9 +123,16 @@ def enrich(merged_path: str):
         _token_file = "/home/claude/.claude/remote/.session_ingress_token"
         session_token = open(_token_file).read().strip()
         client = anthropic.Anthropic(auth_token=session_token)
+    # Batches already completed in a previous run
+    completed_batches: set[int] = {
+        int(e["source_id"].split("_")[-1])
+        for e in edges
+        if str(e.get("source_id", "")).startswith("scientific_enrichment_batch_")
+    }
+
     report_rows = []
     error_log_lines = []
-    new_edges_added  = 0
+    new_edges_added  = sum(1 for e in edges if e.get("origin") == "enriched")
     errors = 0
 
     for batch_num, batch in enumerate(batches, start=1):
@@ -134,13 +147,33 @@ def enrich(merged_path: str):
         relationships_new      = 0
         relationships_skipped  = 0
 
+        # Skip batches already completed in a prior run
+        if batch_num in completed_batches:
+            report_rows.append({
+                "batch": batch_num, "plants_in_batch": len(batch),
+                "relationships_returned": "resumed", "relationships_new": 0,
+                "relationships_skipped": 0,
+            })
+            continue
+
         try:
-            response = client.messages.create(
-                model="claude-sonnet-4-6",
-                max_tokens=MAX_TOKENS,
-                system=SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": user_msg}],
-            )
+            # Retry up to 4 times with exponential backoff on 429
+            _delay = 15
+            for _attempt in range(4):
+                try:
+                    response = client.messages.create(
+                        model="claude-sonnet-4-6",
+                        max_tokens=MAX_TOKENS,
+                        system=SYSTEM_PROMPT,
+                        messages=[{"role": "user", "content": user_msg}],
+                    )
+                    break
+                except anthropic.RateLimitError:
+                    if _attempt == 3:
+                        raise
+                    print(f"  429 batch {batch_num}, retrying in {_delay}s…", file=sys.stderr)
+                    time.sleep(_delay)
+                    _delay *= 2
             raw_text = response.content[0].text
 
             try:
