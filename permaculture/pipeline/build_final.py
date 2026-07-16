@@ -76,6 +76,13 @@ def run(out_dir: str = "output"):
     nodes = json.loads((out / "master_nodes.json").read_text(encoding="utf-8"))
     edges = json.loads((out / "final_edges.json").read_text(encoding="utf-8"))
 
+    # ── Clean edges: drop any whose endpoints are missing from master_nodes ──
+    node_ids = {n["id"] for n in nodes}
+    edges_before = len(edges)
+    edges = [e for e in edges if e["source"] in node_ids and e["target"] in node_ids]
+    edges_removed = edges_before - len(edges)
+    print(f"edges removed (dangling endpoints): {edges_removed}", file=sys.stderr)
+
     d3_src = _fetch_d3()
     print(f"D3 source: {len(d3_src):,} bytes", file=sys.stderr)
 
@@ -111,10 +118,18 @@ def run(out_dir: str = "output"):
     if size_kb < 500:
         raise RuntimeError(f"Output too small: {size_kb:.1f} KB (expected > 500 KB)")
 
-    return {"file_size_kb": round(size_kb, 1)}
+    return {
+        "nodes_count":   len(nodes),
+        "edges_before":  edges_before,
+        "edges_after":   len(edges),
+        "file_size_kb":  round(size_kb, 1),
+    }
 
 
 if __name__ == "__main__":
     stats = run()
+    print(f"nodes_count={stats['nodes_count']}")
+    print(f"edges_before={stats['edges_before']}")
+    print(f"edges_after={stats['edges_after']}")
     print(f"file_size_kb={stats['file_size_kb']}")
     print("PASS")
