@@ -126,7 +126,10 @@ let searchTerm = "";
 let selectedNode = null;
 
 // ── SETUP ─────────────────────────────────────────────────────────────────────
-const svg    = d3.select("#svg");
+const W = window.innerWidth;
+const H = window.innerHeight;
+
+const svg    = d3.select("#svg").attr("width", W).attr("height", H);
 const width  = () => document.getElementById("container").clientWidth;
 const height = () => document.getElementById("container").clientHeight;
 
@@ -175,10 +178,12 @@ const simulation = d3.forceSimulation(RAW_NODES)
     .distance(d => d.type === "hostile" ? 120 : 80)
     .strength(0.4))
   .force("charge", d3.forceManyBody().strength(-180).distanceMax(400))
-  .force("center", d3.forceCenter(0, 0))
+  .force("center", d3.forceCenter(W / 2, H / 2))
   .force("collide", d3.forceCollide(d => nodeCfg(d).r + 4))
   .alphaDecay(0.025)
   .on("tick", ticked);
+
+console.log("nodes:", RAW_NODES.length, "edges:", RAW_EDGES.length);
 
 let linkSel, nodeSel;
 
@@ -345,7 +350,7 @@ document.getElementById("search").addEventListener("input", e => {
 // ── INIT ──────────────────────────────────────────────────────────────────────
 buildGraph();
 buildLegend();
-update();
+setTimeout(() => update(), 500);
 
 // fit to screen after initial layout
 setTimeout(() => {
