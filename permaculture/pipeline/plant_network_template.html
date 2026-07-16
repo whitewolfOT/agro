@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Agronomy Network</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #0f1117; color: #e2e8f0; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  #toolbar {
+    display: flex; align-items: center; gap: 10px; padding: 8px 14px;
+    background: #1a1d27; border-bottom: 1px solid #2d3148; flex-shrink: 0; flex-wrap: wrap;
+  }
+  #toolbar h1 { font-size: 14px; font-weight: 600; color: #a78bfa; margin-right: 6px; white-space: nowrap; }
+  #search { background: #252836; border: 1px solid #3d4166; border-radius: 6px; color: #e2e8f0; padding: 4px 10px; font-size: 13px; width: 180px; }
+  #search::placeholder { color: #6b7280; }
+  .filter-group { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip {
+    padding: 3px 10px; border-radius: 20px; font-size: 11px; cursor: pointer;
+    border: 1px solid transparent; transition: all 0.15s; user-select: none; white-space: nowrap;
+  }
+  .chip.active { opacity: 1; border-color: currentColor; }
+  .chip:not(.active) { opacity: 0.35; }
+  #stats { font-size: 11px; color: #6b7280; margin-left: auto; white-space: nowrap; }
+
+  #container { flex: 1; position: relative; overflow: hidden; }
+  svg { width: 100%; height: 100%; }
+
+  .node circle { stroke-width: 1.5px; cursor: pointer; transition: r 0.1s; }
+  .node text { pointer-events: none; font-size: 10px; fill: #cbd5e1; text-anchor: middle; dominant-baseline: central; }
+  .node.highlighted circle { stroke-width: 3px; filter: drop-shadow(0 0 6px currentColor); }
+  .node.dimmed { opacity: 0.12; }
+
+  .link { stroke-opacity: 0.55; }
+  .link.dimmed { stroke-opacity: 0.04; }
+
+  #tooltip {
+    position: absolute; background: #1e2130; border: 1px solid #3d4166;
+    border-radius: 8px; padding: 10px 14px; font-size: 12px; pointer-events: none;
+    max-width: 280px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 10;
+  }
+  #tooltip h3 { font-size: 13px; color: #a78bfa; margin-bottom: 6px; }
+  #tooltip .row { display: flex; gap: 6px; margin-bottom: 3px; }
+  #tooltip .label { color: #6b7280; min-width: 70px; }
+  #tooltip .val { color: #e2e8f0; }
+
+  #legend {
+    position: absolute; bottom: 14px; left: 14px; background: #1a1d2788;
+    border: 1px solid #2d3148; border-radius: 8px; padding: 10px 14px; font-size: 11px;
+    backdrop-filter: blur(4px);
+  }
+  #legend .le { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+  #legend .swatch { width: 26px; height: 3px; border-radius: 2px; }
+  #legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  #controls {
+    position: absolute; bottom: 14px; right: 14px; display: flex; flex-direction: column; gap: 6px;
+  }
+  #controls button {
+    width: 32px; height: 32px; background: #252836; border: 1px solid #3d4166;
+    border-radius: 6px; color: #e2e8f0; font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  #controls button:hover { background: #3d4166; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <h1>🌿 Plant Agronomy Network</h1>
+  <input id="search" type="text" placeholder="Search plant…">
+  <div class="filter-group" id="edge-filters"></div>
+  <span id="stats"></span>
+</div>
+
+<div id="container">
+  <svg id="svg"></svg>
+  <div id="tooltip"></div>
+  <div id="legend" id="legend"></div>
+  <div id="controls">
+    <button id="btn-zoom-in" title="Zoom in">+</button>
+    <button id="btn-zoom-out" title="Zoom out">−</button>
+    <button id="btn-reset" title="Reset view">⟲</button>
+  </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+const RAW_NODES = PLACEHOLDER_NODES;
+const RAW_EDGES = PLACEHOLDER_EDGES;
+
+// ── EDGE TYPE CONFIG ──────────────────────────────────────────────────────────
+const EDGE_CFG = {
+  companion:     { color: "#4ade80", label: "Companion" },
+  hostile:       { color: "#f87171", label: "Hostile" },
+  nitrogen_fix:  { color: "#60a5fa", label: "N-fix" },
+  mulch_biomass: { color: "#a3e635", label: "Mulch/Biomass" },
+  soil_exhaust:  { color: "#fb923c", label: "Soil Exhaust" },
+  succession:    { color: "#c084fc", label: "Succession" },
+  water:         { color: "#38bdf8", label: "Water" },
+  canopy_shade:  { color: "#fbbf24", label: "Canopy Shade" },
+  animal:        { color: "#f472b6", label: "Animal" },
+  grafting:      { color: "#94a3b8", label: "Grafting" },
+  windbreak:     { color: "#86efac", label: "Windbreak" },
+};
+
+// ── NODE FORM CONFIG ──────────────────────────────────────────────────────────
+const FORM_CFG = {
+  canopy_tree:     { r: 12, color: "#065f46" },
+  mid_tree:        { r: 9,  color: "#047857" },
+  shrub:           { r: 7,  color: "#059669" },
+  groundcover:     { r: 5,  color: "#10b981" },
+  climber:         { r: 6,  color: "#34d399" },
+  grass_grain:     { r: 5,  color: "#6ee7b7" },
+  aquatic_wetland: { r: 6,  color: "#67e8f9" },
+  palm:            { r: 8,  color: "#0d9488" },
+  succulent:       { r: 5,  color: "#14b8a6" },
+  null:            { r: 5,  color: "#64748b" },
+};
+function nodeCfg(n) { return FORM_CFG[n.form] || FORM_CFG["null"]; }
+
+// ── STATE ─────────────────────────────────────────────────────────────────────
+let activeEdgeTypes = new Set(Object.keys(EDGE_CFG));
+let searchTerm = "";
+let selectedNode = null;
+
+// ── SETUP ─────────────────────────────────────────────────────────────────────
+const svg    = d3.select("#svg");
+const width  = () => document.getElementById("container").clientWidth;
+const height = () => document.getElementById("container").clientHeight;
+
+const zoom = d3.zoom().scaleExtent([0.05, 8]).on("zoom", e => g.attr("transform", e.transform));
+svg.call(zoom);
+const g = svg.append("g");
+
+const defs = svg.append("defs");
+Object.entries(EDGE_CFG).forEach(([type, cfg]) => {
+  ["right","left"].forEach(dir => {
+    const m = defs.append("marker")
+      .attr("id", `arrow-${type}-${dir}`)
+      .attr("markerWidth", 6).attr("markerHeight", 6)
+      .attr("refX", dir === "right" ? 5 : 1)
+      .attr("refY", 3).attr("orient", "auto");
+    m.append("path")
+      .attr("d", dir === "right" ? "M0,0 L0,6 L6,3 z" : "M6,0 L6,6 L0,3 z")
+      .attr("fill", cfg.color).attr("opacity", 0.7);
+  });
+});
+
+// ── BUILD CHIP FILTERS ────────────────────────────────────────────────────────
+const filterDiv = document.getElementById("edge-filters");
+Object.entries(EDGE_CFG).forEach(([type, cfg]) => {
+  const chip = document.createElement("div");
+  chip.className = "chip active";
+  chip.textContent = cfg.label;
+  chip.style.color = cfg.color;
+  chip.style.backgroundColor = cfg.color + "22";
+  chip.dataset.type = type;
+  chip.addEventListener("click", () => {
+    if (activeEdgeTypes.has(type)) activeEdgeTypes.delete(type);
+    else activeEdgeTypes.add(type);
+    chip.classList.toggle("active", activeEdgeTypes.has(type));
+    update();
+  });
+  filterDiv.appendChild(chip);
+});
+
+// ── SIMULATION ────────────────────────────────────────────────────────────────
+const nodeById = new Map(RAW_NODES.map(n => [n.id, n]));
+
+const simulation = d3.forceSimulation(RAW_NODES)
+  .force("link", d3.forceLink(RAW_EDGES)
+    .id(d => d.id)
+    .distance(d => d.type === "hostile" ? 120 : 80)
+    .strength(0.4))
+  .force("charge", d3.forceManyBody().strength(-180).distanceMax(400))
+  .force("center", d3.forceCenter(0, 0))
+  .force("collide", d3.forceCollide(d => nodeCfg(d).r + 4))
+  .alphaDecay(0.025)
+  .on("tick", ticked);
+
+let linkSel, nodeSel;
+
+function buildGraph() {
+  g.selectAll("*").remove();
+
+  linkSel = g.append("g").attr("class", "links")
+    .selectAll("line")
+    .data(RAW_EDGES)
+    .join("line")
+      .attr("class", "link")
+      .attr("stroke", d => (EDGE_CFG[d.type] || {color:"#555"}).color)
+      .attr("stroke-width", d => 1 + (d.confidence || 0.5) * 1.5)
+      .attr("marker-end", d => d.direction !== "undirected" ? `url(#arrow-${d.type}-right)` : null);
+
+  nodeSel = g.append("g").attr("class", "nodes")
+    .selectAll("g")
+    .data(RAW_NODES)
+    .join("g")
+      .attr("class", "node")
+      .call(d3.drag()
+        .on("start", (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+        .on("drag",  (e, d) => { d.fx = e.x; d.fy = e.y; })
+        .on("end",   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }))
+      .on("click", (e, d) => { e.stopPropagation(); selectNode(d); })
+      .on("mouseover", showTooltip)
+      .on("mousemove", moveTooltip)
+      .on("mouseout", hideTooltip);
+
+  nodeSel.append("circle")
+    .attr("r", d => nodeCfg(d).r)
+    .attr("fill", d => nodeCfg(d).color)
+    .attr("stroke", d => nodeCfg(d).color);
+
+  nodeSel.append("text")
+    .attr("dy", d => nodeCfg(d).r + 10)
+    .text(d => d.id.length > 14 ? d.id.slice(0, 13) + "…" : d.id);
+
+  svg.on("click", () => { selectedNode = null; update(); });
+}
+
+function ticked() {
+  if (!linkSel || !nodeSel) return;
+  linkSel
+    .attr("x1", d => d.source.x).attr("y1", d => d.source.y)
+    .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+  nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
+}
+
+function update() {
+  if (!linkSel || !nodeSel) return;
+
+  // node visibility
+  const matchNodes = new Set();
+  if (searchTerm) {
+    const q = searchTerm.toLowerCase();
+    RAW_NODES.forEach(n => { if (n.id.toLowerCase().includes(q)) matchNodes.add(n.id); });
+  }
+
+  // neighbours of selected
+  const neighbours = new Set();
+  if (selectedNode) {
+    neighbours.add(selectedNode.id);
+    RAW_EDGES.forEach(e => {
+      const sid = typeof e.source === "object" ? e.source.id : e.source;
+      const tid = typeof e.target === "object" ? e.target.id : e.target;
+      if (sid === selectedNode.id || tid === selectedNode.id) { neighbours.add(sid); neighbours.add(tid); }
+    });
+  }
+
+  nodeSel.classed("highlighted", d => d === selectedNode);
+  nodeSel.classed("dimmed", d => {
+    if (searchTerm && !matchNodes.has(d.id)) return true;
+    if (selectedNode && !neighbours.has(d.id)) return true;
+    return false;
+  });
+
+  linkSel.classed("dimmed", d => {
+    const sid = typeof d.source === "object" ? d.source.id : d.source;
+    const tid = typeof d.target === "object" ? d.target.id : d.target;
+    if (!activeEdgeTypes.has(d.type)) return true;
+    if (selectedNode && !neighbours.has(sid)) return true;
+    if (searchTerm && !matchNodes.has(sid) && !matchNodes.has(tid)) return true;
+    return false;
+  });
+  linkSel.style("display", d => activeEdgeTypes.has(d.type) ? null : "none");
+
+  // stats
+  const visEdges = RAW_EDGES.filter(e => activeEdgeTypes.has(e.type)).length;
+  document.getElementById("stats").textContent =
+    `${RAW_NODES.length} nodes · ${visEdges} / ${RAW_EDGES.length} edges shown`;
+}
+
+function selectNode(d) {
+  selectedNode = (selectedNode === d) ? null : d;
+  update();
+}
+
+// ── TOOLTIP ───────────────────────────────────────────────────────────────────
+function showTooltip(e, d) {
+  const tt = document.getElementById("tooltip");
+  const deg = RAW_EDGES.filter(edge => {
+    const s = typeof edge.source === "object" ? edge.source.id : edge.source;
+    const t = typeof edge.target === "object" ? edge.target.id : edge.target;
+    return s === d.id || t === d.id;
+  }).length;
+
+  tt.innerHTML = `
+    <h3>${d.id}</h3>
+    ${d.name_sci  ? `<div class="row"><span class="label">Species</span><span class="val"><i>${d.name_sci}</i></span></div>` : ""}
+    ${d.name_ar   ? `<div class="row"><span class="label">Arabic</span><span class="val">${d.name_ar}</span></div>` : ""}
+    ${d.form      ? `<div class="row"><span class="label">Form</span><span class="val">${d.form.replace(/_/g," ")}</span></div>` : ""}
+    ${d.function?.length ? `<div class="row"><span class="label">Function</span><span class="val">${d.function.join(", ")}</span></div>` : ""}
+    ${d.use?.length ? `<div class="row"><span class="label">Use</span><span class="val">${d.use.join(", ")}</span></div>` : ""}
+    <div class="row"><span class="label">Edges</span><span class="val">${deg}</span></div>
+    <div class="row"><span class="label">Evidence</span><span class="val">${d.evidence_level || "—"}</span></div>
+  `;
+  tt.style.display = "block";
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  const tt = document.getElementById("tooltip");
+  const cx = document.getElementById("container");
+  const rx = e.clientX - cx.getBoundingClientRect().left;
+  const ry = e.clientY - cx.getBoundingClientRect().top;
+  tt.style.left = (rx + 14) + "px";
+  tt.style.top  = (ry - 10) + "px";
+}
+function hideTooltip() { document.getElementById("tooltip").style.display = "none"; }
+
+// ── LEGEND ────────────────────────────────────────────────────────────────────
+function buildLegend() {
+  const leg = document.getElementById("legend");
+  leg.innerHTML = "<div style='font-size:10px;color:#6b7280;margin-bottom:6px;font-weight:600'>EDGE TYPES</div>";
+  Object.entries(EDGE_CFG).forEach(([, cfg]) => {
+    const le = document.createElement("div");
+    le.className = "le";
+    le.innerHTML = `<div class="swatch" style="background:${cfg.color}"></div><span>${cfg.label}</span>`;
+    leg.appendChild(le);
+  });
+  leg.innerHTML += "<div style='font-size:10px;color:#6b7280;margin:8px 0 4px;font-weight:600'>NODE SIZE = LAYER</div>";
+  [["canopy_tree","Canopy tree"],["mid_tree","Mid tree"],["shrub","Shrub"],["groundcover","Groundcover"]].forEach(([form, label]) => {
+    const le = document.createElement("div");
+    le.className = "le";
+    le.innerHTML = `<div class="dot" style="background:${FORM_CFG[form].color};width:${FORM_CFG[form].r*1.4}px;height:${FORM_CFG[form].r*1.4}px"></div><span>${label}</span>`;
+    leg.appendChild(le);
+  });
+}
+
+// ── ZOOM CONTROLS ─────────────────────────────────────────────────────────────
+document.getElementById("btn-zoom-in").addEventListener("click", () =>
+  svg.transition().call(zoom.scaleBy, 1.4));
+document.getElementById("btn-zoom-out").addEventListener("click", () =>
+  svg.transition().call(zoom.scaleBy, 0.7));
+document.getElementById("btn-reset").addEventListener("click", () =>
+  svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity));
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+document.getElementById("search").addEventListener("input", e => {
+  searchTerm = e.target.value.trim();
+  update();
+});
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+buildGraph();
+buildLegend();
+update();
+
+// fit to screen after initial layout
+setTimeout(() => {
+  svg.transition().duration(800).call(zoom.transform, d3.zoomIdentity.scale(0.6).translate(width()/2, height()/2));
+}, 2000);
+</script>
+</body>
+</html>
