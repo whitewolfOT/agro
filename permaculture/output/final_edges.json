@@ -921,7 +921,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Strongly implied",
     "evidence_quote": null,
     "confidence": 0.1,
     "added": false,
@@ -936,7 +936,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Strongly implied",
     "evidence_quote": null,
     "confidence": 0.1,
     "added": false,
@@ -951,7 +951,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Strongly implied",
     "evidence_quote": null,
     "confidence": 0.1,
     "added": false,
@@ -1070,7 +1070,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1083,7 +1083,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1096,7 +1096,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1109,7 +1109,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1122,9 +1122,9 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.9,
     "added": false,
     "flags": []
   },
@@ -1135,9 +1135,9 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.9,
     "added": false,
     "flags": []
   },
@@ -1148,7 +1148,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1226,9 +1226,9 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.6,
     "added": false,
     "flags": []
   },
@@ -1312,7 +1312,7 @@
   },
   {
     "source": "Broad Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1325,7 +1325,7 @@
   },
   {
     "source": "Lupin",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1338,7 +1338,7 @@
   },
   {
     "source": "Chickpea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1351,7 +1351,7 @@
   },
   {
     "source": "Lentil",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1364,7 +1364,7 @@
   },
   {
     "source": "Cowpea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1377,7 +1377,7 @@
   },
   {
     "source": "Garden Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1390,7 +1390,7 @@
   },
   {
     "source": "Fenugreek",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1403,7 +1403,7 @@
   },
   {
     "source": "Vetch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1416,7 +1416,7 @@
   },
   {
     "source": "Bitter Vetch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1429,7 +1429,7 @@
   },
   {
     "source": "Grass Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1442,7 +1442,7 @@
   },
   {
     "source": "Alfalfa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1455,7 +1455,7 @@
   },
   {
     "source": "Egyptian Clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1468,7 +1468,7 @@
   },
   {
     "source": "Sulla",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1481,7 +1481,7 @@
   },
   {
     "source": "Black Medick",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1494,7 +1494,7 @@
   },
   {
     "source": "Radish",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1507,7 +1507,7 @@
   },
   {
     "source": "Chamomile",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -1520,7 +1520,7 @@
   },
   {
     "source": "Wheat",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1533,7 +1533,7 @@
   },
   {
     "source": "Barley",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1546,7 +1546,7 @@
   },
   {
     "source": "Turnip",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1559,7 +1559,7 @@
   },
   {
     "source": "Cabbage",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1572,7 +1572,7 @@
   },
   {
     "source": "Cotton",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1585,7 +1585,7 @@
   },
   {
     "source": "Sugar Cane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1598,7 +1598,7 @@
   },
   {
     "source": "Hemp",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1611,7 +1611,7 @@
   },
   {
     "source": "Rice",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1624,7 +1624,7 @@
   },
   {
     "source": "Watermelon",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1637,7 +1637,7 @@
   },
   {
     "source": "Melon",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1650,7 +1650,7 @@
   },
   {
     "source": "Eggplant",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1663,7 +1663,7 @@
   },
   {
     "source": "Sorghum",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -1733,7 +1733,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1746,7 +1746,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1811,7 +1811,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1837,7 +1837,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1850,7 +1850,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -1876,7 +1876,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -2188,7 +2188,7 @@
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_network_corrected.html",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Strongly implied",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -2299,54 +2299,13 @@
     "flags": []
   },
   {
-    "source": "Lupin",
-    "target": "Any Cereal",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Alfalfa",
-    "target": "Cereal (general)",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Strongly implied",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
     "source": "Walnut",
-    "target": "Most Plants (general)",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_verified_reference.html",
     "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.1,
-    "added": false,
-    "flags": [
-      "FACTCHECK_FLAGGED"
-    ]
-  },
-  {
-    "source": "Walnut",
-    "target": "Wheat, Barley, Fig",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Strongly implied",
     "evidence_quote": null,
     "confidence": 0.1,
     "added": false,
@@ -2369,77 +2328,12 @@
   },
   {
     "source": "Fig",
-    "target": "Nearby Annuals",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_verified_reference.html",
     "evidence_level": "Strongly implied",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Darnel, Wild Oat, Bindweed, Dock",
-    "target": "Wheat, Barley",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Pennyroyal",
-    "target": "Stored Wheat, Barley",
-    "type": "windbreak",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Wormwood",
-    "target": "Stored Wheat, Barley",
-    "type": "windbreak",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Oleander",
-    "target": "Olive, Fig",
-    "type": "windbreak",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Asafoetida",
-    "target": "Grapevine, Fig",
-    "type": "windbreak",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
     "evidence_quote": null,
     "confidence": 0.5,
     "added": false,
@@ -2460,7 +2354,7 @@
   },
   {
     "source": "Squill",
-    "target": "Stored Grain",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2473,7 +2367,7 @@
   },
   {
     "source": "Colocynth",
-    "target": "Stored Grain",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2499,7 +2393,7 @@
   },
   {
     "source": "Black Hellebore",
-    "target": "Field Crops (general)",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2512,7 +2406,7 @@
   },
   {
     "source": "Elecampane",
-    "target": "Storage General",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2525,47 +2419,8 @@
   },
   {
     "source": "Nux Vomica",
-    "target": "Grain Stores",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Hawthorn",
-    "target": "Pear, Medlar",
-    "type": "grafting",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Sour Orange",
-    "target": "Lemon, Citron, Lime",
-    "type": "grafting",
-    "direction": "directed",
-    "context": [],
-    "source_id": "islamic_agronomy_verified_reference.html",
-    "evidence_level": "Explicit",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Wild Fig (caprifig)",
-    "target": "Fig",
-    "type": "grafting",
     "direction": "directed",
     "context": [],
     "source_id": "islamic_agronomy_verified_reference.html",
@@ -2590,7 +2445,7 @@
   },
   {
     "source": "Cypress",
-    "target": "General Garden / Orchard",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2603,7 +2458,7 @@
   },
   {
     "source": "Tamarisk",
-    "target": "Date Palm Gardens; Saline Areas",
+    "target": "SALINE SOIL",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2616,7 +2471,7 @@
   },
   {
     "source": "Poplar",
-    "target": "Irrigation Canals / Wet Crops",
+    "target": "FRESHWATER",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2629,7 +2484,7 @@
   },
   {
     "source": "Willow",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2642,7 +2497,7 @@
   },
   {
     "source": "Bay Laurel",
-    "target": "General Aromatic Windbreak",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -2655,7 +2510,7 @@
   },
   {
     "source": "Clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2668,7 +2523,7 @@
   },
   {
     "source": "Leucaena",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2681,7 +2536,7 @@
   },
   {
     "source": "Acacia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2694,7 +2549,7 @@
   },
   {
     "source": "Casuarina",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2707,7 +2562,7 @@
   },
   {
     "source": "Albizia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2720,7 +2575,7 @@
   },
   {
     "source": "Tipuana",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2733,7 +2588,7 @@
   },
   {
     "source": "Sesbania",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2746,7 +2601,7 @@
   },
   {
     "source": "Mesquite",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2759,7 +2614,7 @@
   },
   {
     "source": "Jerusalem Thorn",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2772,7 +2627,7 @@
   },
   {
     "source": "Ice Cream Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2785,7 +2640,7 @@
   },
   {
     "source": "Moringa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2798,7 +2653,7 @@
   },
   {
     "source": "Tagasaste",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2811,7 +2666,7 @@
   },
   {
     "source": "Pigeon Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2824,7 +2679,7 @@
   },
   {
     "source": "Red Clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2837,7 +2692,7 @@
   },
   {
     "source": "Cowpea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2850,7 +2705,7 @@
   },
   {
     "source": "Vetch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2863,7 +2718,7 @@
   },
   {
     "source": "Lupin",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2876,7 +2731,7 @@
   },
   {
     "source": "Field Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2889,7 +2744,7 @@
   },
   {
     "source": "Fava Beans",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2902,7 +2757,7 @@
   },
   {
     "source": "Alfalfa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2915,7 +2770,7 @@
   },
   {
     "source": "Pinto Peanut",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -2928,7 +2783,7 @@
   },
   {
     "source": "Willow",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2941,7 +2796,7 @@
   },
   {
     "source": "Bamboo",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2954,7 +2809,7 @@
   },
   {
     "source": "Corn",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2967,7 +2822,7 @@
   },
   {
     "source": "Sorghum",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2980,7 +2835,7 @@
   },
   {
     "source": "Comfrey",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -2993,7 +2848,7 @@
   },
   {
     "source": "Bana Grass",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3006,7 +2861,7 @@
   },
   {
     "source": "Banana",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3019,7 +2874,7 @@
   },
   {
     "source": "Wheat & Barley",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3032,7 +2887,7 @@
   },
   {
     "source": "Singapore Daisy",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3045,7 +2900,7 @@
   },
   {
     "source": "Macadamia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3058,7 +2913,7 @@
   },
   {
     "source": "Common Reed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3071,7 +2926,7 @@
   },
   {
     "source": "Date Palm",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3084,7 +2939,7 @@
   },
   {
     "source": "Leucaena",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3097,7 +2952,7 @@
   },
   {
     "source": "Ice Plant",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3110,7 +2965,7 @@
   },
   {
     "source": "Cotton",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3123,7 +2978,7 @@
   },
   {
     "source": "Sugar Cane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3136,7 +2991,7 @@
   },
   {
     "source": "Ficus",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3149,7 +3004,7 @@
   },
   {
     "source": "Palms",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3162,7 +3017,7 @@
   },
   {
     "source": "Vetiver",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3175,7 +3030,7 @@
   },
   {
     "source": "Sea Purslane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3188,7 +3043,7 @@
   },
   {
     "source": "Parthenium",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3201,7 +3056,7 @@
   },
   {
     "source": "Lantana",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3214,7 +3069,7 @@
   },
   {
     "source": "Ice Cream Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -3580,7 +3435,7 @@
   },
   {
     "source": "Camphor Laurel",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -3593,7 +3448,7 @@
   },
   {
     "source": "Creosote Bush",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -3606,7 +3461,7 @@
   },
   {
     "source": "Tamarisk",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -3632,7 +3487,7 @@
   },
   {
     "source": "Lantana",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -3645,7 +3500,7 @@
   },
   {
     "source": "Bracken Fern",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -3658,21 +3513,8 @@
   },
   {
     "source": "Thistles",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "PIONEER ZONE",
-    "target": "CLIMAX ZONE",
-    "type": "succession",
     "direction": "directed",
     "context": [],
     "source_id": "permaculture_network.html",
@@ -3736,7 +3578,7 @@
   },
   {
     "source": "Wild Tobacco",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -3749,7 +3591,7 @@
   },
   {
     "source": "Camphor Laurel",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -3762,7 +3604,7 @@
   },
   {
     "source": "Blackberry",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -3827,7 +3669,7 @@
   },
   {
     "source": "Lantana",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -3839,34 +3681,34 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Willow",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.95,
     "added": false,
     "flags": []
   },
   {
     "source": "Common Reed",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.95,
     "added": false,
     "flags": []
   },
   {
     "source": "Bamboo",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3879,7 +3721,7 @@
   },
   {
     "source": "Date Palm",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3892,7 +3734,7 @@
   },
   {
     "source": "Palms",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3905,7 +3747,7 @@
   },
   {
     "source": "Vetiver",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3918,7 +3760,7 @@
   },
   {
     "source": "Mulberry",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3930,21 +3772,21 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Water Hyacinth",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.85,
     "added": false,
     "flags": []
   },
   {
     "source": "Kang Kong",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3957,7 +3799,7 @@
   },
   {
     "source": "Taro",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3970,7 +3812,7 @@
   },
   {
     "source": "Rice",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -3982,7 +3824,7 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Wild Rice",
     "type": "water",
     "direction": "undirected",
@@ -3996,33 +3838,20 @@
   },
   {
     "source": "Papyrus",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.93,
     "added": false,
     "flags": []
   },
   {
     "source": "Lilies",
-    "target": "WATER",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Tamarisk",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -4035,7 +3864,7 @@
   },
   {
     "source": "Sweet Potato",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -4048,19 +3877,19 @@
   },
   {
     "source": "Duckweed",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "permaculture_network.html",
-    "evidence_level": "Uncertain",
+    "evidence_level": "Modern reconstruction",
     "evidence_quote": null,
-    "confidence": 0.5,
+    "confidence": 0.9,
     "added": false,
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Water Chestnut",
     "type": "water",
     "direction": "undirected",
@@ -4074,7 +3903,7 @@
   },
   {
     "source": "Lemongrass",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -4087,7 +3916,7 @@
   },
   {
     "source": "Ipomoea",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -4178,7 +4007,7 @@
   },
   {
     "source": "Mulberry",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -4217,7 +4046,7 @@
   },
   {
     "source": "Willow",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -4256,7 +4085,7 @@
   },
   {
     "source": "Chickens",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "animal",
     "direction": "undirected",
     "context": [],
@@ -4269,7 +4098,7 @@
   },
   {
     "source": "Ducks",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "animal",
     "direction": "undirected",
     "context": [],
@@ -4282,7 +4111,7 @@
   },
   {
     "source": "Birds & Pigeons",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "animal",
     "direction": "undirected",
     "context": [],
@@ -4308,7 +4137,7 @@
   },
   {
     "source": "Fish",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "animal",
     "direction": "undirected",
     "context": [],
@@ -4320,7 +4149,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Silkworms",
     "type": "animal",
     "direction": "undirected",
@@ -4554,7 +4383,7 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
+    "source": "MATURE CANOPY",
     "target": "Stone Fruits",
     "type": "companion",
     "direction": "undirected",
@@ -4568,7 +4397,7 @@
   },
   {
     "source": "Ipomoea",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -4581,7 +4410,7 @@
   },
   {
     "source": "Acacia",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -4594,7 +4423,7 @@
   },
   {
     "source": "Bamboo",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -4606,47 +4435,8 @@
     "flags": []
   },
   {
-    "source": "Fish & Silkworms",
-    "target": "WATER",
-    "type": "animal",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "permaculture_plant_network.html",
-    "evidence_level": "Uncertain",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Fish & Silkworms",
-    "target": "Mulberry",
-    "type": "animal",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "permaculture_plant_network.html",
-    "evidence_level": "Uncertain",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
-    "source": "Duckweed",
-    "target": "Fish & Silkworms",
-    "type": "animal",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "permaculture_plant_network.html",
-    "evidence_level": "Uncertain",
-    "evidence_quote": null,
-    "confidence": 0.5,
-    "added": false,
-    "flags": []
-  },
-  {
     "source": "Casuarina",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4659,7 +4449,7 @@
   },
   {
     "source": "Acacia_mel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4672,7 +4462,7 @@
   },
   {
     "source": "Acacia_flo",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4685,7 +4475,7 @@
   },
   {
     "source": "Tagasaste",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4698,7 +4488,7 @@
   },
   {
     "source": "Tipuana",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4711,7 +4501,7 @@
   },
   {
     "source": "Pigeon_pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4724,7 +4514,7 @@
   },
   {
     "source": "Red_clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4737,7 +4527,7 @@
   },
   {
     "source": "Field_pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4750,7 +4540,7 @@
   },
   {
     "source": "Moringa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4763,7 +4553,7 @@
   },
   {
     "source": "Albizia_leb",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4776,7 +4566,7 @@
   },
   {
     "source": "Albizia_jul",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4789,7 +4579,7 @@
   },
   {
     "source": "Mesquite",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4802,7 +4592,7 @@
   },
   {
     "source": "Sesbania",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4815,7 +4605,7 @@
   },
   {
     "source": "Cassia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4828,7 +4618,7 @@
   },
   {
     "source": "Pinto_peanut",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4841,7 +4631,7 @@
   },
   {
     "source": "Inga",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4854,7 +4644,7 @@
   },
   {
     "source": "Broad Bean / Fava",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4867,7 +4657,7 @@
   },
   {
     "source": "Hyacinth Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4880,7 +4670,7 @@
   },
   {
     "source": "Crotalaria",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4893,7 +4683,7 @@
   },
   {
     "source": "Black_bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4906,7 +4696,7 @@
   },
   {
     "source": "Water_hyacinth",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4919,7 +4709,7 @@
   },
   {
     "source": "Tamarisk",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4932,7 +4722,7 @@
   },
   {
     "source": "Camphor",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4945,7 +4735,7 @@
   },
   {
     "source": "Jelly_palm",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -4958,7 +4748,7 @@
   },
   {
     "source": "Corn",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -4971,7 +4761,7 @@
   },
   {
     "source": "Brassicas",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -4984,7 +4774,7 @@
   },
   {
     "source": "Carrot",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -4997,7 +4787,7 @@
   },
   {
     "source": "Potato",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6151,7 +5941,7 @@
   },
   {
     "source": "Broad Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6164,7 +5954,7 @@
   },
   {
     "source": "Chickpea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6177,7 +5967,7 @@
   },
   {
     "source": "Garden Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6190,7 +5980,7 @@
   },
   {
     "source": "Bitter Vetch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6203,7 +5993,7 @@
   },
   {
     "source": "Grass Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6216,7 +6006,7 @@
   },
   {
     "source": "Egyptian Clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6229,7 +6019,7 @@
   },
   {
     "source": "Black Medick",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6242,7 +6032,7 @@
   },
   {
     "source": "Acacia_mel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6255,7 +6045,7 @@
   },
   {
     "source": "Acacia_flo",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6268,7 +6058,7 @@
   },
   {
     "source": "Pigeon_pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6281,7 +6071,7 @@
   },
   {
     "source": "Red_clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6294,7 +6084,7 @@
   },
   {
     "source": "Field_pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6307,7 +6097,7 @@
   },
   {
     "source": "Albizia_leb",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6320,7 +6110,7 @@
   },
   {
     "source": "Albizia_jul",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6333,7 +6123,7 @@
   },
   {
     "source": "Cassia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6346,7 +6136,7 @@
   },
   {
     "source": "Pinto_peanut",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6359,7 +6149,7 @@
   },
   {
     "source": "Inga",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6372,7 +6162,7 @@
   },
   {
     "source": "Broad Bean / Fava",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6385,7 +6175,7 @@
   },
   {
     "source": "Hyacinth Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6398,7 +6188,7 @@
   },
   {
     "source": "Crotalaria",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6411,7 +6201,7 @@
   },
   {
     "source": "Black_bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6450,7 +6240,7 @@
   },
   {
     "source": "Fava Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6463,7 +6253,7 @@
   },
   {
     "source": "Lentil",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6502,7 +6292,7 @@
   },
   {
     "source": "Fenugreek",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6516,7 +6306,7 @@
   },
   {
     "source": "Moth Bean",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -6670,7 +6460,7 @@
   },
   {
     "source": "Emmer Wheat",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6684,7 +6474,7 @@
   },
   {
     "source": "Einkorn",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6698,7 +6488,7 @@
   },
   {
     "source": "Spelt",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6712,7 +6502,7 @@
   },
   {
     "source": "Oats",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6726,7 +6516,7 @@
   },
   {
     "source": "Rye",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -6879,20 +6669,6 @@
     "flags": []
   },
   {
-    "source": "Eggplant",
-    "target": "Eggplant",
-    "type": "soil_exhaust",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_1",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Continuous eggplant monoculture builds up Verticillium and Fusarium wilt pathogens and depletes specific soil nutrients.",
-    "confidence": 0.88,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Broad Bean",
     "target": "Oats",
     "type": "companion",
@@ -7000,20 +6776,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Nasturtium acts as a trap crop for aphids, reducing pest pressure on cucumbers.",
     "confidence": 0.74,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Cucumber",
-    "target": "Sunflower",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_2",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Sunflowers provide structural support and attract pollinators aiding cucumber pollination.",
-    "confidence": 0.65,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -7747,20 +7509,6 @@
     "flags": []
   },
   {
-    "source": "Beetroot",
-    "target": "Runner Bean",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_2",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Beet root exudates inhibit runner bean growth, a well-documented allelopathic incompatibility.",
-    "confidence": 0.68,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Garden Pea",
     "target": "Turnip",
     "type": "companion",
@@ -8028,7 +7776,7 @@
   },
   {
     "source": "Purslane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8042,7 +7790,7 @@
   },
   {
     "source": "Mallow",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8168,7 +7916,7 @@
   },
   {
     "source": "Borage",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8182,7 +7930,7 @@
   },
   {
     "source": "Sorrel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -8210,7 +7958,7 @@
   },
   {
     "source": "Orach",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8321,7 +8069,7 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Watercress",
     "type": "water",
     "direction": "undirected",
@@ -8364,7 +8112,7 @@
   },
   {
     "source": "Salsify",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8378,7 +8126,7 @@
   },
   {
     "source": "Black Salsify",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8434,7 +8182,7 @@
   },
   {
     "source": "Mustard",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -8498,20 +8246,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Mustard competes with barley for light and nutrients and is a common weed in barley cultivation.",
     "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Fruit trees",
-    "target": "Mustard",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_3",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Mustard cover crops under fruit trees improve soil organic matter and suppress soil-borne pathogens through glucosinolate biofumigation.",
-    "confidence": 0.65,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -9203,20 +8937,6 @@
     "flags": []
   },
   {
-    "source": "Fruit trees",
-    "target": "Southernwood",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_4",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Artemisia abrotanum planted under fruit trees is traditionally recorded to deter moths and codling moth adults through volatile emissions.",
-    "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Apple",
     "target": "Southernwood",
     "type": "companion",
@@ -9394,20 +9114,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Barley was inter-grown under olive trees throughout the ancient Mediterranean as a documented intercropping practice.",
     "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Legumes",
-    "target": "Olive",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_4",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Leguminous cover crops were grown beneath olives in classical agronomy to improve soil nitrogen and suppress weeds.",
-    "confidence": 0.65,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -9889,20 +9595,6 @@
     "flags": []
   },
   {
-    "source": "Sour Orange",
-    "target": "Clementine",
-    "type": "grafting",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_5",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Sour orange is a primary rootstock for mandarin and clementine in Mediterranean citrus production.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Lemon",
     "target": "Sweet Orange",
     "type": "grafting",
@@ -10086,21 +9778,7 @@
   },
   {
     "source": "Carob",
-    "target": "Cereal (general)",
-    "type": "canopy_shade",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_5",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
-    "confidence": 0.65,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Carob",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -10128,7 +9806,7 @@
   },
   {
     "source": "Jujube",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -10296,7 +9974,7 @@
   },
   {
     "source": "Tamarind",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -10352,7 +10030,7 @@
   },
   {
     "source": "Doum Palm",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -10408,7 +10086,7 @@
   },
   {
     "source": "Sycamore Fig",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -10436,7 +10114,7 @@
   },
   {
     "source": "Hackberry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -10478,20 +10156,6 @@
   },
   {
     "source": "Arbutus",
-    "target": "Cistus",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_6",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Arbutus co-occurs with cistus species in Mediterranean garrigue and maquis succession communities.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Arbutus",
     "target": "Lentisk",
     "type": "companion",
     "direction": "undirected",
@@ -10506,7 +10170,7 @@
   },
   {
     "source": "Arbutus",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11010,7 +10674,7 @@
   },
   {
     "source": "Elecampane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11024,7 +10688,7 @@
   },
   {
     "source": "Liquorice",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -11052,7 +10716,7 @@
   },
   {
     "source": "Ginger",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11066,7 +10730,7 @@
   },
   {
     "source": "Turmeric",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11093,22 +10757,8 @@
     "flags": []
   },
   {
-    "source": "Turmeric",
-    "target": "Coconut",
-    "type": "canopy_shade",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_7",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Turmeric is widely documented as an understorey intercrop benefiting from coconut palm canopy shade in South Asian systems.",
-    "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Aloe",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11136,7 +10786,7 @@
   },
   {
     "source": "Caper",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -11150,7 +10800,7 @@
   },
   {
     "source": "Henna",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11164,7 +10814,7 @@
   },
   {
     "source": "Sumac",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11192,7 +10842,7 @@
   },
   {
     "source": "Milk Thistle",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11290,7 +10940,7 @@
   },
   {
     "source": "Flax",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11346,7 +10996,7 @@
   },
   {
     "source": "Hemp",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11402,7 +11052,7 @@
   },
   {
     "source": "Sesame",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11443,22 +11093,8 @@
     "flags": []
   },
   {
-    "source": "Groundnut",
-    "target": "Sesame",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_7",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Sesame-groundnut intercropping is documented in sub-Saharan African systems for mutual pest suppression and yield advantage.",
-    "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Safflower",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11500,7 +11136,7 @@
   },
   {
     "source": "Woad",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11569,22 +11205,8 @@
     "flags": []
   },
   {
-    "source": "Agave",
-    "target": "Aloe",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_7",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Aloe and agave-type succulents share ecological niches in arid zones and documented companion roles in preventing soil erosion.",
-    "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Mastic",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11654,7 +11276,7 @@
   },
   {
     "source": "Pellitory",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11738,7 +11360,7 @@
   },
   {
     "source": "Sumac",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -11752,7 +11374,7 @@
   },
   {
     "source": "Milk Thistle",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -11794,7 +11416,7 @@
   },
   {
     "source": "Woad",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -11822,7 +11444,7 @@
   },
   {
     "source": "Sulla",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -11836,7 +11458,7 @@
   },
   {
     "source": "Sainfoin",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -11892,7 +11514,7 @@
   },
   {
     "source": "Alfalfa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11906,7 +11528,7 @@
   },
   {
     "source": "Esparto Grass",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11920,7 +11542,7 @@
   },
   {
     "source": "Papyrus",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -11934,7 +11556,7 @@
   },
   {
     "source": "Castor",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -11990,7 +11612,7 @@
   },
   {
     "source": "Madder",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -12004,7 +11626,7 @@
   },
   {
     "source": "Indigo",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -12018,21 +11640,21 @@
   },
   {
     "source": "Poplar",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
     "source_id": "scientific_enrichment_batch_8",
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Populus species are phreatophytes with high water uptake used in phytoremediation of waterlogged and riparian soils.",
-    "confidence": 0.9,
+    "confidence": 0.92,
     "added": true,
     "origin": "enriched",
     "flags": []
   },
   {
     "source": "Poplar",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12116,7 +11738,7 @@
   },
   {
     "source": "Tamarisk Tree",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12124,20 +11746,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Tamarix produces salt-laden leaf litter that accumulates on soil surface, contributing biomass but also increasing soil salinity.",
     "confidence": 0.75,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Tamarisk Tree",
-    "target": "WATER",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_8",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Tamarix is a phreatophyte with deep roots that accesses and depletes groundwater reserves in riparian and arid environments.",
-    "confidence": 0.88,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -12158,7 +11766,7 @@
   },
   {
     "source": "Elm",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12200,7 +11808,7 @@
   },
   {
     "source": "Bay Laurel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12214,7 +11822,7 @@
   },
   {
     "source": "Plane Tree",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12228,7 +11836,7 @@
   },
   {
     "source": "Plane Tree",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -12242,7 +11850,7 @@
   },
   {
     "source": "Holm Oak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12256,7 +11864,7 @@
   },
   {
     "source": "Pedunculate Oak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12270,7 +11878,7 @@
   },
   {
     "source": "Cork Oak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12312,7 +11920,7 @@
   },
   {
     "source": "Cedar",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12340,7 +11948,7 @@
   },
   {
     "source": "Aleppo Pine",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12382,7 +11990,7 @@
   },
   {
     "source": "Juniper",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12424,7 +12032,7 @@
   },
   {
     "source": "Sugar Cane",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -12704,20 +12312,6 @@
   },
   {
     "source": "Acacia",
-    "target": "Millet",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_9",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Traditional Sahelian parkland agroforestry documents acacia trees improving millet yields through nitrogen input and microclimate amelioration.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Acacia",
     "target": "Pearl Millet",
     "type": "companion",
     "direction": "undirected",
@@ -12732,21 +12326,7 @@
   },
   {
     "source": "Acacia",
-    "target": "Cereal (general)",
-    "type": "nitrogen_fix",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_9",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
-    "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Acacia",
-    "target": "Field Crops (general)",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -12774,7 +12354,7 @@
   },
   {
     "source": "Colocynth",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -13040,20 +12620,6 @@
   },
   {
     "source": "Bindweed",
-    "target": "Any Cereal",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_9",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
-    "confidence": 0.9,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Bindweed",
     "target": "Grapevine",
     "type": "hostile",
     "direction": "directed",
@@ -13082,20 +12648,6 @@
   },
   {
     "source": "Bindweed",
-    "target": "Vegetable crops",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_9",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Bindweed is a major weed of vegetable gardens, smothering low-growing crops with its extensive twining growth.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Bindweed",
     "target": "Corn",
     "type": "hostile",
     "direction": "directed",
@@ -13110,7 +12662,7 @@
   },
   {
     "source": "Thorny Burnet",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -13152,7 +12704,7 @@
   },
   {
     "source": "Squirting Cucumber",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -13208,7 +12760,7 @@
   },
   {
     "source": "Nettle",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -13292,7 +12844,7 @@
   },
   {
     "source": "Dock",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -13311,10 +12863,10 @@
     "direction": "directed",
     "context": [],
     "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
+    "evidence_level": "Explicit",
     "evidence_quote": "Dock is a persistent competitive weed in barley fields, reducing yields through resource competition.",
     "confidence": 0.75,
-    "added": true,
+    "added": false,
     "origin": "enriched",
     "flags": []
   },
@@ -13348,7 +12900,7 @@
   },
   {
     "source": "Asphodel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -13356,34 +12908,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Asphodel colonizes degraded, exhausted soils and is an indicator of overgrazing and soil degradation in Mediterranean landscapes.",
     "confidence": 0.55,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Asphodel",
-    "target": "Cereal (general)",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
-    "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Bramble",
-    "target": "Succession",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Bramble (Rubus spp.) is a well-documented pioneer shrub in secondary succession, facilitating woodland establishment by protecting tree seedlings from browsing.",
-    "confidence": 0.85,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -13501,22 +13025,8 @@
     "flags": []
   },
   {
-    "source": "Buckthorn",
-    "target": "Succession",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Buckthorn is a pioneer shrub in temperate succession sequences, colonizing open ground and facilitating later woodland species.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Wild Golden Thistle",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -13543,7 +13053,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Sea Blite",
     "type": "companion",
     "direction": "undirected",
@@ -13600,7 +13110,7 @@
   },
   {
     "source": "Sacred Lotus",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -13670,7 +13180,7 @@
   },
   {
     "source": "Bulrush",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -13767,7 +13277,7 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Water Mint",
     "type": "water",
     "direction": "undirected",
@@ -13838,7 +13348,7 @@
   },
   {
     "source": "Spanish Broom",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -13846,20 +13356,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Spanish broom (Spartium junceum) hosts nitrogen-fixing rhizobial bacteria and improves soil fertility on degraded land.",
     "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Spanish Broom",
-    "target": "Succession",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Spanish broom is a classic pioneer in Mediterranean secondary succession on degraded slopes, facilitating later shrub and tree establishment.",
-    "confidence": 0.85,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -13908,7 +13404,7 @@
   },
   {
     "source": "Dwarf Elder",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -13949,7 +13445,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Wild Pomegranate",
     "type": "companion",
     "direction": "undirected",
@@ -13957,20 +13453,6 @@
     "source_id": "scientific_enrichment_batch_10",
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Wild pomegranate tolerates poor, dry, rocky soils and serves as a soil stabilizer on degraded hillsides in the Mediterranean and Middle East.",
-    "confidence": 0.65,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Wild Pomegranate",
-    "target": "Succession",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_10",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Wild pomegranate is a component of maquis scrubland succession in degraded Mediterranean landscapes.",
     "confidence": 0.65,
     "added": true,
     "origin": "enriched",
@@ -14034,7 +13516,7 @@
   },
   {
     "source": "Alfalfa / Lucerne",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14048,7 +13530,7 @@
   },
   {
     "source": "Sulla / Spanish Sainfoin",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14062,7 +13544,7 @@
   },
   {
     "source": "Clover",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14076,7 +13558,7 @@
   },
   {
     "source": "Black-eyed Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14146,7 +13628,7 @@
   },
   {
     "source": "Alfalfa / Lucerne",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -14160,7 +13642,7 @@
   },
   {
     "source": "Flax / Linen",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -14202,7 +13684,7 @@
   },
   {
     "source": "Bulrush / Cattail",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -14216,7 +13698,7 @@
   },
   {
     "source": "Lotus (sacred)",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -14230,7 +13712,7 @@
   },
   {
     "source": "Tamarisk",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -14258,7 +13740,7 @@
   },
   {
     "source": "Cedar Of Lebanon",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -14272,7 +13754,7 @@
   },
   {
     "source": "Cedar Of Lebanon",
-    "target": "Nearby Annuals",
+    "target": "SOIL FERTILITY",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -14356,7 +13838,7 @@
   },
   {
     "source": "Glasswort (saline)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -14370,7 +13852,7 @@
   },
   {
     "source": "Glasswort (ash Source)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -14384,7 +13866,7 @@
   },
   {
     "source": "Bramble / Blackberry",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -14398,7 +13880,7 @@
   },
   {
     "source": "Bramble / Blackberry",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -14426,7 +13908,7 @@
   },
   {
     "source": "Broom (spanish)",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -14440,7 +13922,7 @@
   },
   {
     "source": "Broom (spanish)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14524,7 +14006,7 @@
   },
   {
     "source": "Mulberry",
-    "target": "Nearby Annuals",
+    "target": "SOIL FERTILITY",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -14565,20 +14047,6 @@
     "flags": []
   },
   {
-    "source": "Clover",
-    "target": "Fruit trees",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_11",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Clover as orchard ground cover fixes nitrogen, suppresses weeds and supports beneficial insect populations.",
-    "confidence": 0.82,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Black-eyed Pea",
     "target": "Corn",
     "type": "companion",
@@ -14608,20 +14076,6 @@
   },
   {
     "source": "Black-eyed Pea",
-    "target": "Millet",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_11",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Cowpea intercropped with pearl millet is a classic West African combination improving soil nitrogen and yields.",
-    "confidence": 0.82,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Black-eyed Pea",
     "target": "Pearl Millet",
     "type": "companion",
     "direction": "undirected",
@@ -14636,7 +14090,7 @@
   },
   {
     "source": "Squill / Sea Onion",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -14650,7 +14104,7 @@
   },
   {
     "source": "Wild Artichoke / Golden Thistle",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -14664,7 +14118,7 @@
   },
   {
     "source": "Wild Artichoke / Golden Thistle",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -14734,7 +14188,7 @@
   },
   {
     "source": "Aconite / Wolfsbane",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -14748,7 +14202,7 @@
   },
   {
     "source": "Liquorice Root (wild)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14762,7 +14216,7 @@
   },
   {
     "source": "Liquorice Root (wild)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -14860,7 +14314,7 @@
   },
   {
     "source": "Fenugreek (fodder)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14916,7 +14370,7 @@
   },
   {
     "source": "Lupin (fodder)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -14958,7 +14412,7 @@
   },
   {
     "source": "Lupin (fodder)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -15084,7 +14538,7 @@
   },
   {
     "source": "Horsetail",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -15126,7 +14580,7 @@
   },
   {
     "source": "Rosebay Willowherb",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15140,7 +14594,7 @@
   },
   {
     "source": "Rosebay Willowherb",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15182,7 +14636,7 @@
   },
   {
     "source": "Samphire",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15210,7 +14664,7 @@
   },
   {
     "source": "Weld / Dyer's Rocket",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15252,7 +14706,7 @@
   },
   {
     "source": "Rush / Common Rush",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15294,7 +14748,7 @@
   },
   {
     "source": "Dwarf Palm / Palm Fiber",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -15518,7 +14972,7 @@
   },
   {
     "source": "Styrax / Storax",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15616,7 +15070,7 @@
   },
   {
     "source": "Thapsia",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15644,7 +15098,7 @@
   },
   {
     "source": "Pellitory Of The Wall",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -15714,7 +15168,7 @@
   },
   {
     "source": "Liquorice Root",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -15756,7 +15210,7 @@
   },
   {
     "source": "Tamarind Pulp",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -15770,7 +15224,7 @@
   },
   {
     "source": "Tamarind Pulp",
-    "target": "Nearby Annuals",
+    "target": "SOIL FERTILITY",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -15784,7 +15238,7 @@
   },
   {
     "source": "Camphor",
-    "target": "Most Plants (general)",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -15826,7 +15280,7 @@
   },
   {
     "source": "Long Pepper",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -15834,20 +15288,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Piper longum as a perennial vine crop draws continuously on soil nutrients, particularly requiring rich, well-drained loam and depleting nitrogen and phosphorus over time.",
     "confidence": 0.55,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Cardamom",
-    "target": "Canopy Shade",
-    "type": "canopy_shade",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_13",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Elettaria cardamomum requires 50–75% shade for optimal cultivation and is traditionally grown under forest canopy or shade trees such as silver oak in agroforestry systems.",
-    "confidence": 0.9,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -15896,7 +15336,7 @@
   },
   {
     "source": "Clove",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -16036,7 +15476,7 @@
   },
   {
     "source": "Ispaghol",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16050,7 +15490,7 @@
   },
   {
     "source": "Acacia Bark",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -16120,7 +15560,7 @@
   },
   {
     "source": "Acacia Bark",
-    "target": "Most Plants (general)",
+    "target": "SOIL FERTILITY",
     "type": "canopy_shade",
     "direction": "directed",
     "context": [],
@@ -16134,7 +15574,7 @@
   },
   {
     "source": "Myrrh",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16162,7 +15602,7 @@
   },
   {
     "source": "Pomegranate (sour)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -16176,7 +15616,7 @@
   },
   {
     "source": "Pomegranate Peel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16190,7 +15630,7 @@
   },
   {
     "source": "Pomegranate Rind (diarrhea)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16204,7 +15644,7 @@
   },
   {
     "source": "Pomegranate Root Bark",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16273,20 +15713,6 @@
     "flags": []
   },
   {
-    "source": "Dry Ginger",
-    "target": "Coconut",
-    "type": "canopy_shade",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_13",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Ginger is commonly cultivated under coconut palms in South Asian multi-story agroforestry, where coconut canopy provides the filtered shade ginger requires.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Brassicas",
     "target": "Spearmint",
     "type": "companion",
@@ -16330,7 +15756,7 @@
   },
   {
     "source": "Black Seed Oil",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16414,7 +15840,7 @@
   },
   {
     "source": "Fenugreek Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -16470,7 +15896,7 @@
   },
   {
     "source": "Fenugreek Paste",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -16512,7 +15938,7 @@
   },
   {
     "source": "Mustard Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -16568,7 +15994,7 @@
   },
   {
     "source": "Flaxseed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -16624,7 +16050,7 @@
   },
   {
     "source": "Castor Oil",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -16632,20 +16058,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Castor oil meal applied to soil acts as a natural nematicide and fertilizer, suppressing root-knot nematodes and improving soil fertility.",
     "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Castor Oil",
-    "target": "Mole Cricket",
-    "type": "animal",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_14",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Castor oil applied to soil is documented as a repellent for soil-dwelling pests including mole crickets and grubs.",
-    "confidence": 0.6,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -16665,7 +16077,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Sesame Oil",
     "type": "companion",
     "direction": "undirected",
@@ -16736,7 +16148,7 @@
   },
   {
     "source": "Elecampane Root",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -16750,7 +16162,7 @@
   },
   {
     "source": "Mullein Leaf",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -16918,7 +16330,7 @@
   },
   {
     "source": "Henbane Seed Oil",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -17001,7 +16413,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Violet Syrup",
     "type": "companion",
     "direction": "undirected",
@@ -17044,7 +16456,7 @@
   },
   {
     "source": "Maidenhair Fern",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -17058,7 +16470,7 @@
   },
   {
     "source": "Maidenhair Fern",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -17310,20 +16722,6 @@
   },
   {
     "source": "Fumitory",
-    "target": "Cereal (general)",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_15",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Fumitory",
     "target": "Wheat",
     "type": "hostile",
     "direction": "directed",
@@ -17345,7 +16743,7 @@
     "source_id": "scientific_enrichment_batch_15",
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Fumaria species are recorded arable weeds of barley fields in Mediterranean and temperate agriculture causing yield losses.",
-    "confidence": 0.8,
+    "confidence": 0.85,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -17380,7 +16778,7 @@
   },
   {
     "source": "Senna",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -17926,7 +17324,7 @@
   },
   {
     "source": "Marshmallow Root",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -18220,7 +17618,7 @@
   },
   {
     "source": "Emblic Myrobalan",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -18248,7 +17646,7 @@
   },
   {
     "source": "Henna (feet)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -18262,7 +17660,7 @@
   },
   {
     "source": "Senna Leaf",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -18275,22 +17673,8 @@
     "flags": []
   },
   {
-    "source": "Cereal (general)",
-    "target": "Senna Leaf",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_16",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
-    "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Cassia Fistula Pulp",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -18318,7 +17702,7 @@
   },
   {
     "source": "Aloe Latex",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18332,7 +17716,7 @@
   },
   {
     "source": "Psyllium / Ispaghol",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18430,7 +17814,7 @@
   },
   {
     "source": "Flaxseed Mucilage",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18542,7 +17926,7 @@
   },
   {
     "source": "Colocynth (compound)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -18564,20 +17948,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Valerian is a traditional companion plant said to stimulate growth of nearby herbs including chamomile through root exudate interactions.",
     "confidence": 0.68,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Valerian Root",
-    "target": "Vegetable Garden",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_16",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Valerian attracts earthworms and beneficial insects through root exudates, improving soil structure in vegetable garden systems.",
-    "confidence": 0.65,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -18752,7 +18122,7 @@
   },
   {
     "source": "Sesame Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -18780,7 +18150,7 @@
   },
   {
     "source": "Pine Nuts",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18808,7 +18178,7 @@
   },
   {
     "source": "Dates",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18948,7 +18318,7 @@
   },
   {
     "source": "Acacia Gum",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -18962,7 +18332,7 @@
   },
   {
     "source": "Miswak / Arak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -18990,7 +18360,7 @@
   },
   {
     "source": "Safflower Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -19116,7 +18486,7 @@
   },
   {
     "source": "Turnip Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -19172,7 +18542,7 @@
   },
   {
     "source": "Vinegar (diluted)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -19242,7 +18612,7 @@
   },
   {
     "source": "Ashwagandha",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -19326,7 +18696,7 @@
   },
   {
     "source": "Pomegranate Rind",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -19452,7 +18822,7 @@
   },
   {
     "source": "Acacia Gum",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -19466,7 +18836,7 @@
   },
   {
     "source": "Emblic Myrobalan (amla)",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -20138,7 +19508,7 @@
   },
   {
     "source": "Aloe",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -20146,20 +19516,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Aloe vera has low soil fertility demands but its allelopathic exudates can mildly suppress surrounding plant germination.",
     "confidence": 0.5,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Agave",
-    "target": "Aloe Vera",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Aloe and agave share similar drought-tolerant niches and are documented growing compatibly in arid companion planting systems.",
-    "confidence": 0.6,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -20222,7 +19578,7 @@
   },
   {
     "source": "Nutmeg",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -20291,20 +19647,6 @@
     "flags": []
   },
   {
-    "source": "Castor",
-    "target": "Groundnut",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Castor is intercropped with groundnut in Indian farming systems to repel pod borers and Spodoptera litura.",
-    "confidence": 0.65,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Aloe",
     "target": "Citrus",
     "type": "companion",
@@ -20320,7 +19662,7 @@
   },
   {
     "source": "Aloe Vera",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -20389,20 +19731,6 @@
     "flags": []
   },
   {
-    "source": "Mint",
-    "target": "Peas",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Mint is documented to deter aphids and weevils that attack pea crops when grown as a border plant.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Carrot",
     "target": "Mint",
     "type": "companion",
@@ -20418,7 +19746,7 @@
   },
   {
     "source": "Dragon's Blood Resin",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -20431,36 +19759,8 @@
     "flags": []
   },
   {
-    "source": "Aloe",
-    "target": "Cacti",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Aloe and cacti are documented to grow compatibly in dryland systems, sharing water-use patterns without competitive exclusion.",
-    "confidence": 0.55,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Fruit Trees",
-    "target": "Garlic",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Garlic planted as understory beneath fruit trees deters borer insects and fungal pathogens through allicin volatiles.",
-    "confidence": 0.65,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Radish",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -20474,7 +19774,7 @@
   },
   {
     "source": "Calamus Root",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -20538,20 +19838,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Nutmeg trees are intercropped with banana in tropical spice gardens; bananas provide early shade and wind protection for young nutmeg.",
     "confidence": 0.6,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Coconut",
-    "target": "Nutmeg",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_19",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Nutmeg and coconut are documented in traditional multi-strata spice garden systems in Kerala and Indonesia.",
-    "confidence": 0.65,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -21188,7 +20474,7 @@
   },
   {
     "source": "Black Pepper",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -21201,7 +20487,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Sarsaparilla Root",
     "type": "companion",
     "direction": "undirected",
@@ -21244,7 +20530,7 @@
   },
   {
     "source": "Bitter Melon / Karela",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -21258,7 +20544,7 @@
   },
   {
     "source": "Emblic Myrobalan / Amla",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21286,7 +20572,7 @@
   },
   {
     "source": "Ispaghol / Plantain Seed",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -21300,7 +20586,7 @@
   },
   {
     "source": "Beleric Myrobalan",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21355,7 +20641,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Saffron",
     "type": "companion",
     "direction": "undirected",
@@ -21412,7 +20698,7 @@
   },
   {
     "source": "Mullein",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21426,7 +20712,7 @@
   },
   {
     "source": "Mullein",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21440,7 +20726,7 @@
   },
   {
     "source": "Miswak / Arak Wood",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21454,7 +20740,7 @@
   },
   {
     "source": "Gum Ammoniacum / Oshaq",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21468,7 +20754,7 @@
   },
   {
     "source": "Cassia Fistula",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21482,7 +20768,7 @@
   },
   {
     "source": "Cassia Fistula",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21538,7 +20824,7 @@
   },
   {
     "source": "London Rocket / Khaksi",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21552,7 +20838,7 @@
   },
   {
     "source": "London Rocket / Khaksi",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21594,7 +20880,7 @@
   },
   {
     "source": "Sarsaparilla",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21607,7 +20893,7 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Water Lily",
     "type": "water",
     "direction": "undirected",
@@ -21621,7 +20907,7 @@
     "flags": []
   },
   {
-    "source": "WATER",
+    "source": "FRESHWATER",
     "target": "Water Lily / Blue Lotus",
     "type": "water",
     "direction": "undirected",
@@ -21636,7 +20922,7 @@
   },
   {
     "source": "Azolla",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -21650,7 +20936,7 @@
   },
   {
     "source": "Mangroves",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -21663,8 +20949,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "SOIL",
+    "source": "BARE GROUND",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -21677,36 +20963,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Mullein",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_22",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Mullein is a characteristic pioneer biennial of disturbed soils within pioneer successional zones.",
-    "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "PIONEER ZONE",
-    "target": "London Rocket / Khaksi",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_22",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "London rocket is a ruderal annual typical of pioneer disturbed-ground communities.",
-    "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "PIONEER ZONE",
-    "target": "Nettle",
+    "source": "Nettle",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21719,8 +20977,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Dock",
+    "source": "Dock",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21733,8 +20991,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Bramble",
+    "source": "Bramble",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21747,22 +21005,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Bramble / Blackberry",
-    "type": "succession",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_22",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Blackberry is a documented pioneer scrub species that prepares ground for later woody succession.",
-    "confidence": 0.8,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "PIONEER ZONE",
-    "target": "Bracken Fern",
+    "source": "Bracken Fern",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21775,8 +21019,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Casuarina",
+    "source": "Casuarina",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21789,8 +21033,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Leucaena",
+    "source": "Leucaena",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21803,8 +21047,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Sesbania",
+    "source": "Sesbania",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21817,8 +21061,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Crotalaria",
+    "source": "Crotalaria",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21831,8 +21075,8 @@
     "flags": []
   },
   {
-    "source": "PIONEER ZONE",
-    "target": "Lantana",
+    "source": "Lantana",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21845,8 +21089,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Pedunculate Oak",
+    "source": "Pedunculate Oak",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21859,8 +21103,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Holm Oak",
+    "source": "Holm Oak",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21873,8 +21117,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Cedar",
+    "source": "Cedar",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21887,8 +21131,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Walnut",
+    "source": "Walnut",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21901,8 +21145,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Black Bean",
+    "source": "Black Bean",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21915,8 +21159,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Jackfruit",
+    "source": "Jackfruit",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21929,8 +21173,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Ficus",
+    "source": "Ficus",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21943,8 +21187,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Bunya Pine",
+    "source": "Bunya Pine",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21957,8 +21201,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Hoop Pine",
+    "source": "Hoop Pine",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -21971,8 +21215,8 @@
     "flags": []
   },
   {
-    "source": "CLIMAX ZONE",
-    "target": "Blue Quandong",
+    "source": "Blue Quandong",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -22070,7 +21314,7 @@
   },
   {
     "source": "Bunya Pine",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22126,7 +21370,7 @@
   },
   {
     "source": "Silky Oak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22168,7 +21412,7 @@
   },
   {
     "source": "Jackfruit",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22265,22 +21509,8 @@
     "flags": []
   },
   {
-    "source": "Mesquite",
-    "target": "Any Cereal",
-    "type": "hostile",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_23",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
-    "confidence": 0.75,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Jerusalem Thorn",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22302,20 +21532,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Jerusalem Thorn is used as a thorny windbreak hedge around Citrus and other fruit orchards in semi-arid regions.",
     "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Ice Cream Bean",
-    "target": "Cacao",
-    "type": "canopy_shade",
-    "direction": "directed",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_23",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Inga is a primary shade tree used in Cacao agroforestry systems across the humid tropics.",
-    "confidence": 0.88,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -22518,7 +21734,7 @@
   },
   {
     "source": "Ficus",
-    "target": "Nearby Annuals",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -22532,7 +21748,7 @@
   },
   {
     "source": "Hoop Pine",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22560,7 +21776,7 @@
   },
   {
     "source": "Silver Birch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22574,7 +21790,7 @@
   },
   {
     "source": "Silver Birch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -22630,7 +21846,7 @@
   },
   {
     "source": "Douglas Fir",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22714,7 +21930,7 @@
   },
   {
     "source": "Pigeon Pea",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22770,7 +21986,7 @@
   },
   {
     "source": "Neem",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -22854,7 +22070,7 @@
   },
   {
     "source": "Neem",
-    "target": "General Garden / Orchard",
+    "target": "SOIL FERTILITY",
     "type": "windbreak",
     "direction": "directed",
     "context": [],
@@ -22868,7 +22084,7 @@
   },
   {
     "source": "Dragon Fruit",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -22994,7 +22210,7 @@
   },
   {
     "source": "Blueberries",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -23064,7 +22280,7 @@
   },
   {
     "source": "Tree Tomato",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -23106,7 +22322,7 @@
   },
   {
     "source": "Guava",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23162,7 +22378,7 @@
   },
   {
     "source": "Custard Apple",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23204,7 +22420,7 @@
   },
   {
     "source": "Brazil Cherry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23232,7 +22448,7 @@
   },
   {
     "source": "Davidson Plum",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23246,7 +22462,7 @@
   },
   {
     "source": "Rambutan",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23273,22 +22489,8 @@
     "flags": []
   },
   {
-    "source": "Coconut",
-    "target": "Rambutan",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_24",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Rambutan is commonly intercropped with coconut in Southeast Asian agroforestry providing complementary canopy layers.",
-    "confidence": 0.65,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Lychee",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23386,7 +22588,7 @@
   },
   {
     "source": "Blackberry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23484,7 +22686,7 @@
   },
   {
     "source": "Wild Tobacco",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -23708,7 +22910,7 @@
   },
   {
     "source": "Coprosma",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23750,7 +22952,7 @@
   },
   {
     "source": "Sweet Potato",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -23890,7 +23092,7 @@
   },
   {
     "source": "Brazil Spinach",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -24142,7 +23344,7 @@
   },
   {
     "source": "Cassava",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -24338,7 +23540,7 @@
   },
   {
     "source": "Bana Grass",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -24408,7 +23610,7 @@
   },
   {
     "source": "Water Hyacinth",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -24534,7 +23736,7 @@
   },
   {
     "source": "Lemongrass",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -24604,7 +23806,7 @@
   },
   {
     "source": "Sheep Sorrel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -24701,22 +23903,8 @@
     "flags": []
   },
   {
-    "source": "Pepper",
-    "target": "Sacred Basil",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_26",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Basil is a traditional companion to peppers, repelling spider mites and aphids through aromatic volatiles.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Curry-leaf Tree",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -24884,7 +24072,7 @@
   },
   {
     "source": "Creosote",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -24940,7 +24128,7 @@
   },
   {
     "source": "Bana_grass",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -25178,7 +24366,7 @@
   },
   {
     "source": "Sing_daisy",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -25262,7 +24450,7 @@
   },
   {
     "source": "Sweet_potato",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -25318,7 +24506,7 @@
   },
   {
     "source": "Phoenix_can",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -25514,7 +24702,7 @@
   },
   {
     "source": "Blueberry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -25640,7 +24828,7 @@
   },
   {
     "source": "Chestnut",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -25724,7 +24912,7 @@
   },
   {
     "source": "Silver_birch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -25738,7 +24926,7 @@
   },
   {
     "source": "Silver_birch",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -25752,7 +24940,7 @@
   },
   {
     "source": "Silver_birch",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -25780,7 +24968,7 @@
   },
   {
     "source": "Azolla",
-    "target": "WATER",
+    "target": "FRESHWATER",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -25821,7 +25009,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Yarrow",
     "type": "companion",
     "direction": "undirected",
@@ -25920,7 +25108,7 @@
   },
   {
     "source": "Mugwort",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -25962,7 +25150,7 @@
   },
   {
     "source": "Sheep_sorrel",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -26004,7 +25192,7 @@
   },
   {
     "source": "Goji_berry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26017,7 +25205,7 @@
     "flags": []
   },
   {
-    "source": "SOIL",
+    "source": "SOIL FERTILITY",
     "target": "Sea_purslane",
     "type": "companion",
     "direction": "undirected",
@@ -26046,7 +25234,7 @@
   },
   {
     "source": "Brazil_spinach",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -26074,7 +25262,7 @@
   },
   {
     "source": "Pigface",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26102,7 +25290,7 @@
   },
   {
     "source": "Red_cedar",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -26116,7 +25304,7 @@
   },
   {
     "source": "Red_cedar",
-    "target": "CLIMAX ZONE",
+    "target": "MATURE CANOPY",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -26158,7 +25346,7 @@
   },
   {
     "source": "Silky_oak",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "mulch_biomass",
     "direction": "directed",
     "context": [],
@@ -26172,7 +25360,7 @@
   },
   {
     "source": "Silky_oak",
-    "target": "PIONEER ZONE",
+    "target": "BARE GROUND",
     "type": "succession",
     "direction": "directed",
     "context": [],
@@ -26214,7 +25402,7 @@
   },
   {
     "source": "Jaboticaba",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26242,7 +25430,7 @@
   },
   {
     "source": "Feijoa",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26284,7 +25472,7 @@
   },
   {
     "source": "Brazil_cherry",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26564,7 +25752,7 @@
   },
   {
     "source": "Canaf",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -26606,7 +25794,7 @@
   },
   {
     "source": "Ailanthus",
-    "target": "Most Plants (general)",
+    "target": "SOIL FERTILITY",
     "type": "hostile",
     "direction": "directed",
     "context": [],
@@ -26676,7 +25864,7 @@
   },
   {
     "source": "Mushrooms",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -26712,20 +25900,6 @@
     "evidence_level": "Modern reconstruction",
     "evidence_quote": "Bamboo litter and culms provide cellulose-rich substrate supporting edible mushroom cultivation under bamboo stands.",
     "confidence": 0.75,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Buna Grass",
-    "target": "Mushrooms",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_29",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "High-biomass grasses like bana grass generate straw substrate suitable for cultivated mushroom production.",
-    "confidence": 0.6,
     "added": true,
     "origin": "enriched",
     "flags": []
@@ -26774,7 +25948,7 @@
   },
   {
     "source": "Mangroves",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -26816,7 +25990,7 @@
   },
   {
     "source": "Indigofera",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "nitrogen_fix",
     "direction": "directed",
     "context": [],
@@ -26956,20 +26130,6 @@
   },
   {
     "source": "Cultivated Olive",
-    "target": "Legumes",
-    "type": "companion",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_29",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Broad beans, vetches, and other legumes are traditionally undersown in olive groves to fix nitrogen and suppress weeds.",
-    "confidence": 0.7,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Cultivated Olive",
     "target": "Fava Bean",
     "type": "companion",
     "direction": "undirected",
@@ -27026,7 +26186,7 @@
   },
   {
     "source": "Cultivated Olive",
-    "target": "SOIL",
+    "target": "SOIL FERTILITY",
     "type": "soil_exhaust",
     "direction": "directed",
     "context": [],
@@ -27390,7 +26550,7 @@
   },
   {
     "source": "Fig",
-    "target": "Wild Fig (caprifig)",
+    "target": "Wild Fig",
     "type": "animal",
     "direction": "undirected",
     "context": [],
@@ -27404,7 +26564,7 @@
   },
   {
     "source": "Grapevine",
-    "target": "Wild Fig (caprifig)",
+    "target": "Wild Fig",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -27417,7 +26577,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Date Palm",
     "type": "canopy_shade",
     "direction": "directed",
@@ -27432,7 +26592,7 @@
   },
   {
     "source": "Alfalfa",
-    "target": "Date Palm Gardens; Saline Areas",
+    "target": "SALINE SOIL",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -27445,7 +26605,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Egyptian Clover",
     "type": "companion",
     "direction": "undirected",
@@ -27460,7 +26620,7 @@
   },
   {
     "source": "Barley",
-    "target": "Date Palm Gardens; Saline Areas",
+    "target": "SALINE SOIL",
     "type": "companion",
     "direction": "undirected",
     "context": [],
@@ -27473,7 +26633,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Wheat",
     "type": "companion",
     "direction": "undirected",
@@ -27487,7 +26647,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Glasswort Ash",
     "type": "companion",
     "direction": "undirected",
@@ -27501,7 +26661,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Glasswort Saline",
     "type": "companion",
     "direction": "undirected",
@@ -27515,7 +26675,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Tamarisk",
     "type": "companion",
     "direction": "undirected",
@@ -27529,7 +26689,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Doum Palm",
     "type": "companion",
     "direction": "undirected",
@@ -27543,7 +26703,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Henna",
     "type": "companion",
     "direction": "undirected",
@@ -27557,7 +26717,7 @@
     "flags": []
   },
   {
-    "source": "Date Palm Gardens; Saline Areas",
+    "source": "SALINE SOIL",
     "target": "Pomegranate",
     "type": "companion",
     "direction": "undirected",
@@ -27571,7 +26731,7 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Papyrus",
     "type": "water",
     "direction": "undirected",
@@ -27585,35 +26745,7 @@
     "flags": []
   },
   {
-    "source": "Common Reed",
-    "target": "Irrigation Canals / Wet Crops",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Common reed (Phragmites) colonises irrigation canal banks and wet crop margins throughout the ancient agricultural world.",
-    "confidence": 0.95,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Bulrush",
-    "target": "Irrigation Canals / Wet Crops",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Bulrush (Typha) is a dominant emergent plant of irrigation ditches and waterlogged field margins in warm temperate and tropical zones.",
-    "confidence": 0.92,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Rice",
     "type": "water",
     "direction": "undirected",
@@ -27627,7 +26759,7 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Sugar Cane",
     "type": "water",
     "direction": "undirected",
@@ -27641,21 +26773,7 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
-    "target": "Watercress",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Watercress grows in flowing water and along irrigation channel margins as a documented edible aquatic crop.",
-    "confidence": 0.9,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Sacred Lotus",
     "type": "water",
     "direction": "undirected",
@@ -27669,36 +26787,8 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
-    "target": "Water Lily",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Water lily grows in still or slow-moving irrigation water bodies and was cultivated in ancient Egyptian canal gardens.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Irrigation Canals / Wet Crops",
-    "target": "Water Mint",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Water mint naturally colonises the wet margins of irrigation canals and ditches throughout the Mediterranean and Near East.",
-    "confidence": 0.88,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Alfalfa",
-    "target": "Irrigation Canals / Wet Crops",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27712,7 +26802,7 @@
   },
   {
     "source": "Flax",
-    "target": "Irrigation Canals / Wet Crops",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27725,7 +26815,7 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Kang Kong",
     "type": "water",
     "direction": "undirected",
@@ -27739,7 +26829,7 @@
     "flags": []
   },
   {
-    "source": "Irrigation Canals / Wet Crops",
+    "source": "FRESHWATER",
     "target": "Taro",
     "type": "water",
     "direction": "undirected",
@@ -27753,78 +26843,8 @@
     "flags": []
   },
   {
-    "source": "Duckweed",
-    "target": "Irrigation Canals / Wet Crops",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Duckweed proliferates on still or slow canal water surfaces, used as fodder and water quality indicator in traditional irrigation systems.",
-    "confidence": 0.9,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Irrigation Canals / Wet Crops",
-    "target": "Water Hyacinth",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Water hyacinth colonises irrigation canals, potentially blocking water flow but also documented as green manure in wet crop systems.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Azolla",
-    "target": "Irrigation Canals / Wet Crops",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Azolla is a nitrogen-fixing aquatic fern used as green manure in flooded rice paddies and irrigation canal systems.",
-    "confidence": 0.88,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Waterways",
-    "target": "Willow",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Willows are obligate riparian trees that stabilise waterway banks through deep rooting and are universally planted along watercourses.",
-    "confidence": 0.95,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Poplar",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Poplars are riparian trees widely planted along waterways and irrigation channels for bank stabilisation and timber.",
-    "confidence": 0.92,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Tamarisk",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27837,78 +26857,8 @@
     "flags": []
   },
   {
-    "source": "Common Reed",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Common reed dominates waterway margins and is a primary riparian plant of rivers, canals and wetlands throughout the Old World.",
-    "confidence": 0.95,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Papyrus",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Papyrus is a characteristic waterway plant of Nile and Levantine river margins, forming dense stands in shallow water.",
-    "confidence": 0.93,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Bulrush",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Bulrush is a dominant emergent plant of river margins, lake shores and waterway edges in temperate and tropical zones.",
-    "confidence": 0.93,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Alder",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Alder fixes nitrogen and stabilises waterway banks as a classic riparian tree, though its explicit mention requires cross-reference.",
-    "confidence": 0.9,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
-    "source": "Plane Tree",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Oriental plane tree is characteristically riparian in the Mediterranean and Near East, growing along river banks and waterways.",
-    "confidence": 0.85,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Water Mint",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27922,7 +26872,7 @@
   },
   {
     "source": "Watercress",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27936,7 +26886,7 @@
   },
   {
     "source": "Water Lily",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27949,22 +26899,8 @@
     "flags": []
   },
   {
-    "source": "Sacred Lotus",
-    "target": "Waterways",
-    "type": "water",
-    "direction": "undirected",
-    "context": [],
-    "source_id": "scientific_enrichment_batch_30",
-    "evidence_level": "Modern reconstruction",
-    "evidence_quote": "Sacred lotus grows in shallow waterways, river backwaters and irrigation ponds as a cultivated and semi-wild aquatic crop.",
-    "confidence": 0.88,
-    "added": true,
-    "origin": "enriched",
-    "flags": []
-  },
-  {
     "source": "Esparto Grass",
-    "target": "Waterways",
+    "target": "FRESHWATER",
     "type": "water",
     "direction": "undirected",
     "context": [],
@@ -27977,7 +26913,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Rosemary",
     "type": "windbreak",
     "direction": "directed",
@@ -27991,7 +26927,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Lavender",
     "type": "windbreak",
     "direction": "directed",
@@ -28005,7 +26941,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Myrtle",
     "type": "windbreak",
     "direction": "directed",
@@ -28019,7 +26955,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Bay Laurel",
     "type": "windbreak",
     "direction": "directed",
@@ -28033,7 +26969,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Cypress",
     "type": "windbreak",
     "direction": "directed",
@@ -28047,7 +26983,7 @@
     "flags": []
   },
   {
-    "source": "General Aromatic Windbreak",
+    "source": "SOIL FERTILITY",
     "target": "Juniper",
     "type": "windbreak",
     "direction": "directed",
@@ -28059,5 +26995,1434 @@
     "added": true,
     "origin": "enriched",
     "flags": []
+  },
+  {
+    "source": "Tamarisk",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Tamarisk Tree",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Glasswort Ash",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Glasswort Saline",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Glasswort (ash Source)",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Glasswort (saline)",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Sea Blite",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Orach",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Samphire",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Date Palm",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Doum Palm",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Chard / Beet",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Asparagus",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Mangroves",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Sea Purslane",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Ice Plant",
+    "target": "SALINE SOIL",
+    "type": "companion",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.8,
+    "added": true,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Tamarisk",
+    "target": "SALINE SOIL",
+    "type": "water",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "permaculture_network.html",
+    "evidence_level": "Uncertain",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Tamarisk Tree",
+    "target": "SALINE SOIL",
+    "type": "water",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_8",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Tamarix is a phreatophyte with deep roots that accesses and depletes groundwater reserves in riparian and arid environments.",
+    "confidence": 0.88,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "BARE GROUND",
+    "target": "MATURE CANOPY",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.9,
+    "added": true,
+    "flags": [],
+    "origin": "restructure",
+    "note": "Ecological succession: disturbed ground matures into established canopy"
+  },
+  {
+    "source": "Lupin",
+    "target": "Oats",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Rye",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Sorghum",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Rice",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Emmer Wheat",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Einkorn",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Lupin",
+    "target": "Spelt",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Bindweed",
+    "target": "Oats",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Rye",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Sorghum",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Rice",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Emmer Wheat",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Einkorn",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Bindweed",
+    "target": "Spelt",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Bindweed is a notorious weed of cereal crops broadly, with extensive root systems that compete aggressively for water and nutrients.",
+    "confidence": 0.9,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Wheat",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Barley",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Oats",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Rye",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Sorghum",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Rice",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Emmer Wheat",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Einkorn",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Mesquite",
+    "target": "Spelt",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_23",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Mesquite (Prosopis) is documented to be allelopathic, releasing phenolic compounds that can inhibit germination and growth of cereal crops nearby.",
+    "confidence": 0.75,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Barley",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Oats",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Rye",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Sorghum",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Rice",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Emmer Wheat",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Einkorn",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Alfalfa",
+    "target": "Spelt",
+    "type": "succession",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Strongly implied",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Carob",
+    "target": "Wheat",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Barley",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Oats",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Rye",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Sorghum",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Rice",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Emmer Wheat",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Einkorn",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Carob",
+    "target": "Spelt",
+    "type": "canopy_shade",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_5",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Carob trees provide shade and leaf litter mulch that can suppress understory cereal crops.",
+    "confidence": 0.65,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Wheat",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Barley",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Oats",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Rye",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Sorghum",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Rice",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Emmer Wheat",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Einkorn",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Acacia",
+    "target": "Spelt",
+    "type": "nitrogen_fix",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_9",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Acacia species fix atmospheric nitrogen and drop leaf litter, improving fertility for understorey cereals in parkland systems.",
+    "confidence": 0.8,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Barley",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Oats",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Rye",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Sorghum",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Rice",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Emmer Wheat",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Einkorn",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Asphodel",
+    "target": "Spelt",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_10",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Asphodel spreads aggressively on degraded land, outcompeting cereal crops and preventing agricultural use of affected soils.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Oats",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Rye",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Sorghum",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Rice",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Emmer Wheat",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Einkorn",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Fumitory",
+    "target": "Spelt",
+    "type": "hostile",
+    "direction": "directed",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_15",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Fumaria officinalis is a common weed of cereal crops that competes for nutrients and light, documented as an agricultural pest in arable fields.",
+    "confidence": 0.85,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Wheat",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Barley",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Oats",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Rye",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Sorghum",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Rice",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Emmer Wheat",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Einkorn",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Spelt",
+    "target": "Senna Leaf",
+    "type": "companion",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "scientific_enrichment_batch_16",
+    "evidence_level": "Modern reconstruction",
+    "evidence_quote": "Senna species used as green manure or intercrop improve soil nitrogen availability for subsequent cereal crops.",
+    "confidence": 0.6,
+    "added": true,
+    "origin": "restructure",
+    "flags": []
+  },
+  {
+    "source": "Silkworms",
+    "target": "FRESHWATER",
+    "type": "animal",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "permaculture_plant_network.html",
+    "evidence_level": "Uncertain",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Fish",
+    "target": "Mulberry",
+    "type": "animal",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "permaculture_plant_network.html",
+    "evidence_level": "Uncertain",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Silkworms",
+    "target": "Mulberry",
+    "type": "animal",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "permaculture_plant_network.html",
+    "evidence_level": "Uncertain",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Duckweed",
+    "target": "Silkworms",
+    "type": "animal",
+    "direction": "undirected",
+    "context": [],
+    "source_id": "permaculture_plant_network.html",
+    "evidence_level": "Uncertain",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Pennyroyal",
+    "target": "Barley",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Wormwood",
+    "target": "Barley",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Oleander",
+    "target": "Olive",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Oleander",
+    "target": "Fig",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Asafoetida",
+    "target": "Grapevine",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
+  },
+  {
+    "source": "Asafoetida",
+    "target": "Fig",
+    "type": "windbreak",
+    "direction": "directed",
+    "context": [],
+    "source_id": "islamic_agronomy_verified_reference.html",
+    "evidence_level": "Explicit",
+    "evidence_quote": null,
+    "confidence": 0.5,
+    "added": false,
+    "flags": [],
+    "origin": "restructure"
   }
 ]
