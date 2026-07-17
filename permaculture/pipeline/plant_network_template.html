@@ -5,794 +5,926 @@
 <title>Plant Network</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a1a;color:#ddd;display:flex;flex-direction:column;height:100vh;overflow:hidden}
-
-/* ── Top bar ── */
-#topbar{height:46px;background:#111;border-bottom:1px solid #333;display:flex;align-items:center;gap:10px;padding:0 12px;flex-shrink:0;z-index:10}
-#topbar h1{font-size:14px;font-weight:600;color:#e8d5a0;white-space:nowrap}
-#search{flex:1;max-width:280px;padding:5px 9px;border-radius:4px;border:1px solid #444;background:#222;color:#ddd;font-size:13px}
-#search::placeholder{color:#666}
-#stats{font-size:11px;color:#666;white-space:nowrap}
-#stats span{color:#aaa}
-
-/* ── Layout ── */
-#layout{display:flex;flex:1;min-height:0}
+body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a2e;color:#e0e0e0;display:flex;height:100vh;overflow:hidden}
 
 /* ── Sidebar ── */
-#sidebar{width:260px;flex-shrink:0;background:#141414;border-right:1px solid #2a2a2a;overflow-y:auto;padding:10px 0;display:flex;flex-direction:column;gap:0}
+#sidebar{width:240px;min-width:240px;background:#16213e;border-right:1px solid #2a3560;overflow-y:auto;display:flex;flex-direction:column;gap:0;flex-shrink:0}
+.sb-section{border-bottom:1px solid #2a3560;padding:8px 10px}
+.sb-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#8899bb;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.sb-title button{font-size:10px;padding:1px 5px;background:#223;border:1px solid #445;border-radius:3px;color:#aac;cursor:pointer}
+.sb-title button:hover{background:#334;color:#cce}
 
-.sb-section{padding:8px 12px 10px;border-bottom:1px solid #222}
-.sb-section:last-child{border-bottom:none}
-.sb-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#666;margin-bottom:7px}
-
-/* My garden */
+/* My Garden */
 #garden-wrap{position:relative}
-#garden-input{width:100%;padding:5px 8px;border:1px solid #333;border-radius:4px;background:#1e1e1e;color:#ddd;font-size:12px}
-#garden-input::placeholder{color:#555}
-#garden-dropdown{position:absolute;top:100%;left:0;right:0;background:#222;border:1px solid #444;border-radius:4px;z-index:100;max-height:160px;overflow-y:auto;display:none}
-.garden-opt{padding:5px 9px;cursor:pointer;font-size:12px}
-.garden-opt:hover,.garden-opt.active{background:#333}
-#garden-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
-.chip{display:flex;align-items:center;gap:4px;background:#2a3a2a;border:1px solid #3a5a3a;border-radius:12px;padding:2px 8px;font-size:11px;color:#8dc88d}
-.chip-x{cursor:pointer;color:#888;font-size:11px;line-height:1}
-.chip-x:hover{color:#f88}
-#hide-incompat-btn{margin-top:8px;width:100%;padding:5px 8px;border:1px solid #444;border-radius:4px;background:#1e1e1e;color:#aaa;font-size:12px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
-#hide-incompat-btn.active{background:#3a1a1a;border-color:#884444;color:#f88}
-#hide-incompat-btn:disabled{opacity:.4;cursor:default}
+#garden-input{width:100%;padding:4px 6px;background:#0d1b2a;border:1px solid #2a3560;border-radius:4px;color:#e0e0e0;font-size:12px}
+#garden-input:focus{outline:none;border-color:#4a7fc1}
+#garden-dropdown{position:absolute;top:100%;left:0;right:0;background:#0d1b2a;border:1px solid #4a7fc1;border-top:none;border-radius:0 0 4px 4px;max-height:160px;overflow-y:auto;z-index:50;display:none}
+#garden-dropdown div{padding:4px 8px;cursor:pointer;font-size:12px}
+#garden-dropdown div:hover{background:#1a3a5c}
+#garden-chips{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.chip{display:flex;align-items:center;gap:3px;background:#1a3a5c;border-radius:10px;padding:2px 7px;font-size:11px}
+.chip-x{cursor:pointer;color:#88aacc;font-weight:700;line-height:1}
+.chip-x:hover{color:#ff6666}
+#btn-hide-incompat{width:100%;margin-top:5px;padding:4px;background:#1a3a5c;border:1px solid #2a5c9c;border-radius:4px;color:#88ccff;cursor:pointer;font-size:11px}
+#btn-hide-incompat.active{background:#2a1a1a;border-color:#9c2a2a;color:#ff8888}
+#btn-hide-incompat:hover{opacity:.85}
 
 /* Category grid */
-.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 6px}
-.cat-row{display:flex;align-items:center;gap:5px;min-width:0}
-.cat-row label{font-size:12px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px;flex:1;min-width:0}
-.cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
-.cat-row input[type=checkbox]{width:12px;height:12px;flex-shrink:0;accent-color:#8dc88d;cursor:pointer}
+#cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 4px}
+.cat-row{display:flex;align-items:center;gap:4px;cursor:pointer;padding:2px 2px;border-radius:3px}
+.cat-row:hover{background:#1a2a3a}
+.cat-row input{margin:0;cursor:pointer}
+.cat-swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.cat-label{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1}
+.subcat-pills{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px;margin:2px 0 4px 16px}
+.subcat-pill{font-size:10px;padding:1px 6px;border-radius:8px;border:1px solid #2a3560;cursor:pointer;background:#0d1b2a;color:#99aacc}
+.subcat-pill.active{border-color:#4a7fc1;background:#1a3a5c;color:#88ccff}
 
-/* Sub-cats */
-.subcat-area{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px;margin:-1px 0 3px 16px}
-.subcat-pill{padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;border:1px solid transparent;transition:background .1s}
+/* Water need pills */
+#wn-pills{display:flex;flex-wrap:wrap;gap:4px}
+.wn-pill{padding:3px 9px;border-radius:10px;border:1px solid #2a3560;cursor:pointer;font-size:11px;color:#99aacc;background:#0d1b2a}
+.wn-pill.active{color:#000}
 
-/* Water needs */
-.water-pills{display:flex;gap:4px;flex-wrap:wrap}
-.water-pill{padding:3px 10px;border-radius:10px;font-size:11px;cursor:pointer;border:1px solid transparent;transition:background .1s}
-.water-pill[data-wn=low]{background:#2a2a1a;border-color:#665533;color:#cc9}
-.water-pill[data-wn=low].active{background:#665533;color:#ffd}
-.water-pill[data-wn=medium]{background:#1a2a2a;border-color:#336655;color:#8cc}
-.water-pill[data-wn=medium].active{background:#336655;color:#cff}
-.water-pill[data-wn=high]{background:#1a1a2a;border-color:#334466;color:#88c}
-.water-pill[data-wn=high].active{background:#334466;color:#ccf}
-.water-pill[data-wn=very_high]{background:#1a1a2a;border-color:#223366;color:#88a}
-.water-pill[data-wn=very_high].active{background:#223366;color:#aaf}
-
-/* Relationship types */
-.type-row{display:flex;align-items:center;gap:5px;margin-bottom:3px}
-.type-row label{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;flex:1}
-.type-swatch{width:18px;height:3px;border-radius:2px;flex-shrink:0}
-.type-abbr{font-size:10px;font-weight:700;color:#888;background:#222;border-radius:3px;padding:0 4px;font-family:monospace}
-.type-row input[type=checkbox]{width:12px;height:12px;accent-color:#8dc88d;cursor:pointer}
+/* Edge type checkboxes */
+.edge-row{display:flex;align-items:center;gap:5px;padding:2px 0;cursor:pointer}
+.edge-row input{cursor:pointer;margin:0}
+.edge-swatch{width:12px;height:3px;border-radius:1px;flex-shrink:0}
+.edge-abbr{font-size:10px;color:#667;background:#111;border-radius:2px;padding:0 3px;font-family:monospace}
+.edge-label{font-size:11px}
 
 /* Display toggles */
-.toggle-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
-.toggle-row label{font-size:12px;cursor:pointer}
-.toggle{width:32px;height:17px;border-radius:9px;background:#333;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
-.toggle.on{background:#4a7a4a}
-.toggle::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#888;top:2px;left:2px;transition:left .2s,background .2s}
-.toggle.on::after{left:17px;background:#8dc88d}
+.toggle-row{display:flex;align-items:center;gap:6px;padding:3px 0;cursor:pointer}
+.toggle-row input{cursor:pointer}
+.toggle-row label{font-size:11px;cursor:pointer}
+#cluster-btns{display:flex;gap:4px;margin-top:5px}
+#cluster-btns button{flex:1;padding:4px 2px;font-size:11px;background:#1a2a3a;border:1px solid #2a4060;border-radius:4px;color:#aabbcc;cursor:pointer}
+#cluster-btns button.active{background:#1a3a5c;border-color:#4a7fc1;color:#88ccff}
+#cluster-btns button:hover{opacity:.85}
+
+/* Stats */
+#stats-body{font-size:11px;line-height:1.8;color:#99aacc}
+#stats-body span{color:#e0e0e0;font-weight:600}
+#stat-types{margin-top:4px}
+.stat-type-row{display:flex;justify-content:space-between;font-size:10px}
 
 /* ── Graph area ── */
-#graph{flex:1;position:relative;overflow:hidden}
-#svg{display:block}
+#graph-area{flex:1;position:relative;overflow:hidden}
+#svg{width:100%;height:100%;display:block}
+#zoom-controls{position:absolute;bottom:12px;right:12px;display:flex;flex-direction:column;gap:4px}
+#zoom-controls button{width:28px;height:28px;background:#16213e;border:1px solid #2a3560;border-radius:4px;color:#e0e0e0;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+#zoom-controls button:hover{background:#1a3a5c}
+#tooltip{position:absolute;background:rgba(10,20,40,.92);border:1px solid #4a7fc1;border-radius:5px;padding:6px 10px;font-size:11px;pointer-events:none;max-width:200px;display:none;z-index:40}
 
-/* Tooltip */
-#tip{position:fixed;background:rgba(15,15,15,.95);border:1px solid #444;border-radius:5px;padding:7px 10px;font-size:12px;pointer-events:none;z-index:200;max-width:260px;display:none;line-height:1.5}
-#tip strong{color:#e8d5a0;display:block;margin-bottom:2px}
-#tip .tip-type{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.06em}
-#tip .tip-sci{color:#aaa;font-style:italic;font-size:11px}
-#tip .tip-badges{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
-#tip .tip-badge{font-size:10px;padding:1px 6px;border-radius:8px;background:#222;color:#aaa;border:1px solid #333}
+/* ── Info panel ── */
+#info-panel{width:280px;min-width:280px;background:#16213e;border-left:1px solid #2a3560;overflow-y:auto;flex-shrink:0;display:none;flex-direction:column}
+#info-panel.open{display:flex}
+#info-header{padding:10px 12px;border-bottom:1px solid #2a3560;display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+#info-name{font-size:15px;font-weight:700;color:#e8e8ff;flex:1}
+#info-close{background:none;border:none;color:#667;font-size:18px;cursor:pointer;padding:0 2px;line-height:1}
+#info-close:hover{color:#aaa}
+#info-body{padding:10px 12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.info-field{font-size:11px}
+.info-label{color:#8899bb;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.info-val{color:#e0e0e0}
+.info-val.ar{direction:rtl;text-align:right;font-size:13px;color:#c0c8e0}
+#info-cat-badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:11px;font-weight:600;margin-bottom:4px}
+#info-edges-title{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#8899bb;margin-top:4px;margin-bottom:4px;border-top:1px solid #2a3560;padding-top:6px}
+.info-edge-group{margin-bottom:6px}
+.info-edge-type{font-size:10px;color:#8899bb;margin-bottom:2px;font-weight:600;display:flex;align-items:center;gap:4px}
+.info-edge-type-swatch{width:20px;height:2px;display:inline-block;border-radius:1px}
+.info-edge-item{font-size:11px;padding:2px 0 2px 8px;display:flex;align-items:center;gap:4px;cursor:pointer}
+.info-edge-item:hover .info-edge-node{text-decoration:underline;color:#88ccff}
+.info-edge-dir{color:#667;font-size:10px;width:14px;flex-shrink:0}
+.info-edge-node{color:#c8d8ff}
+.info-no-edges{font-size:11px;color:#667;font-style:italic}
 
-/* Select-all / clear-all mini buttons */
-.sel-btns{display:inline-flex;gap:4px;margin-left:auto}
-.sel-btn{padding:1px 7px;font-size:10px;border:1px solid #3a3a3a;border-radius:3px;background:#1e1e1e;color:#888;cursor:pointer;line-height:1.6}
-.sel-btn:hover{background:#2a2a2a;color:#bbb}
+/* scrollbars */
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#0d1b2a}::-webkit-scrollbar-thumb{background:#2a3560;border-radius:3px}
 
 /* node labels */
-text.node-label{font-size:9px;fill:#bbb;pointer-events:none;text-anchor:middle;dominant-baseline:central}
+.node-label{font-size:9px;pointer-events:none;fill:#ccc;paint-order:stroke;stroke:#1a1a2e;stroke-width:2.5px}
 </style>
 </head>
 <body>
 
-<div id="topbar">
-  <h1>Plant Network</h1>
-  <input id="search" type="text" placeholder="Search plants…"/>
-  <div id="stats">nodes: <span id="stat-n">0</span> &nbsp; edges: <span id="stat-e">0</span> &nbsp; visible: <span id="stat-v">0</span></div>
-</div>
+<!-- ══ SIDEBAR ══ -->
+<div id="sidebar">
 
-<div id="layout">
-  <!-- sidebar -->
-  <div id="sidebar">
-
-    <!-- My Garden -->
-    <div class="sb-section">
-      <div class="sb-title">My Garden</div>
-      <div id="garden-wrap">
-        <input id="garden-input" type="text" placeholder="Add plant to my garden…" autocomplete="off"/>
-        <div id="garden-dropdown"></div>
-      </div>
-      <div id="garden-chips"></div>
-      <button id="hide-incompat-btn" disabled>Hide incompatible plants</button>
+  <!-- My Garden -->
+  <div class="sb-section">
+    <div class="sb-title">My Garden</div>
+    <div id="garden-wrap">
+      <input id="garden-input" type="text" placeholder="Add a plant…" autocomplete="off"/>
+      <div id="garden-dropdown"></div>
     </div>
+    <div id="garden-chips"></div>
+    <button id="btn-hide-incompat">Hide incompatible plants</button>
+  </div>
 
-    <!-- Categories -->
-    <div class="sb-section">
-      <div class="sb-title" style="display:flex;align-items:center">Categories<span class="sel-btns"><button class="sel-btn" id="cat-all">All</button><button class="sel-btn" id="cat-none">None</button></span></div>
-      <div id="cat-grid" class="cat-grid"></div>
+  <!-- Categories -->
+  <div class="sb-section">
+    <div class="sb-title">
+      Categories
+      <span>
+        <button id="btn-cat-all">All</button>
+        <button id="btn-cat-none">None</button>
+      </span>
     </div>
+    <div id="cat-grid"></div>
+  </div>
 
-    <!-- Water Needs -->
-    <div class="sb-section">
-      <div class="sb-title">Water Needs</div>
-      <div class="water-pills">
-        <div class="water-pill active" data-wn="low">Low</div>
-        <div class="water-pill active" data-wn="medium">Medium</div>
-        <div class="water-pill active" data-wn="high">High</div>
-        <div class="water-pill active" data-wn="very_high">Very high</div>
-      </div>
+  <!-- Water Needs -->
+  <div class="sb-section">
+    <div class="sb-title">Water Needs</div>
+    <div id="wn-pills"></div>
+  </div>
+
+  <!-- Relationship Types -->
+  <div class="sb-section">
+    <div class="sb-title">
+      Relationships
+      <span>
+        <button id="btn-edge-all">All</button>
+        <button id="btn-edge-none">None</button>
+      </span>
     </div>
+    <div id="edge-list"></div>
+  </div>
 
-    <!-- Relationship Types -->
-    <div class="sb-section">
-      <div class="sb-title" style="display:flex;align-items:center">Relationship Types<span class="sel-btns"><button class="sel-btn" id="type-all">All</button><button class="sel-btn" id="type-none">None</button></span></div>
-      <div id="type-list"></div>
+  <!-- Display -->
+  <div class="sb-section">
+    <div class="sb-title">Display</div>
+    <div class="toggle-row">
+      <input type="checkbox" id="chk-orphans"/>
+      <label for="chk-orphans">Hide orphans</label>
     </div>
-
-    <!-- Display -->
-    <div class="sb-section">
-      <div class="sb-title">Display</div>
-      <div class="toggle-row">
-        <label for="tog-orphans">Hide orphans</label>
-        <div class="toggle" id="tog-orphans"></div>
-      </div>
-      <div class="toggle-row">
-        <label for="tog-labels">Show labels</label>
-        <div class="toggle on" id="tog-labels"></div>
-      </div>
-      <div class="toggle-row">
-        <label for="tog-cluster">Cluster by form</label>
-        <div class="toggle" id="tog-cluster"></div>
-      </div>
+    <div class="toggle-row">
+      <input type="checkbox" id="chk-labels" checked/>
+      <label for="chk-labels">Show labels</label>
+    </div>
+    <div id="cluster-btns">
+      <button id="btn-cluster-cat">Cluster by category</button>
+      <button id="btn-cluster-form">Cluster by form</button>
     </div>
   </div>
 
-  <!-- graph -->
-  <div id="graph">
-    <svg id="svg"></svg>
+  <!-- Stats -->
+  <div class="sb-section">
+    <div class="sb-title">Stats</div>
+    <div id="stats-body">
+      <div>Nodes: <span id="stat-nodes">—</span></div>
+      <div>Edges: <span id="stat-edges">—</span></div>
+      <div>Top plant: <span id="stat-top">—</span></div>
+      <div id="stat-types"></div>
+    </div>
   </div>
+
+</div><!-- /sidebar -->
+
+<!-- ══ GRAPH ══ -->
+<div id="graph-area">
+  <svg id="svg"></svg>
+  <div id="zoom-controls">
+    <button id="zoom-in">+</button>
+    <button id="zoom-out">−</button>
+    <button id="zoom-reset">⌂</button>
+  </div>
+  <div id="tooltip"></div>
 </div>
 
-<div id="tip"></div>
+<!-- ══ INFO PANEL ══ -->
+<div id="info-panel">
+  <div id="info-header">
+    <div id="info-name">—</div>
+    <button id="info-close">✕</button>
+  </div>
+  <div id="info-body"></div>
+</div>
 
 <script>
-/* ─── Injected data ─────────────────────────────────────────────────────── */
+// ── Data (injected by build_final.py) ──
 const RAW_NODES = PLACEHOLDER_NODES;
 const RAW_EDGES = PLACEHOLDER_EDGES;
 
-console.log("nodes:", RAW_NODES.length, "edges:", RAW_EDGES.length);
+// ── Category config ──
+const CAT_CFG = {
+  CG:{l:"Cereals & grains",     c:"#7EB53A"},
+  LP:{l:"Legumes & pulses",     c:"#18A070"},
+  VG:{l:"Vegetables",           c:"#4A9FDC"},
+  HK:{l:"Herbs & kitchen",      c:"#1870A0"},
+  FT:{l:"Fruit trees",          c:"#E8920A"},
+  AP:{l:"Aromatics & perfume",  c:"#C84070"},
+  MP:{l:"Medicinal plants",     c:"#7060CC"},
+  IF:{l:"Industrial & fiber",   c:"#888880"},
+  FG:{l:"Fodder & green manure",c:"#4A8010"},
+  ST:{l:"Structural trees",     c:"#605850"},
+  TP:{l:"Toxic & pest-control", c:"#CC3030"},
+  WU:{l:"Wild & utility",       c:"#B07818"},
+  AW:{l:"Aquatic & wetland",    c:"#0848A0"},
+  SS:{l:"Shrubs",               c:"#A09888"},
+  HB:{l:"Hubs",                 c:"#FFD700"},
+  AN:{l:"Animals & insects",    c:"#E91E63"},
+};
 
-/* ─── Edge config ───────────────────────────────────────────────────────── */
+// ── Edge config ──
 const EDGE_CFG = {
-  companion:      {color:"#4caf50", label:"Companion",       abbr:"F"},
-  hostile:        {color:"#f44336", label:"Hostile",         abbr:"H"},
-  nitrogen_fix:   {color:"#00bcd4", label:"Nitrogen fix",    abbr:"Ro"},
-  mulch_biomass:  {color:"#8bc34a", label:"Mulch / biomass", abbr:"R"},
-  soil_exhaust:   {color:"#ff5722", label:"Soil exhaust",    abbr:"E"},
-  grafting:       {color:"#9c27b0", label:"Grafting",        abbr:"G"},
-  succession:     {color:"#ff9800", label:"Succession",      abbr:"S"},
-  windbreak:      {color:"#607d8b", label:"Windbreak",       abbr:"P"},
-  water:          {color:"#2196f3", label:"Water",           abbr:"W"},
-  canopy_shade:   {color:"#795548", label:"Canopy shade",    abbr:"C"},
-  animal:         {color:"#e91e63", label:"Animal",          abbr:"A"},
+  companion:    {color:"#4caf50",label:"Companion",       abbr:"F"},
+  hostile:      {color:"#f44336",label:"Hostile",         abbr:"H"},
+  nitrogen_fix: {color:"#00bcd4",label:"Nitrogen fix",    abbr:"Ro"},
+  mulch_biomass:{color:"#8bc34a",label:"Mulch / biomass", abbr:"R"},
+  soil_exhaust: {color:"#ff5722",label:"Soil exhaust",    abbr:"E"},
+  grafting:     {color:"#9c27b0",label:"Grafting",        abbr:"G"},
+  succession:   {color:"#ff9800",label:"Succession",      abbr:"S"},
+  windbreak:    {color:"#607d8b",label:"Windbreak",       abbr:"P"},
+  water:        {color:"#2196f3",label:"Water",           abbr:"W"},
+  canopy_shade: {color:"#795548",label:"Canopy shade",    abbr:"C"},
+  animal:       {color:"#e91e63",label:"Animal",          abbr:"A"},
 };
 
-/* ─── Form / category config ────────────────────────────────────────────── */
-const FORM_CFG = {
-  canopy_tree:     {color:"#5d8a3c", label:"Canopy tree"},
-  mid_tree:        {color:"#7ab648", label:"Mid-layer tree"},
-  shrub:           {color:"#9ccc65", label:"Shrub"},
-  groundcover:     {color:"#cddc39", label:"Groundcover"},
-  climber:         {color:"#ffb300", label:"Climber"},
-  grass_grain:     {color:"#f9a825", label:"Grass / grain"},
-  aquatic_wetland: {color:"#26c6da", label:"Aquatic / wetland"},
-  palm:            {color:"#a1887f", label:"Palm"},
-  succulent:       {color:"#ef9a9a", label:"Succulent"},
-  null:            {color:"#9e9e9e", label:"Unknown form"},
-};
-const HUB_COLOR  = "#ffd700";
-const ANIM_COLOR = "#e91e63";
-
-/* ─── Content categories ────────────────────────────────────────────────── */
-const CONTENT_CATS = {
-  "Fruit trees": {
-    color: "#ff8a65",
-    sub: {
-      "Stone fruit":     ["Peach","Apricot","Plum","Damson","Cherry","Almond","Sour cherry"],
-      "Pome fruit":      ["Apple","Pear","Quince","Medlar","Hawthorn","Loquat"],
-      "Citrus":          ["Lemon","Lime","Citron","Sour orange","Sweet orange","Bergamot"],
-      "Fig & mulberry":  ["Fig","Mulberry","Sycamore fig","Black mulberry"],
-      "Other":           ["Olive","Pomegranate","Vine","Grapevine","Date palm","Carob","Jujube",
-                          "Walnut","Hazel","Pistachio","Doum palm","Banana","Tamarind",
-                          "Hackberry","Arbutus","Wild Olive","Cultivated Olive"],
-    }
+// ── Sub-category membership ──
+const SUBCAT = {
+  FT:{
+    "Stone fruit":    ["Peach","Apricot","Plum","Damson","Cherry","Olive","Almond"],
+    "Pome fruit":     ["Apple","Pear","Quince","Medlar","Hawthorn","Loquat"],
+    "Citrus":         ["Lemon","Citron","Sour orange","Sweet orange","Lime","Orange"],
+    "Fig & mulberry": ["Fig","Mulberry","Sycamore fig","Black mulberry","White mulberry"],
+    "Nuts & palms":   ["Walnut","Hazel","Pistachio","Date palm","Doum palm","Carob","Arbutus"],
+    "Other":          [],
   },
-  "Vegetables": {
-    color: "#aed581",
-    sub: {
-      "Alliums":     ["Onion","Garlic","Leek","Chive","Shallot"],
-      "Brassicas":   ["Cabbage","Cauliflower","Kohlrabi","Turnip","Radish","Rocket"],
-      "Legumes":     ["Broad bean","Fava Bean","Garden pea","Cowpea","Chickpea","Lentil",
-                      "Lupin","Vetch","Fenugreek"],
-      "Roots":       ["Carrot","Parsnip","Beetroot","Celery","Parsley"],
-      "Leaves":      ["Lettuce","Spinach","Chard","Chicory","Endive","Mallow","Purslane","Sorrel"],
-      "Fruiting":    ["Cucumber","Melon","Watermelon","Gourd","Bottle gourd","Eggplant","Artichoke","Cardoon"],
-    }
+  VG:{
+    "Alliums":   ["Onion","Garlic","Leek","Shallot","Chive"],
+    "Brassicas": ["Cabbage","Cauliflower","Kohlrabi","Radish","Turnip","Rocket","Watercress"],
+    "Roots":     ["Carrot","Parsnip","Beetroot","Celery root","Salsify","Scorzonera"],
+    "Leafy":     ["Lettuce","Spinach","Chard","Chicory","Endive","Mallow","Sorrel","Purslane","Borage"],
+    "Fruiting":  ["Cucumber","Eggplant","Melon","Watermelon","Gourd","Bottle gourd","Tomato","Pepper"],
+    "Other":     [],
   },
-  "Herbs & kitchen": {
-    color: "#80cbc4",
-    sub: {
-      "Aromatic":    ["Basil","Mint","Thyme","Rosemary","Sage","Lavender","Hyssop",
-                      "Calamint","Lemon balm","Rue","Southernwood","Wormwood"],
-      "Seed spices": ["Coriander","Dill","Fennel","Fenugreek","Caraway","Anise","Cumin","Sesame",
-                      "Saffron","Mustard"],
-      "Other":       ["Borage","Mallow","Lovage","Watercress","Sorrel"],
-    }
+  HK:{
+    "Aromatic":    ["Basil","Mint","Lemon balm","Sage","Thyme","Rosemary","Lavender","Marjoram","Oregano","Savory","Tarragon"],
+    "Seed spices": ["Coriander","Dill","Fennel","Fenugreek","Cumin","Caraway","Sesame","Anise","Carrot seed","Mustard"],
+    "Other culinary":["Parsley","Celery","Lovage","Hyssop","Chervil","Nasturtium"],
   },
-  "Medicinal plants": {
-    color: "#ce93d8",
-    sub: {
-      "Classic medicine": ["Aloe","Wormwood","Rue","Hyssop","Calamint","Southernwood",
-                           "Lavender","Rosemary","Sage","Thyme","Iris","Violet","Narcissus",
-                           "Jasmine","Caper","Purslane","Rocket"],
-      "Industrial / dye": ["Flax","Hemp","Cotton","Saffron","Woad","Henna"],
-    }
+  MP:{
+    "Sedative":     ["Valerian","Henbane","Opium poppy","Chamomile","Passionflower","Hops"],
+    "Digestive":    ["Gentian","Artichoke","Licorice","Senna","Aloe","Rhubarb"],
+    "Antimicrobial":["Wormwood","Rue","Garlic","Thyme","Oregano","Sage","Tea tree"],
+    "Topical":      ["Aloe","Comfrey","Calendula","Plantain","St John's Wort","Marigold"],
   },
 };
-
-/* Precompute lowercase lookup: id_lower → [{cat, sub}] */
-const _CC_LOWER = {};
-for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
-  for (const [sub, ids] of Object.entries(cfg.sub)) {
-    for (const id of ids) {
-      const k = id.toLowerCase();
-      if (!_CC_LOWER[k]) _CC_LOWER[k] = [];
-      _CC_LOWER[k].push({cat, sub});
+// build reverse lookup: nodeId → {cat, sub}
+const SUBCAT_LOOKUP = {};
+for(const [cat, subs] of Object.entries(SUBCAT)){
+  for(const [sub, ids] of Object.entries(subs)){
+    for(const id of ids){
+      SUBCAT_LOOKUP[id] = {cat, sub};
     }
   }
 }
 
-function nodeContentCats(node) {
-  return _CC_LOWER[node.id.toLowerCase()] || [];
+// ── Assign category ──
+function assignCat(n){
+  if(n.kind==='hub')    return 'HB';
+  if(n.kind==='animal') return 'AN';
+  const f=n.form, u=n.use||[], fn=n.function||[];
+  if(f==='aquatic_wetland')                                    return 'AW';
+  if(u.includes('fiber_industrial') && !u.includes('food'))   return 'IF';
+  if(f==='grass_grain')                                        return 'CG';
+  if(fn.includes('nitrogen_fixer') && u.includes('food'))     return 'LP';
+  if(fn.includes('nitrogen_fixer') && !u.includes('food'))    return 'FG';
+  if(u.includes('fodder') && !u.includes('food'))             return 'FG';
+  if((f==='canopy_tree'||f==='mid_tree') && u.includes('food')) return 'FT';
+  if(f==='canopy_tree'||f==='mid_tree')                        return 'ST';
+  if(u.includes('aromatic') && !u.includes('food'))           return 'AP';
+  if(u.includes('medicinal') && !u.includes('food'))          return 'MP';
+  if(u.includes('food') && u.includes('aromatic'))            return 'HK';
+  if(u.includes('food') && (f==='groundcover'||f==='climber')) return 'VG';
+  if(u.includes('food'))                                       return 'VG';
+  if(fn.includes('pest_deterrent')||fn.includes('allelopath')) return 'TP';
+  if(f==='shrub')                                              return 'SS';
+  return 'WU';
 }
 
-/* ─── Node size/color ───────────────────────────────────────────────────── */
-function nodeRadius(d) {
-  if (d.kind === "hub")    return 18;
-  if (d.kind === "animal") return 10;
-  const r = {canopy_tree:14, mid_tree:11, shrub:9, groundcover:7};
-  return r[d.form] || 8;
+// ── Node radius ──
+function nodeRadius(n){
+  if(n.kind==='hub')    return 20;
+  if(n.kind==='animal') return 11;
+  const r={canopy_tree:14,mid_tree:11,shrub:9,groundcover:7};
+  return r[n.form]||8;
 }
 
-function nodeColor(d) {
-  if (d.kind === "hub")    return HUB_COLOR;
-  if (d.kind === "animal") return ANIM_COLOR;
-  return (FORM_CFG[d.form] || FORM_CFG["null"]).color;
-}
+// ── sid/tid helpers (D3 mutates edge.source/target to objects) ──
+const sid = e => (typeof e.source==='object' ? e.source.id : e.source);
+const tid = e => (typeof e.target==='object' ? e.target.id : e.target);
 
-/* ─── State ─────────────────────────────────────────────────────────────── */
-const activeForms      = new Set(Object.keys(FORM_CFG));
-const activeCats       = new Set(Object.keys(CONTENT_CATS));
-const activeSubcats    = new Map(
-  Object.entries(CONTENT_CATS).map(([cat, cfg]) => [cat, new Set(Object.keys(cfg.sub))])
-);
-const activeWaterNeeds = new Set(["low","medium","high","very_high"]);
-const activeEdgeTypes  = new Set(Object.keys(EDGE_CFG));
-let hideOrphans  = false;
-let showLabels   = true;
-let clusterOn    = false;
-const myGarden   = new Set();
-let hideIncompat = false;
-let searchStr    = "";
-let matchIds     = null;
+// ── Assign cats to nodes ──
+RAW_NODES.forEach(n => { n._cat = assignCat(n); });
 
-/* ─── D3 selections ──────────────────────────────────────────────────────── */
-let nodeSel, labelSel, linkVisSel, linkHitSel;
+// ── Indexes ──
+const nodeById = {};
+RAW_NODES.forEach(n => { nodeById[n.id] = n; });
 
-/* ─── Sidebar ────────────────────────────────────────────────────────────── */
-function buildSidebar() {
-  const grid = document.getElementById("cat-grid");
-  grid.innerHTML = "";
+// ── State ──
+let activeCats    = new Set(Object.keys(CAT_CFG));
+let activeSubcats = {};   // {cat: Set<sub>} — empty set means all
+let activeWater   = new Set(["low","medium","high","very_high"]);
+let activeEdges   = new Set(Object.keys(EDGE_CFG));
+let gardenSet     = new Set();
+let hideIncompat  = false;
+let hideOrphans   = false;
+let showLabels    = true;
+let clusterMode   = null;   // null | 'cat' | 'form'
+let simulation, zoom, gAll, linkVisSel, linkHitSel, nodeSel, labelSel;
+let selectedNodeId = null;
 
-  /* Form-based categories (2-col grid) */
-  for (const [fk, fc] of Object.entries(FORM_CFG)) {
-    const row = document.createElement("div");
-    row.className = "cat-row";
-    row.innerHTML = `<input type="checkbox" id="cb-form-${fk}" checked/>
-      <label for="cb-form-${fk}"><span class="cat-dot" style="background:${fc.color}"></span>${fc.label}</label>`;
+// ── Build sidebar ──
+buildCatGrid();
+buildWaterPills();
+buildEdgeList();
+initGarden();
+
+function buildCatGrid(){
+  const grid = document.getElementById('cat-grid');
+  const catOrder = ['CG','LP','VG','HK','FT','AP','MP','IF','FG','ST','TP','WU','AW','SS','HB','AN'];
+  const subCatHas = ['FT','VG','HK','MP'];
+  catOrder.forEach(code => {
+    const cfg = CAT_CFG[code];
+    // Checkbox row
+    const row = document.createElement('div');
+    row.className = 'cat-row';
+    row.dataset.cat = code;
+    const chk = document.createElement('input');
+    chk.type='checkbox'; chk.checked=true; chk.dataset.cat=code;
+    chk.addEventListener('change', () => { toggleCat(code, chk.checked); });
+    const sw = document.createElement('div');
+    sw.className='cat-swatch'; sw.style.background=cfg.c;
+    const lbl = document.createElement('div');
+    lbl.className='cat-label'; lbl.textContent=cfg.l; lbl.title=cfg.l;
+    row.appendChild(chk); row.appendChild(sw); row.appendChild(lbl);
+    row.addEventListener('click', e => { if(e.target!==chk){ chk.checked=!chk.checked; toggleCat(code, chk.checked); }});
     grid.appendChild(row);
-    row.querySelector("input").addEventListener("change", e => {
-      if (e.target.checked) activeForms.add(fk); else activeForms.delete(fk);
-      applyFilters();
-    });
-  }
 
-  /* Content categories with sub-cat pills (full-width rows) */
-  for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
-    const catId = cat.replace(/\W+/g,"_");
-
-    const row = document.createElement("div");
-    row.className = "cat-row";
-    row.style.gridColumn = "1/-1";
-    row.innerHTML = `<input type="checkbox" id="cb-cat-${catId}" checked/>
-      <label for="cb-cat-${catId}"><span class="cat-dot" style="background:${cfg.color}"></span>${cat}</label>`;
-    grid.appendChild(row);
-
-    const subArea = document.createElement("div");
-    subArea.className = "subcat-area";
-    subArea.id = `subarea-${catId}`;
-
-    for (const sub of Object.keys(cfg.sub)) {
-      const pill = document.createElement("div");
-      pill.className = "subcat-pill active";
-      pill.textContent = sub;
-      pill.style.cssText = `background:${cfg.color}33;border-color:${cfg.color}88;color:${cfg.color}`;
-      pill.dataset.cat = cat;
-      pill.dataset.sub = sub;
-      pill.addEventListener("click", () => {
-        const set = activeSubcats.get(cat);
-        if (set.has(sub)) {
-          set.delete(sub);
-          pill.classList.remove("active");
-          pill.style.opacity = "0.4";
-        } else {
-          set.add(sub);
-          pill.classList.add("active");
-          pill.style.opacity = "1";
-        }
-        applyFilters();
+    // Sub-cat pills (span full width)
+    if(subCatHas.includes(code)){
+      const pillWrap = document.createElement('div');
+      pillWrap.className = 'subcat-pills';
+      pillWrap.dataset.cat = code;
+      Object.keys(SUBCAT[code]).forEach(sub => {
+        const pill = document.createElement('div');
+        pill.className='subcat-pill active';
+        pill.textContent=sub; pill.dataset.cat=code; pill.dataset.sub=sub;
+        pill.addEventListener('click', () => toggleSubcat(code, sub, pill));
+        pillWrap.appendChild(pill);
       });
-      subArea.appendChild(pill);
+      grid.appendChild(pillWrap);
     }
-    grid.appendChild(subArea);
+  });
 
-    row.querySelector("input").addEventListener("change", e => {
-      if (e.target.checked) {
-        activeCats.add(cat);
-        subArea.style.display = "";
+  document.getElementById('btn-cat-all').addEventListener('click',()=>{
+    activeCats=new Set(Object.keys(CAT_CFG));
+    grid.querySelectorAll('input[data-cat]').forEach(c=>c.checked=true);
+    activeSubcats={};
+    grid.querySelectorAll('.subcat-pill').forEach(p=>p.classList.add('active'));
+    applyFilters();
+  });
+  document.getElementById('btn-cat-none').addEventListener('click',()=>{
+    activeCats=new Set();
+    grid.querySelectorAll('input[data-cat]').forEach(c=>c.checked=false);
+    applyFilters();
+  });
+}
+
+function toggleCat(code, on){
+  if(on) activeCats.add(code); else activeCats.delete(code);
+  applyFilters();
+}
+
+function toggleSubcat(code, sub, pill){
+  if(!activeSubcats[code]) activeSubcats[code] = new Set();
+  const s = activeSubcats[code];
+  if(s.has(sub)){ s.delete(sub); pill.classList.remove('active'); }
+  else           { s.add(sub);   pill.classList.add('active'); }
+  // if all pills active → treat as "no filter"
+  const total = Object.keys(SUBCAT[code]).length;
+  if(s.size===total) delete activeSubcats[code];
+  applyFilters();
+}
+
+function buildWaterPills(){
+  const wrap = document.getElementById('wn-pills');
+  const wns = [
+    {id:'low',    label:'Low',       color:'#c8a000'},
+    {id:'medium', label:'Medium',    color:'#4a9fdc'},
+    {id:'high',   label:'High',      color:'#1870a0'},
+    {id:'very_high',label:'Very High',color:'#0848a0'},
+  ];
+  wns.forEach(wn => {
+    const pill = document.createElement('div');
+    pill.className='wn-pill active';
+    pill.textContent=wn.label; pill.dataset.wn=wn.id;
+    pill.style.setProperty('--wc', wn.color);
+    pill.style.borderColor=wn.color;
+    pill.classList.add('active');
+    pill.style.background='transparent';
+    pill.style.color=wn.color;
+    pill.addEventListener('click',()=>{
+      if(activeWater.has(wn.id)){
+        activeWater.delete(wn.id);
+        pill.classList.remove('active');
+        pill.style.background='transparent';
+        pill.style.color=wn.color;
       } else {
-        activeCats.delete(cat);
-        subArea.style.display = "none";
+        activeWater.add(wn.id);
+        pill.classList.add('active');
+        pill.style.background=wn.color;
+        pill.style.color='#000';
       }
       applyFilters();
     });
-  }
+    // initial active state
+    pill.style.background=wn.color;
+    pill.style.color='#000';
+    wrap.appendChild(pill);
+  });
+}
 
-  /* Water pills */
-  document.querySelectorAll(".water-pill").forEach(pill => {
-    pill.addEventListener("click", () => {
-      const wn = pill.dataset.wn;
-      if (activeWaterNeeds.has(wn)) { activeWaterNeeds.delete(wn); pill.classList.remove("active"); }
-      else                           { activeWaterNeeds.add(wn);    pill.classList.add("active"); }
-      applyFilters();
-    });
+function buildEdgeList(){
+  const wrap = document.getElementById('edge-list');
+  Object.entries(EDGE_CFG).forEach(([k,cfg])=>{
+    const row = document.createElement('div');
+    row.className='edge-row';
+    const chk = document.createElement('input');
+    chk.type='checkbox'; chk.checked=true; chk.dataset.edge=k;
+    chk.addEventListener('change',()=>{ if(chk.checked) activeEdges.add(k); else activeEdges.delete(k); applyFilters(); });
+    const sw = document.createElement('div');
+    sw.className='edge-swatch'; sw.style.background=cfg.color;
+    const abbr = document.createElement('div');
+    abbr.className='edge-abbr'; abbr.textContent=cfg.abbr;
+    const lbl = document.createElement('div');
+    lbl.className='edge-label'; lbl.textContent=cfg.label;
+    row.appendChild(chk); row.appendChild(sw); row.appendChild(abbr); row.appendChild(lbl);
+    row.addEventListener('click',e=>{ if(e.target!==chk){ chk.checked=!chk.checked; if(chk.checked) activeEdges.add(k); else activeEdges.delete(k); applyFilters(); }});
+    wrap.appendChild(row);
   });
 
-  /* Edge type list */
-  const typeList = document.getElementById("type-list");
-  for (const [t, tc] of Object.entries(EDGE_CFG)) {
-    const row = document.createElement("div");
-    row.className = "type-row";
-    row.innerHTML = `<input type="checkbox" id="cb-type-${t}" checked/>
-      <label for="cb-type-${t}">
-        <span class="type-swatch" style="background:${tc.color}"></span>
-        ${tc.label} <span class="type-abbr">${tc.abbr}</span>
-      </label>`;
-    typeList.appendChild(row);
-    row.querySelector("input").addEventListener("change", e => {
-      if (e.target.checked) activeEdgeTypes.add(t); else activeEdgeTypes.delete(t);
-      applyFilters();
-    });
-  }
-
-  /* Display toggles */
-  function mkToggle(id, getter, setter) {
-    const el = document.getElementById(id);
-    el.addEventListener("click", () => {
-      setter(!getter());
-      el.classList.toggle("on", getter());
-      applyFilters();
-    });
-  }
-  mkToggle("tog-orphans", () => hideOrphans, v => { hideOrphans = v; });
-  mkToggle("tog-labels",  () => showLabels,  v => { showLabels  = v; });
-  mkToggle("tog-cluster", () => clusterOn,   v => {
-    clusterOn = v;
-    if (clusterOn && simulation) simulation.alpha(0.3).restart();
+  document.getElementById('btn-edge-all').addEventListener('click',()=>{
+    activeEdges=new Set(Object.keys(EDGE_CFG));
+    wrap.querySelectorAll('input').forEach(c=>c.checked=true);
+    applyFilters();
   });
+  document.getElementById('btn-edge-none').addEventListener('click',()=>{
+    activeEdges=new Set();
+    wrap.querySelectorAll('input').forEach(c=>c.checked=false);
+    applyFilters();
+  });
+}
 
-  /* Categories — All / None */
-  document.getElementById("cat-all").addEventListener("click", () => {
-    // Form checkboxes
-    document.querySelectorAll("#cat-grid input[id^=cb-form-]").forEach(cb => { cb.checked = true; activeForms.add(cb.id.replace("cb-form-","")); });
-    // Content cat checkboxes + sub-cat pills
-    for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
-      const catId = cat.replace(/\W+/g,"_");
-      const cb = document.getElementById(`cb-cat-${catId}`);
-      if (cb) cb.checked = true;
-      activeCats.add(cat);
-      const set = activeSubcats.get(cat);
-      document.querySelectorAll(`#subarea-${catId} .subcat-pill`).forEach(pill => {
-        set.add(pill.dataset.sub);
-        pill.classList.add("active");
-        pill.style.opacity = "1";
-      });
-      const subArea = document.getElementById(`subarea-${catId}`);
-      if (subArea) subArea.style.display = "";
+function initGarden(){
+  const inp = document.getElementById('garden-input');
+  const dd  = document.getElementById('garden-dropdown');
+  const chips = document.getElementById('garden-chips');
+  const btn = document.getElementById('btn-hide-incompat');
+
+  inp.addEventListener('input', ()=>{
+    const q = inp.value.trim().toLowerCase();
+    if(!q){ dd.style.display='none'; return; }
+    const matches = RAW_NODES
+      .filter(n=>n.kind==='plant' && n.id.toLowerCase().includes(q))
+      .slice(0,12);
+    dd.innerHTML='';
+    if(!matches.length){ dd.style.display='none'; return; }
+    matches.forEach(n=>{
+      const div=document.createElement('div');
+      div.textContent=n.id;
+      div.addEventListener('click',()=>{ addToGarden(n.id); inp.value=''; dd.style.display='none'; });
+      dd.appendChild(div);
+    });
+    dd.style.display='block';
+  });
+  inp.addEventListener('keydown', e=>{
+    if(e.key==='Enter'){
+      const first = dd.querySelector('div');
+      if(first){ addToGarden(first.textContent); inp.value=''; dd.style.display='none'; }
     }
+    if(e.key==='Escape') dd.style.display='none';
+  });
+  document.addEventListener('click', e=>{ if(!document.getElementById('garden-wrap').contains(e.target)) dd.style.display='none'; });
+
+  btn.addEventListener('click',()=>{
+    hideIncompat=!hideIncompat;
+    btn.classList.toggle('active', hideIncompat);
+    btn.textContent = hideIncompat ? 'Show all plants' : 'Hide incompatible plants';
     applyFilters();
   });
 
-  document.getElementById("cat-none").addEventListener("click", () => {
-    document.querySelectorAll("#cat-grid input[id^=cb-form-]").forEach(cb => { cb.checked = false; activeForms.delete(cb.id.replace("cb-form-","")); });
-    for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
-      const catId = cat.replace(/\W+/g,"_");
-      const cb = document.getElementById(`cb-cat-${catId}`);
-      if (cb) cb.checked = false;
-      activeCats.delete(cat);
-      activeSubcats.get(cat).clear();
-      document.querySelectorAll(`#subarea-${catId} .subcat-pill`).forEach(pill => {
-        pill.classList.remove("active");
-        pill.style.opacity = "0.4";
-      });
-    }
+  function addToGarden(id){
+    if(gardenSet.has(id)) return;
+    gardenSet.add(id);
+    const chip = document.createElement('div');
+    chip.className='chip';
+    const name = document.createElement('span'); name.textContent=id;
+    const x = document.createElement('span'); x.className='chip-x'; x.textContent='×';
+    x.addEventListener('click',()=>{ gardenSet.delete(id); chip.remove(); applyFilters(); });
+    chip.appendChild(name); chip.appendChild(x);
+    chips.appendChild(chip);
     applyFilters();
+  }
+}
+
+// ── Display controls ──
+document.getElementById('chk-orphans').addEventListener('change', e=>{ hideOrphans=e.target.checked; applyFilters(); });
+document.getElementById('chk-labels').addEventListener('change', e=>{ showLabels=e.target.checked; if(labelSel) labelSel.style('display', showLabels?null:'none'); });
+
+document.getElementById('btn-cluster-cat').addEventListener('click', ()=>{ toggleCluster('cat'); });
+document.getElementById('btn-cluster-form').addEventListener('click', ()=>{ toggleCluster('form'); });
+
+function toggleCluster(mode){
+  const prev = clusterMode;
+  clusterMode = (clusterMode===mode) ? null : mode;
+  document.getElementById('btn-cluster-cat').classList.toggle('active',  clusterMode==='cat');
+  document.getElementById('btn-cluster-form').classList.toggle('active', clusterMode==='form');
+  if(simulation){ simulation.alpha(0.35).restart(); }
+}
+
+// ── Info panel ──
+document.getElementById('info-close').addEventListener('click', closeInfoPanel);
+
+function closeInfoPanel(){
+  document.getElementById('info-panel').classList.remove('open');
+  selectedNodeId = null;
+  if(nodeSel) nodeSel.attr('stroke-width', n => n.kind==='hub'?2:1.5);
+}
+
+function openInfoPanel(nodeId){
+  const n = nodeById[nodeId];
+  if(!n) return;
+  selectedNodeId = nodeId;
+
+  // Highlight selected node
+  if(nodeSel) nodeSel.attr('stroke-width', d => d.id===nodeId ? 3.5 : (d.kind==='hub'?2:1.5))
+                      .attr('stroke', d => d.id===nodeId ? '#fff' : '#000');
+
+  const panel = document.getElementById('info-panel');
+  panel.classList.add('open');
+  document.getElementById('info-name').textContent = n.id;
+
+  const body = document.getElementById('info-body');
+  body.innerHTML='';
+
+  // Cat badge
+  const cat = CAT_CFG[n._cat];
+  const badge = document.createElement('div');
+  badge.id='info-cat-badge';
+  badge.textContent=cat.l;
+  badge.style.background=cat.c;
+  badge.style.color='#000';
+  body.appendChild(badge);
+
+  // Fields
+  const fields = [
+    ['Scientific name', n.name_sci||'—', false],
+    ['Arabic name',     n.name_ar||'—',  true],
+    ['Form',            n.form||'—',     false],
+    ['Water need',      (n.water_need||'medium').replace('_',' '), false],
+    ['Evidence',        n.evidence_level||'—', false],
+    ['Sources',         (n.sources||[]).join(', ')||'—', false],
+  ];
+  if(n.notes){
+    fields.push(['Notes', n.notes, false]);
+  }
+  fields.forEach(([lbl,val,ar])=>{
+    const wrap=document.createElement('div'); wrap.className='info-field';
+    const l=document.createElement('div'); l.className='info-label'; l.textContent=lbl;
+    const v=document.createElement('div'); v.className='info-val'+(ar?' ar':''); v.textContent=val;
+    wrap.appendChild(l); wrap.appendChild(v);
+    body.appendChild(wrap);
   });
 
-  /* Relationship Types — All / None */
-  document.getElementById("type-all").addEventListener("click", () => {
-    document.querySelectorAll("#type-list input[type=checkbox]").forEach(cb => {
-      cb.checked = true;
-      activeEdgeTypes.add(cb.id.replace("cb-type-",""));
-    });
-    applyFilters();
+  // Edges section
+  const edgesTitle = document.createElement('div');
+  edgesTitle.id='info-edges-title';
+  edgesTitle.textContent='Relationships';
+  body.appendChild(edgesTitle);
+
+  // Get edges involving this node (from current live data)
+  const nodeEdges = RAW_EDGES.filter(e=>{
+    const s=sid(e), t=tid(e);
+    return s===nodeId||t===nodeId;
   });
 
-  document.getElementById("type-none").addEventListener("click", () => {
-    document.querySelectorAll("#type-list input[type=checkbox]").forEach(cb => {
-      cb.checked = false;
-      activeEdgeTypes.delete(cb.id.replace("cb-type-",""));
-    });
-    applyFilters();
+  if(nodeEdges.length===0){
+    const empty=document.createElement('div'); empty.className='info-no-edges';
+    empty.textContent='No relationships'; body.appendChild(empty); return;
+  }
+
+  // Group by type
+  const byType = {};
+  nodeEdges.forEach(e=>{
+    const k=e.type||'unknown';
+    if(!byType[k]) byType[k]=[];
+    byType[k].push(e);
   });
-}
 
-/* ─── My garden ──────────────────────────────────────────────────────────── */
-function buildGarden() {
-  const input    = document.getElementById("garden-input");
-  const dropdown = document.getElementById("garden-dropdown");
-  const chips    = document.getElementById("garden-chips");
-  const btn      = document.getElementById("hide-incompat-btn");
+  Object.entries(byType).forEach(([type,edges])=>{
+    const ecfg = EDGE_CFG[type];
+    const group = document.createElement('div'); group.className='info-edge-group';
+    const typeRow = document.createElement('div'); typeRow.className='info-edge-type';
+    const sw = document.createElement('span');
+    sw.className='info-edge-type-swatch';
+    sw.style.background = ecfg ? ecfg.color : '#888';
+    typeRow.appendChild(sw);
+    typeRow.appendChild(document.createTextNode(ecfg ? ecfg.label : type));
+    group.appendChild(typeRow);
 
-  const allNames = RAW_NODES.filter(n => n.kind === "plant").map(n => n.id).sort();
-  let ddActive = -1;
-
-  function renderDropdown(q) {
-    const matches = allNames.filter(n => n.toLowerCase().includes(q.toLowerCase()) && !myGarden.has(n));
-    dropdown.innerHTML = "";
-    if (!matches.length || !q) { dropdown.style.display = "none"; ddActive = -1; return; }
-    matches.slice(0, 20).forEach(name => {
-      const opt = document.createElement("div");
-      opt.className = "garden-opt";
-      opt.textContent = name;
-      opt.addEventListener("mousedown", e => { e.preventDefault(); addToGarden(name); });
-      dropdown.appendChild(opt);
+    edges.forEach(e=>{
+      const s=sid(e), t=tid(e);
+      const other = (s===nodeId) ? t : s;
+      const isOut  = (s===nodeId);
+      const item = document.createElement('div'); item.className='info-edge-item';
+      const dirSpan = document.createElement('span'); dirSpan.className='info-edge-dir';
+      dirSpan.textContent = e.direction==='undirected' ? '↔' : (isOut ? '→' : '←');
+      const nameSpan = document.createElement('span'); nameSpan.className='info-edge-node';
+      nameSpan.textContent = other;
+      item.appendChild(dirSpan); item.appendChild(nameSpan);
+      item.addEventListener('click', ()=>{ if(nodeById[other]) openInfoPanel(other); });
+      group.appendChild(item);
     });
-    dropdown.style.display = "block";
-    ddActive = -1;
-  }
-
-  function addToGarden(name) {
-    if (myGarden.has(name)) return;
-    myGarden.add(name);
-    input.value = "";
-    dropdown.style.display = "none";
-    renderChips();
-    btn.disabled = myGarden.size === 0;
-    if (hideIncompat) applyFilters();
-  }
-
-  function removeFromGarden(name) {
-    myGarden.delete(name);
-    renderChips();
-    btn.disabled = myGarden.size === 0;
-    if (hideIncompat) applyFilters();
-  }
-
-  function renderChips() {
-    chips.innerHTML = "";
-    myGarden.forEach(name => {
-      const chip = document.createElement("div");
-      chip.className = "chip";
-      chip.innerHTML = `${name}<span class="chip-x">✕</span>`;
-      chip.querySelector(".chip-x").addEventListener("click", () => removeFromGarden(name));
-      chips.appendChild(chip);
-    });
-  }
-
-  input.addEventListener("input", () => renderDropdown(input.value));
-  input.addEventListener("keydown", e => {
-    const opts = dropdown.querySelectorAll(".garden-opt");
-    if      (e.key === "ArrowDown")  { ddActive = Math.min(ddActive + 1, opts.length - 1); }
-    else if (e.key === "ArrowUp")    { ddActive = Math.max(ddActive - 1, 0); }
-    else if (e.key === "Enter" && ddActive >= 0) { addToGarden(opts[ddActive].textContent); return; }
-    else if (e.key === "Escape")     { dropdown.style.display = "none"; return; }
-    opts.forEach((o, i) => o.classList.toggle("active", i === ddActive));
-    if (ddActive >= 0) opts[ddActive].scrollIntoView({block:"nearest"});
-  });
-  input.addEventListener("blur", () => setTimeout(() => { dropdown.style.display = "none"; }, 150));
-
-  btn.addEventListener("click", () => {
-    if (myGarden.size === 0) return;
-    hideIncompat = !hideIncompat;
-    btn.classList.toggle("active", hideIncompat);
-    btn.textContent = hideIncompat ? "Showing incompatible" : "Hide incompatible plants";
-    applyFilters();
+    body.appendChild(group);
   });
 }
 
-/* ─── Incompatible detection ─────────────────────────────────────────────── */
-const INCOMPAT_TYPES = new Set(["hostile","soil_exhaust"]);
+// ── Main D3 setup (runs after DOM ready) ──
+(function init(){
+  const W = document.getElementById('graph-area').clientWidth;
+  const H = document.getElementById('graph-area').clientHeight;
 
-function getIncompatibleIds() {
-  if (!hideIncompat || myGarden.size === 0) return null;
-  const sid = e => (typeof e.source === 'object' ? e.source.id : e.source);
-  const tid = e => (typeof e.target === 'object' ? e.target.id : e.target);
-  const incompat = new Set();
-  for (const e of RAW_EDGES) {
-    if (!INCOMPAT_TYPES.has(e.type)) continue;
-    const s = sid(e), t = tid(e);
-    if (myGarden.has(s) && !myGarden.has(t)) incompat.add(t);
-    if (myGarden.has(t) && !myGarden.has(s)) incompat.add(s);
-  }
-  return incompat;
-}
+  const svg = d3.select('#svg')
+    .attr('width', W).attr('height', H);
 
-/* ─── Node pass logic ────────────────────────────────────────────────────── */
-function nodeVisible(node, incompatSet) {
-  if (node.kind === "hub")    return true;
-  if (node.kind === "animal") return true;
-  if (myGarden.has(node.id)) return true;
-  if (incompatSet && incompatSet.has(node.id)) return false;
+  zoom = d3.zoom().scaleExtent([0.05,8])
+    .on('zoom', e => { gAll.attr('transform', e.transform); });
+  svg.call(zoom);
 
-  const ccs = nodeContentCats(node);
-  if (ccs.length > 0) {
-    const passContent = ccs.some(({cat, sub}) =>
-      activeCats.has(cat) && activeSubcats.get(cat).has(sub)
-    );
-    if (!passContent) return false;
-  } else {
-    if (!activeForms.has(node.form)) return false;
-  }
-
-  if (!activeWaterNeeds.has(node.water_need || "medium")) return false;
-  return true;
-}
-
-/* ─── Apply filters ──────────────────────────────────────────────────────── */
-function applyFilters() {
-  if (!nodeSel) return;
-
-  const incompatSet = getIncompatibleIds();
-
-  const nodeVis = new Map();
-  RAW_NODES.forEach(n => nodeVis.set(n.id, nodeVisible(n, incompatSet)));
-
-  const sid = e => (typeof e.source === 'object' ? e.source.id : e.source);
-  const tid = e => (typeof e.target === 'object' ? e.target.id : e.target);
-
-  const edgeVis = RAW_EDGES.map(e =>
-    activeEdgeTypes.has(e.type) &&
-    nodeVis.get(sid(e)) !== false &&
-    nodeVis.get(tid(e)) !== false
-  );
-
-  if (hideOrphans) {
-    const hasEdge = new Set();
-    RAW_EDGES.forEach((e, i) => {
-      if (edgeVis[i]) { hasEdge.add(sid(e)); hasEdge.add(tid(e)); }
-    });
-    RAW_NODES.forEach(n => {
-      if (n.kind === 'hub') return;
-      if (myGarden.has(n.id)) return;
-      if (nodeVis.get(n.id) && !hasEdge.has(n.id)) nodeVis.set(n.id, false);
-    });
-  }
-
-  matchIds = null;
-  if (searchStr) {
-    const q = searchStr.toLowerCase();
-    matchIds = new Set(RAW_NODES.filter(n =>
-      n.id.toLowerCase().includes(q) ||
-      (n.name_ar && n.name_ar.includes(q)) ||
-      (n.name_sci && n.name_sci.toLowerCase().includes(q))
-    ).map(n => n.id));
-  }
-
-  nodeSel
-    .style("display", d => nodeVis.get(d.id) ? null : "none")
-    .style("opacity",  d => (matchIds && !matchIds.has(d.id)) ? 0.08 : null);
-
-  labelSel
-    .style("display", d => (nodeVis.get(d.id) && showLabels) ? null : "none")
-    .style("opacity",  d => (matchIds && !matchIds.has(d.id)) ? 0.08 : null);
-
-  linkVisSel
-    .style("display", (d, i) => edgeVis[i] ? null : "none")
-    .style("opacity",  (d, i) => {
-      if (!edgeVis[i]) return null;
-      const si = d.source.id || d.source, ti = d.target.id || d.target;
-      return (matchIds && !matchIds.has(si) && !matchIds.has(ti)) ? 0.04 : null;
-    });
-
-  linkHitSel.style("display", (d, i) => edgeVis[i] ? null : "none");
-
-  document.getElementById("stat-v").textContent =
-    RAW_NODES.filter(n => nodeVis.get(n.id)).length;
-}
-
-/* ─── Tooltip ────────────────────────────────────────────────────────────── */
-const tip = document.getElementById("tip");
-
-function showNodeTip(event, d) {
-  const badges = [...(d.function||[]), ...(d.use||[])]
-    .map(t => `<span class="tip-badge">${t}</span>`).join("");
-  const wn = d.water_need
-    ? `<span class="tip-badge">💧 ${d.water_need.replace("_"," ")}</span>` : "";
-  tip.innerHTML = `
-    <strong>${d.id}</strong>
-    ${d.name_sci ? `<div class="tip-sci">${d.name_sci}</div>` : ""}
-    ${d.name_ar  ? `<div style="color:#c8a;font-size:11px;direction:rtl">${d.name_ar}</div>` : ""}
-    <div class="tip-badges">${badges}${wn}</div>
-    ${d.notes ? `<div style="font-size:11px;color:#888;margin-top:4px">${d.notes}</div>` : ""}`;
-  tip.style.display = "block";
-  moveTip(event);
-}
-
-function showEdgeTip(event, d) {
-  const cfg = EDGE_CFG[d.type] || {label: d.type, abbr:"?"};
-  const src = d.source.id || d.source, tgt = d.target.id || d.target;
-  const conf = d.confidence !== undefined ? ` · conf ${(d.confidence*100).toFixed(0)}%` : "";
-  tip.innerHTML = `
-    <div class="tip-type">${cfg.label} <span class="type-abbr">${cfg.abbr}</span></div>
-    <strong>${src} → ${tgt}</strong>
-    ${d.evidence_quote ? `<div style="font-size:11px;color:#999;margin-top:3px;font-style:italic">"${d.evidence_quote}"</div>` : ""}
-    <div style="font-size:11px;color:#666;margin-top:3px">${d.evidence_level||""}${conf}</div>`;
-  tip.style.display = "block";
-  moveTip(event);
-}
-
-function moveTip(event) {
-  let x = event.clientX + 14, y = event.clientY + 14;
-  if (x + 270 > window.innerWidth)  x = event.clientX - 270;
-  if (y + 120 > window.innerHeight) y = event.clientY - 120;
-  tip.style.left = x + "px"; tip.style.top = y + "px";
-}
-
-function hideTip() { tip.style.display = "none"; }
-
-/* ─── Cluster centroids ──────────────────────────────────────────────────── */
-function getFormCentroids(W, H) {
-  const forms = Object.keys(FORM_CFG);
-  const cx = W/2, cy = H/2, r = Math.min(W,H) * 0.3;
-  const map = new Map();
-  forms.forEach((f, i) => {
-    const angle = (2 * Math.PI * i / forms.length) - Math.PI/2;
-    map.set(f, {x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle)});
+  // Click on background → close info panel
+  svg.on('click', (e) => {
+    if(e.target.tagName==='svg' || e.target.tagName==='rect') closeInfoPanel();
   });
-  map.set(null, {x: cx, y: cy});
-  return map;
-}
 
-/* ─── Build graph ────────────────────────────────────────────────────────── */
-let simulation;
+  gAll = svg.append('g');
 
-function buildGraph() {
-  const W = window.innerWidth - 260;
-  const H = window.innerHeight - 46;
-  const svg = d3.select("#svg").attr("width", W).attr("height", H);
-  svg.selectAll("*").remove();
+  // Defs: arrowheads per edge type
+  const defs = svg.append('defs');
+  Object.entries(EDGE_CFG).forEach(([k,cfg])=>{
+    defs.append('marker')
+      .attr('id','arrow-'+k)
+      .attr('viewBox','0 -4 8 8')
+      .attr('refX',8).attr('refY',0)
+      .attr('markerWidth',6).attr('markerHeight',6)
+      .attr('orient','auto')
+      .append('path').attr('d','M0,-4L8,0L0,4').attr('fill',cfg.color).attr('opacity',0.7);
+  });
 
-  const formCentroids = getFormCentroids(W, H);
-  const g = svg.append("g");
+  // Edge layers
+  const gLinks = gAll.append('g').attr('class','links');
+  linkVisSel = gLinks.append('g').selectAll('line').data(RAW_EDGES).join('line')
+    .attr('class','link-vis')
+    .attr('stroke', e => (EDGE_CFG[e.type]||{color:'#888'}).color)
+    .attr('stroke-opacity', e => e.flags&&e.flags.includes('FACTCHECK_FLAGGED') ? 0.2 : 0.65)
+    .attr('stroke-width', 1.5)
+    .attr('stroke-dasharray', e => e.added ? '5,3' : null)
+    .attr('marker-end', e => e.direction!=='undirected' ? `url(#arrow-${e.type})` : null)
+    .style('pointer-events','none');
 
-  svg.call(d3.zoom().scaleExtent([0.05, 8]).on("zoom", e => g.attr("transform", e.transform)));
+  linkHitSel = gLinks.append('g').selectAll('line').data(RAW_EDGES).join('line')
+    .attr('class','link-hit')
+    .attr('stroke','transparent')
+    .attr('stroke-width', 10)
+    .style('cursor','pointer')
+    .on('mouseover', (event, e) => showEdgeTooltip(event, e))
+    .on('mouseout', () => { document.getElementById('tooltip').style.display='none'; });
 
+  // Nodes
+  const gNodes = gAll.append('g').attr('class','nodes');
+  nodeSel = gNodes.selectAll('circle').data(RAW_NODES).join('circle')
+    .attr('r', nodeRadius)
+    .attr('fill', n => CAT_CFG[n._cat].c)
+    .attr('stroke', '#000')
+    .attr('stroke-width', n => n.kind==='hub' ? 2 : 1.5)
+    .style('cursor','pointer')
+    .call(d3.drag()
+      .on('start', dragStart)
+      .on('drag',  dragged)
+      .on('end',   dragEnd))
+    .on('mouseover', (event, n) => showNodeTooltip(event, n))
+    .on('mouseout',  () => { document.getElementById('tooltip').style.display='none'; })
+    .on('click', (event, n) => { event.stopPropagation(); openInfoPanel(n.id); });
+
+  // Labels
+  const gLabels = gAll.append('g').attr('class','labels');
+  labelSel = gLabels.selectAll('text').data(RAW_NODES).join('text')
+    .attr('class','node-label')
+    .attr('dy','0.35em')
+    .attr('x', n => nodeRadius(n)+2)
+    .text(n => n.id)
+    .style('display', showLabels ? null : 'none');
+
+  // Simulation
   simulation = d3.forceSimulation(RAW_NODES)
-    .force("link",    d3.forceLink(RAW_EDGES).id(d => d.id).distance(80).strength(0.3))
-    .force("charge",  d3.forceManyBody().strength(-150).distanceMax(350))
-    .force("center",  d3.forceCenter(W/2, H/2))
-    .force("collide", d3.forceCollide(d => nodeRadius(d) + 3))
+    .force('link', d3.forceLink(RAW_EDGES).id(d=>d.id)
+      .distance(e => {
+        const sh=sid(e), th=tid(e);
+        const sHub=nodeById[sh]&&nodeById[sh].kind==='hub';
+        const tHub=nodeById[th]&&nodeById[th].kind==='hub';
+        return (sHub&&tHub)?200:(sHub||tHub)?150:80;
+      }).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-160).distanceMax(400))
+    .force('collide', d3.forceCollide(n => nodeRadius(n)+4))
+    .force('center', d3.forceCenter(W/2, H/2))
     .alphaDecay(0.02)
-    .on("tick", ticked);
+    .on('tick', ticked);
 
-  simulation.on("tick.cluster", () => {
-    if (!clusterOn) return;
-    const alpha = simulation.alpha();
-    RAW_NODES.forEach(node => {
-      const key = (node.kind === "hub") ? null : node.form;
-      const c = formCentroids.get(key);
-      if (!c) return;
-      node.vx += (c.x - node.x) * 0.18 * alpha;
-      node.vy += (c.y - node.y) * 0.18 * alpha;
-    });
+  // ── Zoom controls ──
+  document.getElementById('zoom-in').addEventListener('click', ()=>{
+    svg.transition().duration(250).call(zoom.scaleBy, 1.5);
+  });
+  document.getElementById('zoom-out').addEventListener('click', ()=>{
+    svg.transition().duration(250).call(zoom.scaleBy, 0.67);
+  });
+  document.getElementById('zoom-reset').addEventListener('click', ()=>{
+    svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity.translate(W/2,H/2).scale(0.8).translate(-W/2,-H/2));
   });
 
-  /* Two-layer edges */
-  linkVisSel = g.append("g").attr("class","links")
-    .selectAll("line").data(RAW_EDGES).join("line")
-      .attr("stroke", d => (EDGE_CFG[d.type]||{color:"#555"}).color)
-      .attr("stroke-width", d => Math.max(1, 1 + (d.confidence||0.5)))
-      .attr("stroke-opacity", 0.5)
-      .style("pointer-events","none");
-
-  linkHitSel = g.append("g").attr("class","link-hits")
-    .selectAll("line").data(RAW_EDGES).join("line")
-      .attr("stroke","transparent").attr("stroke-width",10)
-      .on("mouseover", showEdgeTip)
-      .on("mousemove", moveTip)
-      .on("mouseout",  hideTip);
-
-  /* Nodes */
-  nodeSel = g.append("g").attr("class","nodes")
-    .selectAll("circle").data(RAW_NODES).join("circle")
-      .attr("r", nodeRadius)
-      .attr("fill", nodeColor)
-      .attr("stroke","#1a1a1a")
-      .attr("stroke-width",1.5)
-      .style("cursor","pointer")
-      .call(d3.drag()
-        .on("start", (e,d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
-        .on("drag",  (e,d) => { d.fx=e.x; d.fy=e.y; })
-        .on("end",   (e,d) => { if (!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; }))
-      .on("mouseover", showNodeTip)
-      .on("mousemove", moveTip)
-      .on("mouseout",  hideTip);
-
-  /* Labels */
-  labelSel = g.append("g").attr("class","labels")
-    .selectAll("text").data(RAW_NODES).join("text")
-      .attr("class","node-label")
-      .text(d => d.id);
-
-  document.getElementById("stat-n").textContent = RAW_NODES.length;
-  document.getElementById("stat-e").textContent = RAW_EDGES.length;
-}
-
-function ticked() {
-  linkVisSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
-  linkHitSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
-  nodeSel.attr("cx",d=>d.x).attr("cy",d=>d.y);
-  labelSel.attr("x",d=>d.x).attr("y",d=>d.y + nodeRadius(d) + 9);
-}
-
-/* ─── Search ─────────────────────────────────────────────────────────────── */
-document.getElementById("search").addEventListener("input", e => {
-  searchStr = e.target.value.trim();
+  // Initial filter pass
   applyFilters();
-});
 
-/* ─── Init ───────────────────────────────────────────────────────────────── */
-buildSidebar();
-buildGarden();
-buildGraph();
-setTimeout(() => applyFilters(), 500);
+  function ticked(){
+    // Cluster force
+    if(clusterMode){
+      const alpha = simulation.alpha();
+      const keys  = clusterMode==='cat' ? Object.keys(CAT_CFG) : [...new Set(RAW_NODES.map(n=>n.form||'unknown'))];
+      const count = keys.length;
+      const R     = 0.32 * Math.min(W, H);
+      const centroids = {};
+      keys.forEach((k,i)=>{
+        const angle = (2*Math.PI*i)/count - Math.PI/2;
+        centroids[k] = k==='HB' ? {x:W/2,y:H/2} : {x:W/2+R*Math.cos(angle), y:H/2+R*Math.sin(angle)};
+      });
+      RAW_NODES.forEach(n=>{
+        const key = clusterMode==='cat' ? n._cat : (n.form||'unknown');
+        const c = centroids[key];
+        if(!c) return;
+        n.vx = (n.vx||0) + (c.x-n.x)*0.12*alpha;
+        n.vy = (n.vy||0) + (c.y-n.y)*0.12*alpha;
+      });
+    }
+
+    linkVisSel
+      .attr('x1', e=>sid_x(e)).attr('y1', e=>sid_y(e))
+      .attr('x2', e=>tid_x(e)).attr('y2', e=>tid_y(e));
+    linkHitSel
+      .attr('x1', e=>sid_x(e)).attr('y1', e=>sid_y(e))
+      .attr('x2', e=>tid_x(e)).attr('y2', e=>tid_y(e));
+    nodeSel.attr('cx', n=>n.x).attr('cy', n=>n.y);
+    labelSel.attr('x', n=>(n.x||0)+nodeRadius(n)+2).attr('y', n=>n.y||0);
+  }
+
+  function sid_x(e){ const s=e.source; return typeof s==='object'?s.x:0; }
+  function sid_y(e){ const s=e.source; return typeof s==='object'?s.y:0; }
+  function tid_x(e){ const t=e.target; return typeof t==='object'?t.x:0; }
+  function tid_y(e){ const t=e.target; return typeof t==='object'?t.y:0; }
+
+  function dragStart(event, n){ if(!event.active) simulation.alphaTarget(0.3).restart(); n.fx=n.x; n.fy=n.y; }
+  function dragged(event, n)  { n.fx=event.x; n.fy=event.y; }
+  function dragEnd(event, n)  { if(!event.active) simulation.alphaTarget(0); n.fx=null; n.fy=null; }
+
+  function showNodeTooltip(event, n){
+    const tt = document.getElementById('tooltip');
+    const wn = (n.water_need||'medium').replace('_',' ');
+    tt.innerHTML = `<b>${n.id}</b><br/>
+      ${CAT_CFG[n._cat].l}<br/>
+      ${n.name_sci ? '<i>'+n.name_sci+'</i><br/>' : ''}
+      Water: ${wn}`;
+    posTooltip(event, tt);
+  }
+  function showEdgeTooltip(event, e){
+    const tt = document.getElementById('tooltip');
+    const cfg = EDGE_CFG[e.type]||{label:e.type};
+    tt.innerHTML = `<b>${sid(e)}</b> → <b>${tid(e)}</b><br/>${cfg.label}${e.added?' <i>(added)</i>':''}`;
+    posTooltip(event, tt);
+  }
+  function posTooltip(event, tt){
+    const rect = document.getElementById('graph-area').getBoundingClientRect();
+    let x=event.clientX-rect.left+12, y=event.clientY-rect.top-10;
+    tt.style.display='block';
+    if(x+200>rect.width) x=event.clientX-rect.left-tt.offsetWidth-12;
+    tt.style.left=x+'px'; tt.style.top=y+'px';
+  }
+})();
+
+// ── Get incompatible node ids for garden ──
+function getIncompatibleIds(){
+  if(!gardenSet.size) return new Set();
+  const hostile = new Set();
+  RAW_EDGES.forEach(e=>{
+    if(e.type!=='hostile') return;
+    const s=sid(e), t=tid(e);
+    if(gardenSet.has(s)) hostile.add(t);
+    if(gardenSet.has(t)) hostile.add(s);
+  });
+  // don't flag garden members themselves
+  gardenSet.forEach(id => hostile.delete(id));
+  return hostile;
+}
+
+// ── Apply all filters ──
+function applyFilters(){
+  const incompatible = (hideIncompat && gardenSet.size) ? getIncompatibleIds() : new Set();
+
+  // Determine which nodes pass all filters
+  const visibleNodes = new Set();
+  RAW_NODES.forEach(n=>{
+    if(!activeCats.has(n._cat)) return;
+    if(!activeWater.has(n.water_need||'medium')) return;
+    // Subcat filter
+    const sc = SUBCAT_LOOKUP[n.id];
+    if(sc && activeSubcats[sc.cat] && activeSubcats[sc.cat].size>0){
+      if(!activeSubcats[sc.cat].has(sc.sub)) return;
+    }
+    if(hideIncompat && incompatible.has(n.id)) return;
+    visibleNodes.add(n.id);
+  });
+
+  // Determine which edges pass type filter and have both endpoints visible
+  const visibleEdges = new Set();
+  RAW_EDGES.forEach((e,i)=>{
+    if(!activeEdges.has(e.type)) return;
+    if(!visibleNodes.has(sid(e)) || !visibleNodes.has(tid(e))) return;
+    visibleEdges.add(i);
+  });
+
+  // If hideOrphans: remove nodes with no visible edges
+  if(hideOrphans){
+    const connected = new Set();
+    RAW_EDGES.forEach((e,i)=>{
+      if(!visibleEdges.has(i)) return;
+      connected.add(sid(e)); connected.add(tid(e));
+    });
+    visibleNodes.forEach(id=>{ if(!connected.has(id)) visibleNodes.delete(id); });
+    // Re-filter edges (might remove some due to orphan removal)
+    visibleEdges.forEach(i=>{
+      const e=RAW_EDGES[i];
+      if(!visibleNodes.has(sid(e))||!visibleNodes.has(tid(e))) visibleEdges.delete(i);
+    });
+  }
+
+  // Apply display
+  if(nodeSel){
+    nodeSel.style('display', n => visibleNodes.has(n.id) ? null : 'none');
+  }
+  if(labelSel){
+    labelSel.style('display', n => (showLabels && visibleNodes.has(n.id)) ? null : 'none');
+  }
+  if(linkVisSel){
+    linkVisSel.style('display', (e,i) => visibleEdges.has(i) ? null : 'none');
+    linkHitSel.style('display', (e,i) => visibleEdges.has(i) ? null : 'none');
+  }
+
+  updateStats(visibleNodes, visibleEdges);
+}
+
+function updateStats(visibleNodes, visibleEdges){
+  document.getElementById('stat-nodes').textContent = `${visibleNodes.size} / ${RAW_NODES.length}`;
+  document.getElementById('stat-edges').textContent = `${visibleEdges.size} / ${RAW_EDGES.length}`;
+
+  // Per-type counts
+  const typeCounts = {};
+  visibleEdges.forEach(i=>{
+    const t=RAW_EDGES[i].type||'unknown';
+    typeCounts[t]=(typeCounts[t]||0)+1;
+  });
+  const typeDiv = document.getElementById('stat-types');
+  typeDiv.innerHTML='';
+  Object.entries(typeCounts).sort((a,b)=>b[1]-a[1]).forEach(([t,cnt])=>{
+    const cfg=EDGE_CFG[t];
+    const row=document.createElement('div'); row.className='stat-type-row';
+    const lbl=document.createElement('span'); lbl.textContent=(cfg?cfg.label:t); lbl.style.color=cfg?cfg.color:'#888';
+    const num=document.createElement('span'); num.textContent=cnt; num.style.color='#e0e0e0';
+    row.appendChild(lbl); row.appendChild(num);
+    typeDiv.appendChild(row);
+  });
+
+  // Most connected visible plant
+  const degree = {};
+  visibleEdges.forEach(i=>{
+    const e=RAW_EDGES[i];
+    const s=sid(e), t=tid(e);
+    const sn=nodeById[s], tn=nodeById[t];
+    if(sn&&sn.kind==='plant'&&visibleNodes.has(s)) degree[s]=(degree[s]||0)+1;
+    if(tn&&tn.kind==='plant'&&visibleNodes.has(t)) degree[t]=(degree[t]||0)+1;
+  });
+  let top='—', topCount=0;
+  Object.entries(degree).forEach(([id,cnt])=>{ if(cnt>topCount){topCount=cnt;top=id;} });
+  document.getElementById('stat-top').textContent = top==='—' ? '—' : `${top} (${topCount})`;
+}
 </script>
 </body>
 </html>
