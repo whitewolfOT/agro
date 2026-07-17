@@ -70,6 +70,39 @@ def _strip_cdn_tag(html: str) -> str:
     return "\n".join(out)
 
 
+WATER_NEED = {
+    "low": [
+        "Olive","Date palm","Fig","Carob","Almond","Pistachio","Pomegranate","Lentisk",
+        "Terebinth","Saffron","Lavender","Rosemary","Thyme","Sage","Southernwood",
+        "Wormwood","Rue","Hyssop","Calamint","Cotton","Sorghum","Millet","Barley",
+        "Chickpea","Lentil","Lupin","Fenugreek","Artichoke","Cardoon","Purslane",
+        "Rocket","Caper","Aloe","Jujube","Doum palm",
+    ],
+    "medium": [
+        "Wheat","Oats","Rye","Broad bean","Garden pea","Cowpea","Vetch","Fava Bean",
+        "Onion","Garlic","Leek","Carrot","Parsnip","Turnip","Radish","Beetroot",
+        "Lettuce","Chicory","Endive","Spinach","Chard","Mallow","Borage","Sorrel",
+        "Parsley","Coriander","Dill","Fennel","Celery","Basil","Mint","Lemon balm",
+        "Apple","Pear","Quince","Plum","Damson","Cherry","Hazel","Walnut","Vine",
+        "Grapevine","Mulberry","Myrtle","Rose","Jasmine","Iris","Violet","Narcissus",
+        "Flax","Hemp","Sesame","Sunflower","Maize","Corn",
+    ],
+    "high": [
+        "Rice","Sugarcane","Sugar Cane","Banana","Cucumber","Melon","Watermelon",
+        "Gourd","Bottle gourd","Eggplant","Cabbage","Cauliflower","Kohlrabi",
+        "Lovage","Watercress","Asparagus",
+        "Peach","Apricot","Lemon","Citron","Sour orange","Sweet orange","Lime",
+        "Tamarind","Sycamore fig","Hackberry","Arbutus","Hawthorn","Medlar",
+    ],
+    "very_high": [
+        "Water lily","Watercress","Aquatic mint","Reed","Papyrus","Cattail",
+        "Lotus","Water chestnut",
+    ],
+}
+
+_WATER_LOOKUP = {name.lower(): wn for wn, names in WATER_NEED.items() for name in names}
+
+
 def run(out_dir: str = "output"):
     out = Path(out_dir)
 
@@ -82,6 +115,15 @@ def run(out_dir: str = "output"):
     edges = [e for e in edges if e["source"] in node_ids and e["target"] in node_ids]
     edges_removed = edges_before - len(edges)
     print(f"edges removed (dangling endpoints): {edges_removed}", file=sys.stderr)
+
+    # ── Bake water_need into each node ──
+    water_assigned = 0
+    for node in nodes:
+        wn = _WATER_LOOKUP.get(node["id"].lower(), "medium")
+        node["water_need"] = wn
+        if wn != "medium":
+            water_assigned += 1
+    print(f"water_need assigned (non-medium): {water_assigned}", file=sys.stderr)
 
     d3_src = _fetch_d3()
     print(f"D3 source: {len(d3_src):,} bytes", file=sys.stderr)
@@ -119,10 +161,11 @@ def run(out_dir: str = "output"):
         raise RuntimeError(f"Output too small: {size_kb:.1f} KB (expected > 500 KB)")
 
     return {
-        "nodes_count":   len(nodes),
-        "edges_before":  edges_before,
-        "edges_after":   len(edges),
-        "file_size_kb":  round(size_kb, 1),
+        "nodes_count":              len(nodes),
+        "edges_before":             edges_before,
+        "edges_after":              len(edges),
+        "file_size_kb":             round(size_kb, 1),
+        "water_need_assigned_count": water_assigned,
     }
 
 
@@ -132,4 +175,5 @@ if __name__ == "__main__":
     print(f"edges_before={stats['edges_before']}")
     print(f"edges_after={stats['edges_after']}")
     print(f"file_size_kb={stats['file_size_kb']}")
+    print(f"water_need_assigned_count={stats['water_need_assigned_count']}")
     print("PASS")

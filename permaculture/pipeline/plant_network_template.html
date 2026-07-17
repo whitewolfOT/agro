@@ -1,544 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plant Agronomy Network</title>
+<meta charset="utf-8"/>
+<title>Plant Network</title>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a1a;color:#ddd;display:flex;flex-direction:column;height:100vh;overflow:hidden}
 
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0f1117;
-  color: #e2e8f0;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
-}
+/* ── Top bar ── */
+#topbar{height:46px;background:#111;border-bottom:1px solid #333;display:flex;align-items:center;gap:10px;padding:0 12px;flex-shrink:0;z-index:10}
+#topbar h1{font-size:14px;font-weight:600;color:#e8d5a0;white-space:nowrap}
+#search{flex:1;max-width:280px;padding:5px 9px;border-radius:4px;border:1px solid #444;background:#222;color:#ddd;font-size:13px}
+#search::placeholder{color:#666}
+#stats{font-size:11px;color:#666;white-space:nowrap}
+#stats span{color:#aaa}
 
-/* ── Top bar ──────────────────────────────────────────────────────── */
-#topbar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 16px;
-  height: 46px;
-  min-height: 46px;
-  background: #141720;
-  border-bottom: 1px solid #252d3d;
-  z-index: 10;
-}
-#topbar h1 { font-size: 13px; font-weight: 700; color: #a78bfa; white-space: nowrap; }
-#search {
-  max-width: 300px; flex: 1;
-  background: #1e2130; border: 1px solid #2d3555; border-radius: 6px;
-  color: #e2e8f0; padding: 5px 11px; font-size: 13px; outline: none;
-  transition: border-color 0.15s;
-}
-#search:focus { border-color: #6366f1; }
-#search::placeholder { color: #4b5563; }
-#stats { margin-left: auto; font-size: 11px; color: #6b7280; white-space: nowrap; font-variant-numeric: tabular-nums; }
+/* ── Layout ── */
+#layout{display:flex;flex:1;min-height:0}
 
-/* ── Layout ───────────────────────────────────────────────────────── */
-#layout { display: flex; flex: 1; overflow: hidden; }
+/* ── Sidebar ── */
+#sidebar{width:260px;flex-shrink:0;background:#141414;border-right:1px solid #2a2a2a;overflow-y:auto;padding:10px 0;display:flex;flex-direction:column;gap:0}
 
-/* ── Sidebar ──────────────────────────────────────────────────────── */
-#sidebar {
-  width: 240px; min-width: 240px;
-  background: #141720; border-right: 1px solid #252d3d;
-  overflow-y: auto; display: flex; flex-direction: column;
-}
-#sidebar::-webkit-scrollbar { width: 4px; }
-#sidebar::-webkit-scrollbar-track { background: transparent; }
-#sidebar::-webkit-scrollbar-thumb { background: #2d3555; border-radius: 2px; }
+.sb-section{padding:8px 12px 10px;border-bottom:1px solid #222}
+.sb-section:last-child{border-bottom:none}
+.sb-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#666;margin-bottom:7px}
 
-.section { border-bottom: 1px solid #1e2130; padding: 11px 12px; }
+/* My garden */
+#garden-wrap{position:relative}
+#garden-input{width:100%;padding:5px 8px;border:1px solid #333;border-radius:4px;background:#1e1e1e;color:#ddd;font-size:12px}
+#garden-input::placeholder{color:#555}
+#garden-dropdown{position:absolute;top:100%;left:0;right:0;background:#222;border:1px solid #444;border-radius:4px;z-index:100;max-height:160px;overflow-y:auto;display:none}
+.garden-opt{padding:5px 9px;cursor:pointer;font-size:12px}
+.garden-opt:hover,.garden-opt.active{background:#333}
+#garden-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.chip{display:flex;align-items:center;gap:4px;background:#2a3a2a;border:1px solid #3a5a3a;border-radius:12px;padding:2px 8px;font-size:11px;color:#8dc88d}
+.chip-x{cursor:pointer;color:#888;font-size:11px;line-height:1}
+.chip-x:hover{color:#f88}
+#hide-incompat-btn{margin-top:8px;width:100%;padding:5px 8px;border:1px solid #444;border-radius:4px;background:#1e1e1e;color:#aaa;font-size:12px;cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+#hide-incompat-btn.active{background:#3a1a1a;border-color:#884444;color:#f88}
+#hide-incompat-btn:disabled{opacity:.4;cursor:default}
 
-.sec-title {
-  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: #6366f1; margin-bottom: 7px;
-}
+/* Category grid */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px 6px}
+.cat-row{display:flex;align-items:center;gap:5px;min-width:0}
+.cat-row label{font-size:12px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:4px;flex:1;min-width:0}
+.cat-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.cat-row input[type=checkbox]{width:12px;height:12px;flex-shrink:0;accent-color:#8dc88d;cursor:pointer}
 
-.sec-actions { display: flex; gap: 5px; margin-bottom: 8px; }
-.sec-actions button {
-  flex: 1; padding: 3px 0; font-size: 10px;
-  background: #1a1d2b; border: 1px solid #2d3555; border-radius: 4px;
-  color: #64748b; cursor: pointer; transition: all 0.12s;
-}
-.sec-actions button:hover { background: #252d3d; color: #e2e8f0; }
+/* Sub-cats */
+.subcat-area{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px;margin:-1px 0 3px 16px}
+.subcat-pill{padding:2px 8px;border-radius:10px;font-size:10px;cursor:pointer;border:1px solid transparent;transition:background .1s}
 
-.cb-row {
-  display: flex; align-items: center; gap: 7px;
-  padding: 2px 0; cursor: pointer; user-select: none;
-}
-.cb-row input[type="checkbox"] {
-  width: 12px; height: 12px; accent-color: #6366f1;
-  flex-shrink: 0; cursor: pointer;
-}
-.cb-dot   { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.cb-swatch { width: 16px; height: 3px; border-radius: 2px; flex-shrink: 0; }
-.cb-label { font-size: 11px; color: #64748b; }
-.cb-row input:checked ~ .cb-label { color: #cbd5e1; }
+/* Water needs */
+.water-pills{display:flex;gap:4px;flex-wrap:wrap}
+.water-pill{padding:3px 10px;border-radius:10px;font-size:11px;cursor:pointer;border:1px solid transparent;transition:background .1s}
+.water-pill[data-wn=low]{background:#2a2a1a;border-color:#665533;color:#cc9}
+.water-pill[data-wn=low].active{background:#665533;color:#ffd}
+.water-pill[data-wn=medium]{background:#1a2a2a;border-color:#336655;color:#8cc}
+.water-pill[data-wn=medium].active{background:#336655;color:#cff}
+.water-pill[data-wn=high]{background:#1a1a2a;border-color:#334466;color:#88c}
+.water-pill[data-wn=high].active{background:#334466;color:#ccf}
+.water-pill[data-wn=very_high]{background:#1a1a2a;border-color:#223366;color:#88a}
+.water-pill[data-wn=very_high].active{background:#223366;color:#aaf}
 
-.tog-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
-.tog-row input[type="checkbox"] { width: 12px; height: 12px; accent-color: #6366f1; cursor: pointer; flex-shrink: 0; }
-.tog-row label { font-size: 11px; color: #64748b; cursor: pointer; }
-.tog-row input:checked + label { color: #cbd5e1; }
+/* Relationship types */
+.type-row{display:flex;align-items:center;gap:5px;margin-bottom:3px}
+.type-row label{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:12px;flex:1}
+.type-swatch{width:18px;height:3px;border-radius:2px;flex-shrink:0}
+.type-abbr{font-size:10px;font-weight:700;color:#888;background:#222;border-radius:3px;padding:0 4px;font-family:monospace}
+.type-row input[type=checkbox]{width:12px;height:12px;accent-color:#8dc88d;cursor:pointer}
 
-/* ── Container ────────────────────────────────────────────────────── */
-#container { flex: 1; position: relative; overflow: hidden; background: #0f1117; }
+/* Display toggles */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.toggle-row label{font-size:12px;cursor:pointer}
+.toggle{width:32px;height:17px;border-radius:9px;background:#333;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.toggle.on{background:#4a7a4a}
+.toggle::after{content:"";position:absolute;width:13px;height:13px;border-radius:50%;background:#888;top:2px;left:2px;transition:left .2s,background .2s}
+.toggle.on::after{left:17px;background:#8dc88d}
 
-.node circle { cursor: pointer; }
-.node text { pointer-events: none; fill: #94a3b8; text-anchor: middle; }
+/* ── Graph area ── */
+#graph{flex:1;position:relative;overflow:hidden}
+#svg{display:block}
 
-/* ── Tooltip ──────────────────────────────────────────────────────── */
-#tooltip {
-  position: absolute; background: #1a1d2b; border: 1px solid #2d3555;
-  border-radius: 8px; padding: 10px 13px; font-size: 11px;
-  pointer-events: none; max-width: 250px; display: none;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.6); z-index: 20;
-}
-#tooltip .tt-title { font-size: 12px; font-weight: 600; color: #a78bfa; margin-bottom: 6px; }
-#tooltip .tt-row { display: flex; gap: 8px; margin-bottom: 2px; line-height: 1.45; }
-#tooltip .tt-k { color: #4b5563; min-width: 64px; }
-#tooltip .tt-v { color: #e2e8f0; }
+/* Tooltip */
+#tip{position:fixed;background:rgba(15,15,15,.95);border:1px solid #444;border-radius:5px;padding:7px 10px;font-size:12px;pointer-events:none;z-index:200;max-width:260px;display:none;line-height:1.5}
+#tip strong{color:#e8d5a0;display:block;margin-bottom:2px}
+#tip .tip-type{font-size:10px;color:#888;text-transform:uppercase;letter-spacing:.06em}
+#tip .tip-sci{color:#aaa;font-style:italic;font-size:11px}
+#tip .tip-badges{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+#tip .tip-badge{font-size:10px;padding:1px 6px;border-radius:8px;background:#222;color:#aaa;border:1px solid #333}
 
-/* ── Zoom controls ────────────────────────────────────────────────── */
-#controls {
-  position: absolute; bottom: 14px; right: 14px;
-  display: flex; flex-direction: column; gap: 4px; z-index: 10;
-}
-#controls button {
-  width: 28px; height: 28px; background: #1e2130cc;
-  border: 1px solid #2d3555; border-radius: 5px;
-  color: #e2e8f0; font-size: 14px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  backdrop-filter: blur(4px); transition: background 0.12s;
-}
-#controls button:hover { background: #2d3555; }
+/* node labels */
+text.node-label{font-size:9px;fill:#bbb;pointer-events:none;text-anchor:middle;dominant-baseline:central}
 </style>
 </head>
 <body>
 
 <div id="topbar">
-  <h1>🌿 Plant Agronomy Network</h1>
-  <input id="search" type="text" placeholder="Search plant…">
-  <span id="stats"></span>
+  <h1>Plant Network</h1>
+  <input id="search" type="text" placeholder="Search plants…"/>
+  <div id="stats">nodes: <span id="stat-n">0</span> &nbsp; edges: <span id="stat-e">0</span> &nbsp; visible: <span id="stat-v">0</span></div>
 </div>
 
 <div id="layout">
-
+  <!-- sidebar -->
   <div id="sidebar">
-    <div class="section">
-      <div class="sec-title">Plant Form</div>
-      <div class="sec-actions">
-        <button id="forms-all">Select all</button>
-        <button id="forms-none">Clear all</button>
+
+    <!-- My Garden -->
+    <div class="sb-section">
+      <div class="sb-title">My Garden</div>
+      <div id="garden-wrap">
+        <input id="garden-input" type="text" placeholder="Add plant to my garden…" autocomplete="off"/>
+        <div id="garden-dropdown"></div>
       </div>
-      <div id="form-list"></div>
+      <div id="garden-chips"></div>
+      <button id="hide-incompat-btn" disabled>Hide incompatible plants</button>
     </div>
 
-    <div class="section">
-      <div class="sec-title">Relationship Type</div>
-      <div class="sec-actions">
-        <button id="types-all">Select all</button>
-        <button id="types-none">Clear all</button>
+    <!-- Categories -->
+    <div class="sb-section">
+      <div class="sb-title">Categories</div>
+      <div id="cat-grid" class="cat-grid"></div>
+    </div>
+
+    <!-- Water Needs -->
+    <div class="sb-section">
+      <div class="sb-title">Water Needs</div>
+      <div class="water-pills">
+        <div class="water-pill active" data-wn="low">Low</div>
+        <div class="water-pill active" data-wn="medium">Medium</div>
+        <div class="water-pill active" data-wn="high">High</div>
+        <div class="water-pill active" data-wn="very_high">Very high</div>
       </div>
+    </div>
+
+    <!-- Relationship Types -->
+    <div class="sb-section">
+      <div class="sb-title">Relationship Types</div>
       <div id="type-list"></div>
     </div>
 
-    <div class="section">
-      <div class="sec-title">Display</div>
-      <div id="display-toggles">
-        <div class="tog-row"><input type="checkbox" id="tog-orphans"><label for="tog-orphans">Hide orphans</label></div>
-        <div class="tog-row"><input type="checkbox" id="tog-cluster"><label for="tog-cluster">Group by form</label></div>
-        <div class="tog-row"><input type="checkbox" id="tog-labels" checked><label for="tog-labels">Show labels</label></div>
+    <!-- Display -->
+    <div class="sb-section">
+      <div class="sb-title">Display</div>
+      <div class="toggle-row">
+        <label for="tog-orphans">Hide orphans</label>
+        <div class="toggle" id="tog-orphans"></div>
+      </div>
+      <div class="toggle-row">
+        <label for="tog-labels">Show labels</label>
+        <div class="toggle on" id="tog-labels"></div>
+      </div>
+      <div class="toggle-row">
+        <label for="tog-cluster">Cluster by form</label>
+        <div class="toggle" id="tog-cluster"></div>
       </div>
     </div>
   </div>
 
-  <div id="container">
+  <!-- graph -->
+  <div id="graph">
     <svg id="svg"></svg>
-    <div id="tooltip"></div>
-    <div id="controls">
-      <button id="btn-zoom-in" title="Zoom in">+</button>
-      <button id="btn-zoom-out" title="Zoom out">−</button>
-      <button id="btn-reset" title="Reset">⟲</button>
-    </div>
   </div>
-
 </div>
 
+<div id="tip"></div>
+
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────────────
+/* ─── Injected data ─────────────────────────────────────────────────────── */
 const RAW_NODES = PLACEHOLDER_NODES;
 const RAW_EDGES = PLACEHOLDER_EDGES;
 
-// ── EDGE CONFIG ───────────────────────────────────────────────────────────────
-const EDGE_CFG = {
-  companion:     { color: "#4ade80", label: "Companion" },
-  hostile:       { color: "#f87171", label: "Hostile" },
-  nitrogen_fix:  { color: "#60a5fa", label: "N-fix" },
-  mulch_biomass: { color: "#a3e635", label: "Mulch/Biomass" },
-  soil_exhaust:  { color: "#fb923c", label: "Soil Exhaust" },
-  succession:    { color: "#c084fc", label: "Succession" },
-  water:         { color: "#38bdf8", label: "Water" },
-  canopy_shade:  { color: "#fbbf24", label: "Canopy Shade" },
-  animal:        { color: "#f472b6", label: "Animal" },
-  grafting:      { color: "#94a3b8", label: "Grafting" },
-  windbreak:     { color: "#86efac", label: "Windbreak" },
-};
-
-// ── FORM CONFIG ───────────────────────────────────────────────────────────────
-const FORM_CFG = {
-  canopy_tree:     { color: "#22d3ee", label: "Canopy Tree" },
-  mid_tree:        { color: "#4ade80", label: "Mid Tree" },
-  shrub:           { color: "#a3e635", label: "Shrub" },
-  groundcover:     { color: "#fbbf24", label: "Groundcover" },
-  climber:         { color: "#c084fc", label: "Climber" },
-  grass_grain:     { color: "#f97316", label: "Grass/Grain" },
-  aquatic_wetland: { color: "#38bdf8", label: "Aquatic/Wetland" },
-  palm:            { color: "#d97706", label: "Palm" },
-  succulent:       { color: "#0d9488", label: "Succulent" },
-  null:            { color: "#6366f1", label: "Hub/Other" },
-};
-
-function nodeRadius(n) {
-  if (n.kind === "hub")         return 18;
-  if (n.form === "canopy_tree") return 14;
-  if (n.form === "mid_tree")    return 11;
-  if (n.form === "shrub")       return 9;
-  if (n.form === "groundcover") return 7;
-  return 8;
-}
-function nodeColor(n) { return (FORM_CFG[n.form || "null"] || FORM_CFG["null"]).color; }
-function formKey(n)   { return n.form || "null"; }
-
-// ── STATE ─────────────────────────────────────────────────────────────────────
-const DATA_FORMS = [...new Set(RAW_NODES.map(n => n.form || "null"))].sort();
-const DATA_TYPES = [...new Set(RAW_EDGES.map(e => e.type))].filter(t => EDGE_CFG[t]).sort();
-
-let activeForms = new Set(DATA_FORMS);
-let activeTypes = new Set(DATA_TYPES);
-let hideOrphans = false;
-let groupByForm = false;
-let showLabels  = true;
-let searchTerm  = "";
-
-// ── SVG SETUP ─────────────────────────────────────────────────────────────────
-const W = window.innerWidth - 240;
-const H = window.innerHeight - 46;
-
-const svg = d3.select("#svg").attr("width", W).attr("height", H);
-
-const zoom = d3.zoom().scaleExtent([0.04, 10]).on("zoom", e => g.attr("transform", e.transform));
-svg.call(zoom);
-
-const g = svg.append("g");
-
-// Arrowhead markers per edge type
-const defs = svg.append("defs");
-Object.entries(EDGE_CFG).forEach(([type, cfg]) => {
-  const m = defs.append("marker")
-    .attr("id", `arr-${type}`)
-    .attr("markerWidth", 6).attr("markerHeight", 6)
-    .attr("refX", 6).attr("refY", 3)
-    .attr("orient", "auto");
-  m.append("path").attr("d", "M0,0 L0,6 L6,3 z")
-    .attr("fill", cfg.color).attr("opacity", 0.8);
-});
-
-// ── SIMULATION ────────────────────────────────────────────────────────────────
-const simulation = d3.forceSimulation(RAW_NODES)
-  .force("link",    d3.forceLink(RAW_EDGES).id(d => d.id).distance(80).strength(0.3))
-  .force("charge",  d3.forceManyBody().strength(-150).distanceMax(350))
-  .force("center",  d3.forceCenter(W / 2, H / 2))
-  .force("collide", d3.forceCollide(d => nodeRadius(d) + 3))
-  .alphaDecay(0.02)
-  .on("tick", ticked);
-
 console.log("nodes:", RAW_NODES.length, "edges:", RAW_EDGES.length);
 
-// ── GRAPH ELEMENTS ────────────────────────────────────────────────────────────
-let linkVisSel, linkHitSel, nodeSel;
+/* ─── Edge config ───────────────────────────────────────────────────────── */
+const EDGE_CFG = {
+  companion:      {color:"#4caf50", label:"Companion",       abbr:"F"},
+  hostile:        {color:"#f44336", label:"Hostile",         abbr:"H"},
+  nitrogen_fix:   {color:"#00bcd4", label:"Nitrogen fix",    abbr:"Ro"},
+  mulch_biomass:  {color:"#8bc34a", label:"Mulch / biomass", abbr:"R"},
+  soil_exhaust:   {color:"#ff5722", label:"Soil exhaust",    abbr:"E"},
+  grafting:       {color:"#9c27b0", label:"Grafting",        abbr:"G"},
+  succession:     {color:"#ff9800", label:"Succession",      abbr:"S"},
+  windbreak:      {color:"#607d8b", label:"Windbreak",       abbr:"P"},
+  water:          {color:"#2196f3", label:"Water",           abbr:"W"},
+  canopy_shade:   {color:"#795548", label:"Canopy shade",    abbr:"C"},
+  animal:         {color:"#e91e63", label:"Animal",          abbr:"A"},
+};
+
+/* ─── Form / category config ────────────────────────────────────────────── */
+const FORM_CFG = {
+  canopy_tree:     {color:"#5d8a3c", label:"Canopy tree"},
+  mid_tree:        {color:"#7ab648", label:"Mid-layer tree"},
+  shrub:           {color:"#9ccc65", label:"Shrub"},
+  groundcover:     {color:"#cddc39", label:"Groundcover"},
+  climber:         {color:"#ffb300", label:"Climber"},
+  grass_grain:     {color:"#f9a825", label:"Grass / grain"},
+  aquatic_wetland: {color:"#26c6da", label:"Aquatic / wetland"},
+  palm:            {color:"#a1887f", label:"Palm"},
+  succulent:       {color:"#ef9a9a", label:"Succulent"},
+  null:            {color:"#9e9e9e", label:"Unknown form"},
+};
+const HUB_COLOR  = "#ffd700";
+const ANIM_COLOR = "#e91e63";
+
+/* ─── Content categories ────────────────────────────────────────────────── */
+const CONTENT_CATS = {
+  "Fruit trees": {
+    color: "#ff8a65",
+    sub: {
+      "Stone fruit":     ["Peach","Apricot","Plum","Damson","Cherry","Almond","Sour cherry"],
+      "Pome fruit":      ["Apple","Pear","Quince","Medlar","Hawthorn","Loquat"],
+      "Citrus":          ["Lemon","Lime","Citron","Sour orange","Sweet orange","Bergamot"],
+      "Fig & mulberry":  ["Fig","Mulberry","Sycamore fig","Black mulberry"],
+      "Other":           ["Olive","Pomegranate","Vine","Grapevine","Date palm","Carob","Jujube",
+                          "Walnut","Hazel","Pistachio","Doum palm","Banana","Tamarind",
+                          "Hackberry","Arbutus","Wild Olive","Cultivated Olive"],
+    }
+  },
+  "Vegetables": {
+    color: "#aed581",
+    sub: {
+      "Alliums":     ["Onion","Garlic","Leek","Chive","Shallot"],
+      "Brassicas":   ["Cabbage","Cauliflower","Kohlrabi","Turnip","Radish","Rocket"],
+      "Legumes":     ["Broad bean","Fava Bean","Garden pea","Cowpea","Chickpea","Lentil",
+                      "Lupin","Vetch","Fenugreek"],
+      "Roots":       ["Carrot","Parsnip","Beetroot","Celery","Parsley"],
+      "Leaves":      ["Lettuce","Spinach","Chard","Chicory","Endive","Mallow","Purslane","Sorrel"],
+      "Fruiting":    ["Cucumber","Melon","Watermelon","Gourd","Bottle gourd","Eggplant","Artichoke","Cardoon"],
+    }
+  },
+  "Herbs & kitchen": {
+    color: "#80cbc4",
+    sub: {
+      "Aromatic":    ["Basil","Mint","Thyme","Rosemary","Sage","Lavender","Hyssop",
+                      "Calamint","Lemon balm","Rue","Southernwood","Wormwood"],
+      "Seed spices": ["Coriander","Dill","Fennel","Fenugreek","Caraway","Anise","Cumin","Sesame",
+                      "Saffron","Mustard"],
+      "Other":       ["Borage","Mallow","Lovage","Watercress","Sorrel"],
+    }
+  },
+  "Medicinal plants": {
+    color: "#ce93d8",
+    sub: {
+      "Classic medicine": ["Aloe","Wormwood","Rue","Hyssop","Calamint","Southernwood",
+                           "Lavender","Rosemary","Sage","Thyme","Iris","Violet","Narcissus",
+                           "Jasmine","Caper","Purslane","Rocket"],
+      "Industrial / dye": ["Flax","Hemp","Cotton","Saffron","Woad","Henna"],
+    }
+  },
+};
+
+/* Precompute lowercase lookup: id_lower → [{cat, sub}] */
+const _CC_LOWER = {};
+for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
+  for (const [sub, ids] of Object.entries(cfg.sub)) {
+    for (const id of ids) {
+      const k = id.toLowerCase();
+      if (!_CC_LOWER[k]) _CC_LOWER[k] = [];
+      _CC_LOWER[k].push({cat, sub});
+    }
+  }
+}
+
+function nodeContentCats(node) {
+  return _CC_LOWER[node.id.toLowerCase()] || [];
+}
+
+/* ─── Node size/color ───────────────────────────────────────────────────── */
+function nodeRadius(d) {
+  if (d.kind === "hub")    return 18;
+  if (d.kind === "animal") return 10;
+  const r = {canopy_tree:14, mid_tree:11, shrub:9, groundcover:7};
+  return r[d.form] || 8;
+}
+
+function nodeColor(d) {
+  if (d.kind === "hub")    return HUB_COLOR;
+  if (d.kind === "animal") return ANIM_COLOR;
+  return (FORM_CFG[d.form] || FORM_CFG["null"]).color;
+}
+
+/* ─── State ─────────────────────────────────────────────────────────────── */
+const activeForms      = new Set(Object.keys(FORM_CFG));
+const activeCats       = new Set(Object.keys(CONTENT_CATS));
+const activeSubcats    = new Map(
+  Object.entries(CONTENT_CATS).map(([cat, cfg]) => [cat, new Set(Object.keys(cfg.sub))])
+);
+const activeWaterNeeds = new Set(["low","medium","high","very_high"]);
+const activeEdgeTypes  = new Set(Object.keys(EDGE_CFG));
+let hideOrphans  = false;
+let showLabels   = true;
+let clusterOn    = false;
+const myGarden   = new Set();
+let hideIncompat = false;
+let searchStr    = "";
+let matchIds     = null;
+
+/* ─── D3 selections ──────────────────────────────────────────────────────── */
+let nodeSel, labelSel, linkVisSel, linkHitSel;
+
+/* ─── Sidebar ────────────────────────────────────────────────────────────── */
+function buildSidebar() {
+  const grid = document.getElementById("cat-grid");
+  grid.innerHTML = "";
+
+  /* Form-based categories (2-col grid) */
+  for (const [fk, fc] of Object.entries(FORM_CFG)) {
+    const row = document.createElement("div");
+    row.className = "cat-row";
+    row.innerHTML = `<input type="checkbox" id="cb-form-${fk}" checked/>
+      <label for="cb-form-${fk}"><span class="cat-dot" style="background:${fc.color}"></span>${fc.label}</label>`;
+    grid.appendChild(row);
+    row.querySelector("input").addEventListener("change", e => {
+      if (e.target.checked) activeForms.add(fk); else activeForms.delete(fk);
+      applyFilters();
+    });
+  }
+
+  /* Content categories with sub-cat pills (full-width rows) */
+  for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
+    const catId = cat.replace(/\W+/g,"_");
+
+    const row = document.createElement("div");
+    row.className = "cat-row";
+    row.style.gridColumn = "1/-1";
+    row.innerHTML = `<input type="checkbox" id="cb-cat-${catId}" checked/>
+      <label for="cb-cat-${catId}"><span class="cat-dot" style="background:${cfg.color}"></span>${cat}</label>`;
+    grid.appendChild(row);
+
+    const subArea = document.createElement("div");
+    subArea.className = "subcat-area";
+    subArea.id = `subarea-${catId}`;
+
+    for (const sub of Object.keys(cfg.sub)) {
+      const pill = document.createElement("div");
+      pill.className = "subcat-pill active";
+      pill.textContent = sub;
+      pill.style.cssText = `background:${cfg.color}33;border-color:${cfg.color}88;color:${cfg.color}`;
+      pill.dataset.cat = cat;
+      pill.dataset.sub = sub;
+      pill.addEventListener("click", () => {
+        const set = activeSubcats.get(cat);
+        if (set.has(sub)) {
+          set.delete(sub);
+          pill.classList.remove("active");
+          pill.style.opacity = "0.4";
+        } else {
+          set.add(sub);
+          pill.classList.add("active");
+          pill.style.opacity = "1";
+        }
+        applyFilters();
+      });
+      subArea.appendChild(pill);
+    }
+    grid.appendChild(subArea);
+
+    row.querySelector("input").addEventListener("change", e => {
+      if (e.target.checked) {
+        activeCats.add(cat);
+        subArea.style.display = "";
+      } else {
+        activeCats.delete(cat);
+        subArea.style.display = "none";
+      }
+      applyFilters();
+    });
+  }
+
+  /* Water pills */
+  document.querySelectorAll(".water-pill").forEach(pill => {
+    pill.addEventListener("click", () => {
+      const wn = pill.dataset.wn;
+      if (activeWaterNeeds.has(wn)) { activeWaterNeeds.delete(wn); pill.classList.remove("active"); }
+      else                           { activeWaterNeeds.add(wn);    pill.classList.add("active"); }
+      applyFilters();
+    });
+  });
+
+  /* Edge type list */
+  const typeList = document.getElementById("type-list");
+  for (const [t, tc] of Object.entries(EDGE_CFG)) {
+    const row = document.createElement("div");
+    row.className = "type-row";
+    row.innerHTML = `<input type="checkbox" id="cb-type-${t}" checked/>
+      <label for="cb-type-${t}">
+        <span class="type-swatch" style="background:${tc.color}"></span>
+        ${tc.label} <span class="type-abbr">${tc.abbr}</span>
+      </label>`;
+    typeList.appendChild(row);
+    row.querySelector("input").addEventListener("change", e => {
+      if (e.target.checked) activeEdgeTypes.add(t); else activeEdgeTypes.delete(t);
+      applyFilters();
+    });
+  }
+
+  /* Display toggles */
+  function mkToggle(id, getter, setter) {
+    const el = document.getElementById(id);
+    el.addEventListener("click", () => {
+      setter(!getter());
+      el.classList.toggle("on", getter());
+      applyFilters();
+    });
+  }
+  mkToggle("tog-orphans", () => hideOrphans, v => { hideOrphans = v; });
+  mkToggle("tog-labels",  () => showLabels,  v => { showLabels  = v; });
+  mkToggle("tog-cluster", () => clusterOn,   v => {
+    clusterOn = v;
+    if (clusterOn && simulation) simulation.alpha(0.3).restart();
+  });
+}
+
+/* ─── My garden ──────────────────────────────────────────────────────────── */
+function buildGarden() {
+  const input    = document.getElementById("garden-input");
+  const dropdown = document.getElementById("garden-dropdown");
+  const chips    = document.getElementById("garden-chips");
+  const btn      = document.getElementById("hide-incompat-btn");
+
+  const allNames = RAW_NODES.filter(n => n.kind === "plant").map(n => n.id).sort();
+  let ddActive = -1;
+
+  function renderDropdown(q) {
+    const matches = allNames.filter(n => n.toLowerCase().includes(q.toLowerCase()) && !myGarden.has(n));
+    dropdown.innerHTML = "";
+    if (!matches.length || !q) { dropdown.style.display = "none"; ddActive = -1; return; }
+    matches.slice(0, 20).forEach(name => {
+      const opt = document.createElement("div");
+      opt.className = "garden-opt";
+      opt.textContent = name;
+      opt.addEventListener("mousedown", e => { e.preventDefault(); addToGarden(name); });
+      dropdown.appendChild(opt);
+    });
+    dropdown.style.display = "block";
+    ddActive = -1;
+  }
+
+  function addToGarden(name) {
+    if (myGarden.has(name)) return;
+    myGarden.add(name);
+    input.value = "";
+    dropdown.style.display = "none";
+    renderChips();
+    btn.disabled = myGarden.size === 0;
+    if (hideIncompat) applyFilters();
+  }
+
+  function removeFromGarden(name) {
+    myGarden.delete(name);
+    renderChips();
+    btn.disabled = myGarden.size === 0;
+    if (hideIncompat) applyFilters();
+  }
+
+  function renderChips() {
+    chips.innerHTML = "";
+    myGarden.forEach(name => {
+      const chip = document.createElement("div");
+      chip.className = "chip";
+      chip.innerHTML = `${name}<span class="chip-x">✕</span>`;
+      chip.querySelector(".chip-x").addEventListener("click", () => removeFromGarden(name));
+      chips.appendChild(chip);
+    });
+  }
+
+  input.addEventListener("input", () => renderDropdown(input.value));
+  input.addEventListener("keydown", e => {
+    const opts = dropdown.querySelectorAll(".garden-opt");
+    if      (e.key === "ArrowDown")  { ddActive = Math.min(ddActive + 1, opts.length - 1); }
+    else if (e.key === "ArrowUp")    { ddActive = Math.max(ddActive - 1, 0); }
+    else if (e.key === "Enter" && ddActive >= 0) { addToGarden(opts[ddActive].textContent); return; }
+    else if (e.key === "Escape")     { dropdown.style.display = "none"; return; }
+    opts.forEach((o, i) => o.classList.toggle("active", i === ddActive));
+    if (ddActive >= 0) opts[ddActive].scrollIntoView({block:"nearest"});
+  });
+  input.addEventListener("blur", () => setTimeout(() => { dropdown.style.display = "none"; }, 150));
+
+  btn.addEventListener("click", () => {
+    if (myGarden.size === 0) return;
+    hideIncompat = !hideIncompat;
+    btn.classList.toggle("active", hideIncompat);
+    btn.textContent = hideIncompat ? "Showing incompatible" : "Hide incompatible plants";
+    applyFilters();
+  });
+}
+
+/* ─── Incompatible detection ─────────────────────────────────────────────── */
+const INCOMPAT_TYPES = new Set(["hostile","soil_exhaust"]);
+
+function getIncompatibleIds() {
+  if (!hideIncompat || myGarden.size === 0) return null;
+  const incompat = new Set();
+  for (const e of RAW_EDGES) {
+    if (!INCOMPAT_TYPES.has(e.type)) continue;
+    if (myGarden.has(e.source) && !myGarden.has(e.target)) incompat.add(e.target);
+    if (myGarden.has(e.target) && !myGarden.has(e.source)) incompat.add(e.source);
+  }
+  return incompat;
+}
+
+/* ─── Node pass logic ────────────────────────────────────────────────────── */
+function nodeVisible(node, incompatSet) {
+  if (node.kind === "hub")    return true;
+  if (node.kind === "animal") return true;
+  if (myGarden.has(node.id)) return true;
+  if (incompatSet && incompatSet.has(node.id)) return false;
+
+  const ccs = nodeContentCats(node);
+  if (ccs.length > 0) {
+    const passContent = ccs.some(({cat, sub}) =>
+      activeCats.has(cat) && activeSubcats.get(cat).has(sub)
+    );
+    if (!passContent) return false;
+  } else {
+    if (!activeForms.has(node.form)) return false;
+  }
+
+  if (!activeWaterNeeds.has(node.water_need || "medium")) return false;
+  return true;
+}
+
+/* ─── Apply filters ──────────────────────────────────────────────────────── */
+function applyFilters() {
+  if (!nodeSel) return;
+
+  const incompatSet = getIncompatibleIds();
+
+  const nodeVis = new Map();
+  RAW_NODES.forEach(n => nodeVis.set(n.id, nodeVisible(n, incompatSet)));
+
+  const edgeVis = RAW_EDGES.map(e =>
+    activeEdgeTypes.has(e.type) &&
+    nodeVis.get(e.source) !== false &&
+    nodeVis.get(e.target) !== false
+  );
+
+  if (hideOrphans) {
+    const hasEdge = new Set();
+    RAW_EDGES.forEach((e, i) => { if (edgeVis[i]) { hasEdge.add(e.source); hasEdge.add(e.target); } });
+    RAW_NODES.forEach(n => { if (nodeVis.get(n.id) && !hasEdge.has(n.id)) nodeVis.set(n.id, false); });
+  }
+
+  matchIds = null;
+  if (searchStr) {
+    const q = searchStr.toLowerCase();
+    matchIds = new Set(RAW_NODES.filter(n =>
+      n.id.toLowerCase().includes(q) ||
+      (n.name_ar && n.name_ar.includes(q)) ||
+      (n.name_sci && n.name_sci.toLowerCase().includes(q))
+    ).map(n => n.id));
+  }
+
+  nodeSel
+    .style("display", d => nodeVis.get(d.id) ? null : "none")
+    .style("opacity",  d => (matchIds && !matchIds.has(d.id)) ? 0.08 : null);
+
+  labelSel
+    .style("display", d => (nodeVis.get(d.id) && showLabels) ? null : "none")
+    .style("opacity",  d => (matchIds && !matchIds.has(d.id)) ? 0.08 : null);
+
+  linkVisSel
+    .style("display", (d, i) => edgeVis[i] ? null : "none")
+    .style("opacity",  (d, i) => {
+      if (!edgeVis[i]) return null;
+      const si = d.source.id || d.source, ti = d.target.id || d.target;
+      return (matchIds && !matchIds.has(si) && !matchIds.has(ti)) ? 0.04 : null;
+    });
+
+  linkHitSel.style("display", (d, i) => edgeVis[i] ? null : "none");
+
+  document.getElementById("stat-v").textContent =
+    RAW_NODES.filter(n => nodeVis.get(n.id)).length;
+}
+
+/* ─── Tooltip ────────────────────────────────────────────────────────────── */
+const tip = document.getElementById("tip");
+
+function showNodeTip(event, d) {
+  const badges = [...(d.function||[]), ...(d.use||[])]
+    .map(t => `<span class="tip-badge">${t}</span>`).join("");
+  const wn = d.water_need
+    ? `<span class="tip-badge">💧 ${d.water_need.replace("_"," ")}</span>` : "";
+  tip.innerHTML = `
+    <strong>${d.id}</strong>
+    ${d.name_sci ? `<div class="tip-sci">${d.name_sci}</div>` : ""}
+    ${d.name_ar  ? `<div style="color:#c8a;font-size:11px;direction:rtl">${d.name_ar}</div>` : ""}
+    <div class="tip-badges">${badges}${wn}</div>
+    ${d.notes ? `<div style="font-size:11px;color:#888;margin-top:4px">${d.notes}</div>` : ""}`;
+  tip.style.display = "block";
+  moveTip(event);
+}
+
+function showEdgeTip(event, d) {
+  const cfg = EDGE_CFG[d.type] || {label: d.type, abbr:"?"};
+  const src = d.source.id || d.source, tgt = d.target.id || d.target;
+  const conf = d.confidence !== undefined ? ` · conf ${(d.confidence*100).toFixed(0)}%` : "";
+  tip.innerHTML = `
+    <div class="tip-type">${cfg.label} <span class="type-abbr">${cfg.abbr}</span></div>
+    <strong>${src} → ${tgt}</strong>
+    ${d.evidence_quote ? `<div style="font-size:11px;color:#999;margin-top:3px;font-style:italic">"${d.evidence_quote}"</div>` : ""}
+    <div style="font-size:11px;color:#666;margin-top:3px">${d.evidence_level||""}${conf}</div>`;
+  tip.style.display = "block";
+  moveTip(event);
+}
+
+function moveTip(event) {
+  let x = event.clientX + 14, y = event.clientY + 14;
+  if (x + 270 > window.innerWidth)  x = event.clientX - 270;
+  if (y + 120 > window.innerHeight) y = event.clientY - 120;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+
+function hideTip() { tip.style.display = "none"; }
+
+/* ─── Cluster centroids ──────────────────────────────────────────────────── */
+function getFormCentroids(W, H) {
+  const forms = Object.keys(FORM_CFG);
+  const cx = W/2, cy = H/2, r = Math.min(W,H) * 0.3;
+  const map = new Map();
+  forms.forEach((f, i) => {
+    const angle = (2 * Math.PI * i / forms.length) - Math.PI/2;
+    map.set(f, {x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle)});
+  });
+  map.set(null, {x: cx, y: cy});
+  return map;
+}
+
+/* ─── Build graph ────────────────────────────────────────────────────────── */
+let simulation;
 
 function buildGraph() {
-  // Visual edges (no pointer events — hitbox layer handles those)
-  linkVisSel = g.append("g").attr("class", "links")
-    .selectAll("line")
-    .data(RAW_EDGES)
-    .join("line")
-      .attr("stroke", d => (EDGE_CFG[d.type] || {color:"#555"}).color)
-      .attr("stroke-width", d => Math.max(1, 1 + (d.confidence || 0.5)))
-      .attr("stroke-opacity", 0.5)
-      .attr("marker-end", d => d.direction !== "undirected" ? `url(#arr-${d.type})` : null)
-      .style("pointer-events", "none");
+  const W = window.innerWidth - 260;
+  const H = window.innerHeight - 46;
+  const svg = d3.select("#svg").attr("width", W).attr("height", H);
+  svg.selectAll("*").remove();
 
-  // Hitbox edges (transparent, wide, hover events)
-  linkHitSel = g.append("g").attr("class", "link-hits")
-    .selectAll("line")
-    .data(RAW_EDGES)
-    .join("line")
-      .attr("stroke", "transparent")
-      .attr("stroke-width", 10)
-      .style("cursor", "pointer")
+  const formCentroids = getFormCentroids(W, H);
+  const g = svg.append("g");
+
+  svg.call(d3.zoom().scaleExtent([0.05, 8]).on("zoom", e => g.attr("transform", e.transform)));
+
+  simulation = d3.forceSimulation(RAW_NODES)
+    .force("link",    d3.forceLink(RAW_EDGES).id(d => d.id).distance(80).strength(0.3))
+    .force("charge",  d3.forceManyBody().strength(-150).distanceMax(350))
+    .force("center",  d3.forceCenter(W/2, H/2))
+    .force("collide", d3.forceCollide(d => nodeRadius(d) + 3))
+    .alphaDecay(0.02)
+    .on("tick", ticked);
+
+  simulation.on("tick.cluster", () => {
+    if (!clusterOn) return;
+    const alpha = simulation.alpha();
+    RAW_NODES.forEach(node => {
+      const key = (node.kind === "hub") ? null : node.form;
+      const c = formCentroids.get(key);
+      if (!c) return;
+      node.vx += (c.x - node.x) * 0.18 * alpha;
+      node.vy += (c.y - node.y) * 0.18 * alpha;
+    });
+  });
+
+  /* Two-layer edges */
+  linkVisSel = g.append("g").attr("class","links")
+    .selectAll("line").data(RAW_EDGES).join("line")
+      .attr("stroke", d => (EDGE_CFG[d.type]||{color:"#555"}).color)
+      .attr("stroke-width", d => Math.max(1, 1 + (d.confidence||0.5)))
+      .attr("stroke-opacity", 0.5)
+      .style("pointer-events","none");
+
+  linkHitSel = g.append("g").attr("class","link-hits")
+    .selectAll("line").data(RAW_EDGES).join("line")
+      .attr("stroke","transparent").attr("stroke-width",10)
       .on("mouseover", showEdgeTip)
       .on("mousemove", moveTip)
       .on("mouseout",  hideTip);
 
-  // Nodes
-  nodeSel = g.append("g").attr("class", "nodes")
-    .selectAll("g")
-    .data(RAW_NODES)
-    .join("g")
-      .attr("class", "node")
+  /* Nodes */
+  nodeSel = g.append("g").attr("class","nodes")
+    .selectAll("circle").data(RAW_NODES).join("circle")
+      .attr("r", nodeRadius)
+      .attr("fill", nodeColor)
+      .attr("stroke","#1a1a1a")
+      .attr("stroke-width",1.5)
+      .style("cursor","pointer")
       .call(d3.drag()
-        .on("start", (e, d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
-        .on("drag",  (e, d) => { d.fx = e.x; d.fy = e.y; })
-        .on("end",   (e, d) => { if (!e.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }))
+        .on("start", (e,d) => { if (!e.active) simulation.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+        .on("drag",  (e,d) => { d.fx=e.x; d.fy=e.y; })
+        .on("end",   (e,d) => { if (!e.active) simulation.alphaTarget(0); d.fx=null; d.fy=null; }))
       .on("mouseover", showNodeTip)
       .on("mousemove", moveTip)
       .on("mouseout",  hideTip);
 
-  nodeSel.append("circle")
-    .attr("r", nodeRadius)
-    .attr("fill", nodeColor)
-    .attr("stroke", d => nodeColor(d))
-    .attr("stroke-width", 1.5)
-    .attr("stroke-opacity", 0.5);
+  /* Labels */
+  labelSel = g.append("g").attr("class","labels")
+    .selectAll("text").data(RAW_NODES).join("text")
+      .attr("class","node-label")
+      .text(d => d.id);
 
-  nodeSel.append("text")
-    .attr("dy", d => nodeRadius(d) + 10)
-    .style("font-size", "10px")
-    .text(d => d.id.length > 16 ? d.id.slice(0, 15) + "…" : d.id);
+  document.getElementById("stat-n").textContent = RAW_NODES.length;
+  document.getElementById("stat-e").textContent = RAW_EDGES.length;
 }
 
-// ── TICK ──────────────────────────────────────────────────────────────────────
 function ticked() {
-  [linkVisSel, linkHitSel].forEach(sel => {
-    if (!sel) return;
-    sel.attr("x1", d => d.source.x).attr("y1", d => d.source.y)
-       .attr("x2", d => d.target.x).attr("y2", d => d.target.y);
-  });
-  if (nodeSel) nodeSel.attr("transform", d => `translate(${d.x},${d.y})`);
+  linkVisSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  linkHitSel.attr("x1",d=>d.source.x).attr("y1",d=>d.source.y).attr("x2",d=>d.target.x).attr("y2",d=>d.target.y);
+  nodeSel.attr("cx",d=>d.x).attr("cy",d=>d.y);
+  labelSel.attr("x",d=>d.x).attr("y",d=>d.y + nodeRadius(d) + 9);
 }
 
-// ── CLUSTER FORCE ─────────────────────────────────────────────────────────────
-const formCentroids = new Map();
+/* ─── Search ─────────────────────────────────────────────────────────────── */
+document.getElementById("search").addEventListener("input", e => {
+  searchStr = e.target.value.trim();
+  applyFilters();
+});
 
-function updateClusterForce() {
-  if (groupByForm) {
-    const cx = W / 2, cy = H / 2, r = Math.min(W, H) * 0.3;
-    DATA_FORMS.forEach((f, i) => {
-      const angle = (2 * Math.PI * i / DATA_FORMS.length) - Math.PI / 2;
-      formCentroids.set(f, { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) });
-    });
-    simulation.force("cluster", alpha => {
-      RAW_NODES.forEach(node => {
-        const c = formCentroids.get(formKey(node));
-        if (!c) return;
-        node.vx += (c.x - node.x) * 0.18 * alpha;
-        node.vy += (c.y - node.y) * 0.18 * alpha;
-      });
-    });
-  } else {
-    simulation.force("cluster", null);
-  }
-  simulation.alpha(0.5).restart();
-}
-
-// ── FILTERS ───────────────────────────────────────────────────────────────────
-function nodeId(v) { return (typeof v === "object" && v !== null) ? v.id : v; }
-
-function applyFilters() {
-  if (!nodeSel || !linkVisSel) return;
-
-  // 1. Nodes passing form filter
-  const formPass = new Set(RAW_NODES.filter(n => activeForms.has(formKey(n))).map(n => n.id));
-
-  // 2. Edge visibility: type filter + both endpoints in formPass
-  const edgeVis = RAW_EDGES.map(e =>
-    activeTypes.has(e.type) && formPass.has(nodeId(e.source)) && formPass.has(nodeId(e.target))
-  );
-
-  // 3. Orphan pruning: hide nodes with no visible edge
-  let nodeVis = formPass;
-  if (hideOrphans) {
-    const connected = new Set();
-    RAW_EDGES.forEach((e, i) => {
-      if (edgeVis[i]) { connected.add(nodeId(e.source)); connected.add(nodeId(e.target)); }
-    });
-    nodeVis = new Set([...formPass].filter(id => connected.has(id)));
-    // Re-check edges against pruned node set
-    RAW_EDGES.forEach((e, i) => {
-      if (edgeVis[i])
-        edgeVis[i] = nodeVis.has(nodeId(e.source)) && nodeVis.has(nodeId(e.target));
-    });
-  }
-
-  // 4. Search term → dim non-matching (does not hide)
-  const q = searchTerm.toLowerCase();
-  const matchIds = q
-    ? new Set(RAW_NODES
-        .filter(n => n.id.toLowerCase().includes(q) || (n.name_sci || "").toLowerCase().includes(q))
-        .map(n => n.id))
-    : null;
-
-  // Apply node display + opacity
-  nodeSel
-    .style("display", d => nodeVis.has(d.id) ? null : "none")
-    .style("opacity", d => {
-      if (!nodeVis.has(d.id)) return null;
-      return (matchIds && !matchIds.has(d.id)) ? 0.1 : null;
-    });
-
-  // Apply edge display + opacity
-  linkVisSel
-    .style("display",         (d, i) => edgeVis[i] ? null : "none")
-    .attr("stroke-opacity",   (d, i) => {
-      if (!edgeVis[i]) return null;
-      if (matchIds) {
-        const sid = nodeId(d.source), tid = nodeId(d.target);
-        if (!matchIds.has(sid) && !matchIds.has(tid)) return 0.15;
-      }
-      return 0.5;
-    });
-  linkHitSel.style("display", (d, i) => edgeVis[i] ? null : "none");
-
-  // Label visibility
-  nodeSel.selectAll("text").style("display", showLabels ? null : "none");
-
-  // Stats
-  const visE = edgeVis.filter(Boolean).length;
-  document.getElementById("stats").textContent = `${nodeVis.size} nodes · ${visE} edges`;
-}
-
-// ── SIDEBAR ───────────────────────────────────────────────────────────────────
-function buildSidebar() {
-  // Form checkboxes
-  const fl = document.getElementById("form-list");
-  DATA_FORMS.forEach(form => {
-    const cfg = FORM_CFG[form] || FORM_CFG["null"];
-    const lbl = document.createElement("label");
-    lbl.className = "cb-row";
-    lbl.innerHTML =
-      `<input type="checkbox" data-form="${form}" checked>` +
-      `<span class="cb-dot" style="background:${cfg.color}"></span>` +
-      `<span class="cb-label">${cfg.label}</span>`;
-    fl.appendChild(lbl);
-    lbl.querySelector("input").addEventListener("change", e => {
-      if (e.target.checked) activeForms.add(form); else activeForms.delete(form);
-      applyFilters();
-    });
-  });
-
-  // Type checkboxes
-  const tl = document.getElementById("type-list");
-  DATA_TYPES.forEach(type => {
-    const cfg = EDGE_CFG[type]; if (!cfg) return;
-    const lbl = document.createElement("label");
-    lbl.className = "cb-row";
-    lbl.innerHTML =
-      `<input type="checkbox" data-type="${type}" checked>` +
-      `<span class="cb-swatch" style="background:${cfg.color}"></span>` +
-      `<span class="cb-label">${cfg.label}</span>`;
-    tl.appendChild(lbl);
-    lbl.querySelector("input").addEventListener("change", e => {
-      if (e.target.checked) activeTypes.add(type); else activeTypes.delete(type);
-      applyFilters();
-    });
-  });
-
-  // Select all / clear all
-  document.getElementById("forms-all").addEventListener("click", () => {
-    activeForms = new Set(DATA_FORMS);
-    document.querySelectorAll("[data-form]").forEach(cb => cb.checked = true);
-    applyFilters();
-  });
-  document.getElementById("forms-none").addEventListener("click", () => {
-    activeForms.clear();
-    document.querySelectorAll("[data-form]").forEach(cb => cb.checked = false);
-    applyFilters();
-  });
-  document.getElementById("types-all").addEventListener("click", () => {
-    activeTypes = new Set(DATA_TYPES);
-    document.querySelectorAll("[data-type]").forEach(cb => cb.checked = true);
-    applyFilters();
-  });
-  document.getElementById("types-none").addEventListener("click", () => {
-    activeTypes.clear();
-    document.querySelectorAll("[data-type]").forEach(cb => cb.checked = false);
-    applyFilters();
-  });
-
-  // Display toggles
-  document.getElementById("tog-orphans").addEventListener("change", e => { hideOrphans = e.target.checked; applyFilters(); });
-  document.getElementById("tog-cluster").addEventListener("change", e => { groupByForm = e.target.checked; updateClusterForce(); });
-  document.getElementById("tog-labels").addEventListener("change", e => {
-    showLabels = e.target.checked;
-    if (nodeSel) nodeSel.selectAll("text").style("display", showLabels ? null : "none");
-  });
-}
-
-// ── TOOLTIP ───────────────────────────────────────────────────────────────────
-const ttEl = document.getElementById("tooltip");
-
-function showNodeTip(e, d) {
-  const deg = RAW_EDGES.filter(edge => nodeId(edge.source) === d.id || nodeId(edge.target) === d.id).length;
-  ttEl.innerHTML =
-    `<div class="tt-title">${d.id}</div>` +
-    (d.name_sci ? `<div class="tt-row"><span class="tt-k">Species</span><span class="tt-v"><i>${d.name_sci}</i></span></div>` : "") +
-    (d.name_ar  ? `<div class="tt-row"><span class="tt-k">Arabic</span><span class="tt-v">${d.name_ar}</span></div>` : "") +
-    (d.form     ? `<div class="tt-row"><span class="tt-k">Form</span><span class="tt-v">${d.form.replace(/_/g," ")}</span></div>` : "") +
-    (d.function?.length ? `<div class="tt-row"><span class="tt-k">Function</span><span class="tt-v">${d.function.join(", ")}</span></div>` : "") +
-    (d.use?.length      ? `<div class="tt-row"><span class="tt-k">Use</span><span class="tt-v">${d.use.join(", ")}</span></div>` : "") +
-    `<div class="tt-row"><span class="tt-k">Evidence</span><span class="tt-v">${d.evidence_level || "—"}</span></div>` +
-    `<div class="tt-row"><span class="tt-k">Edges</span><span class="tt-v">${deg}</span></div>`;
-  ttEl.style.display = "block";
-  moveTip(e);
-}
-
-function showEdgeTip(e, d) {
-  const src = nodeId(d.source), tgt = nodeId(d.target);
-  const typeLabel = (EDGE_CFG[d.type] || {label: d.type}).label;
-  const conf = typeof d.confidence === "number" ? (d.confidence * 100).toFixed(0) + "%" : "—";
-  const quote = d.evidence_quote
-    ? `<div class="tt-row"><span class="tt-k">Quote</span><span class="tt-v" style="font-style:italic;color:#94a3b8">"${d.evidence_quote.length > 110 ? d.evidence_quote.slice(0,110) + "…" : d.evidence_quote}"</span></div>`
-    : "";
-  ttEl.innerHTML =
-    `<div class="tt-title" style="font-size:11px">${src} → ${tgt}</div>` +
-    `<div class="tt-row"><span class="tt-k">Type</span><span class="tt-v">${typeLabel}</span></div>` +
-    (d.origin ? `<div class="tt-row"><span class="tt-k">Origin</span><span class="tt-v">${d.origin}</span></div>` : "") +
-    `<div class="tt-row"><span class="tt-k">Confidence</span><span class="tt-v">${conf}</span></div>` +
-    (d.evidence_level ? `<div class="tt-row"><span class="tt-k">Evidence</span><span class="tt-v">${d.evidence_level}</span></div>` : "") +
-    quote;
-  ttEl.style.display = "block";
-  moveTip(e);
-}
-
-function moveTip(e) {
-  const cont = document.getElementById("container");
-  const rect  = cont.getBoundingClientRect();
-  let x = e.clientX - rect.left + 14;
-  let y = e.clientY - rect.top  - 10;
-  if (x + 260 > cont.clientWidth)  x = e.clientX - rect.left - 265;
-  if (y + 200 > cont.clientHeight) y = e.clientY - rect.top  - 200;
-  ttEl.style.left = x + "px";
-  ttEl.style.top  = y + "px";
-}
-function hideTip() { ttEl.style.display = "none"; }
-
-// ── ZOOM CONTROLS ─────────────────────────────────────────────────────────────
-document.getElementById("btn-zoom-in").addEventListener("click",  () => svg.transition().duration(280).call(zoom.scaleBy, 1.5));
-document.getElementById("btn-zoom-out").addEventListener("click", () => svg.transition().duration(280).call(zoom.scaleBy, 0.67));
-document.getElementById("btn-reset").addEventListener("click",    () => svg.transition().duration(450).call(zoom.transform, d3.zoomIdentity));
-
-// ── SEARCH ────────────────────────────────────────────────────────────────────
-document.getElementById("search").addEventListener("input", e => { searchTerm = e.target.value.trim(); applyFilters(); });
-
-// ── INIT ──────────────────────────────────────────────────────────────────────
+/* ─── Init ───────────────────────────────────────────────────────────────── */
 buildSidebar();
+buildGarden();
 buildGraph();
 setTimeout(() => applyFilters(), 500);
 </script>
