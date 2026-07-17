@@ -90,6 +90,11 @@ body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a1a;color:#d
 #tip .tip-badges{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
 #tip .tip-badge{font-size:10px;padding:1px 6px;border-radius:8px;background:#222;color:#aaa;border:1px solid #333}
 
+/* Select-all / clear-all mini buttons */
+.sel-btns{display:inline-flex;gap:4px;margin-left:auto}
+.sel-btn{padding:1px 7px;font-size:10px;border:1px solid #3a3a3a;border-radius:3px;background:#1e1e1e;color:#888;cursor:pointer;line-height:1.6}
+.sel-btn:hover{background:#2a2a2a;color:#bbb}
+
 /* node labels */
 text.node-label{font-size:9px;fill:#bbb;pointer-events:none;text-anchor:middle;dominant-baseline:central}
 </style>
@@ -119,7 +124,7 @@ text.node-label{font-size:9px;fill:#bbb;pointer-events:none;text-anchor:middle;d
 
     <!-- Categories -->
     <div class="sb-section">
-      <div class="sb-title">Categories</div>
+      <div class="sb-title" style="display:flex;align-items:center">Categories<span class="sel-btns"><button class="sel-btn" id="cat-all">All</button><button class="sel-btn" id="cat-none">None</button></span></div>
       <div id="cat-grid" class="cat-grid"></div>
     </div>
 
@@ -136,7 +141,7 @@ text.node-label{font-size:9px;fill:#bbb;pointer-events:none;text-anchor:middle;d
 
     <!-- Relationship Types -->
     <div class="sb-section">
-      <div class="sb-title">Relationship Types</div>
+      <div class="sb-title" style="display:flex;align-items:center">Relationship Types<span class="sel-btns"><button class="sel-btn" id="type-all">All</button><button class="sel-btn" id="type-none">None</button></span></div>
       <div id="type-list"></div>
     </div>
 
@@ -411,6 +416,61 @@ function buildSidebar() {
     clusterOn = v;
     if (clusterOn && simulation) simulation.alpha(0.3).restart();
   });
+
+  /* Categories — All / None */
+  document.getElementById("cat-all").addEventListener("click", () => {
+    // Form checkboxes
+    document.querySelectorAll("#cat-grid input[id^=cb-form-]").forEach(cb => { cb.checked = true; activeForms.add(cb.id.replace("cb-form-","")); });
+    // Content cat checkboxes + sub-cat pills
+    for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
+      const catId = cat.replace(/\W+/g,"_");
+      const cb = document.getElementById(`cb-cat-${catId}`);
+      if (cb) cb.checked = true;
+      activeCats.add(cat);
+      const set = activeSubcats.get(cat);
+      document.querySelectorAll(`#subarea-${catId} .subcat-pill`).forEach(pill => {
+        set.add(pill.dataset.sub);
+        pill.classList.add("active");
+        pill.style.opacity = "1";
+      });
+      const subArea = document.getElementById(`subarea-${catId}`);
+      if (subArea) subArea.style.display = "";
+    }
+    applyFilters();
+  });
+
+  document.getElementById("cat-none").addEventListener("click", () => {
+    document.querySelectorAll("#cat-grid input[id^=cb-form-]").forEach(cb => { cb.checked = false; activeForms.delete(cb.id.replace("cb-form-","")); });
+    for (const [cat, cfg] of Object.entries(CONTENT_CATS)) {
+      const catId = cat.replace(/\W+/g,"_");
+      const cb = document.getElementById(`cb-cat-${catId}`);
+      if (cb) cb.checked = false;
+      activeCats.delete(cat);
+      activeSubcats.get(cat).clear();
+      document.querySelectorAll(`#subarea-${catId} .subcat-pill`).forEach(pill => {
+        pill.classList.remove("active");
+        pill.style.opacity = "0.4";
+      });
+    }
+    applyFilters();
+  });
+
+  /* Relationship Types — All / None */
+  document.getElementById("type-all").addEventListener("click", () => {
+    document.querySelectorAll("#type-list input[type=checkbox]").forEach(cb => {
+      cb.checked = true;
+      activeEdgeTypes.add(cb.id.replace("cb-type-",""));
+    });
+    applyFilters();
+  });
+
+  document.getElementById("type-none").addEventListener("click", () => {
+    document.querySelectorAll("#type-list input[type=checkbox]").forEach(cb => {
+      cb.checked = false;
+      activeEdgeTypes.delete(cb.id.replace("cb-type-",""));
+    });
+    applyFilters();
+  });
 }
 
 /* ─── My garden ──────────────────────────────────────────────────────────── */
@@ -492,11 +552,14 @@ const INCOMPAT_TYPES = new Set(["hostile","soil_exhaust"]);
 
 function getIncompatibleIds() {
   if (!hideIncompat || myGarden.size === 0) return null;
+  const sid = e => (typeof e.source === 'object' ? e.source.id : e.source);
+  const tid = e => (typeof e.target === 'object' ? e.target.id : e.target);
   const incompat = new Set();
   for (const e of RAW_EDGES) {
     if (!INCOMPAT_TYPES.has(e.type)) continue;
-    if (myGarden.has(e.source) && !myGarden.has(e.target)) incompat.add(e.target);
-    if (myGarden.has(e.target) && !myGarden.has(e.source)) incompat.add(e.source);
+    const s = sid(e), t = tid(e);
+    if (myGarden.has(s) && !myGarden.has(t)) incompat.add(t);
+    if (myGarden.has(t) && !myGarden.has(s)) incompat.add(s);
   }
   return incompat;
 }
@@ -531,16 +594,25 @@ function applyFilters() {
   const nodeVis = new Map();
   RAW_NODES.forEach(n => nodeVis.set(n.id, nodeVisible(n, incompatSet)));
 
+  const sid = e => (typeof e.source === 'object' ? e.source.id : e.source);
+  const tid = e => (typeof e.target === 'object' ? e.target.id : e.target);
+
   const edgeVis = RAW_EDGES.map(e =>
     activeEdgeTypes.has(e.type) &&
-    nodeVis.get(e.source) !== false &&
-    nodeVis.get(e.target) !== false
+    nodeVis.get(sid(e)) !== false &&
+    nodeVis.get(tid(e)) !== false
   );
 
   if (hideOrphans) {
     const hasEdge = new Set();
-    RAW_EDGES.forEach((e, i) => { if (edgeVis[i]) { hasEdge.add(e.source); hasEdge.add(e.target); } });
-    RAW_NODES.forEach(n => { if (nodeVis.get(n.id) && !hasEdge.has(n.id)) nodeVis.set(n.id, false); });
+    RAW_EDGES.forEach((e, i) => {
+      if (edgeVis[i]) { hasEdge.add(sid(e)); hasEdge.add(tid(e)); }
+    });
+    RAW_NODES.forEach(n => {
+      if (n.kind === 'hub') return;
+      if (myGarden.has(n.id)) return;
+      if (nodeVis.get(n.id) && !hasEdge.has(n.id)) nodeVis.set(n.id, false);
+    });
   }
 
   matchIds = null;
