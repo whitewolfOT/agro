@@ -1,0 +1,864 @@
+========================================================================
+STUB NODE AUDIT
+master_nodes.json: 735 nodes  |  final_edges.json: 2038 edges
+========================================================================
+
+┌─ Any Cereal
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 3
+│    Bindweed  →[hostile]→  Any Cereal
+│    Mesquite  →[hostile]→  Any Cereal
+│    Lupin  →[succession]→  Any Cereal
+
+┌─ Birds & Pigeons
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 15
+│    Agrimony  →[animal]→  Birds & Pigeons
+│    Birds & Pigeons  →[animal]→  Blackberry
+│    Birds & Pigeons  →[animal]→  Bramble
+│    Birds & Pigeons  →[animal]→  Bramble / Blackberry
+│    Birds & Pigeons  →[animal]→  Bulrush
+│    Birds & Pigeons  →[animal]→  Dog Rose
+│    Birds & Pigeons  →[animal]→  Dragon_fruit
+│    Birds & Pigeons  →[animal]→  Feijoa
+│    Birds & Pigeons  →[animal]→  Ficus
+│    Birds & Pigeons  →[animal]→  Lantana
+│    Birds & Pigeons  →[animal]→  Mulberry
+│    Birds & Pigeons  →[animal]→  PIONEER ZONE
+│    Birds & Pigeons  →[animal]→  Passion_fruit
+│    Birds & Pigeons  →[animal]→  Silky_oak
+│    Birds & Pigeons  →[animal]→  Wild Tobacco
+
+┌─ Bumblebees
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 53
+│    Agrimony  →[animal]→  Bumblebees
+│    Arabian Jasmine  →[animal]→  Bumblebees
+│    Black Seed / Caraway Thyme  →[animal]→  Bumblebees
+│    Blackberry  →[animal]→  Bumblebees
+│    Blueberry  →[animal]→  Bumblebees
+│    Borage  →[animal]→  Bumblebees
+│    Borage Flower  →[animal]→  Bumblebees
+│    Bramble  →[animal]→  Bumblebees
+│    Bumblebees  →[animal]→  Clover
+│    Bumblebees  →[animal]→  Common Jasmine
+│    Bumblebees  →[animal]→  Coriander
+│    Bumblebees  →[animal]→  Curry-leaf Tree
+│    Bumblebees  →[animal]→  Custard Apple
+│    Bumblebees  →[animal]→  Custard_apple
+│    Bumblebees  →[animal]→  Damascus Rose
+│    Bumblebees  →[animal]→  Dill
+│    Bumblebees  →[animal]→  Dragon Fruit
+│    Bumblebees  →[animal]→  Dragon_fruit
+│    Bumblebees  →[animal]→  Feijoa
+│    Bumblebees  →[animal]→  Feverfew
+│    Bumblebees  →[animal]→  Field_pea
+│    Bumblebees  →[animal]→  Honey + Rose Water
+│    Bumblebees  →[animal]→  Lavender
+│    Bumblebees  →[animal]→  Lavender (stoechas)
+│    Bumblebees  →[animal]→  Lemongrass
+│    Bumblebees  →[animal]→  Lovage
+│    Bumblebees  →[animal]→  Lychee
+│    Bumblebees  →[animal]→  Macadamia
+│    Bumblebees  →[animal]→  Mallow
+│    Bumblebees  →[animal]→  Marjoram Oil
+│    Bumblebees  →[animal]→  Moringa
+│    Bumblebees  →[animal]→  Okra
+│    Bumblebees  →[animal]→  Parsley
+│    Bumblebees  →[animal]→  Passion_fruit
+│    Bumblebees  →[animal]→  Pinto_peanut
+│    Bumblebees  →[animal]→  Plantain Leaf
+│    Bumblebees  →[animal]→  Rambutan
+│    Bumblebees  →[animal]→  Red Clover
+│    Bumblebees  →[animal]→  Red_clover
+│    Bumblebees  →[animal]→  Rose
+│    Bumblebees  →[animal]→  Sacred Basil
+│    Bumblebees  →[animal]→  Sacred_basil
+│    Bumblebees  →[animal]→  Saffron
+│    Bumblebees  →[animal]→  Silky_oak
+│    Bumblebees  →[animal]→  Spanish Broom
+│    Bumblebees  →[animal]→  Stock / Gilliflower
+│    Bumblebees  →[animal]→  Strawberry
+│    Bumblebees  →[animal]→  Violet
+│    Bumblebees  →[animal]→  Violet Flower
+│    Bumblebees  →[animal]→  Wallflower
+│    Bumblebees  →[animal]→  Water Mint
+│    Bumblebees  →[animal]→  Wild Golden Thistle
+│    Bumblebees  →[animal]→  Yarrow
+
+┌─ CLIMAX ZONE
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 21
+│    CLIMAX ZONE  →[companion]→  Stone Fruits
+│    Acacia  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Black Bean
+│    Blackberry  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Blue Quandong
+│    Bramble / Blackberry  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Bunya Pine
+│    Camphor Laurel  →[succession]→  CLIMAX ZONE
+│    Cassia Fistula  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Cedar
+│    CLIMAX ZONE  →[succession]→  Ficus
+│    CLIMAX ZONE  →[succession]→  Holm Oak
+│    CLIMAX ZONE  →[succession]→  Hoop Pine
+│    CLIMAX ZONE  →[succession]→  Jackfruit
+│    Lantana  →[succession]→  CLIMAX ZONE
+│    PIONEER ZONE  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Pedunculate Oak
+│    Red_cedar  →[succession]→  CLIMAX ZONE
+│    Styrax / Storax  →[succession]→  CLIMAX ZONE
+│    CLIMAX ZONE  →[succession]→  Walnut
+│    Wild Tobacco  →[succession]→  CLIMAX ZONE
+
+┌─ Cereal (general)
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 6
+│    Carob  →[canopy_shade]→  Cereal (general)
+│    Cereal (general)  →[companion]→  Senna Leaf
+│    Asphodel  →[hostile]→  Cereal (general)
+│    Fumitory  →[hostile]→  Cereal (general)
+│    Acacia  →[nitrogen_fix]→  Cereal (general)
+│    Alfalfa  →[succession]→  Cereal (general)
+
+┌─ Chickens
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 18
+│    Black Mulberry  →[animal]→  Chickens
+│    Bramble / Blackberry  →[animal]→  Chickens
+│    Chickens  →[animal]→  Comfrey
+│    Chickens  →[animal]→  Corn
+│    Chickens  →[animal]→  Ficus
+│    Chickens  →[animal]→  Leucaena
+│    Chickens  →[animal]→  Mulberry
+│    Chickens  →[animal]→  Neem
+│    Chickens  →[animal]→  Pigeon Pea
+│    Chickens  →[animal]→  SOIL
+│    Chickens  →[animal]→  Sorghum
+│    Chickens  →[animal]→  Sugar Cane
+│    Chickens  →[animal]→  Sweet_potato
+│    Chickens  →[animal]→  Tagasaste
+│    Chickens  →[animal]→  White Mulberry
+│    Chickens  →[animal]→  Wormwood
+│    Chickens  →[companion]→  Nasturtium
+│    Castor  →[hostile]→  Chickens
+
+┌─ Date Palm Gardens; Saline Areas
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 12
+│    Date Palm Gardens; Saline Areas  →[canopy_shade]→  Date Palm
+│    Alfalfa  →[companion]→  Date Palm Gardens; Saline Areas
+│    Barley  →[companion]→  Date Palm Gardens; Saline Areas
+│    Date Palm Gardens; Saline Areas  →[companion]→  Doum Palm
+│    Date Palm Gardens; Saline Areas  →[companion]→  Egyptian Clover
+│    Date Palm Gardens; Saline Areas  →[companion]→  Glasswort Ash
+│    Date Palm Gardens; Saline Areas  →[companion]→  Glasswort Saline
+│    Date Palm Gardens; Saline Areas  →[companion]→  Henna
+│    Date Palm Gardens; Saline Areas  →[companion]→  Pomegranate
+│    Date Palm Gardens; Saline Areas  →[companion]→  Tamarisk
+│    Date Palm Gardens; Saline Areas  →[companion]→  Wheat
+│    Tamarisk  →[windbreak]→  Date Palm Gardens; Saline Areas
+
+┌─ Ducks
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 2
+│    Ducks  →[animal]→  Duckweed
+│    Ducks  →[animal]→  SOIL
+
+┌─ Field Crops (general)
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 2
+│    Acacia  →[mulch_biomass]→  Field Crops (general)
+│    Black Hellebore  →[windbreak]→  Field Crops (general)
+
+┌─ Fish
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 9
+│    Bulrush  →[animal]→  Fish
+│    Duckweed  →[animal]→  Fish
+│    Fish  →[animal]→  Kang Kong
+│    Fish  →[animal]→  Mangroves
+│    Fish  →[animal]→  Sacred Lotus
+│    Fish  →[animal]→  Silkworms
+│    Fish  →[animal]→  Taro
+│    Fish  →[animal]→  WATER
+│    Fish  →[animal]→  Water Hyacinth
+
+┌─ Fish & Silkworms
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 3
+│    Duckweed  →[animal]→  Fish & Silkworms
+│    Fish & Silkworms  →[animal]→  Mulberry
+│    Fish & Silkworms  →[animal]→  WATER
+
+┌─ General Aromatic Windbreak
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 7
+│    Bay Laurel  →[windbreak]→  General Aromatic Windbreak
+│    General Aromatic Windbreak  →[windbreak]→  Bay Laurel
+│    General Aromatic Windbreak  →[windbreak]→  Cypress
+│    General Aromatic Windbreak  →[windbreak]→  Juniper
+│    General Aromatic Windbreak  →[windbreak]→  Lavender
+│    General Aromatic Windbreak  →[windbreak]→  Myrtle
+│    General Aromatic Windbreak  →[windbreak]→  Rosemary
+
+┌─ General Garden / Orchard
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 2
+│    Cypress  →[windbreak]→  General Garden / Orchard
+│    Neem  →[windbreak]→  General Garden / Orchard
+
+┌─ Grain Stores
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 1
+│    Nux Vomica  →[windbreak]→  Grain Stores
+
+┌─ Irrigation Canals / Wet Crops
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 17
+│    Alfalfa  →[water]→  Irrigation Canals / Wet Crops
+│    Azolla  →[water]→  Irrigation Canals / Wet Crops
+│    Bulrush  →[water]→  Irrigation Canals / Wet Crops
+│    Common Reed  →[water]→  Irrigation Canals / Wet Crops
+│    Duckweed  →[water]→  Irrigation Canals / Wet Crops
+│    Flax  →[water]→  Irrigation Canals / Wet Crops
+│    Irrigation Canals / Wet Crops  →[water]→  Kang Kong
+│    Irrigation Canals / Wet Crops  →[water]→  Papyrus
+│    Irrigation Canals / Wet Crops  →[water]→  Rice
+│    Irrigation Canals / Wet Crops  →[water]→  Sacred Lotus
+│    Irrigation Canals / Wet Crops  →[water]→  Sugar Cane
+│    Irrigation Canals / Wet Crops  →[water]→  Taro
+│    Irrigation Canals / Wet Crops  →[water]→  Water Hyacinth
+│    Irrigation Canals / Wet Crops  →[water]→  Water Lily
+│    Irrigation Canals / Wet Crops  →[water]→  Water Mint
+│    Irrigation Canals / Wet Crops  →[water]→  Watercress
+│    Poplar  →[windbreak]→  Irrigation Canals / Wet Crops
+
+┌─ Most Plants (general)
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 4
+│    Acacia Bark  →[canopy_shade]→  Most Plants (general)
+│    Ailanthus  →[hostile]→  Most Plants (general)
+│    Camphor  →[hostile]→  Most Plants (general)
+│    Walnut  →[hostile]→  Most Plants (general)
+
+┌─ Nearby Annuals
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 5
+│    Cedar Of Lebanon  →[canopy_shade]→  Nearby Annuals
+│    Mulberry  →[canopy_shade]→  Nearby Annuals
+│    Tamarind Pulp  →[canopy_shade]→  Nearby Annuals
+│    Ficus  →[hostile]→  Nearby Annuals
+│    Fig  →[hostile]→  Nearby Annuals
+
+┌─ PIONEER ZONE
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 29
+│    Birds & Pigeons  →[animal]→  PIONEER ZONE
+│    Bracken Fern  →[hostile]→  PIONEER ZONE
+│    Camphor Laurel  →[hostile]→  PIONEER ZONE
+│    Creosote Bush  →[hostile]→  PIONEER ZONE
+│    Lantana  →[hostile]→  PIONEER ZONE
+│    Tamarisk  →[hostile]→  PIONEER ZONE
+│    PIONEER ZONE  →[mulch_biomass]→  SOIL
+│    PIONEER ZONE  →[succession]→  Bracken Fern
+│    PIONEER ZONE  →[succession]→  Bramble
+│    Bramble / Blackberry  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  Bramble / Blackberry
+│    Broom (spanish)  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  CLIMAX ZONE
+│    PIONEER ZONE  →[succession]→  Casuarina
+│    PIONEER ZONE  →[succession]→  Crotalaria
+│    PIONEER ZONE  →[succession]→  Dock
+│    Gum Ammoniacum / Oshaq  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  Lantana
+│    PIONEER ZONE  →[succession]→  Leucaena
+│    London Rocket / Khaksi  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  London Rocket / Khaksi
+│    Mullein  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  Mullein
+│    PIONEER ZONE  →[succession]→  Nettle
+│    Rosebay Willowherb  →[succession]→  PIONEER ZONE
+│    PIONEER ZONE  →[succession]→  Sesbania
+│    Silky_oak  →[succession]→  PIONEER ZONE
+│    Silver_birch  →[succession]→  PIONEER ZONE
+│    Wild Artichoke / Golden Thistle  →[succession]→  PIONEER ZONE
+
+┌─ SOIL
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-01
+│  isolated : False
+│  edges    : 343
+│    Chickens  →[animal]→  SOIL
+│    Ducks  →[animal]→  SOIL
+│    SOIL  →[animal]→  Silkworms
+│    Brazil_cherry  →[companion]→  SOIL
+│    Caper  →[companion]→  SOIL
+│    Castor Oil  →[companion]→  SOIL
+│    Dwarf Elder  →[companion]→  SOIL
+│    Elecampane Root  →[companion]→  SOIL
+│    Feijoa  →[companion]→  SOIL
+│    Goji_berry  →[companion]→  SOIL
+│    Henbane Seed Oil  →[companion]→  SOIL
+│    Ispaghol / Plantain Seed  →[companion]→  SOIL
+│    Jaboticaba  →[companion]→  SOIL
+│    Mushrooms  →[companion]→  SOIL
+│    Pigface  →[companion]→  SOIL
+│    SOIL  →[companion]→  Saffron
+│    SOIL  →[companion]→  Sarsaparilla Root
+│    SOIL  →[companion]→  Sea Blite
+│    SOIL  →[companion]→  Sea_purslane
+│    SOIL  →[companion]→  Sesame Oil
+│    SOIL  →[companion]→  Violet Syrup
+│    SOIL  →[companion]→  Wild Pomegranate
+│    SOIL  →[companion]→  Yarrow
+│    Aconite / Wolfsbane  →[hostile]→  SOIL
+│    Creosote  →[hostile]→  SOIL
+│    Mugwort  →[hostile]→  SOIL
+│    Squill / Sea Onion  →[hostile]→  SOIL
+│    Squirting Cucumber  →[hostile]→  SOIL
+│    Thistles  →[hostile]→  SOIL
+│    Vinegar (diluted)  →[hostile]→  SOIL
+│    Acacia Gum  →[mulch_biomass]→  SOIL
+│    Acacia_flo  →[mulch_biomass]→  SOIL
+│    Acacia_mel  →[mulch_biomass]→  SOIL
+│    Albizia_jul  →[mulch_biomass]→  SOIL
+│    Albizia_leb  →[mulch_biomass]→  SOIL
+│    Aleppo Pine  →[mulch_biomass]→  SOIL
+│    Alfalfa  →[mulch_biomass]→  SOIL
+│    Aloe  →[mulch_biomass]→  SOIL
+│    Aloe Latex  →[mulch_biomass]→  SOIL
+│    Aloe Vera  →[mulch_biomass]→  SOIL
+│    Arbutus  →[mulch_biomass]→  SOIL
+│    Bamboo  →[mulch_biomass]→  SOIL
+│    Bana Grass  →[mulch_biomass]→  SOIL
+│    Bana_grass  →[mulch_biomass]→  SOIL
+│    Banana  →[mulch_biomass]→  SOIL
+│    Bay Laurel  →[mulch_biomass]→  SOIL
+│    Beleric Myrobalan  →[mulch_biomass]→  SOIL
+│    Bitter Vetch  →[mulch_biomass]→  SOIL
+│    Black Medick  →[mulch_biomass]→  SOIL
+│    Black Salsify  →[mulch_biomass]→  SOIL
+│    Black Seed Oil  →[mulch_biomass]→  SOIL
+│    Black_bean  →[mulch_biomass]→  SOIL
+│    Blackberry  →[mulch_biomass]→  SOIL
+│    Borage  →[mulch_biomass]→  SOIL
+│    Brazil Cherry  →[mulch_biomass]→  SOIL
+│    Brazil Spinach  →[mulch_biomass]→  SOIL
+│    Brazil_spinach  →[mulch_biomass]→  SOIL
+│    Broad Bean  →[mulch_biomass]→  SOIL
+│    Broad Bean / Fava  →[mulch_biomass]→  SOIL
+│    Bunya Pine  →[mulch_biomass]→  SOIL
+│    Camphor  →[mulch_biomass]→  SOIL
+│    Cassia  →[mulch_biomass]→  SOIL
+│    Cassia Fistula  →[mulch_biomass]→  SOIL
+│    Casuarina  →[mulch_biomass]→  SOIL
+│    Cedar  →[mulch_biomass]→  SOIL
+│    Cedar Of Lebanon  →[mulch_biomass]→  SOIL
+│    Chamomile  →[mulch_biomass]→  SOIL
+│    Chestnut  →[mulch_biomass]→  SOIL
+│    Chickpea  →[mulch_biomass]→  SOIL
+│    Clover  →[mulch_biomass]→  SOIL
+│    Comfrey  →[mulch_biomass]→  SOIL
+│    Common Reed  →[mulch_biomass]→  SOIL
+│    Coprosma  →[mulch_biomass]→  SOIL
+│    Cork Oak  →[mulch_biomass]→  SOIL
+│    Corn  →[mulch_biomass]→  SOIL
+│    Cotton  →[mulch_biomass]→  SOIL
+│    Cowpea  →[mulch_biomass]→  SOIL
+│    Crotalaria  →[mulch_biomass]→  SOIL
+│    Curry-leaf Tree  →[mulch_biomass]→  SOIL
+│    Custard Apple  →[mulch_biomass]→  SOIL
+│    Date Palm  →[mulch_biomass]→  SOIL
+│    Dates  →[mulch_biomass]→  SOIL
+│    Davidson Plum  →[mulch_biomass]→  SOIL
+│    Douglas Fir  →[mulch_biomass]→  SOIL
+│    Doum Palm  →[mulch_biomass]→  SOIL
+│    Dragon's Blood Resin  →[mulch_biomass]→  SOIL
+│    Egyptian Clover  →[mulch_biomass]→  SOIL
+│    Elecampane  →[mulch_biomass]→  SOIL
+│    Elm  →[mulch_biomass]→  SOIL
+│    Emblic Myrobalan (amla)  →[mulch_biomass]→  SOIL
+│    Emblic Myrobalan / Amla  →[mulch_biomass]→  SOIL
+│    Esparto Grass  →[mulch_biomass]→  SOIL
+│    Fenugreek  →[mulch_biomass]→  SOIL
+│    Ficus  →[mulch_biomass]→  SOIL
+│    Field_pea  →[mulch_biomass]→  SOIL
+│    Flaxseed Mucilage  →[mulch_biomass]→  SOIL
+│    Garden Pea  →[mulch_biomass]→  SOIL
+│    Grass Pea  →[mulch_biomass]→  SOIL
+│    Guava  →[mulch_biomass]→  SOIL
+│    Hackberry  →[mulch_biomass]→  SOIL
+│    Hemp  →[mulch_biomass]→  SOIL
+│    Henna  →[mulch_biomass]→  SOIL
+│    Holm Oak  →[mulch_biomass]→  SOIL
+│    Hoop Pine  →[mulch_biomass]→  SOIL
+│    Horsetail  →[mulch_biomass]→  SOIL
+│    Hyacinth Bean  →[mulch_biomass]→  SOIL
+│    Ice Cream Bean  →[mulch_biomass]→  SOIL
+│    Ice Plant  →[mulch_biomass]→  SOIL
+│    Inga  →[mulch_biomass]→  SOIL
+│    Ispaghol  →[mulch_biomass]→  SOIL
+│    Jackfruit  →[mulch_biomass]→  SOIL
+│    Jelly_palm  →[mulch_biomass]→  SOIL
+│    Jerusalem Thorn  →[mulch_biomass]→  SOIL
+│    Jujube  →[mulch_biomass]→  SOIL
+│    Juniper  →[mulch_biomass]→  SOIL
+│    Lantana  →[mulch_biomass]→  SOIL
+│    Lemongrass  →[mulch_biomass]→  SOIL
+│    Lentil  →[mulch_biomass]→  SOIL
+│    Leucaena  →[mulch_biomass]→  SOIL
+│    Liquorice Root (wild)  →[mulch_biomass]→  SOIL
+│    London Rocket / Khaksi  →[mulch_biomass]→  SOIL
+│    Lupin  →[mulch_biomass]→  SOIL
+│    Lupin (fodder)  →[mulch_biomass]→  SOIL
+│    Lychee  →[mulch_biomass]→  SOIL
+│    Macadamia  →[mulch_biomass]→  SOIL
+│    Maidenhair Fern  →[mulch_biomass]→  SOIL
+│    Mallow  →[mulch_biomass]→  SOIL
+│    Mastic  →[mulch_biomass]→  SOIL
+│    Mesquite  →[mulch_biomass]→  SOIL
+│    Milk Thistle  →[mulch_biomass]→  SOIL
+│    Miswak / Arak  →[mulch_biomass]→  SOIL
+│    Miswak / Arak Wood  →[mulch_biomass]→  SOIL
+│    Moringa  →[mulch_biomass]→  SOIL
+│    Mullein  →[mulch_biomass]→  SOIL
+│    Mullein Leaf  →[mulch_biomass]→  SOIL
+│    Mustard  →[mulch_biomass]→  SOIL
+│    Myrrh  →[mulch_biomass]→  SOIL
+│    Neem  →[mulch_biomass]→  SOIL
+│    Orach  →[mulch_biomass]→  SOIL
+│    PIONEER ZONE  →[mulch_biomass]→  SOIL
+│    Palms  →[mulch_biomass]→  SOIL
+│    Papyrus  →[mulch_biomass]→  SOIL
+│    Parthenium  →[mulch_biomass]→  SOIL
+│    Pedunculate Oak  →[mulch_biomass]→  SOIL
+│    Pellitory  →[mulch_biomass]→  SOIL
+│    Phoenix_can  →[mulch_biomass]→  SOIL
+│    Pigeon Pea  →[mulch_biomass]→  SOIL
+│    Pigeon_pea  →[mulch_biomass]→  SOIL
+│    Pine Nuts  →[mulch_biomass]→  SOIL
+│    Pinto_peanut  →[mulch_biomass]→  SOIL
+│    Plane Tree  →[mulch_biomass]→  SOIL
+│    Pomegranate Peel  →[mulch_biomass]→  SOIL
+│    Pomegranate Rind  →[mulch_biomass]→  SOIL
+│    Pomegranate Rind (diarrhea)  →[mulch_biomass]→  SOIL
+│    Pomegranate Root Bark  →[mulch_biomass]→  SOIL
+│    Poplar  →[mulch_biomass]→  SOIL
+│    Psyllium / Ispaghol  →[mulch_biomass]→  SOIL
+│    Purslane  →[mulch_biomass]→  SOIL
+│    Radish  →[mulch_biomass]→  SOIL
+│    Rambutan  →[mulch_biomass]→  SOIL
+│    Red_cedar  →[mulch_biomass]→  SOIL
+│    Red_clover  →[mulch_biomass]→  SOIL
+│    Safflower  →[mulch_biomass]→  SOIL
+│    Salsify  →[mulch_biomass]→  SOIL
+│    Sarsaparilla  →[mulch_biomass]→  SOIL
+│    Sea Purslane  →[mulch_biomass]→  SOIL
+│    Sesbania  →[mulch_biomass]→  SOIL
+│    Silky Oak  →[mulch_biomass]→  SOIL
+│    Silky_oak  →[mulch_biomass]→  SOIL
+│    Silver Birch  →[mulch_biomass]→  SOIL
+│    Silver_birch  →[mulch_biomass]→  SOIL
+│    Sing_daisy  →[mulch_biomass]→  SOIL
+│    Singapore Daisy  →[mulch_biomass]→  SOIL
+│    Sorghum  →[mulch_biomass]→  SOIL
+│    Sugar Cane  →[mulch_biomass]→  SOIL
+│    Sulla  →[mulch_biomass]→  SOIL
+│    Sumac  →[mulch_biomass]→  SOIL
+│    Sweet Potato  →[mulch_biomass]→  SOIL
+│    Sycamore Fig  →[mulch_biomass]→  SOIL
+│    Tagasaste  →[mulch_biomass]→  SOIL
+│    Tamarisk  →[mulch_biomass]→  SOIL
+│    Tamarisk Tree  →[mulch_biomass]→  SOIL
+│    Tipuana  →[mulch_biomass]→  SOIL
+│    Turnip Seed  →[mulch_biomass]→  SOIL
+│    Vetch  →[mulch_biomass]→  SOIL
+│    Vetiver  →[mulch_biomass]→  SOIL
+│    Water Hyacinth  →[mulch_biomass]→  SOIL
+│    Water_hyacinth  →[mulch_biomass]→  SOIL
+│    Wheat & Barley  →[mulch_biomass]→  SOIL
+│    Wild Artichoke / Golden Thistle  →[mulch_biomass]→  SOIL
+│    Willow  →[mulch_biomass]→  SOIL
+│    Acacia  →[nitrogen_fix]→  SOIL
+│    Acacia Bark  →[nitrogen_fix]→  SOIL
+│    Acacia Gum  →[nitrogen_fix]→  SOIL
+│    Acacia_flo  →[nitrogen_fix]→  SOIL
+│    Acacia_mel  →[nitrogen_fix]→  SOIL
+│    Albizia  →[nitrogen_fix]→  SOIL
+│    Albizia_jul  →[nitrogen_fix]→  SOIL
+│    Albizia_leb  →[nitrogen_fix]→  SOIL
+│    Alfalfa  →[nitrogen_fix]→  SOIL
+│    Alfalfa / Lucerne  →[nitrogen_fix]→  SOIL
+│    Bitter Vetch  →[nitrogen_fix]→  SOIL
+│    Black Medick  →[nitrogen_fix]→  SOIL
+│    Black-eyed Pea  →[nitrogen_fix]→  SOIL
+│    Black_bean  →[nitrogen_fix]→  SOIL
+│    Broad Bean  →[nitrogen_fix]→  SOIL
+│    Broad Bean / Fava  →[nitrogen_fix]→  SOIL
+│    Broom (spanish)  →[nitrogen_fix]→  SOIL
+│    Canaf  →[nitrogen_fix]→  SOIL
+│    Carob  →[nitrogen_fix]→  SOIL
+│    Cassia  →[nitrogen_fix]→  SOIL
+│    Cassia Fistula Pulp  →[nitrogen_fix]→  SOIL
+│    Casuarina  →[nitrogen_fix]→  SOIL
+│    Chickpea  →[nitrogen_fix]→  SOIL
+│    Clover  →[nitrogen_fix]→  SOIL
+│    Cowpea  →[nitrogen_fix]→  SOIL
+│    Crotalaria  →[nitrogen_fix]→  SOIL
+│    Egyptian Clover  →[nitrogen_fix]→  SOIL
+│    Emblic Myrobalan  →[nitrogen_fix]→  SOIL
+│    Fava Bean  →[nitrogen_fix]→  SOIL
+│    Fava Beans  →[nitrogen_fix]→  SOIL
+│    Fenugreek  →[nitrogen_fix]→  SOIL
+│    Fenugreek (fodder)  →[nitrogen_fix]→  SOIL
+│    Fenugreek Paste  →[nitrogen_fix]→  SOIL
+│    Fenugreek Seed  →[nitrogen_fix]→  SOIL
+│    Field Pea  →[nitrogen_fix]→  SOIL
+│    Field_pea  →[nitrogen_fix]→  SOIL
+│    Garden Pea  →[nitrogen_fix]→  SOIL
+│    Grass Pea  →[nitrogen_fix]→  SOIL
+│    Hyacinth Bean  →[nitrogen_fix]→  SOIL
+│    Ice Cream Bean  →[nitrogen_fix]→  SOIL
+│    Indigo  →[nitrogen_fix]→  SOIL
+│    Indigofera  →[nitrogen_fix]→  SOIL
+│    Inga  →[nitrogen_fix]→  SOIL
+│    Jerusalem Thorn  →[nitrogen_fix]→  SOIL
+│    Lentil  →[nitrogen_fix]→  SOIL
+│    Leucaena  →[nitrogen_fix]→  SOIL
+│    Liquorice  →[nitrogen_fix]→  SOIL
+│    Liquorice Root  →[nitrogen_fix]→  SOIL
+│    Liquorice Root (wild)  →[nitrogen_fix]→  SOIL
+│    Lupin  →[nitrogen_fix]→  SOIL
+│    Lupin (fodder)  →[nitrogen_fix]→  SOIL
+│    Mangroves  →[nitrogen_fix]→  SOIL
+│    Mesquite  →[nitrogen_fix]→  SOIL
+│    Moringa  →[nitrogen_fix]→  SOIL
+│    Moth Bean  →[nitrogen_fix]→  SOIL
+│    Pigeon Pea  →[nitrogen_fix]→  SOIL
+│    Pigeon_pea  →[nitrogen_fix]→  SOIL
+│    Pinto Peanut  →[nitrogen_fix]→  SOIL
+│    Pinto_peanut  →[nitrogen_fix]→  SOIL
+│    Red Clover  →[nitrogen_fix]→  SOIL
+│    Red_clover  →[nitrogen_fix]→  SOIL
+│    Sainfoin  →[nitrogen_fix]→  SOIL
+│    Senna  →[nitrogen_fix]→  SOIL
+│    Senna Leaf  →[nitrogen_fix]→  SOIL
+│    Sesbania  →[nitrogen_fix]→  SOIL
+│    Spanish Broom  →[nitrogen_fix]→  SOIL
+│    Sulla  →[nitrogen_fix]→  SOIL
+│    Sulla / Spanish Sainfoin  →[nitrogen_fix]→  SOIL
+│    Tagasaste  →[nitrogen_fix]→  SOIL
+│    Tipuana  →[nitrogen_fix]→  SOIL
+│    Vetch  →[nitrogen_fix]→  SOIL
+│    Alfalfa  →[soil_exhaust]→  SOIL
+│    Alfalfa / Lucerne  →[soil_exhaust]→  SOIL
+│    Aloe  →[soil_exhaust]→  SOIL
+│    Ashwagandha  →[soil_exhaust]→  SOIL
+│    Asphodel  →[soil_exhaust]→  SOIL
+│    Barley  →[soil_exhaust]→  SOIL
+│    Bitter Melon / Karela  →[soil_exhaust]→  SOIL
+│    Black Pepper  →[soil_exhaust]→  SOIL
+│    Blueberries  →[soil_exhaust]→  SOIL
+│    Blueberry  →[soil_exhaust]→  SOIL
+│    Brassicas  →[soil_exhaust]→  SOIL
+│    Cabbage  →[soil_exhaust]→  SOIL
+│    Carrot  →[soil_exhaust]→  SOIL
+│    Cassava  →[soil_exhaust]→  SOIL
+│    Castor  →[soil_exhaust]→  SOIL
+│    Clove  →[soil_exhaust]→  SOIL
+│    Colocynth  →[soil_exhaust]→  SOIL
+│    Colocynth (compound)  →[soil_exhaust]→  SOIL
+│    Corn  →[soil_exhaust]→  SOIL
+│    Cotton  →[soil_exhaust]→  SOIL
+│    Cultivated Olive  →[soil_exhaust]→  SOIL
+│    Dock  →[soil_exhaust]→  SOIL
+│    Dragon Fruit  →[soil_exhaust]→  SOIL
+│    Eggplant  →[soil_exhaust]→  SOIL
+│    Einkorn  →[soil_exhaust]→  SOIL
+│    Emmer Wheat  →[soil_exhaust]→  SOIL
+│    Flax  →[soil_exhaust]→  SOIL
+│    Flax / Linen  →[soil_exhaust]→  SOIL
+│    Flaxseed  →[soil_exhaust]→  SOIL
+│    Ginger  →[soil_exhaust]→  SOIL
+│    Glasswort (ash Source)  →[soil_exhaust]→  SOIL
+│    Glasswort (saline)  →[soil_exhaust]→  SOIL
+│    Hemp  →[soil_exhaust]→  SOIL
+│    Henna (feet)  →[soil_exhaust]→  SOIL
+│    Long Pepper  →[soil_exhaust]→  SOIL
+│    Madder  →[soil_exhaust]→  SOIL
+│    Marshmallow Root  →[soil_exhaust]→  SOIL
+│    Melon  →[soil_exhaust]→  SOIL
+│    Mustard Seed  →[soil_exhaust]→  SOIL
+│    Nettle  →[soil_exhaust]→  SOIL
+│    Nutmeg  →[soil_exhaust]→  SOIL
+│    Oats  →[soil_exhaust]→  SOIL
+│    Pomegranate (sour)  →[soil_exhaust]→  SOIL
+│    Potato  →[soil_exhaust]→  SOIL
+│    Radish  →[soil_exhaust]→  SOIL
+│    Rice  →[soil_exhaust]→  SOIL
+│    Rye  →[soil_exhaust]→  SOIL
+│    Safflower Seed  →[soil_exhaust]→  SOIL
+│    Sesame  →[soil_exhaust]→  SOIL
+│    Sesame Seed  →[soil_exhaust]→  SOIL
+│    Sheep Sorrel  →[soil_exhaust]→  SOIL
+│    Sheep_sorrel  →[soil_exhaust]→  SOIL
+│    Sorghum  →[soil_exhaust]→  SOIL
+│    Sorrel  →[soil_exhaust]→  SOIL
+│    Spelt  →[soil_exhaust]→  SOIL
+│    Sugar Cane  →[soil_exhaust]→  SOIL
+│    Sweet_potato  →[soil_exhaust]→  SOIL
+│    Tamarind  →[soil_exhaust]→  SOIL
+│    Tamarind Pulp  →[soil_exhaust]→  SOIL
+│    Tamarisk  →[soil_exhaust]→  SOIL
+│    Tree Tomato  →[soil_exhaust]→  SOIL
+│    Turmeric  →[soil_exhaust]→  SOIL
+│    Turnip  →[soil_exhaust]→  SOIL
+│    Watermelon  →[soil_exhaust]→  SOIL
+│    Wheat  →[soil_exhaust]→  SOIL
+│    Wild Golden Thistle  →[soil_exhaust]→  SOIL
+│    Wild Tobacco  →[soil_exhaust]→  SOIL
+│    Woad  →[soil_exhaust]→  SOIL
+│    Milk Thistle  →[succession]→  SOIL
+│    Pellitory Of The Wall  →[succession]→  SOIL
+│    Rosebay Willowherb  →[succession]→  SOIL
+│    Rush / Common Rush  →[succession]→  SOIL
+│    Samphire  →[succession]→  SOIL
+│    Silver Birch  →[succession]→  SOIL
+│    Silver_birch  →[succession]→  SOIL
+│    Sumac  →[succession]→  SOIL
+│    Thapsia  →[succession]→  SOIL
+│    Thorny Burnet  →[succession]→  SOIL
+│    Weld / Dyer's Rocket  →[succession]→  SOIL
+│    Woad  →[succession]→  SOIL
+│    Dwarf Palm / Palm Fiber  →[windbreak]→  SOIL
+
+┌─ Silkworms
+│  kind     : animal
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 4
+│    Fish  →[animal]→  Silkworms
+│    Mulberry  →[animal]→  Silkworms
+│    SOIL  →[animal]→  Silkworms
+│    Silkworms  →[animal]→  White Mulberry
+
+┌─ Storage General
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 1
+│    Elecampane  →[windbreak]→  Storage General
+
+┌─ Stored Grain
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 2
+│    Colocynth  →[windbreak]→  Stored Grain
+│    Squill  →[windbreak]→  Stored Grain
+
+┌─ WATER
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : —
+│  isolated : False
+│  edges    : 44
+│    Fish  →[animal]→  WATER
+│    Fish & Silkworms  →[animal]→  WATER
+│    Bamboo  →[canopy_shade]→  WATER
+│    Mulberry  →[canopy_shade]→  WATER
+│    Willow  →[canopy_shade]→  WATER
+│    Azolla  →[companion]→  WATER
+│    Ipomoea  →[companion]→  WATER
+│    Azolla  →[water]→  WATER
+│    Bamboo  →[water]→  WATER
+│    Bana Grass  →[water]→  WATER
+│    Bulrush  →[water]→  WATER
+│    Bulrush / Cattail  →[water]→  WATER
+│    Calamus Root  →[water]→  WATER
+│    Common Reed  →[water]→  WATER
+│    Date Palm  →[water]→  WATER
+│    Duckweed  →[water]→  WATER
+│    Ipomoea  →[water]→  WATER
+│    Kang Kong  →[water]→  WATER
+│    Lemongrass  →[water]→  WATER
+│    Lilies  →[water]→  WATER
+│    Lotus (sacred)  →[water]→  WATER
+│    Maidenhair Fern  →[water]→  WATER
+│    Mangroves  →[water]→  WATER
+│    Mulberry  →[water]→  WATER
+│    Palms  →[water]→  WATER
+│    Papyrus  →[water]→  WATER
+│    Plane Tree  →[water]→  WATER
+│    Poplar  →[water]→  WATER
+│    Rice  →[water]→  WATER
+│    Sacred Lotus  →[water]→  WATER
+│    Sugar Cane  →[water]→  WATER
+│    Sweet Potato  →[water]→  WATER
+│    Tamarisk  →[water]→  WATER
+│    Tamarisk Tree  →[water]→  WATER
+│    Taro  →[water]→  WATER
+│    Vetiver  →[water]→  WATER
+│    WATER  →[water]→  Water Chestnut
+│    WATER  →[water]→  Water Hyacinth
+│    WATER  →[water]→  Water Lily
+│    WATER  →[water]→  Water Lily / Blue Lotus
+│    WATER  →[water]→  Water Mint
+│    WATER  →[water]→  Watercress
+│    WATER  →[water]→  Wild Rice
+│    WATER  →[water]→  Willow
+
+┌─ Waterways
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 14
+│    Alder  →[water]→  Waterways
+│    Bulrush  →[water]→  Waterways
+│    Common Reed  →[water]→  Waterways
+│    Esparto Grass  →[water]→  Waterways
+│    Papyrus  →[water]→  Waterways
+│    Plane Tree  →[water]→  Waterways
+│    Poplar  →[water]→  Waterways
+│    Sacred Lotus  →[water]→  Waterways
+│    Tamarisk  →[water]→  Waterways
+│    Water Lily  →[water]→  Waterways
+│    Water Mint  →[water]→  Waterways
+│    Watercress  →[water]→  Waterways
+│    Waterways  →[water]→  Willow
+│    Willow  →[windbreak]→  Waterways
+
+┌─ Wild Fig (caprifig)
+│  kind     : hub
+│  form     : None
+│  use      : —
+│  function : —
+│  flags    : INC-STUB
+│  isolated : False
+│  edges    : 3
+│    Fig  →[animal]→  Wild Fig (caprifig)
+│    Grapevine  →[companion]→  Wild Fig (caprifig)
+│    Wild Fig (caprifig)  →[grafting]→  Fig
+
+────────────────────────────────────────────────────────────────────────
+REQUESTED IDs NOT FOUND IN master_nodes.json:
+  • Darnel Wild Oat Bindweed Dock
+  • Grapevine Fig
+  • Lemon Citron Lime
+  • Olive Fig
+  • Pear Medlar
+  • Stored Wheat Barley
+  • Wheat Barley
+  • Wheat Barley Fig
+
+────────────────────────────────────────────────────────────────────────
+Found 25 / 33 requested nodes.
+No data was modified.
