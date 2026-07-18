@@ -28,6 +28,10 @@ body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a2e;color:#e
 #btn-hide-incompat{width:100%;margin-top:5px;padding:4px;background:#1a3a5c;border:1px solid #2a5c9c;border-radius:4px;color:#88ccff;cursor:pointer;font-size:11px}
 #btn-hide-incompat.active{background:#2a1a1a;border-color:#9c2a2a;color:#ff8888}
 #btn-hide-incompat:hover{opacity:.85}
+#btn-garden-focus{width:100%;margin-top:4px;padding:4px;background:#0d1b2a;border:1px solid #2a3560;border-radius:4px;color:#667;cursor:not-allowed;font-size:11px}
+#btn-garden-focus:not(:disabled){background:#1a3050;border-color:#3a5080;color:#88aadd;cursor:pointer}
+#btn-garden-focus.active{background:#1a3a5c;border-color:#4a8fc1;color:#aaddff}
+#btn-garden-focus:not(:disabled):hover{opacity:.85}
 
 /* Category grid */
 #cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px 4px}
@@ -118,6 +122,7 @@ body{font-family:system-ui,sans-serif;font-size:13px;background:#1a1a2e;color:#e
       <div id="garden-dropdown"></div>
     </div>
     <div id="garden-chips"></div>
+    <button id="btn-garden-focus" disabled>Focus: show related only</button>
     <button id="btn-hide-incompat">Hide incompatible plants</button>
   </div>
 
@@ -327,6 +332,7 @@ let excludedSubcats= {};   // {cat: Set<excluded sub names>} — empty = no subc
 let activeWater    = new Set(["low","medium","high","very_high"]);
 let activeEdges    = new Set(Object.keys(EDGE_CFG));
 let gardenSet      = new Set();
+let gardenFocus    = false;
 let hideIncompat   = false;
 let hideOrphans    = false;
 let showLabels     = true;
@@ -458,70 +464,94 @@ function buildEdgeList(){
 }
 
 function initGarden(){
-  const inp=document.getElementById('garden-input');
-  const dd=document.getElementById('garden-dropdown');
-  const chips=document.getElementById('garden-chips');
-  const btn=document.getElementById('btn-hide-incompat');
+  const inp    = document.getElementById('garden-input');
+  const dd     = document.getElementById('garden-dropdown');
+  const chips  = document.getElementById('garden-chips');
+  const btnInc = document.getElementById('btn-hide-incompat');
+  const btnFoc = document.getElementById('btn-garden-focus');
 
-  inp.addEventListener('input',()=>{
-    const q=inp.value.trim().toLowerCase();
+  // ── Garden input: dropdown only, NO graph-related side effects ──
+  inp.addEventListener('input', () => {
+    const q = inp.value.trim().toLowerCase();
+    dd.innerHTML = '';
+    if(!q){ dd.style.display='none'; return; }
+    const matches = RAW_NODES
+      .filter(n => n.kind!=='hub' && n.kind!=='animal' && n.id.toLowerCase().includes(q))
+      .slice(0, 12);
+    if(!matches.length){ dd.style.display='none'; return; }
+    matches.forEach(n => {
+      const item = document.createElement('div');
+      item.dataset.id  = n.id;   // exact node ID stored here
+      item.textContent = n.id;
+      item.addEventListener('click', () => {
+        const id = item.dataset.id;
+        if(!id || !nodeById[id]) return;
+        addToGarden(id);
+        inp.value = '';
+        dd.style.display = 'none';
+      });
+      dd.appendChild(item);
+    });
+    dd.style.display = 'block';
+  });
 
-    // Dim non-matching nodes while typing
-    if(nodeSel){
-      if(q){
-        nodeSel.style('opacity', n => n.id.toLowerCase().includes(q) ? 1 : 0.06);
-        if(labelSel)    labelSel.style('opacity', n => n.id.toLowerCase().includes(q) ? 1 : 0.06);
-        if(hubLabelSel) hubLabelSel.style('opacity', n => n.id.toLowerCase().includes(q) ? 1 : 0.06);
-      } else {
-        nodeSel.style('opacity', null);
-        if(labelSel)    labelSel.style('opacity', null);
-        if(hubLabelSel) hubLabelSel.style('opacity', null);
+  inp.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){
+      const first = dd.querySelector('div');
+      if(first){
+        const id = first.dataset.id;
+        if(id && nodeById[id]){ addToGarden(id); inp.value=''; dd.style.display='none'; }
       }
     }
-
-    if(!q){ dd.style.display='none'; return; }
-    const matches=RAW_NODES.filter(n=>n.kind==='plant'&&n.id.toLowerCase().includes(q)).slice(0,12);
-    dd.innerHTML='';
-    if(!matches.length){ dd.style.display='none'; return; }
-    matches.forEach(n=>{
-      const div=document.createElement('div'); div.textContent=n.id;
-      div.addEventListener('click',()=>{ addToGarden(n.id); inp.value=''; dd.style.display='none'; clearSearchDim(); });
-      dd.appendChild(div);
-    });
-    dd.style.display='block';
+    if(e.key === 'Escape') dd.style.display = 'none';
   });
-  inp.addEventListener('keydown',e=>{
-    if(e.key==='Enter'){
-      const first=dd.querySelector('div');
-      if(first){ addToGarden(first.textContent); inp.value=''; dd.style.display='none'; clearSearchDim(); }
-    }
-    if(e.key==='Escape'){ dd.style.display='none'; clearSearchDim(); }
+  inp.addEventListener('blur', () => { setTimeout(() => { dd.style.display='none'; }, 150); });
+  document.addEventListener('click', e => {
+    if(!document.getElementById('garden-wrap').contains(e.target)) dd.style.display='none';
   });
-  inp.addEventListener('blur',()=>{ setTimeout(()=>{ dd.style.display='none'; if(!inp.value) clearSearchDim(); },150); });
-  document.addEventListener('click',e=>{ if(!document.getElementById('garden-wrap').contains(e.target)) dd.style.display='none'; });
 
-  btn.addEventListener('click',()=>{
-    hideIncompat=!hideIncompat;
-    btn.classList.toggle('active', hideIncompat);
-    btn.textContent=hideIncompat ? 'Show all plants' : 'Hide incompatible plants';
+  // ── Incompatibility toggle ──
+  btnInc.addEventListener('click', () => {
+    hideIncompat = !hideIncompat;
+    btnInc.classList.toggle('active', hideIncompat);
+    btnInc.textContent = hideIncompat ? 'Show all plants' : 'Hide incompatible plants';
     applyFilters();
   });
 
-  function clearSearchDim(){
-    if(nodeSel)    nodeSel.style('opacity', null);
-    if(labelSel)   labelSel.style('opacity', null);
-    if(hubLabelSel)hubLabelSel.style('opacity', null);
+  // ── Garden focus toggle ──
+  btnFoc.addEventListener('click', () => {
+    if(!gardenSet.size) return;
+    gardenFocus = !gardenFocus;
+    btnFoc.classList.toggle('active', gardenFocus);
+    btnFoc.textContent = gardenFocus ? 'Focus: ON — show related' : 'Focus: show related only';
+    applyFilters();
+  });
+
+  function updateFocusBtn(){
+    const empty = gardenSet.size === 0;
+    btnFoc.disabled = empty;
+    if(empty){
+      gardenFocus = false;
+      btnFoc.classList.remove('active');
+      btnFoc.textContent = 'Focus: show related only';
+    }
   }
 
   function addToGarden(id){
-    if(gardenSet.has(id)) return;
+    if(!id || !nodeById[id] || gardenSet.has(id)) return;
     gardenSet.add(id);
-    const chip=document.createElement('div'); chip.className='chip';
-    const name=document.createElement('span'); name.textContent=id;
-    const x=document.createElement('span'); x.className='chip-x'; x.textContent='×';
-    x.addEventListener('click',()=>{ gardenSet.delete(id); chip.remove(); applyFilters(); });
+    const chip = document.createElement('div'); chip.className='chip';
+    const name = document.createElement('span'); name.textContent=id;
+    const x    = document.createElement('span'); x.className='chip-x'; x.textContent='×';
+    x.addEventListener('click', () => {
+      gardenSet.delete(id);
+      chip.remove();
+      updateFocusBtn();
+      applyFilters();
+    });
     chip.appendChild(name); chip.appendChild(x);
     chips.appendChild(chip);
+    updateFocusBtn();
     applyFilters();
   }
 }
@@ -558,7 +588,13 @@ function toggleCluster(mode){
     return sc===tc ? 55 : 150;
   });
 
-  simulation.alpha(0.4).restart();
+  if(clusterMode){
+    simulation.alphaTarget(0.09).alphaDecay(0.025).restart();
+    setTimeout(()=>simulation.alphaTarget(0), 2800);
+  } else {
+    // Cluster off: reset to rest immediately
+    simulation.alphaTarget(0).alphaDecay(0.02).restart();
+  }
 }
 
 // ── Info panel ──
@@ -729,14 +765,19 @@ function openInfoPanel(nodeId){
       const a=(2*Math.PI*i)/keys.length - Math.PI/2;
       centroids[k]={x:W/2+R*Math.cos(a), y:H/2+R*Math.sin(a)};
     });
+    const strength=0.055, maxV=8;
     RAW_NODES.forEach(n=>{
       let key=clusterMode==='cat' ? n._cat : n.form;
       if(n.kind==='hub' || !centroids[key]){
-        n.vx+=(W/2-n.x)*0.10*alpha; n.vy+=(H/2-n.y)*0.10*alpha; return;
+        n.vx+=(W/2-n.x)*strength*alpha; n.vy+=(H/2-n.y)*strength*alpha;
+        n.vx=Math.max(-maxV,Math.min(maxV,n.vx)); n.vy=Math.max(-maxV,Math.min(maxV,n.vy));
+        return;
       }
       const c=centroids[key];
-      n.vx+=(c.x-n.x)*0.13*alpha;
-      n.vy+=(c.y-n.y)*0.13*alpha;
+      n.vx+=(c.x-n.x)*strength*alpha;
+      n.vy+=(c.y-n.y)*strength*alpha;
+      n.vx=Math.max(-maxV,Math.min(maxV,n.vx));
+      n.vy=Math.max(-maxV,Math.min(maxV,n.vy));
     });
   }
 
@@ -860,6 +901,19 @@ function applyFilters(){
     visibleNodes.add(n.id);
   });
 
+  // Pass 1b: garden focus — keep only garden members + their direct neighbours (hubs always kept)
+  if(gardenFocus && gardenSet.size){
+    const related=new Set([...gardenSet]);
+    RAW_EDGES.forEach(e=>{
+      const s=sid(e), t=tid(e);
+      if(gardenSet.has(s)) related.add(t);
+      if(gardenSet.has(t)) related.add(s);
+    });
+    const toRemove=[];
+    visibleNodes.forEach(id=>{ if(!related.has(id) && nodeById[id]?.kind!=='hub') toRemove.push(id); });
+    toRemove.forEach(id=>visibleNodes.delete(id));
+  }
+
   // Pass 2: edge visibility
   const visibleEdges=new Set();
   RAW_EDGES.forEach((e,i)=>{
@@ -893,8 +947,8 @@ function applyFilters(){
     hubLabelSel.style('display', n=>visibleNodes.has(n.id)?null:'none');
   }
   if(linkVisSel){
-    linkVisSel.style('display',(e,i)=>visibleEdges.has(i)?null:'none');
-    linkHitSel.style('display',(e,i)=>visibleEdges.has(i)?null:'none');
+    linkVisSel.style('display',(_,i)=>visibleEdges.has(i)?null:'none');
+    linkHitSel.style('display',(_,i)=>visibleEdges.has(i)?null:'none');
   }
 
   updateStats(visibleNodes, visibleEdges);
